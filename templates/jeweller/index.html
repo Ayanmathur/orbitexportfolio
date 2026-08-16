@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratna Heritage Jewellers — 22K Hallmarked Gold & Certified Polki Solitaires</title>
+  <meta name="description" content="Heritage bullion house and luxury jewellery atelier offering 22K BIS 916 gold, uncut Polki diamonds, and bridal wedding trousseau sets.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --jewel-gold: #d4af37;
+      --jewel-gold-light: #f5e6a8;
+      --jewel-dark: #0a0c10;
+      --jewel-panel: #13171f;
+      --jewel-panel-2: #1b202b;
+      --jewel-border: rgba(212, 175, 55, 0.25);
+      --font-serif: 'Cinzel', serif;
+      --font-sans: 'Work Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--jewel-dark);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+
+    /* Live Bullion Ticker */
+    .bullion-ticker {
+      background: #060709;
+      border-bottom: 1px solid var(--jewel-border);
+      padding: 9px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--jewel-gold-light);
+    }
+    .ticker-pulse {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      margin-right: 8px;
+    }
+
+    /* Navbar */
+    .jewel-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(10, 12, 16, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--jewel-border);
+    }
+    .jewel-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .jewel-brand {
+      font-family: var(--font-serif);
+      font-size: 22px; font-weight: 700; color: var(--jewel-gold);
+      letter-spacing: 2px; text-decoration: none;
+    }
+    .jewel-brand span { color: #fff; }
+    .jewel-nav-links { display: flex; gap: 32px; }
+    .jewel-nav-links a {
+      color: #94a3b8; text-decoration: none; font-size: 13.5px;
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    }
+    .jewel-nav-links a.active { color: var(--jewel-gold); }
+    .btn-view-jewel-cta {
+      background: var(--jewel-gold);
+      color: #000; padding: 9px 22px; border-radius: 2px;
+      font-family: var(--font-serif); font-size: 12.5px; font-weight: 700;
+      letter-spacing: 1px; text-decoration: none;
+    }
+
+    /* Hero */
+    .jewel-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(10,12,16,0.95) 0%, rgba(10,12,16,0.4) 100%),
+                  url('../../images/jeweller/hero.jpg') center/cover no-repeat;
+      padding: 60px 24px;
+    }
+    .jewel-hero-wrap { max-width: 1280px; margin: 0 auto; width: 100%; }
+    .jewel-hero-content { max-width: 640px; }
+    .jewel-eyebrow {
+      font-size: 11.5px; font-weight: 700; color: var(--jewel-gold);
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; display: block;
+    }
+    .jewel-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5.5vw, 60px);
+      line-height: 1.15; color: #fff; margin-bottom: 18px;
+    }
+    .jewel-hero h1 span { color: var(--jewel-gold); }
+    .jewel-hero p { font-size: 16.5px; color: #cbd5e1; margin-bottom: 34px; line-height: 1.7; }
+    .jewel-hero-actions { display: flex; gap: 18px; flex-wrap: wrap; }
+    .btn-gold-solid {
+      background: var(--jewel-gold); color: #000; padding: 15px 34px;
+      border-radius: 2px; font-family: var(--font-serif); font-weight: 700;
+      font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+    }
+    .btn-gold-outline {
+      background: transparent; border: 1.5px solid var(--jewel-gold); color: var(--jewel-gold);
+      padding: 15px 28px; border-radius: 2px; font-family: var(--font-serif); font-weight: 700;
+      font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+    }
+
+    /* Section */
+    .jewel-section { max-width: 1280px; margin: 80px auto; padding: 0 24px; }
+    .jewel-head-center { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .jewel-head-center h2 { font-family: var(--font-serif); font-size: 36px; color: #fff; margin-bottom: 10px; }
+
+    /* Collection Grid */
+    .jewel-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
+    }
+    .jewel-card {
+      background: var(--jewel-panel); border: 1px solid var(--jewel-border);
+      border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+      transition: all 0.3s;
+    }
+    .jewel-card:hover { transform: translateY(-6px); border-color: var(--jewel-gold); box-shadow: 0 15px 40px rgba(212,175,55,0.15); }
+    .jewel-card-img { height: 280px; width: 100%; object-fit: cover; }
+    .jewel-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .jewel-card-purity {
+      font-family: var(--font-mono); font-size: 11px; color: var(--jewel-gold);
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .jewel-card-title { font-family: var(--font-serif); font-size: 19px; color: #fff; margin-bottom: 8px; }
+    .jewel-card-price { font-size: 24px; font-weight: 700; color: var(--jewel-gold-light); margin-bottom: 12px; }
+    .jewel-card-desc { font-size: 13.5px; color: #94a3b8; margin-bottom: 20px; flex: 1; }
+    .btn-jewel-item {
+      border: 1px solid var(--jewel-gold); color: var(--jewel-gold); padding: 11px;
+      font-family: var(--font-serif); font-size: 12.5px; font-weight: 700; letter-spacing: 1px;
+      text-align: center; text-transform: uppercase; text-decoration: none; transition: all 0.2s;
+    }
+    .jewel-card:hover .btn-jewel-item { background: var(--jewel-gold); color: #000; }
+
+    /* Footer */
+    footer.jewel-footer {
+      background: #060709; border-top: 1px solid var(--jewel-border); color: #64748b; padding: 60px 24px 30px;
+    }
+    .jewel-footer-wrap {
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
+    }
+    .jewel-footer h4 { font-family: var(--font-serif); color: var(--jewel-gold); font-size: 16px; margin-bottom: 14px; }
+    .jewel-footer p, .jewel-footer a { font-size: 13.5px; color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Ratna Heritage Jewellers</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Live Bullion Rate Ticker -->
+  <div class="bullion-ticker">
+    <div>
+      <span class="ticker-pulse"></span>
+      <b>LIVE BULLION SPOT:</b> 22K Gold: <b>₹6,850/gm</b> | 24K Pure Gold: <b>₹7,470/gm</b> | Silver: <b>₹88.50/gm</b>
+    </div>
+    <div style="opacity: 0.7;">Updated: Today, 11:30 AM IST (IBJA Rates)</div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="jewel-nav">
+    <div class="jewel-nav-wrap">
+      <a href="index.html" class="jewel-brand">RATNA <span>HERITAGE</span></a>
+      <nav class="jewel-nav-links">
+        <a href="index.html" class="active">Heritage</a>
+        <a href="collection.html">Fine Collection</a>
+        <a href="product.html">Price Engine (₹)</a>
+      </nav>
+      <a href="product.html" class="btn-view-jewel-cta">Gold Calculator ⚖️</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="jewel-hero">
+    <div class="jewel-hero-wrap">
+      <div class="jewel-hero-content">
+        <span class="jewel-eyebrow">Est. 1948 • 100% BIS 916 Certified</span>
+        <h1>Purity Carved in <span>Gold & Solitaires</span></h1>
+        <p>Explore heirloom bridal chokers, certified natural polki diamonds, and pure temple gold jewellery with 100% transparent buyback guarantee.</p>
+        <div class="jewel-hero-actions">
+          <a href="collection.html" class="btn-gold-solid">Explore 2026 Collection</a>
+          <a href="product.html" class="btn-gold-outline">Live Gold Rate Calculator ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Collection -->
+  <section class="jewel-section">
+    <div class="jewel-head-center">
+      <span class="jewel-eyebrow">Signature Creations</span>
+      <h2>Handcrafted Royal Trousseau</h2>
+      <p style="color:#94a3b8;">Every ornament is struck with 6-digit HUID code and certified by Bureau of Indian Standards.</p>
+    </div>
+
+    <div class="jewel-grid">
+      <!-- 1 -->
+      <div class="jewel-card">
+        <img src="../../images/jeweller/item1.jpg" alt="Kundan Choker" class="jewel-card-img">
+        <div class="jewel-card-body">
+          <span class="jewel-card-purity">22K BIS Hallmarked • 48.5g Net Gold</span>
+          <h3 class="jewel-card-title">Imperial Meenakari & Kundan Choker</h3>
+          <div class="jewel-card-price">₹3,45,000</div>
+          <p class="jewel-card-desc">Handcrafted royal choker adorned with Zambian emerald beads and unheated polki solitaires.</p>
+          <a href="product.html?item=choker" class="btn-jewel-item">View Price Breakdown (₹) ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="jewel-card">
+        <img src="../../images/jeweller/item2.jpg" alt="Temple Bangle" class="jewel-card-img">
+        <div class="jewel-card-body">
+          <span class="jewel-card-purity">22K Solid Gold • 34.2g Net Gold</span>
+          <h3 class="jewel-card-title">Lakshmi Nakshi Antique Temple Kada</h3>
+          <div class="jewel-card-price">₹2,48,000</div>
+          <p class="jewel-card-desc">Deep repoussé antique gold work depicting Goddess Lakshmi surrounded by peacocks.</p>
+          <a href="product.html?item=kada" class="btn-jewel-item">View Price Breakdown (₹) ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="jewel-card">
+        <img src="../../images/jeweller/item3.jpg" alt="Diamond Ring" class="jewel-card-img">
+        <div class="jewel-card-body">
+          <span class="jewel-card-purity">18K White Gold • 1.50 Ct VVS1 Solitaire</span>
+          <h3 class="jewel-card-title">Crown Solitaire Diamond Ring</h3>
+          <div class="jewel-card-price">₹1,85,000</div>
+          <p class="jewel-card-desc">GIA certified triple excellent round brilliant cut solitaire in classic 6-prong platinum crown.</p>
+          <a href="product.html?item=ring" class="btn-jewel-item">View Price Breakdown (₹) ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="jewel-footer">
+    <div class="jewel-footer-wrap">
+      <div>
+        <h4>RATNA HERITAGE VAULT</h4>
+        <p>12, Zaveri Bazaar, Mumbai 400002</p>
+        <p>VIP Concierge: +91 98765 43210</p>
+      </div>
+      <div>
+        <h4>Bullion & Jewels</h4>
+        <a href="collection.html">22K Temple Gold</a>
+        <a href="collection.html">Polki Bridal Sets</a>
+        <a href="collection.html">GIA Solitaire Rings</a>
+      </div>
+      <div>
+        <h4>Certifications</h4>
+        <p>BIS 916 Hallmarking</p>
+        <p>6-Digit Unique HUID Code</p>
+        <p>100% Lifetime Buyback Guarantee</p>
+      </div>
+    </div>
+    <div style="text-align:center; font-size:12px; border-top:1px solid rgba(255,255,255,0.08); padding-top:20px;">
+      © 2026 Ratna Heritage Jewellers. Powered by Orbitex Production Suite.
+    </div>
+  </footer>
+
+</body>
+</html>

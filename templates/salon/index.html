@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aranya — Hair, Skin & Bridal Studio, Civil Lines</title>
+  <meta name="description" content="A quiet studio for hair, skin, and bridal care built around unhurried appointments, natural botanical ingredients, and master stylists.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --forest: #1f3626;
+      --forest-deep: #142419;
+      --brass: #b8894f;
+      --brass-light: #d9b479;
+      --ivory: #f6f1e7;
+      --blush: #e3b7a0;
+      --ink: #22281f;
+      --line: rgba(31, 54, 38, 0.14);
+      --font-serif: 'Fraunces', serif;
+      --font-sans: 'Work Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--ivory);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      color: var(--forest-deep);
+      letter-spacing: -0.01em;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brass);
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    /* Navbar */
+    header.aranya-header {
+      position: sticky;
+      top: 36px;
+      background: rgba(246, 241, 231, 0.94);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      border-bottom: 1px solid var(--line);
+    }
+    .aranya-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 32px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .aranya-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--forest-deep);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .aranya-brand .leaf {
+      width: 9px;
+      height: 9px;
+      border-radius: 50% 0 50% 50%;
+      background: var(--brass);
+      transform: rotate(45deg);
+    }
+    .aranya-nav-links { display: flex; gap: 36px; font-size: 14px; font-weight: 500; }
+    .aranya-nav-links a { position: relative; padding-bottom: 4px; color: var(--ink); }
+    .aranya-nav-links a.active { color: var(--forest-deep); border-bottom: 1.5px solid var(--brass); }
+    .book-btn {
+      background: var(--forest-deep);
+      color: var(--ivory);
+      padding: 12px 24px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+    }
+    .book-btn:hover { background: var(--forest); }
+
+    /* Hero Section */
+    .aranya-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+      padding: 76px 32px 90px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .aranya-hero h1 {
+      font-size: clamp(38px, 5.5vw, 56px);
+      line-height: 1.08;
+      margin: 18px 0 22px;
+    }
+    .aranya-hero h1 em {
+      color: var(--brass);
+      font-style: italic;
+    }
+    .aranya-hero p.lead {
+      font-size: 17px;
+      color: #4b5347;
+      max-width: 460px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 20px; align-items: center; }
+    .btn-aranya-primary {
+      background: var(--forest-deep);
+      color: var(--ivory);
+      padding: 15px 30px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: 2px;
+    }
+    .btn-aranya-ghost {
+      font-size: 14px;
+      font-weight: 600;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 3px;
+    }
+    .aranya-hero-img {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: 0 30px 60px -20px rgba(20, 36, 25, 0.35);
+    }
+    .aranya-hero-tag {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--ivory);
+      padding: 14px 18px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--forest-deep);
+    }
+
+    /* Stat Strip */
+    .aranya-strip {
+      background: var(--forest-deep);
+      color: var(--ivory);
+    }
+    .aranya-strip .wrap {
+      display: flex;
+      justify-content: space-between;
+      padding: 28px 32px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .aranya-stat h3 { color: var(--brass-light); font-size: 30px; margin-bottom: 2px; }
+    .aranya-stat span { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #c8cfc4; }
+
+    /* Philosophy / Pillars */
+    .section { padding: 96px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 54px;
+    }
+    .section-head h2 { font-size: 38px; }
+    .section-head p { color: #5a6154; font-size: 15px; }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .pillar { background: var(--ivory); padding: 40px 32px; }
+    .pillar .num { font-family: var(--font-serif); font-size: 14px; color: var(--brass); margin-bottom: 22px; }
+    .pillar h4 { font-size: 21px; margin-bottom: 10px; }
+    .pillar p { font-size: 14px; color: #5a6154; }
+
+    /* Services Teaser Grid */
+    .serv-grid { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 24px; }
+    .serv-card { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 3/4; }
+    .serv-card.tall { grid-row: span 2; aspect-ratio: auto; height: 100%; }
+    .serv-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20,36,25,0) 40%, rgba(20,36,25,0.85) 100%);
+    }
+    .serv-card .label { position: absolute; bottom: 22px; left: 22px; color: var(--ivory); }
+    .serv-card .label .eyebrow { color: var(--brass-light); }
+    .serv-card .label h4 { color: var(--ivory); font-size: 22px; margin-top: 6px; }
+
+    /* Testimonial Banner */
+    .aranya-testimonial { background: var(--blush); padding: 80px 0; }
+    .aranya-testimonial .wrap { max-width: 760px; text-align: center; }
+    .aranya-testimonial blockquote {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--forest-deep);
+      line-height: 1.4;
+    }
+    .aranya-testimonial .who {
+      margin-top: 24px;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    /* Footer */
+    footer.aranya-footer {
+      background: var(--forest-deep);
+      color: var(--ivory);
+      padding: 60px 0 30px;
+    }
+    .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      font-size: 13.5px;
+      color: #c8cfc4;
+      margin-bottom: 40px;
+    }
+    .foot-grid .brand { margin-bottom: 10px; font-size: 22px; color: var(--ivory); }
+
+    @media (max-width: 860px) {
+      .aranya-hero { grid-template-columns: 1fr; padding-top: 40px; }
+      .section-head { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr; }
+      .serv-grid { grid-template-columns: 1fr; }
+      .serv-card.tall { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Aranya — Hair & Skin Studio</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="aranya-header">
+    <div class="aranya-nav">
+      <a href="index.html" class="aranya-brand"><span class="leaf"></span>Aranya</a>
+      <nav class="aranya-nav-links">
+        <a href="index.html" class="active">Overview</a>
+        <a href="services.html">Services & Pricing</a>
+        <a href="book.html">Book a Visit</a>
+      </nav>
+      <a class="book-btn" href="book.html">Book Appointment 🌿</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="aranya-hero">
+    <div>
+      <span class="eyebrow">Hair & Skin Studio — Civil Lines</span>
+      <h1>Slow, considered <em>beauty</em>, in the middle of the city.</h1>
+      <p class="lead">Aranya is a quiet studio for hair, skin and bridal care — built around unhurried appointments, natural botanical ingredients, and stylists who ask before they cut.</p>
+      <div class="hero-cta">
+        <a class="btn-aranya-primary" href="services.html">View Services & Pricing</a>
+        <a class="btn-aranya-ghost" href="book.html">Book Consultation</a>
+      </div>
+    </div>
+    <div class="aranya-hero-img">
+      <img src="../../images/salon/hero.jpg" alt="Aranya studio interior with arched alcoves and styling chairs">
+      <div class="aranya-hero-tag">Est. Civil Lines</div>
+    </div>
+  </section>
+
+  <!-- Stat Strip -->
+  <div class="aranya-strip">
+    <div class="wrap">
+      <div class="aranya-stat"><h3>11 yrs</h3><span>In Civil Lines</span></div>
+      <div class="aranya-stat"><h3>100%</h3><span>Botanical Sourced</span></div>
+      <div class="aranya-stat"><h3>4,800+</h3><span>Client Consultations</span></div>
+      <div class="aranya-stat"><h3>1-on-1</h3><span>Unhurried Appointments</span></div>
+    </div>
+  </div>
+
+  <!-- Three Pillars -->
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Studio Principles</span>
+        <h2>How we work is as important as what we do.</h2>
+      </div>
+      <p>Everything at Aranya is built around one idea — that good hair and skin work needs time, daylight, and a stylist who is actually looking at you, not the clock.</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01 / TIME</div>
+        <h4>Never Rushed</h4>
+        <p>We take fewer appointments each day so your stylist never has to look at the door while working on your hair.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02 / CRAFT</div>
+        <h4>Natural Ingredients</h4>
+        <p>Organic cold-pressed oils, gentle botanical washes, and sulfate-free formulations that respect your hair and skin.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03 / HONESTY</div>
+        <h4>Honest Consultation</h4>
+        <p>If a chemical treatment will damage your hair texture, we tell you frankly and suggest a gentle restorative path.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Teaser -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Curated Offerings</span>
+        <h2>Services designed around real hair & skin.</h2>
+      </div>
+      <p><a href="services.html" style="color:var(--forest-deep); font-weight:600; border-bottom:1.5px solid var(--brass);">See full pricing catalog (₹) →</a></p>
+    </div>
+
+    <div class="serv-grid">
+      <a href="services.html" class="serv-card tall">
+        <img src="../../images/salon/service1.jpg" alt="Botanical Hair Spa">
+        <div class="overlay"></div>
+        <div class="label">
+          <span class="eyebrow">Haircraft</span>
+          <h4>Botanical Scalp Spas & Precision Cuts</h4>
+        </div>
+      </a>
+      <a href="services.html" class="serv-card">
+        <img src="../../images/salon/service2.jpg" alt="Skin Care">
+        <div class="overlay"></div>
+        <div class="label">
+          <span class="eyebrow">Skincare</span>
+          <h4>Deep Dew Glow Facials</h4>
+        </div>
+      </a>
+      <a href="services.html" class="serv-card">
+        <img src="../../images/salon/service4.jpg" alt="Bridal Care">
+        <div class="overlay"></div>
+        <div class="label">
+          <span class="eyebrow">Bridal Trousseau</span>
+          <h4>Unhurried Bridal Rituals</h4>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Master Stylist & Founder Spotlight -->
+  <section class="section wrap" style="padding-top: 0;">
+    <div style="background:#fff; border:1px solid var(--line); border-radius:2px; padding:40px; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:center;">
+      <img src="../../images/team/stylist_priya.jpg" alt="Priya Sen — Founder & Master Stylist" style="width:220px; height:220px; border-radius:2px; object-fit:cover; border:1.5px solid var(--brass);">
+      <div>
+        <span class="eyebrow">Founder & Master Stylist</span>
+        <h3 style="font-size:28px; margin-bottom:8px;">Priya Sen</h3>
+        <p style="color:#5a6154; font-size:15px; line-height:1.7; margin-bottom:14px;">“Hair is living, breathing fiber. When you stop fighting its natural wave and begin nourishing its scalp foundation with cold-pressed botanicals, hair care transforms from a chore into a quiet daily ritual.”</p>
+        <div style="font-size:13px; color:var(--brass); font-weight:600;">14+ Years Editorial & Restorative Haircare Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="aranya-testimonial">
+    <div class="wrap">
+      <blockquote>“The only salon where I don’t feel pressured into twenty different treatments. Just quiet, skilled hands and hair that actually looks like me.”</blockquote>
+      <div class="who">Rhea Singhania — Client for 6 Years</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="aranya-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="brand aranya-brand" style="color:#fff;"><span class="leaf"></span>Aranya</div>
+          <p>Hair, Skin & Botanical Studio</p>
+          <p>12, Green Boulevard, Garden District, Metro City 400003</p>
+          <p style="margin-top:8px;">hello@aranyastudio.in</p>
+        </div>
+        <div>
+          <h4 style="color:var(--brass-light); font-size:16px; margin-bottom:12px;">Studio Hours</h4>
+          <p>Tuesday – Sunday: 10:00 AM – 7:30 PM</p>
+          <p>Monday: Closed for Studio Maintenance</p>
+        </div>
+        <div>
+          <h4 style="color:var(--brass-light); font-size:16px; margin-bottom:12px;">Appointments</h4>
+          <p>WhatsApp Desk: +91 98765 43210</p>
+          <a href="book.html" style="color:var(--brass-light); font-weight:600; text-decoration:underline; display:inline-block; margin-top:8px;">Book Online Slot ➔</a>
+        </div>
+      </div>
+      <div style="text-align:center; font-size:12px; color:#859080; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+        © 2026 Aranya Hair & Botanical Studio. Powered by Orbitex Production Suite.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniStore India — Mega Marketplace, Electronics, Fashion & Daily Essentials</title>
+  <meta name="description" content="India's trusted multi-vendor online marketplace. Superfast delivery, 100% verified authentic sellers, and flash sale deals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --market-blue: #2563eb;
+      --market-orange: #f97316;
+      --market-dark: #0f172a;
+      --market-bg: #f8fafc;
+      --market-card: #ffffff;
+      --market-border: #e2e8f0;
+      --font-market: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-market);
+      background-color: var(--market-bg);
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* Top Strip */
+    .market-top-strip {
+      background: var(--market-dark);
+      color: #cbd5e1;
+      padding: 6px 24px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .market-top-strip b { color: #facc15; }
+
+    /* Mega Search Header */
+    .market-header {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: #fff;
+      border-bottom: 1px solid var(--market-border);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .market-header-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .market-logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--market-dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+    .market-logo span { color: var(--market-blue); }
+    .search-bar-wrap {
+      flex: 1;
+      display: flex;
+      background: #f1f5f9;
+      border-radius: 8px;
+      border: 1.5px solid transparent;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .search-bar-wrap:focus-within { border-color: var(--market-blue); background: #fff; }
+    .search-cat-select {
+      background: #e2e8f0;
+      border: none;
+      padding: 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      outline: none;
+    }
+    .search-input {
+      flex: 1;
+      border: none;
+      padding: 12px 16px;
+      background: transparent;
+      outline: none;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .search-btn {
+      background: var(--market-blue);
+      color: #fff;
+      border: none;
+      padding: 0 22px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .header-actions { display: flex; gap: 20px; align-items: center; }
+    .btn-market-cart {
+      background: #eff6ff;
+      color: var(--market-blue);
+      border: 1px solid #bfdbfe;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    /* Sub Category Bar */
+    .market-sub-nav {
+      background: #fff;
+      border-bottom: 1px solid var(--market-border);
+      padding: 8px 24px;
+    }
+    .market-sub-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+    }
+    .market-sub-wrap a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .market-sub-wrap a:hover { color: var(--market-blue); }
+
+    /* Flash Banner */
+    .market-hero-banner {
+      max-width: 1360px;
+      margin: 24px auto;
+      padding: 0 24px;
+    }
+    .banner-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+    }
+    .deal-badge {
+      background: var(--market-orange);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .banner-card h1 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; line-height: 1.1; margin-bottom: 14px; }
+    .banner-card p { font-size: 16px; opacity: 0.9; margin-bottom: 24px; }
+    .btn-banner-shop {
+      background: #fff;
+      color: var(--market-blue);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .banner-img-wrap { text-align: center; }
+    .banner-img-wrap img { max-width: 100%; border-radius: 12px; height: 260px; object-fit: cover; }
+
+    /* Category Section */
+    .section-wrap {
+      max-width: 1360px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+    .section-title-row h2 { font-size: 24px; font-weight: 900; color: var(--market-dark); }
+    .section-title-row a { color: var(--market-blue); font-weight: 700; font-size: 13.5px; text-decoration: none; }
+
+    /* Product Grid */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .market-product-card {
+      background: #fff;
+      border: 1px solid var(--market-border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .market-product-card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
+      border-color: var(--market-blue);
+    }
+    .market-prod-img { height: 200px; width: 100%; object-fit: cover; }
+    .market-prod-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .prime-tag {
+      background: #eff6ff;
+      color: var(--market-blue);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-bottom: 6px;
+    }
+    .market-prod-title { font-size: 15px; font-weight: 700; color: var(--market-dark); margin-bottom: 6px; line-height: 1.3; }
+    .market-stars { color: #f59e0b; font-size: 13px; margin-bottom: 10px; }
+    .price-row { display: flex; align-items: baseline; gap: 8px; margin-top: auto; }
+    .cur-price { font-size: 20px; font-weight: 900; color: var(--market-dark); }
+    .mrp-price { font-size: 13px; text-decoration: line-through; color: #94a3b8; }
+    .disc-percent { font-size: 12.5px; font-weight: 800; color: #16a34a; }
+
+    /* Footer */
+    .market-footer {
+      background: var(--market-dark);
+      color: #94a3b8;
+      padding: 60px 24px 30px;
+      margin-top: 60px;
+    }
+    .market-footer-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .market-footer h4 { color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 16px; }
+    .market-footer a { color: #94a3b8; text-decoration: none; display: block; font-size: 13px; margin-bottom: 8px; }
+    .market-footer a:hover { color: #fff; }
+    .market-footer-bottom {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .banner-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>OmniStore India — Mega Marketplace</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="market-top-strip">
+    <span>🚚 <b>SUPER-SAVER DEALS:</b> Flat ₹200 OFF on Orders Above ₹999 with Code: <b>OMNI200</b></span>
+    <span>⚡ Express 2-Hour Delivery in 50+ Cities</span>
+  </div>
+
+  <!-- Header -->
+  <header class="market-header">
+    <div class="market-header-wrap">
+      <a href="index.html" class="market-logo">OMNI<span>STORE</span></a>
+
+      <div class="search-bar-wrap">
+        <select class="search-cat-select">
+          <option>All Categories</option>
+          <option>Electronics</option>
+          <option>Fashion & Apparel</option>
+          <option>Home & Kitchen</option>
+          <option>Organic Foods</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Search 50,000+ verified products, brands and deals...">
+        <button class="search-btn">Search</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="category.html" style="font-size:13px; font-weight:700; color:var(--market-dark); text-decoration:none;">Categories</a>
+        <a href="checkout.html" class="btn-market-cart">🛒 Cart (1)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sub Navigation -->
+  <nav class="market-sub-nav">
+    <div class="market-sub-wrap">
+      <a href="category.html?cat=all">⚡ Deal of the Day</a>
+      <a href="category.html?cat=electronics">📱 Electronics & Laptops</a>
+      <a href="category.html?cat=audio">🎧 Wireless Audio</a>
+      <a href="category.html?cat=smartwatch">⌚ Smartwatches</a>
+      <a href="category.html?cat=camera">📷 Digital Cameras</a>
+      <a href="category.html?cat=fashion">👕 Fashion & Sneakers</a>
+      <a href="category.html?cat=kitchen">🍳 Kitchen Appliances</a>
+    </div>
+  </nav>
+
+  <!-- Hero Flash Banner -->
+  <section class="market-hero-banner">
+    <div class="banner-card">
+      <div>
+        <span class="deal-badge">MEGA ELECTRONICS CARNIVAL</span>
+        <h1>Up to 60% OFF on Top Tech Brands</h1>
+        <p>Grab best-in-class noise-canceling headphones, AMOLED smartwatches, and mirrorless cameras with 1-year brand warranty.</p>
+        <a href="category.html" class="btn-banner-shop">Shop Mega Deals ➔</a>
+      </div>
+      <div class="banner-img-wrap">
+        <img src="../../images/marketplace/hero.jpg" alt="Electronics Sale">
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Products Section -->
+  <main class="section-wrap">
+    <div class="section-title-row">
+      <h2>🔥 Deal of the Day — Top Picks</h2>
+      <a href="category.html">View All Deals (45) ➔</a>
+    </div>
+
+    <div class="market-grid">
+      <!-- 1 -->
+      <a href="product.html?id=headphones" class="market-product-card">
+        <img src="../../images/marketplace/cat1.jpg" alt="Headphones" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ EXPRESS 1-DAY</span>
+          <h3 class="market-prod-title">SonicPro ANC Wireless Studio Headphones</h3>
+          <div class="market-stars">★★★★★ <span style="color:#64748b; font-size:12px;">(1,420)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹2,999</span>
+            <span class="mrp-price">₹6,999</span>
+            <span class="disc-percent">57% OFF</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product.html?id=smartwatch" class="market-product-card">
+        <img src="../../images/marketplace/cat2.jpg" alt="Smartwatch" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ EXPRESS 1-DAY</span>
+          <h3 class="market-prod-title">AeroFit Ultra AMOLED Fitness Smartwatch</h3>
+          <div class="market-stars">★★★★☆ <span style="color:#64748b; font-size:12px;">(890)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹1,999</span>
+            <span class="mrp-price">₹4,999</span>
+            <span class="disc-percent">60% OFF</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product.html?id=camera" class="market-product-card">
+        <img src="../../images/marketplace/cat3.jpg" alt="Camera" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ VERIFIED SELLER</span>
+          <h3 class="market-prod-title">Optix 4K Vlog & Cinema Camera Kit</h3>
+          <div class="market-stars">★★★★★ <span style="color:#64748b; font-size:12px;">(340)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹18,499</span>
+            <span class="mrp-price">₹24,999</span>
+            <span class="disc-percent">26% OFF</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a href="product.html?id=sneakers" class="market-product-card">
+        <img src="../../images/marketplace/cat4.jpg" alt="Sneakers" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ TOP BRAND</span>
+          <h3 class="market-prod-title">AirPulse Retro High-Top Street Sneakers</h3>
+          <div class="market-stars">★★★★☆ <span style="color:#64748b; font-size:12px;">(612)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹2,499</span>
+            <span class="mrp-price">₹4,499</span>
+            <span class="disc-percent">44% OFF</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="market-footer">
+    <div class="market-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">OMNISTORE MARKETPLACE</h4>
+        <p>Omni Retail Network Pvt. Ltd., Electronic City Phase 1, Bengaluru 560100</p>
+        <p>Toll-Free Customer Care: 1800-888-0000</p>
+      </div>
+      <div>
+        <h4>Shop by Category</h4>
+        <a href="category.html">Electronics & Gadgets</a>
+        <a href="category.html">Fashion & Footwear</a>
+        <a href="category.html">Home & Kitchen</a>
+        <a href="category.html">Organic Essentials</a>
+      </div>
+      <div>
+        <h4>Customer Assurance</h4>
+        <p>100% Genuine Brand Warranty</p>
+        <p>7-Day Replacement Policy</p>
+        <p>Fast & Secure UPI / Net Banking</p>
+      </div>
+    </div>
+    <div class="market-footer-bottom">
+      © 2026 OmniStore Marketplace India. Powered by Orbitex Enterprise E-Commerce Platform.
+    </div>
+  </footer>
+
+</body>
+</html>

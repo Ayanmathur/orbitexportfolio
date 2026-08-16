@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-Step Custom Cake Builder & Note Writer — Crumb & Co.</title>
+  <meta name="description" content="Build your custom celebration cake in 4 steps: weight, flavor, shape, and live message-on-cake preview with greeting card writer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --cake-berry: #be185d;
+      --cake-rose: #f43f5e;
+      --cake-vanilla: #fffbeb;
+      --cake-dark: #201318;
+      --cake-border: #fce7f3;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-hand: 'Caveat', cursive;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cake-vanilla);
+      color: var(--cake-dark);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .cake-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(255, 251, 235, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--cake-border);
+    }
+    .cake-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .cake-brand { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--cake-berry); }
+    .cake-brand span { color: var(--cake-dark); }
+    .cake-nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 600; }
+    .cake-nav-links a { color: #55444a; }
+    .cake-nav-links a.active { color: var(--cake-berry); }
+
+    /* Builder Layout */
+    .builder-wrap {
+      max-width: 1240px;
+      margin: 40px auto 90px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Left Visual Mockup */
+    .mockup-sticky {
+      position: sticky; top: 120px;
+      background: #fff; border: 1px solid var(--cake-border);
+      border-radius: 20px; padding: 30px; text-align: center;
+      box-shadow: 0 15px 35px rgba(190, 24, 93, 0.06);
+    }
+    .cake-canvas-box {
+      position: relative;
+      width: 100%; height: 360px;
+      border-radius: 12px; overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .cake-canvas-box img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .piped-msg-overlay {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(4px);
+      border: 2px dashed var(--cake-berry);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-family: var(--font-hand);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cake-berry);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      max-width: 80%;
+      word-break: break-word;
+    }
+
+    /* Handwritten Greeting Card Mockup */
+    .greeting-card-mockup {
+      background: #fdfaf6; border: 1px solid #ebd9c8; border-radius: 8px;
+      padding: 18px; text-align: left; margin-top: 18px;
+    }
+    .card-hand-text {
+      font-family: var(--font-hand); font-size: 20px; color: #5c3826;
+      line-height: 1.4; min-height: 50px;
+    }
+
+    /* Right Form Steps */
+    .builder-panel {
+      background: #fff; border: 1px solid var(--cake-border);
+      border-radius: 20px; padding: 40px 36px;
+      box-shadow: 0 10px 30px rgba(190, 24, 93, 0.04);
+    }
+    .step-title {
+      font-family: var(--font-serif); font-size: 22px; color: var(--cake-dark);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+    }
+    .step-num {
+      width: 28px; height: 28px; border-radius: 50%; background: var(--cake-berry);
+      color: #fff; font-size: 13px; font-weight: 700; display: inline-flex;
+      align-items: center; justify-content: center;
+    }
+
+    /* Step 1 Weight Slider */
+    .weight-slider-box { margin-bottom: 36px; }
+    .weight-val-display {
+      font-size: 32px; font-family: var(--font-mono); font-weight: 700;
+      color: var(--cake-berry); margin-bottom: 10px;
+    }
+    input[type=range] {
+      width: 100%; height: 8px; border-radius: 4px;
+      background: #fce7f3; accent-color: var(--cake-berry); cursor: pointer;
+    }
+
+    /* Step 2 Flavor Swatches */
+    .flavor-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 36px;
+    }
+    .flavor-chip {
+      background: var(--cake-vanilla); border: 1px solid var(--cake-border);
+      padding: 14px 10px; border-radius: 10px; text-align: center; cursor: pointer;
+      font-size: 12.5px; font-weight: 700; transition: all 0.2s;
+    }
+    .flavor-chip.active, .flavor-chip:hover {
+      background: var(--cake-berry); color: #fff; border-color: var(--cake-berry);
+      box-shadow: 0 6px 16px rgba(190, 24, 93, 0.2);
+    }
+
+    /* Step 3 Piped Message on Cake */
+    .cake-input {
+      width: 100%; padding: 14px 18px; border: 1px solid var(--cake-border);
+      border-radius: 10px; font-size: 14px; font-family: inherit; margin-bottom: 36px;
+    }
+    .cake-input:focus { outline: none; border-color: var(--cake-berry); }
+
+    /* Step 4 Delivery Slot & Price */
+    .slot-row { display: flex; gap: 12px; margin-bottom: 30px; }
+    .slot-btn {
+      flex: 1; background: var(--cake-vanilla); border: 1px solid var(--cake-border);
+      padding: 14px; border-radius: 10px; text-align: center; cursor: pointer;
+      font-size: 13px; font-weight: 700;
+    }
+    .slot-btn.active, .slot-btn:hover {
+      background: var(--cake-berry); color: #fff; border-color: var(--cake-berry);
+    }
+
+    .btn-cake-order-now {
+      background: var(--cake-berry); color: #fff; width: 100%; padding: 18px;
+      font-size: 16px; font-weight: 800; border: none; border-radius: 50px;
+      cursor: pointer; box-shadow: 0 10px 25px rgba(190, 24, 93, 0.3);
+    }
+
+    @media (max-width: 860px) {
+      .builder-wrap { grid-template-columns: 1fr; }
+      .mockup-sticky { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Crumb & Co. — 4-Step 3D Custom Cake Builder</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="cake-nav">
+    <div class="cake-nav-wrap">
+      <a href="index.html" class="cake-brand">CRUMB <span>& CO.</span></a>
+      <nav class="cake-nav-links">
+        <a href="index.html">Patisserie</a>
+        <a href="custom-cake.html" class="active">3D Cake Builder 🎂</a>
+        <a href="order.html">Delivery & Gifting</a>
+      </nav>
+      <a href="order.html" style="background:var(--cake-berry); color:#fff; padding:8px 18px; border-radius:50px; font-size:12.5px; font-weight:700;">Cart (₹) 🍰</a>
+    </div>
+  </header>
+
+  <main class="builder-wrap">
+    <!-- Left Sticky Mockup Preview -->
+    <div class="mockup-sticky">
+      <div class="cake-canvas-box">
+        <img id="cakePreviewImg" src="../../images/cakeshop/cake1.jpg" alt="Cake Visual Preview">
+        <div class="piped-msg-overlay" id="pipedOverlay">Happy Birthday!</div>
+      </div>
+      <div style="font-weight:700; font-size:15px;" id="summaryFlavor">Noir Belgian Dark Truffle (1.0 kg)</div>
+      <div style="font-size:26px; font-family:var(--font-mono); font-weight:700; color:var(--cake-berry); margin: 6px 0;" id="totalPriceDisplay">₹1,600</div>
+
+      <!-- Handwritten Card Preview -->
+      <div class="greeting-card-mockup">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:#9c7059; margin-bottom:4px;">💌 Free Handwritten Greeting Card:</div>
+        <div class="card-hand-text" id="cardPreviewText">“Wishing you the sweetest birthday filled with joy and lots of chocolate!”</div>
+      </div>
+    </div>
+
+    <!-- Right 4-Step Configurator -->
+    <div class="builder-panel">
+      <!-- Step 1: Weight -->
+      <div class="step-title"><span class="step-num">1</span> Select Weight (Servings)</div>
+      <div class="weight-slider-box">
+        <div class="weight-val-display" id="weightDisplay">1.0 kg <span style="font-size:14px; font-weight:600; color:#888;">(Serves 8-10 Guests)</span></div>
+        <input type="range" id="weightSlider" min="0.5" max="3.0" step="0.5" value="1.0" oninput="updateWeight(this.value)">
+      </div>
+
+      <!-- Step 2: Flavor -->
+      <div class="step-title"><span class="step-num">2</span> Signature Flavor</div>
+      <div class="flavor-grid">
+        <div class="flavor-chip active" onclick="setFlavor('Belgian Dark Truffle', 1600, '../../images/cakeshop/cake1.jpg', this)">🍫 Belgian Truffle</div>
+        <div class="flavor-chip" onclick="setFlavor('Red Velvet Cream Cheese', 1800, '../../images/cakeshop/cake2.jpg', this)">❤️ Red Velvet</div>
+        <div class="flavor-chip" onclick="setFlavor('Lotus Biscoff Baked', 2100, '../../images/cakeshop/cake3.jpg', this)">🍪 Lotus Biscoff</div>
+      </div>
+
+      <!-- Step 3: Message on Cake -->
+      <div class="step-title"><span class="step-num">3</span> Custom Piped Message on Cake</div>
+      <input type="text" class="cake-input" id="cakeTextInput" maxlength="25" placeholder="e.g. Happy Birthday Ananya!" value="Happy Birthday!" oninput="updatePipedText(this.value)">
+
+      <!-- Greeting Card Note -->
+      <div class="step-title"><span class="step-num">4</span> Handwritten Greeting Note</div>
+      <textarea class="cake-input" id="cardTextInput" rows="2" placeholder="Write your heartfelt message for the recipient..." oninput="updateCardText(this.value)">Wishing you the sweetest birthday filled with joy and lots of chocolate!</textarea>
+
+      <!-- Step 5: Delivery Slot -->
+      <div class="step-title"><span class="step-num">5</span> Delivery Time Slot</div>
+      <div class="slot-row">
+        <div class="slot-btn active" onclick="setSlot('Daytime Delivery (10 AM - 7 PM)', 0, this)">☀️ Daytime Free</div>
+        <div class="slot-btn" onclick="setSlot('Midnight Surprise (11:30 PM)', 150, this)">🌙 Midnight (+₹150)</div>
+      </div>
+
+      <button onclick="proceedToCakeCheckout()" class="btn-cake-order-now">Proceed to Gifting Checkout (₹) ➔</button>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    let baseRate = 1600;
+    let currentWeight = 1.0;
+    let slotSurcharge = 0;
+    let currentFlavor = 'Belgian Dark Truffle';
+
+    function updateWeight(val) {
+      currentWeight = parseFloat(val);
+      const servings = Math.round(currentWeight * 9);
+      document.getElementById('weightDisplay').innerHTML = `${currentWeight.toFixed(1)} kg <span style="font-size:14px; font-weight:600; color:#888;">(Serves ~${servings} Guests)</span>`;
+      recalculate();
+    }
+
+    function setFlavor(name, rate, img, el) {
+      document.querySelectorAll('.flavor-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      currentFlavor = name;
+      baseRate = rate;
+      document.getElementById('cakePreviewImg').src = img;
+      recalculate();
+    }
+
+    function updatePipedText(txt) {
+      document.getElementById('pipedOverlay').textContent = txt || "Custom Message";
+    }
+
+    function updateCardText(txt) {
+      document.getElementById('cardPreviewText').textContent = txt ? `“${txt}”` : "“Happy Celebrations!”";
+    }
+
+    function setSlot(name, charge, el) {
+      document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      slotSurcharge = charge;
+      recalculate();
+    }
+
+    function recalculate() {
+      const finalPrice = Math.round(baseRate * currentWeight) + slotSurcharge;
+      document.getElementById('totalPriceDisplay').textContent = '₹' + finalPrice;
+      document.getElementById('summaryFlavor').textContent = `${currentFlavor} (${currentWeight.toFixed(1)} kg)`;
+    }
+
+    function proceedToCakeCheckout() {
+      const msg = document.getElementById('cakeTextInput').value;
+      const cardNote = document.getElementById('cardTextInput').value;
+      const finalPrice = Math.round(baseRate * currentWeight) + slotSurcharge;
+      
+      if (window.OrbitexToast) OrbitexToast.success('Custom Cake Saved! Redirecting to Gifting Checkout...');
+      setTimeout(() => {
+        window.location.href = `order.html?flavor=${encodeURIComponent(currentFlavor)}&weight=${currentWeight}&msg=${encodeURIComponent(msg)}&card=${encodeURIComponent(cardNote)}&price=${finalPrice}`;
+      }, 600);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Price & Weight Calculator — Ratna Heritage Jewellers</title>
+  <meta name="description" content="100% transparent gold pricing formula: Net gold weight, live market rate, stone weight deduction, making charges, and 3% GST.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --jewel-gold: #d4af37;
+      --jewel-gold-light: #f5e6a8;
+      --jewel-dark: #0a0c10;
+      --jewel-panel: #13171f;
+      --jewel-panel-2: #1b202b;
+      --jewel-border: rgba(212, 175, 55, 0.25);
+      --font-serif: 'Cinzel', serif;
+      --font-sans: 'Work Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--jewel-dark);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .jewel-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(10, 12, 16, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--jewel-border);
+    }
+    .jewel-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .jewel-brand { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--jewel-gold); letter-spacing: 2px; }
+    .jewel-brand span { color: #fff; }
+    .jewel-nav-links { display: flex; gap: 32px; }
+    .jewel-nav-links a { color: #94a3b8; font-size: 13.5px; font-weight: 600; text-transform: uppercase; }
+    .jewel-nav-links a.active { color: var(--jewel-gold); }
+
+    /* Main Container */
+    .pdp-wrap {
+      max-width: 1200px;
+      margin: 50px auto 90px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .pdp-gallery img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--jewel-border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .pdp-details {
+      background: var(--jewel-panel);
+      border: 1px solid var(--jewel-border);
+      border-radius: 6px;
+      padding: 36px 32px;
+    }
+
+    .jewel-eyebrow {
+      font-size: 11px; font-weight: 700; color: var(--jewel-gold);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; display: block;
+    }
+    .pdp-title { font-family: var(--font-serif); font-size: 28px; color: #fff; margin-bottom: 8px; }
+    .pdp-huid { font-family: var(--font-mono); font-size: 12px; color: #94a3b8; margin-bottom: 20px; }
+
+    /* Transparent Calculation Table */
+    .calc-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 13.5px;
+    }
+    .calc-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+    }
+    .calc-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--jewel-gold-light);
+      background: rgba(212, 175, 55, 0.08);
+    }
+    .calc-val {
+      text-align: right;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .btn-reserve-vip {
+      background: var(--jewel-gold);
+      color: #000;
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 2px;
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .pdp-wrap { grid-template-columns: 1fr; }
+      .pdp-gallery img { height: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Ratna Heritage — Price Breakdown Engine</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="jewel-nav">
+    <div class="jewel-nav-wrap">
+      <a href="index.html" class="jewel-brand">RATNA <span>HERITAGE</span></a>
+      <nav class="jewel-nav-links">
+        <a href="index.html">Heritage</a>
+        <a href="collection.html">Fine Collection</a>
+        <a href="product.html" class="active">Price Engine (₹)</a>
+      </nav>
+      <a href="collection.html" style="border:1px solid var(--jewel-gold); color:var(--jewel-gold); padding:8px 16px; border-radius:2px; font-size:12px; font-family:var(--font-serif); font-weight:700;">Catalog (₹)</a>
+    </div>
+  </header>
+
+  <main class="pdp-wrap">
+    <div class="pdp-gallery">
+      <img src="../../images/jeweller/item1.jpg" alt="Imperial Meenakari Choker">
+      <div style="margin-top:16px; background:var(--jewel-panel); border:1px solid var(--jewel-border); padding:16px; border-radius:4px; font-size:12px; color:#94a3b8; text-align:center;">
+        🔒 Stamped with 6-Digit Unique HUID & Certified by BIS Govt. of India
+      </div>
+    </div>
+
+    <div class="pdp-details">
+      <span class="jewel-eyebrow">22 Karat Yellow Gold • Polki Uncut Diamonds</span>
+      <h1 class="pdp-title">Imperial Meenakari & Kundan Choker</h1>
+      <div class="pdp-huid">HUID: <b>RH882194</b> | Hallmarked: BIS 916</div>
+
+      <!-- Interactive Weight Formula Breakdown -->
+      <table class="calc-table">
+        <tr>
+          <td>Gross Ornament Weight</td>
+          <td class="calc-val">54.200 grams</td>
+        </tr>
+        <tr>
+          <td>Precious Stone Deduction (Emeralds)</td>
+          <td class="calc-val">- 5.700 grams</td>
+        </tr>
+        <tr>
+          <td><b>Net 22K Gold Weight</b></td>
+          <td class="calc-val" style="color:var(--jewel-gold);">48.500 grams</td>
+        </tr>
+        <tr>
+          <td>Gold Rate (@ ₹6,850 / gram)</td>
+          <td class="calc-val">₹3,32,225</td>
+        </tr>
+        <tr>
+          <td>Making Charges (10.5% Flat)</td>
+          <td class="calc-val">₹34,883</td>
+        </tr>
+        <tr>
+          <td>Government GST (3.0%)</td>
+          <td class="calc-val">₹11,013</td>
+        </tr>
+        <tr>
+          <td>Total Transparent Invoice (₹)</td>
+          <td class="calc-val" style="color:var(--jewel-gold-light); font-size:22px;">₹3,78,121</td>
+        </tr>
+      </table>
+
+      <button onclick="bookVipSalon()" class="btn-reserve-vip">Reserve Private Viewing Salon 🥂</button>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function bookVipSalon() {
+      if (window.OrbitexToast) OrbitexToast.success('VIP Salon appointment requested! Opening concierge...');
+      const msg = encodeURIComponent('Hi Ratna Heritage! I would like to book a private viewing session for the Imperial Meenakari Choker (HUID: RH882194).');
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 600);
+    }
+  </script>
+</body>
+</html>

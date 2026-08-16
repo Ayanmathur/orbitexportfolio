@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Araku Highlands Coffee Roasters — Single-Estate Specialty Coffee</title>
+  <meta name="description" content="Artisanal third-wave coffee roastery sourcing micro-lots from Chikmagalur and Araku Valley with small-batch weekly roast cycles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --coffee-copper: #c87a3e;
+      --coffee-copper-light: #e6a470;
+      --coffee-dark: #140e0b;
+      --coffee-panel: #1f1712;
+      --coffee-parchment: #faf6f0;
+      --coffee-border: rgba(200, 122, 62, 0.22);
+      --font-serif: 'Playfair Display', serif;
+      --font-mono: 'Space Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--coffee-dark);
+      color: #e5e0dc;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Top Strip */
+    .roast-strip {
+      background: #0d0907;
+      border-bottom: 1px solid var(--coffee-border);
+      padding: 9px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--coffee-copper-light);
+    }
+
+    /* Navbar */
+    .coffee-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(20, 14, 11, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--coffee-border);
+    }
+    .coffee-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .coffee-brand {
+      font-family: var(--font-serif);
+      font-size: 22px; font-weight: 700; color: var(--coffee-copper);
+      letter-spacing: 1px;
+    }
+    .coffee-brand span { color: #fff; }
+    .coffee-nav-links { display: flex; gap: 32px; font-size: 13.5px; }
+    .coffee-nav-links a { color: #a89f99; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+    .coffee-nav-links a.active { color: var(--coffee-copper); }
+    .btn-roast-nav {
+      background: var(--coffee-copper); color: #fff; padding: 8px 18px;
+      font-size: 12.5px; font-weight: 700; border-radius: 3px;
+    }
+
+    /* Hero */
+    .coffee-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(20,14,11,0.96) 0%, rgba(20,14,11,0.4) 100%),
+                  url('../../images/coffee/hero.jpg') center/cover no-repeat;
+      padding: 60px 24px;
+    }
+    .coffee-hero-wrap { max-width: 1280px; margin: 0 auto; width: 100%; }
+    .coffee-hero-content { max-width: 650px; }
+    .coffee-badge {
+      display: inline-block; background: rgba(200,122,62,0.15); border: 1px solid var(--coffee-copper);
+      color: var(--coffee-copper-light); padding: 6px 14px; font-family: var(--font-mono);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .coffee-hero h1 {
+      font-family: var(--font-serif); font-size: clamp(38px, 5.5vw, 62px);
+      line-height: 1.1; color: #fff; margin-bottom: 18px;
+    }
+    .coffee-hero h1 span { color: var(--coffee-copper); font-style: italic; }
+    .coffee-hero p { font-size: 16.5px; color: #c9c0b9; margin-bottom: 34px; line-height: 1.7; }
+    .coffee-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-coffee-primary {
+      background: var(--coffee-copper); color: #fff; padding: 15px 34px;
+      border-radius: 3px; font-weight: 700; font-size: 14px;
+    }
+    .btn-coffee-outline {
+      background: transparent; border: 1.5px solid var(--coffee-copper); color: var(--coffee-copper);
+      padding: 15px 28px; border-radius: 3px; font-weight: 700; font-size: 14px;
+    }
+
+    /* Roastery Section */
+    .roast-section { max-width: 1280px; margin: 80px auto; padding: 0 24px; }
+    .roast-head-center { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .roast-head-center h2 { font-family: var(--font-serif); font-size: 38px; color: #fff; margin-bottom: 10px; }
+
+    .coffee-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
+    }
+    .roast-card {
+      background: var(--coffee-panel); border: 1px solid var(--coffee-border);
+      border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .roast-img { height: 260px; width: 100%; object-fit: cover; }
+    .roast-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .roast-score {
+      font-family: var(--font-mono); font-size: 11px; color: var(--coffee-copper-light);
+      margin-bottom: 6px; text-transform: uppercase;
+    }
+    .roast-title { font-family: var(--font-serif); font-size: 20px; color: #fff; margin-bottom: 8px; }
+    .roast-price { font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--coffee-copper); margin-bottom: 12px; }
+    .btn-view-roast {
+      border: 1px solid var(--coffee-copper); color: var(--coffee-copper); padding: 11px;
+      font-weight: 700; font-size: 13px; text-align: center; text-transform: uppercase;
+      border-radius: 3px; transition: all 0.2s;
+    }
+    .roast-card:hover .btn-view-roast { background: var(--coffee-copper); color: #fff; }
+
+    /* Footer */
+    footer.coffee-footer {
+      background: #0d0907; border-top: 1px solid var(--coffee-border);
+      color: #7a7069; padding: 60px 24px 30px; font-size: 13px;
+    }
+    .coffee-footer-wrap {
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Araku Highlands Coffee Roasters</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="roast-strip">
+    <div>☕ NEXT ROAST BATCH: <b>Tuesday, 8:00 AM</b> • NITROGEN VALVE SEALED • 100% SHADE-GROWN ARABICA</div>
+    <div>DIRECT TRADE WITH ARAKU & CHIKMAGALUR ESTATES</div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="coffee-nav">
+    <div class="coffee-nav-wrap">
+      <a href="index.html" class="coffee-brand">ARAKU <span>HIGHLANDS</span></a>
+      <nav class="coffee-nav-links">
+        <a href="index.html" class="active">Origins</a>
+        <a href="catalog.html">Single Estates</a>
+        <a href="product.html">Grind & Roast (₹)</a>
+      </nav>
+      <a href="product.html" class="btn-roast-nav">Order Fresh Roast ☕</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="coffee-hero">
+    <div class="coffee-hero-wrap">
+      <div class="coffee-hero-content">
+        <span class="coffee-badge">Micro-Lot Specialty Coffee • SCA 88+</span>
+        <h1>Single-Estate Beans, <span>Roasted to Order</span></h1>
+        <p>Small-batch roasted on our Giesen W15 drum roaster within 48 hours of dispatch. Complete bean transparency from elevation to cupping score.</p>
+        <div class="coffee-hero-actions">
+          <a href="catalog.html" class="btn-coffee-primary">Explore Fresh Roasts (₹)</a>
+          <a href="product.html" class="btn-coffee-outline">Custom Grind Size Selector ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Single Estate Catalog -->
+  <section class="roast-section">
+    <div class="roast-head-center">
+      <span style="font-family:var(--font-mono); font-size:11px; color:var(--coffee-copper); letter-spacing:2px;">[ CURRENT ROAST CYCLES ]</span>
+      <h2>Single-Estate Micro Lots</h2>
+      <p style="color:#a89f99;">Whole beans or customized precision ground for your specific brewing equipment.</p>
+    </div>
+
+    <div class="coffee-grid">
+      <!-- 1 -->
+      <div class="roast-card">
+        <img src="../../images/coffee/item1.jpg" alt="Araku Micro Lot" class="roast-img">
+        <div class="roast-body">
+          <span class="roast-score">SCA Score: 88.5 • 1,350m Elevation</span>
+          <h3 class="roast-title">Araku Valley Anaerobic Natural</h3>
+          <div class="roast-price">₹650 <span style="font-size:12px; color:#888;">/ 250g</span></div>
+          <p style="font-size:13.5px; color:#a89f99; margin-bottom:18px;">Notes of wild berries, cacao nibs, and passion fruit with bright winey acidity.</p>
+          <a href="product.html?lot=araku" class="btn-view-roast">Select Grind & Order ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="roast-card">
+        <img src="../../images/coffee/item2.jpg" alt="Chikmagalur Estate" class="roast-img">
+        <div class="roast-body">
+          <span class="roast-score">SCA Score: 87.0 • 1,400m Elevation</span>
+          <h3 class="roast-title">Baba Budangiri Honey Process</h3>
+          <div class="roast-price">₹580 <span style="font-size:12px; color:#888;">/ 250g</span></div>
+          <p style="font-size:13.5px; color:#a89f99; margin-bottom:18px;">Silky milk chocolate, roasted hazelnut, and sweet brown sugar finish.</p>
+          <a href="product.html?lot=baba" class="btn-view-roast">Select Grind & Order ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="roast-card">
+        <img src="../../images/coffee/item3.jpg" alt="Monsooned Malabar" class="roast-img">
+        <div class="roast-body">
+          <span class="roast-score">SCA Score: 86.5 • AA Grade</span>
+          <h3 class="roast-title">Monsooned Malabar Heritage AA</h3>
+          <div class="roast-price">₹520 <span style="font-size:12px; color:#888;">/ 250g</span></div>
+          <p style="font-size:13.5px; color:#a89f99; margin-bottom:18px;">Heavy body, low acidity with earthy cedar, sweet tobacco, and dark malt.</p>
+          <a href="product.html?lot=malabar" class="btn-view-roast">Select Grind & Order ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="coffee-footer">
+    <div class="coffee-footer-wrap">
+      <div>
+        <h4 style="color:#fff; margin-bottom:12px;">ARAKU HIGHLANDS ROASTERY</h4>
+        <p>Plot 4, Roastery Lane, Koramangala, Bengaluru 560034</p>
+        <p>Direct Trade Desk: hello@arakuhighlands.in</p>
+      </div>
+      <div>
+        <p>Roasted weekly on Tuesdays & Thursdays.</p>
+        <p>Shipped in one-way degassing valve pouches.</p>
+      </div>
+    </div>
+    <div style="text-align:center; opacity:0.5;">
+      © 2026 Araku Highlands Coffee Roasters. Powered by Orbitex Production Suite.
+    </div>
+  </footer>
+
+</body>
+</html>

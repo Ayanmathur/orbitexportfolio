@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanjeevaram Pure Mulberry Silk Saree — Sutra Couture</title>
+  <meta name="description" content="Authentic Silk Mark certified Kanjeevaram pure silk saree with real zari temple border.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --sutra-maroon: #4a0e17;
+      --sutra-gold: #c5a059;
+      --sutra-gold-light: #dfc496;
+      --sutra-cream: #faf7f2;
+      --sutra-card: #ffffff;
+      --sutra-border: #ede4d8;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--sutra-cream);
+      color: #1a1715;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .sutra-header {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sutra-border);
+    }
+    .sutra-header-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sutra-logo {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--sutra-maroon);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+    .sutra-logo span { color: var(--sutra-gold); }
+    .sutra-nav-links { display: flex; gap: 32px; align-items: center; }
+    .sutra-nav-links a {
+      color: #2c2523;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .sutra-cart-btn {
+      background: none;
+      border: 1px solid var(--sutra-border);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sutra-maroon);
+      text-decoration: none;
+    }
+
+    /* Product Page Layout */
+    .pdp-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+    }
+
+    /* Image Gallery */
+    .pdp-gallery {
+      display: flex;
+      gap: 20px;
+    }
+    .pdp-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 90px;
+    }
+    .pdp-thumb {
+      width: 90px;
+      height: 120px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .pdp-thumb.active { border-color: var(--sutra-gold); }
+    .pdp-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .pdp-main-img {
+      flex: 1;
+      height: 650px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--sutra-border);
+      background: #fff;
+    }
+    .pdp-main-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Product Info */
+    .pdp-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .pdp-breadcrumb {
+      font-size: 12px;
+      color: #887a70;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pdp-breadcrumb a { color: inherit; text-decoration: none; }
+    .pdp-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--sutra-maroon);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .pdp-pricing {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .price-current {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1715;
+    }
+    .price-mrp {
+      font-size: 18px;
+      color: #888;
+      text-decoration: line-through;
+    }
+    .price-discount {
+      background: #fef08a;
+      color: #854d0e;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Options & Customizer */
+    .pdp-opt-group { margin-bottom: 24px; }
+    .opt-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--sutra-maroon);
+    }
+    .size-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .size-btn {
+      background: #fff;
+      border: 1px solid var(--sutra-border);
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #1a1715;
+      transition: all 0.2s;
+    }
+    .size-btn.active {
+      background: var(--sutra-maroon);
+      color: #fff;
+      border-color: var(--sutra-maroon);
+    }
+
+    /* Action Buttons */
+    .pdp-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .btn-add-bag {
+      background: var(--sutra-cream);
+      border: 2px solid var(--sutra-maroon);
+      color: var(--sutra-maroon);
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .btn-buy-now {
+      background: var(--sutra-maroon);
+      border: none;
+      color: #fff;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Delivery Pin Checker */
+    .pin-box {
+      background: #fff;
+      border: 1px solid var(--sutra-border);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .pin-input-row { display: flex; gap: 8px; margin-top: 8px; }
+    .pin-input-row input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid var(--sutra-border);
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .pin-input-row button {
+      background: var(--sutra-maroon);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .pdp-wrap { grid-template-columns: 1fr; }
+      .pdp-gallery { flex-direction: column-reverse; }
+      .pdp-thumbs { flex-direction: row; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Sutra Couture — Product Page</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sutra-header">
+    <div class="sutra-header-wrap">
+      <a href="index.html" class="sutra-logo">SUTRA <span>COUTURE</span></a>
+      <nav class="sutra-nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Full Collection</a>
+        <a href="catalog.html?cat=silk">Bridal Silks</a>
+      </nav>
+      <a href="checkout.html" class="sutra-cart-btn">🛍️ Bag (1)</a>
+    </div>
+  </header>
+
+  <!-- Product Detail Content -->
+  <main class="pdp-wrap">
+    <!-- Gallery -->
+    <div class="pdp-gallery">
+      <div class="pdp-thumbs">
+        <div class="pdp-thumb active" onclick="switchThumb('../../images/clothing/item1.jpg', this)"><img src="../../images/clothing/item1.jpg" alt="View 1"></div>
+        <div class="pdp-thumb" onclick="switchThumb('../../images/clothing/hero.jpg', this)"><img src="../../images/clothing/hero.jpg" alt="View 2"></div>
+        <div class="pdp-thumb" onclick="switchThumb('../../images/clothing/item5.jpg', this)"><img src="../../images/clothing/item5.jpg" alt="View 3"></div>
+      </div>
+      <div class="pdp-main-img">
+        <img id="mainPdpImage" src="../../images/clothing/item1.jpg" alt="Kanjeevaram Pure Mulberry Silk Saree">
+      </div>
+    </div>
+
+    <!-- Product Info Details -->
+    <div class="pdp-info">
+      <div class="pdp-breadcrumb">
+        <a href="index.html">Home</a> / <a href="catalog.html">Bridal Silks</a> / Kanjeevaram Silk Saree
+      </div>
+      
+      <h1 class="pdp-title" id="pdpTitle">Kanjeevaram Pure Mulberry Silk Saree</h1>
+      
+      <div class="pdp-pricing">
+        <span class="price-current" id="pdpPrice">₹14,500</span>
+        <span class="price-mrp">₹18,000</span>
+        <span class="price-discount">20% OFF</span>
+      </div>
+
+      <p style="font-size: 14.5px; color: #5c5048; margin-bottom: 24px; line-height: 1.7;">
+        Deep vermillion bridal red featuring handwoven pure gold zari motifs, authentic temple korvai border, and heavily embellished pallu. Includes 100% Silk Mark verification tag.
+      </p>
+
+      <!-- Blouse Option -->
+      <div class="pdp-opt-group">
+        <div class="opt-label">
+          <span>Blouse Stitching Option</span>
+        </div>
+        <div class="size-pills">
+          <button class="size-btn active" onclick="selectSize(this, 0)">Unstitched Matching Piece (Free)</button>
+          <button class="size-btn" onclick="selectSize(this, 800)">Custom Tailored (+₹800)</button>
+          <button class="size-btn" onclick="selectSize(this, 1800)">Aari Hand Embroidered (+₹1,800)</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="pdp-actions">
+        <button class="btn-add-bag" onclick="addToBag()">Add to Bag 🛍️</button>
+        <a href="checkout.html" class="btn-buy-now">Instant Checkout ➔</a>
+      </div>
+
+      <!-- Pincode Checker -->
+      <div class="pin-box">
+        <span style="font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--sutra-maroon);">Check Delivery Date</span>
+        <div class="pin-input-row">
+          <input type="text" id="pinInput" placeholder="Enter 6-digit Pincode" maxlength="6">
+          <button onclick="checkPdpPin()">Check</button>
+        </div>
+        <div id="pinResult" style="font-size: 12.5px; margin-top: 8px; font-weight: 600;"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function switchThumb(src, el) {
+      document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('mainPdpImage').src = src;
+    }
+
+    function selectSize(el, extraFee) {
+      el.closest('.size-pills').querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      const base = 14500;
+      document.getElementById('pdpPrice').innerText = '₹' + (base + extraFee).toLocaleString('en-IN');
+    }
+
+    function addToBag() {
+      if (window.OrbitexToast) OrbitexToast.success('Item added to your shopping bag!');
+    }
+
+    function checkPdpPin() {
+      const pin = document.getElementById('pinInput').value.trim();
+      const res = document.getElementById('pinResult');
+      if (pin.length === 6 && !isNaN(pin)) {
+        res.innerHTML = '<span style="color:#16a34a;">✓ Express delivery available in ' + pin + ' by Tomorrow, 6:00 PM</span>';
+      } else {
+        res.innerHTML = '<span style="color:#dc2626;">✕ Please enter a valid 6-digit Indian pincode</span>';
+      }
+    }
+  </script>
+</body>
+</html>

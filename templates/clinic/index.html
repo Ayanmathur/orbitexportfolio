@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Care Multi-Specialty Clinic & Emergency Trauma Center</title>
+  <meta name="description" content="NABH-accredited multi-specialty healthcare and diagnostic clinic offering in-clinic consultations and HD video telemedicine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --med-navy: #0f2942;
+      --med-teal: #0891b2;
+      --med-cyan: #06b6d4;
+      --med-red: #ef4444;
+      --med-bg: #f8fafc;
+      --med-border: #e2e8f0;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--med-bg);
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Persistent High-Contrast 24/7 Emergency Trauma Bar */
+    .emergency-hotline-bar {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--med-red);
+      color: #fff;
+      padding: 9px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+    .btn-emergency-call {
+      background: #fff; color: var(--med-red); padding: 3px 12px;
+      border-radius: 20px; font-weight: 900; font-size: 11.5px; text-decoration: none;
+    }
+
+    /* Navbar */
+    .clinic-nav {
+      position: sticky; top: 38px; z-index: 999;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--med-border);
+    }
+    .clinic-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .clinic-brand { font-size: 22px; font-weight: 800; color: var(--med-navy); display: flex; align-items: center; gap: 8px; }
+    .clinic-brand span { color: var(--med-teal); }
+    .clinic-nav-links { display: flex; gap: 28px; font-size: 14px; font-weight: 600; }
+    .clinic-nav-links a.active { color: var(--med-teal); }
+    .btn-book-nav {
+      background: var(--med-teal); color: #fff; padding: 9px 20px;
+      border-radius: 6px; font-weight: 700; font-size: 13px;
+    }
+
+    /* Hero */
+    .clinic-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.7) 100%),
+                  url('../../images/clinic/hero.jpg') center/cover no-repeat;
+      padding: 60px 24px;
+    }
+    .clinic-hero-wrap { max-width: 1280px; margin: 0 auto; width: 100%; }
+    .clinic-hero-content { max-width: 680px; }
+    .clinic-badge {
+      display: inline-block; background: #e0f2fe; color: var(--med-teal);
+      padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: 800;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .clinic-hero h1 {
+      font-size: clamp(38px, 5.5vw, 56px); font-weight: 800;
+      line-height: 1.15; color: var(--med-navy); margin-bottom: 18px;
+    }
+    .clinic-hero h1 span { color: var(--med-teal); }
+    .clinic-hero p { font-size: 17px; color: #475569; margin-bottom: 34px; line-height: 1.7; }
+    .clinic-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-med-primary {
+      background: var(--med-navy); color: #fff; padding: 15px 32px;
+      border-radius: 6px; font-weight: 700; font-size: 14px;
+    }
+    .btn-med-outline {
+      background: #fff; border: 1.5px solid var(--med-teal); color: var(--med-teal);
+      padding: 15px 28px; border-radius: 6px; font-weight: 700; font-size: 14px;
+    }
+
+    /* Dual Consult Selector Banner */
+    .consult-banner {
+      max-width: 1280px; margin: -30px auto 60px; padding: 0 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      position: relative; z-index: 10;
+    }
+    .consult-card {
+      background: #fff; border: 1px solid var(--med-border); border-radius: 12px;
+      padding: 28px; box-shadow: 0 10px 25px rgba(15,41,66,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .consult-card.active-type { border-left: 6px solid var(--med-teal); }
+    .consult-title { font-size: 20px; font-weight: 800; color: var(--med-navy); margin-bottom: 4px; }
+    .consult-price { font-size: 24px; font-weight: 800; color: var(--med-teal); }
+
+    /* Footer */
+    footer.clinic-footer {
+      background: var(--med-navy); color: #94a3b8; padding: 60px 24px 30px; font-size: 13.5px;
+    }
+    .clinic-footer-wrap {
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
+    }
+    .clinic-footer h4 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 14px; }
+    .clinic-footer p, .clinic-footer a { color: #94a3b8; display: block; margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      .consult-banner { grid-template-columns: 1fr; margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Persistent 24/7 Emergency Trauma Bar -->
+  <div class="emergency-hotline-bar">
+    <div>🚨 24/7 EMERGENCY & ACCIDENT TRAUMA HOTLINE: <b>+91 98765 00000</b> (NABH LEVEL 1 TRAUMA)</div>
+    <a href="tel:9876500000" class="btn-emergency-call">Call Emergency Desk 📞</a>
+  </div>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Aura Care Multi-Specialty Clinic</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="clinic-nav">
+    <div class="clinic-nav-wrap">
+      <a href="index.html" class="clinic-brand">AURA <span>CARE</span></a>
+      <nav class="clinic-nav-links">
+        <a href="index.html" class="active">Clinic Home</a>
+        <a href="doctors.html">Doctors Directory</a>
+        <a href="book.html">Symptom Router & Book</a>
+      </nav>
+      <a href="book.html" class="btn-book-nav">Book OPD Consult 🩺</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="clinic-hero">
+    <div class="clinic-hero-wrap">
+      <div class="clinic-hero-content">
+        <span class="clinic-badge">NABH Certified • Digital Radiology & Pharmacy</span>
+        <h1>Advanced Healthcare, <span>Compassionate Care</span></h1>
+        <p>Consult senior orthopedic surgeons, interventional cardiologists, and pediatric specialists in-person or from home with digital prescription delivery.</p>
+        <div class="clinic-hero-actions">
+          <a href="book.html" class="btn-med-primary">Book Consultation Slot (₹500)</a>
+          <a href="doctors.html" class="btn-med-outline">View Specialist Doctors ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual Consult Banner -->
+  <div class="consult-banner">
+    <div class="consult-card active-type">
+      <div>
+        <h3 class="consult-title">In-Clinic Physical OPD</h3>
+        <p style="font-size:13px; color:#64748b;">Walk-in or pre-booked consultation at Medical Tower.</p>
+      </div>
+      <div class="consult-price">₹500</div>
+    </div>
+
+    <div class="consult-card">
+      <div>
+        <h3 class="consult-title">HD Video Tele-Consult</h3>
+        <p style="font-size:13px; color:#64748b;">Instant online video consult + WhatsApp e-prescription.</p>
+      </div>
+      <div class="consult-price">₹300</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="clinic-footer">
+    <div class="clinic-footer-wrap">
+      <div>
+        <h4>AURA CARE MEDICAL TOWER</h4>
+        <p>18, Health Avenue, Metro City 400002</p>
+        <p>Helpline: +91 98765 43210</p>
+        <p>Emergency Ambulance: 108</p>
+      </div>
+      <div>
+        <h4>Departments</h4>
+        <a href="doctors.html">Orthopedics & Joint Replacement</a>
+        <a href="doctors.html">Cardiology & Heart Wellness</a>
+        <a href="doctors.html">Dental & Maxillofacial Care</a>
+      </div>
+    </div>
+    <div style="text-align:center; opacity:0.5; font-size:12px;">
+      © 2026 Aura Care Multi-Specialty Clinic. Powered by Orbitex Production Suite.
+    </div>
+  </footer>
+
+</body>
+</html>

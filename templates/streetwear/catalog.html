@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Drops Catalog — Kult Streetwear</title>
+  <meta name="description" content="Shop limited edition oversized graphic tees, acid wash hoodies, and parachute cargoes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --kult-yellow: #facc15;
+      --kult-dark: #070707;
+      --kult-card: #121212;
+      --kult-border: rgba(255, 255, 255, 0.15);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--kult-dark);
+      color: #fafafa;
+      line-height: 1.5;
+    }
+
+    /* Navbar */
+    .kult-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(7, 7, 7, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--kult-border);
+    }
+    .kult-nav-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .kult-brand {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .kult-brand span { color: var(--kult-yellow); }
+    .kult-nav-links { display: flex; gap: 28px; }
+    .kult-nav-links a {
+      color: #a3a3a3;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .kult-nav-links a.active { color: var(--kult-yellow); }
+
+    /* Catalog Layout */
+    .catalog-wrap {
+      max-width: 1360px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .catalog-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .catalog-header h1 {
+      font-family: var(--font-display);
+      font-size: 42px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* Grid */
+    .drop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+    }
+    .drop-card {
+      background: var(--kult-card);
+      border: 1px solid var(--kult-border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .drop-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--kult-yellow);
+      box-shadow: 0 16px 32px rgba(250, 204, 21, 0.1);
+    }
+    .drop-img { height: 380px; width: 100%; object-fit: cover; }
+    .drop-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+    .drop-gsm {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--kult-yellow);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .drop-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+    .drop-price { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 14px; }
+    .btn-view-drop {
+      margin-top: auto;
+      background: #1e1e1e;
+      border: 1px solid var(--kult-border);
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 2px;
+    }
+    .drop-card:hover .btn-view-drop { background: var(--kult-yellow); color: #000; border-color: var(--kult-yellow); }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Kult Streetwear — Drops Catalog</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="kult-nav">
+    <div class="kult-nav-wrap">
+      <a href="index.html" class="kult-brand">KULT <span>CLOTHING</span></a>
+      <nav class="kult-nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html" class="active">Drops Catalog</a>
+        <a href="product.html?id=cyber-tee">Oversized Tees</a>
+      </nav>
+      <a href="checkout.html" style="background:var(--kult-yellow); color:#000; padding:8px 18px; border-radius:2px; font-family:var(--font-display); font-size:13px; font-weight:700; text-decoration:none; text-transform:uppercase;">Bag (1) ⚡</a>
+    </div>
+  </header>
+
+  <!-- Catalog Main -->
+  <main class="catalog-wrap">
+    <div class="catalog-header">
+      <h1>All Vault Drops</h1>
+      <p style="color:#a3a3a3;">Strictly limited stock. Pre-shrunk French terry 280 GSM.</p>
+    </div>
+
+    <div class="drop-grid">
+      <!-- 1 -->
+      <a href="product.html?id=cyber-tee" class="drop-card">
+        <img src="../../images/streetwear/item1.jpg" alt="Cyber Tee" class="drop-img">
+        <div class="drop-body">
+          <span class="drop-gsm">280 GSM 100% FRENCH TERRY</span>
+          <h3 class="drop-title">Acid Tokyo Oversized Boxy Tee</h3>
+          <div class="drop-price">₹1,499</div>
+          <div class="btn-view-drop">Select Size & Fit ➔</div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product.html?id=acid-hoodie" class="drop-card">
+        <img src="../../images/streetwear/item2.jpg" alt="Acid Hoodie" class="drop-img">
+        <div class="drop-body">
+          <span class="drop-gsm">400 GSM FLEECE • DOUBLE HOOD</span>
+          <h3 class="drop-title">Rebel Y2K Acid Washed Hoodie</h3>
+          <div class="drop-price">₹2,899</div>
+          <div class="btn-view-drop">Select Size & Fit ➔</div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product.html?id=cargo-pants" class="drop-card">
+        <img src="../../images/streetwear/item3.jpg" alt="Parachute Cargo" class="drop-img">
+        <div class="drop-body">
+          <span class="drop-gsm">RIPSTOP NYLON • 8 POCKETS</span>
+          <h3 class="drop-title">Cyber Parachute Tactical Cargoes</h3>
+          <div class="drop-price">₹2,499</div>
+          <div class="btn-view-drop">Select Size & Fit ➔</div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>

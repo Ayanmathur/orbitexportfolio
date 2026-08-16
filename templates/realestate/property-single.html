@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Home Loan EMI Calculator & Cab Visit — Greenfield Heights</title>
+  <meta name="description" content="Calculate your monthly home loan EMI across leading banks (HDFC, SBI, ICICI) and schedule a complimentary AC cab site visit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --real-forest: #044e3a;
+      --real-emerald: #10b981;
+      --real-dark: #071c14;
+      --real-panel: #0d291e;
+      --real-border: rgba(16, 185, 129, 0.22);
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--real-dark);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .real-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(7, 28, 20, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--real-border);
+    }
+    .real-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .real-brand { font-family: var(--font-display); font-size: 24px; font-weight: 800; color: #fff; }
+    .real-brand span { color: var(--real-emerald); }
+    .real-nav-links { display: flex; gap: 32px; font-size: 13.5px; }
+    .real-nav-links a { color: #94a3b8; text-transform: uppercase; }
+    .real-nav-links a.active { color: var(--real-emerald); }
+
+    /* Main Container */
+    .calc-container {
+      max-width: 1240px;
+      margin: 40px auto 90px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Left EMI Tool */
+    .calc-box {
+      background: var(--real-panel);
+      border: 1px solid var(--real-border);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .calc-title { font-family: var(--font-display); font-size: 26px; color: #fff; margin-bottom: 8px; }
+    
+    .slider-group { margin-bottom: 28px; }
+    .slider-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; font-weight: 600; color: #cbd5e1; }
+    .slider-val { font-family: var(--font-mono); font-weight: 700; color: var(--real-emerald); font-size: 16px; }
+    input[type=range] {
+      width: 100%; height: 8px; border-radius: 4px;
+      background: #071c14; accent-color: var(--real-emerald); cursor: pointer;
+    }
+
+    .emi-summary-box {
+      background: #071c14; border: 1px solid var(--real-border); border-radius: 8px;
+      padding: 24px; text-align: center; margin: 28px 0;
+    }
+    .emi-amount { font-family: var(--font-mono); font-size: 38px; font-weight: 800; color: var(--real-emerald); margin: 6px 0; }
+
+    /* Multi-Bank Preset Table */
+    .bank-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 13px; }
+    .bank-table th { text-align: left; padding: 10px; color: #94a3b8; border-bottom: 1px solid var(--real-border); text-transform: uppercase; font-size: 11px; }
+    .bank-table td { padding: 12px 10px; border-bottom: 1px solid rgba(16,185,129,0.1); }
+    .bank-table tr:last-child td { border-bottom: none; }
+
+    /* Right Cab Scheduler */
+    .cab-box {
+      background: var(--real-panel);
+      border: 1px solid var(--real-border);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .cab-title { font-family: var(--font-display); font-size: 24px; color: #fff; margin-bottom: 8px; }
+    .cab-field { margin-bottom: 18px; }
+    .cab-field label { display: block; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 6px; }
+    .cab-field input, .cab-field select {
+      width: 100%; padding: 12px 16px; background: #071c14; border: 1px solid var(--real-border);
+      border-radius: 4px; color: #fff; font-family: inherit; font-size: 14px;
+    }
+    .btn-book-cab {
+      background: var(--real-emerald); color: #000; width: 100%; padding: 16px;
+      font-family: var(--font-display); font-weight: 800; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer;
+    }
+
+    @media (max-width: 860px) {
+      .calc-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Greenfield Heights — Smart EMI & AC Cab Scheduler</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="real-nav">
+    <div class="real-nav-wrap">
+      <a href="index.html" class="real-brand">GREENFIELD <span>HEIGHTS</span></a>
+      <nav class="real-nav-links">
+        <a href="index.html">Overview</a>
+        <a href="properties.html">Residences</a>
+        <a href="property-single.html" class="active">EMI Calculator & Cab</a>
+      </nav>
+      <a href="properties.html" style="border:1px solid var(--real-emerald); color:var(--real-emerald); padding:8px 16px; font-weight:700; font-size:12px; border-radius:4px; text-transform:uppercase;">Floorplans (₹)</a>
+    </div>
+  </header>
+
+  <main class="calc-container">
+    <!-- Left EMI Calculator -->
+    <div class="calc-box">
+      <h1 class="calc-title">Smart Multi-Bank EMI Calculator</h1>
+      <p style="color:#94a3b8; font-size:13.5px; margin-bottom:28px;">Estimate your monthly mortgage payments with live approved bank interest rates.</p>
+
+      <!-- Slider 1: Loan Amount -->
+      <div class="slider-group">
+        <div class="slider-header">
+          <span>Loan Amount (₹)</span>
+          <span class="slider-val" id="amtDisplay">₹ 2,00,00,000 (2.0 Cr)</span>
+        </div>
+        <input type="range" id="loanAmount" min="5000000" max="60000000" step="500000" value="20000000" oninput="calculateEMI()">
+      </div>
+
+      <!-- Slider 2: Interest Rate -->
+      <div class="slider-group">
+        <div class="slider-header">
+          <span>Interest Rate (% P.A.)</span>
+          <span class="slider-val" id="rateDisplay">8.50 %</span>
+        </div>
+        <input type="range" id="interestRate" min="7.5" max="11.0" step="0.05" value="8.50" oninput="calculateEMI()">
+      </div>
+
+      <!-- Slider 3: Tenure -->
+      <div class="slider-group">
+        <div class="slider-header">
+          <span>Loan Tenure (Years)</span>
+          <span class="slider-val" id="tenureDisplay">20 Years</span>
+        </div>
+        <input type="range" id="loanTenure" min="5" max="30" step="1" value="20" oninput="calculateEMI()">
+      </div>
+
+      <!-- Calculated Monthly EMI Output -->
+      <div class="emi-summary-box">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; color:#94a3b8;">Estimated Monthly EMI:</div>
+        <div class="emi-amount" id="emiOutput">₹ 1,73,563</div>
+        <div style="font-size:12.5px; color:#cbd5e1;" id="totalInterestOutput">Total Interest: ₹ 2.16 Cr | Total Payable: ₹ 4.16 Cr</div>
+      </div>
+
+      <!-- Multi-Bank Rate Comparison Table -->
+      <table class="bank-table">
+        <thead>
+          <tr>
+            <th>Approved Bank</th>
+            <th>Special Repo Rate</th>
+            <th>Monthly EMI (20 Yrs)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>HDFC Bank</b></td>
+            <td>8.40%</td>
+            <td id="hdfcEmi" style="font-family:var(--font-mono); color:var(--real-emerald);">₹ 1,72,279</td>
+          </tr>
+          <tr>
+            <td><b>State Bank of India (SBI)</b></td>
+            <td>8.50%</td>
+            <td id="sbiEmi" style="font-family:var(--font-mono); color:var(--real-emerald);">₹ 1,73,563</td>
+          </tr>
+          <tr>
+            <td><b>ICICI Bank</b></td>
+            <td>8.60%</td>
+            <td id="iciciEmi" style="font-family:var(--font-mono); color:var(--real-emerald);">₹ 1,74,853</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right Complimentary Cab Scheduler -->
+    <div class="cab-box">
+      <h2 class="cab-title">Book Complimentary AC Cab Site Visit</h2>
+      <p style="color:#94a3b8; font-size:13.5px; margin-bottom:24px;">Our chauffeur will pick you up and drop you back at your residence.</p>
+
+      <form onsubmit="handleCabBooking(event)">
+        <div class="cab-field">
+          <label>Full Name</label>
+          <input type="text" id="cabName" required placeholder="e.g. Vikramaditya Singhania">
+        </div>
+        <div class="cab-field">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" id="cabPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="cab-field">
+          <label>Doorstep Pickup Address</label>
+          <input type="text" id="cabAddress" required placeholder="e.g. Tower 4, Sovereign Enclave">
+        </div>
+        <div class="cab-field">
+          <label>Preferred Visit Date & Time</label>
+          <input type="datetime-local" id="cabDateTime" required>
+        </div>
+        <div class="cab-field">
+          <label>Residence Configuration of Interest</label>
+          <select id="cabUnit">
+            <option>3 BHK Grand Emerald (₹2.45 Cr)</option>
+            <option>4 BHK Royal Imperial (₹3.80 Cr)</option>
+            <option>Duplex Sky Penthouse (₹6.50 Cr)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-book-cab">Confirm Doorstep AC Cab 🚗</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function calculateEMI() {
+      const P = parseFloat(document.getElementById('loanAmount').value);
+      const r_annual = parseFloat(document.getElementById('interestRate').value);
+      const n_years = parseFloat(document.getElementById('loanTenure').value);
+
+      document.getElementById('amtDisplay').textContent = '₹ ' + (P >= 10000000 ? (P/10000000).toFixed(2) + ' Cr' : (P/100000).toFixed(2) + ' Lakh');
+      document.getElementById('rateDisplay').textContent = r_annual.toFixed(2) + ' %';
+      document.getElementById('tenureDisplay').textContent = n_years + ' Years';
+
+      const computeSingle = (rate) => {
+        const r = rate / 12 / 100;
+        const n = n_years * 12;
+        return Math.round(P * r * (Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+      };
+
+      const emi = computeSingle(r_annual);
+      const totalPayable = emi * (n_years * 12);
+      const totalInterest = totalPayable - P;
+
+      document.getElementById('emiOutput').textContent = '₹ ' + emi.toLocaleString('en-IN');
+      document.getElementById('totalInterestOutput').textContent = `Total Interest: ₹ ${(totalInterest/10000000).toFixed(2)} Cr | Total Payable: ₹ ${(totalPayable/10000000).toFixed(2)} Cr`;
+
+      document.getElementById('hdfcEmi').textContent = '₹ ' + computeSingle(8.40).toLocaleString('en-IN');
+      document.getElementById('sbiEmi').textContent = '₹ ' + computeSingle(8.50).toLocaleString('en-IN');
+      document.getElementById('iciciEmi').textContent = '₹ ' + computeSingle(8.60).toLocaleString('en-IN');
+    }
+
+    function handleCabBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('cabName').value;
+      const phone = document.getElementById('cabPhone').value;
+      const addr = document.getElementById('cabAddress').value;
+      const dt = document.getElementById('cabDateTime').value;
+      const unit = document.getElementById('cabUnit').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Complimentary AC Cab Visit Requested! Opening Concierge...');
+      const msg = encodeURIComponent(`Hi Greenfield Heights! I would like to book an AC Cab Site Visit.\nUnit: ${unit}\nDate & Time: ${dt}\nPickup Address: ${addr}\nName: ${name}\nPhone: ${phone}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 600);
+    }
+
+    calculateEMI();
+  </script>
+</body>
+</html>

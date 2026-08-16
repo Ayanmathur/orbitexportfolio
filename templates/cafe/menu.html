@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Trattoria Menu — Linguini & Leaf</title>
+  <meta name="description" content="Explore handcrafted Neapolitan pizzas, artisanal egg pastas, and Italian desserts with live takeaway ordering.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --flame: #E8420A;
+      --gold: #F5A800;
+      --dark: #1A1202;
+      --cream: #FFFDF7;
+      --border: #E8E0D0;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .bistro-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(255, 253, 247, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .bistro-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .bistro-brand { font-family: var(--font-display); font-size: 30px; letter-spacing: 1px; color: var(--flame); }
+    .bistro-brand span { color: var(--dark); }
+    .bistro-nav-links { display: flex; gap: 28px; }
+    .bistro-nav-links a { color: var(--dark); font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    .bistro-nav-links a.active { color: var(--flame); }
+
+    /* Menu Layout */
+    .menu-layout {
+      max-width: 1200px;
+      margin: 40px auto 100px;
+      padding: 0 24px;
+    }
+    .menu-header { text-align: center; margin-bottom: 40px; }
+    .menu-header h1 { font-family: var(--font-display); font-size: 52px; letter-spacing: 1px; color: var(--dark); }
+
+    /* Course Filter Bar */
+    .course-bar {
+      display: flex; justify-content: center; gap: 12px; margin-bottom: 36px; flex-wrap: wrap;
+    }
+    .course-btn {
+      background: #fff; border: 1px solid var(--border); padding: 10px 22px; border-radius: 50px;
+      font-weight: 700; font-size: 13.5px; cursor: pointer; transition: all 0.2s;
+    }
+    .course-btn.active, .course-btn:hover { background: var(--flame); color: #fff; border-color: var(--flame); }
+
+    /* Dishes List */
+    .dishes-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;
+    }
+    .dish-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .dish-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .dish-name { font-family: var(--font-serif); font-size: 19px; font-weight: 700; color: var(--dark); }
+    .dish-price { font-size: 20px; font-weight: 800; color: var(--flame); }
+    .dish-desc { font-size: 13.5px; color: #666; margin-bottom: 16px; }
+    .dish-foot { display: flex; justify-content: space-between; align-items: center; }
+    .veg-dot { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; }
+    .dot-v { width: 10px; height: 10px; border: 2px solid #22c55e; border-radius: 2px; position: relative; }
+    .dot-v::after { content: ''; width: 4px; height: 4px; background: #22c55e; border-radius: 50%; position: absolute; top: 1px; left: 1px; }
+
+    .btn-add-cart {
+      background: var(--dark); color: #fff; border: none; padding: 8px 18px; border-radius: 4px;
+      font-weight: 700; font-size: 13px; cursor: pointer; transition: background 0.2s;
+    }
+    .btn-add-cart:hover { background: var(--flame); }
+
+    /* Floating Cart Drawer */
+    .cart-drawer-bar {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--dark); color: #fff; padding: 14px 32px; border-radius: 50px;
+      display: flex; align-items: center; gap: 30px; z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-checkout-live {
+      background: var(--flame); color: #fff; padding: 8px 20px; border-radius: 50px;
+      font-weight: 700; font-size: 13px; text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Linguini & Leaf — Digital Trattoria Menu</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="bistro-nav">
+    <div class="bistro-nav-wrap">
+      <a href="index.html" class="bistro-brand">LINGUINI <span>& LEAF</span></a>
+      <nav class="bistro-nav-links">
+        <a href="index.html">Trattoria</a>
+        <a href="menu.html" class="active">Digital Menu</a>
+        <a href="reserve.html">Reserve Table</a>
+      </nav>
+      <a href="reserve.html" style="background:var(--flame); color:#fff; padding:8px 18px; border-radius:4px; font-weight:700; font-size:13px;">Book Table 🍷</a>
+    </div>
+  </header>
+
+  <main class="menu-layout">
+    <div class="menu-header">
+      <span style="font-size:12px; font-weight:800; color:var(--flame); letter-spacing:2px; text-transform:uppercase;">Handcrafted Daily</span>
+      <h1>Wood-Fired Trattoria Menu</h1>
+      <p style="color:#666;">Prepared with imported Italian flours, San Marzano tomatoes, and fresh burrata.</p>
+    </div>
+
+    <!-- Course Filter -->
+    <div class="course-bar">
+      <button class="course-btn active">🍕 Wood-Fired Pizza</button>
+      <button class="course-btn">🍝 Handmade Pastas</button>
+      <button class="course-btn">🥗 Antipasti & Salads</button>
+      <button class="course-btn">🍮 Italian Dolci</button>
+    </div>
+
+    <!-- Dishes Grid -->
+    <div class="dishes-grid">
+      <!-- 1 -->
+      <div class="dish-card">
+        <div>
+          <div class="dish-head">
+            <h3 class="dish-name">Margherita D.O.P. Burrata</h3>
+            <div class="dish-price">₹680</div>
+          </div>
+          <p class="dish-desc">48-hour fermented leopard-crust sourdough, whole fresh burrata, San Marzano sauce, fresh sweet basil.</p>
+        </div>
+        <div class="dish-foot">
+          <div class="veg-dot"><span class="dot-v"></span> Pure Veg</div>
+          <button onclick="addToOrder('Margherita Burrata Pizza', 680)" class="btn-add-cart">+ Add to Order</button>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="dish-card">
+        <div>
+          <div class="dish-head">
+            <h3 class="dish-name">Wild Mushroom Truffle Tagliatelle</h3>
+            <div class="dish-price">₹720</div>
+          </div>
+          <p class="dish-desc">Hand-rolled egg yolk ribbons, porcini mushroom ragù, black truffle oil, 24-month aged Parmigiano Reggiano.</p>
+        </div>
+        <div class="dish-foot">
+          <div class="veg-dot"><span class="dot-v"></span> Pure Veg</div>
+          <button onclick="addToOrder('Truffle Tagliatelle', 720)" class="btn-add-cart">+ Add to Order</button>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="dish-card">
+        <div>
+          <div class="dish-head">
+            <h3 class="dish-name">Quattro Formaggi Bianca</h3>
+            <div class="dish-price">₹740</div>
+          </div>
+          <p class="dish-desc">White garlic herb base, gorgonzola, smoked provolone, fontina, mozzarella, and chili-infused organic honey.</p>
+        </div>
+        <div class="dish-foot">
+          <div class="veg-dot"><span class="dot-v"></span> Pure Veg</div>
+          <button onclick="addToOrder('Quattro Formaggi', 740)" class="btn-add-cart">+ Add to Order</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Live Bill Bar -->
+  <div class="cart-drawer-bar" id="liveCartBar" style="display:none;">
+    <div>Items in Order: <b id="cartCount">0</b> | Subtotal: <b id="cartTotal" style="color:var(--gold);">₹0</b></div>
+    <a href="order.html" class="btn-checkout-live">Proceed to Takeaway Bill ➔</a>
+  </div>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    let count = 0;
+    let total = 0;
+    function addToOrder(name, price) {
+      count++;
+      total += price;
+      document.getElementById('liveCartBar').style.display = 'flex';
+      document.getElementById('cartCount').textContent = count;
+      document.getElementById('cartTotal').textContent = '₹' + total;
+      if (window.OrbitexToast) OrbitexToast.success(`Added "${name}" to your trattoria bill!`);
+    }
+  </script>
+</body>
+</html>

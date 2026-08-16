@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPF Warranty Certificate & Bay Slot Booking — Apex AutoCare</title>
+  <meta name="description" content="Register your 10-Year TPU Self-Healing PPF warranty certificate and schedule your studio bay inspection slot.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --auto-red: #e11d48;
+      --auto-cyan: #38bdf8;
+      --auto-dark: #090a0f;
+      --auto-panel: #13161f;
+      --auto-border: #222736;
+      --font-display: 'Montserrat', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--auto-dark);
+      color: #f1f5f9;
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .auto-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(9, 10, 15, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--auto-border);
+    }
+    .auto-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .auto-brand { font-family: var(--font-display); font-size: 24px; font-weight: 900; letter-spacing: 1px; color: #fff; }
+    .auto-brand span { color: var(--auto-red); }
+    .auto-nav-links { display: flex; gap: 32px; font-family: var(--font-display); font-size: 13px; font-weight: 800; text-transform: uppercase; }
+    .auto-nav-links a { color: #94a3b8; }
+    .auto-nav-links a.active { color: var(--auto-cyan); }
+
+    /* Main Container */
+    .booking-container {
+      max-width: 1200px;
+      margin: 40px auto 90px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Left Inspection Form */
+    .form-box {
+      background: var(--auto-panel);
+      border: 1px solid var(--auto-border);
+      border-radius: 8px;
+      padding: 36px;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.05);
+    }
+    .form-title { font-family: var(--font-display); font-size: 26px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; color: #fff; }
+    
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+    .field-full { margin-bottom: 18px; }
+    .field-label { display: block; font-family: var(--font-display); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 6px; }
+    .auto-input {
+      width: 100%; padding: 12px 14px; background: #090a0f; border: 1px solid var(--auto-border);
+      border-radius: 4px; color: #fff; font-family: inherit; font-size: 14px;
+    }
+    .auto-input:focus { outline: none; border-color: var(--auto-cyan); box-shadow: 0 0 10px rgba(56,189,248,0.2); }
+
+    /* Right PPF Certificate Card */
+    .cert-box {
+      background: linear-gradient(135deg, #0c1017 0%, #161c28 100%);
+      border: 2px solid var(--auto-cyan);
+      border-radius: 8px;
+      padding: 36px;
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+      position: relative;
+    }
+    .cert-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+    .cert-badge { background: var(--auto-cyan); color: #000; font-family: var(--font-mono); font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 2px; }
+    .cert-val { font-family: var(--font-mono); font-size: 14px; color: var(--auto-cyan); font-weight: 700; }
+
+    .btn-submit-booking {
+      background: var(--auto-red); color: #fff; width: 100%; padding: 16px;
+      font-family: var(--font-display); font-weight: 900; font-size: 14px;
+      letter-spacing: 1.5px; text-transform: uppercase; border: none; border-radius: 4px;
+      cursor: pointer; margin-top: 10px; box-shadow: 0 0 15px rgba(225,29,72,0.4);
+    }
+
+    @media (max-width: 860px) {
+      .booking-container { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Apex AutoCare — Bay Slot & Warranty Registration</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="auto-nav">
+    <div class="auto-nav-wrap">
+      <a href="index.html" class="auto-brand">APEX <span>AUTOCARE</span></a>
+      <nav class="auto-nav-links">
+        <a href="index.html">Studio Bay</a>
+        <a href="services.html">Segment Price Matrix</a>
+        <a href="book.html" class="active">Slot & Warranty</a>
+      </nav>
+      <a href="services.html" style="border:1px solid var(--auto-cyan); color:var(--auto-cyan); padding:8px 16px; font-family:var(--font-display); font-size:12px; font-weight:800; text-transform:uppercase;">Price Switcher (₹)</a>
+    </div>
+  </header>
+
+  <main class="booking-container">
+    <!-- Left Form -->
+    <div class="form-box">
+      <h1 class="form-title">Book Detailing Bay Slot</h1>
+      <p style="color:#94a3b8; font-size:13.5px; margin-bottom:24px;">Includes complimentary 12-point digital ultrasonic paint depth report and decontamination wash.</p>
+
+      <form onsubmit="handleBayBooking(event)">
+        <div class="field-row">
+          <div>
+            <label class="field-label">Vehicle Registration No.</label>
+            <input type="text" id="vehReg" required class="auto-input" placeholder="e.g. MH 31 EQ 8899" oninput="updateCertReg(this.value)">
+          </div>
+          <div>
+            <label class="field-label">Vehicle Make & Model</label>
+            <input type="text" id="vehModel" required class="auto-input" placeholder="e.g. BMW M340i / Fortuner" oninput="updateCertModel(this.value)">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div>
+            <label class="field-label">Full Name</label>
+            <input type="text" id="ownerName" required class="auto-input" placeholder="e.g. Sameer Deshmukh" oninput="updateCertName(this.value)">
+          </div>
+          <div>
+            <label class="field-label">WhatsApp Contact</label>
+            <input type="tel" id="ownerPhone" required class="auto-input" placeholder="+91 98765 43210">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div>
+            <label class="field-label">Desired Service Package</label>
+            <select id="servicePkg" class="auto-input" onchange="updateCertPkg(this.value)">
+              <option value="10-Year Self-Healing TPU Paint Protection Film (PPF)">10-Yr TPU Self-Healing PPF</option>
+              <option value="5-Year 9H Graphene Ceramic Glass Shield">5-Yr 9H Graphene Ceramic Shield</option>
+              <option value="3-Stage Multi-Cut Swirl Paint Correction">3-Stage Swirl Paint Correction</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Preferred Bay Inspection Date</label>
+            <input type="date" id="bayDate" required class="auto-input">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit-booking">Generate Warranty Certificate & Book Bay Slot ➔</button>
+      </form>
+    </div>
+
+    <!-- Right Live Generated PPF Warranty Certificate -->
+    <div class="cert-box">
+      <div class="cert-header">
+        <div>
+          <div style="font-family:var(--font-display); font-size:18px; font-weight:900; color:#fff; letter-spacing:1px;">APEX DIGITAL WARRANTY CERTIFICATE</div>
+          <div style="font-size:12px; color:#94a3b8;">100% Optical Clarity & Hydrophobic Shield</div>
+        </div>
+        <span class="cert-badge">VERIFIED QR</span>
+      </div>
+
+      <div style="background:#090a0f; border:1px solid var(--auto-border); padding:20px; border-radius:6px; margin-bottom:20px;">
+        <div style="font-size:11px; font-weight:800; text-transform:uppercase; color:#94a3b8; margin-bottom:4px;">Unique Certificate Serial:</div>
+        <div class="cert-val" id="certSerial">CERT-PPF-90241-APEX</div>
+      </div>
+
+      <div style="font-size:13px; color:#cbd5e1; line-height:1.8;">
+        <div><b>Registered Owner:</b> <span id="certOwnerDisplay" style="color:#fff;">Sameer Deshmukh</span></div>
+        <div><b>Vehicle Reg:</b> <span id="certRegDisplay" style="color:var(--auto-cyan);">MH 31 EQ 8899</span></div>
+        <div><b>Vehicle Model:</b> <span id="certModelDisplay" style="color:#fff;">BMW M340i</span></div>
+        <div><b>Coverage Package:</b> <span id="certPkgDisplay" style="color:#fff;">10-Year Self-Healing TPU PPF</span></div>
+        <div><b>Warranty Term:</b> <span style="color:#22c55e; font-weight:700;">10 Years (Non-Yellowing / Anti-Crack)</span></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function updateCertReg(val) { document.getElementById('certRegDisplay').textContent = val.toUpperCase() || "MH 31 EQ 8899"; }
+    function updateCertModel(val) { document.getElementById('certModelDisplay').textContent = val || "BMW M340i"; }
+    function updateCertName(val) { document.getElementById('certOwnerDisplay').textContent = val || "Sameer Deshmukh"; }
+    function updateCertPkg(val) { document.getElementById('certPkgDisplay').textContent = val; }
+
+    function handleBayBooking(e) {
+      e.preventDefault();
+      const reg = document.getElementById('vehReg').value;
+      const model = document.getElementById('vehModel').value;
+      const name = document.getElementById('ownerName').value;
+      const phone = document.getElementById('ownerPhone').value;
+      const pkg = document.getElementById('servicePkg').value;
+      const dt = document.getElementById('bayDate').value;
+      const serial = document.getElementById('certSerial').textContent;
+
+      if (window.OrbitexToast) OrbitexToast.success('Bay Slot & Warranty Issued! Opening WhatsApp...');
+      const msg = encodeURIComponent(`Hi Apex AutoCare! I have registered my vehicle for Detailing Bay Inspection.\nSerial: ${serial}\nVehicle: ${model} (${reg})\nOwner: ${name}\nPackage: ${pkg}\nDate: ${dt}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 600);
+    }
+  </script>
+</body>
+</html>

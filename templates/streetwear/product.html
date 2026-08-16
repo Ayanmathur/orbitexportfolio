@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acid Glitch Heavyweight Oversized Tee — KULT.LAB</title>
+  <meta name="description" content="280 GSM 100% comb-spun French terry cotton. Drop-shoulder boxy fit with acid fade wash.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --kult-black: #060606;
+      --kult-yellow: #facc15;
+      --kult-panel: #121212;
+      --kult-border: #262626;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--kult-black);
+      color: #fafafa;
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Navbar */
+    .kult-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(6, 6, 6, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--kult-border);
+    }
+    .kult-nav-wrap {
+      max-width: 1300px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .kult-brand { font-family: var(--font-display); font-size: 26px; font-weight: 700; letter-spacing: 3px; }
+    .kult-brand span { color: var(--kult-yellow); }
+    .kult-nav-links { display: flex; gap: 32px; font-family: var(--font-mono); font-size: 12.5px; }
+    .kult-nav-links a { color: #888; text-transform: uppercase; }
+    .kult-nav-links a.active { color: var(--kult-yellow); }
+
+    /* Main Container */
+    .pdp-wrap {
+      max-width: 1200px;
+      margin: 40px auto 90px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .pdp-img-box img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--kult-border);
+    }
+
+    .pdp-info {
+      background: var(--kult-panel);
+      border: 1px solid var(--kult-border);
+      padding: 36px;
+      border-radius: 4px;
+    }
+
+    .pdp-tag {
+      font-family: var(--font-mono); font-size: 11px; color: var(--kult-yellow);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; display: block;
+    }
+    .pdp-title { font-family: var(--font-display); font-size: 32px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+    .pdp-price { font-family: var(--font-mono); font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 24px; }
+
+    /* Size Selector */
+    .size-title { font-family: var(--font-mono); font-size: 12px; color: #888; text-transform: uppercase; margin-bottom: 10px; }
+    .size-pills { display: flex; gap: 10px; margin-bottom: 24px; }
+    .size-pill {
+      background: #000; border: 1px solid var(--kult-border); color: #fff;
+      padding: 12px 20px; font-family: var(--font-mono); font-weight: 800; font-size: 13px;
+      cursor: pointer; border-radius: 2px;
+    }
+    .size-pill.active, .size-pill:hover { background: var(--kult-yellow); color: #000; border-color: var(--kult-yellow); }
+
+    /* Interactive Size Recommender */
+    .fit-helper {
+      background: #090909; border: 1px dashed var(--kult-border); padding: 16px;
+      border-radius: 4px; margin-bottom: 26px; font-size: 12.5px;
+    }
+    .fit-helper b { color: var(--kult-yellow); font-family: var(--font-mono); }
+
+    .btn-cop-action {
+      background: var(--kult-yellow); color: #000; width: 100%; padding: 18px;
+      font-family: var(--font-mono); font-weight: 900; font-size: 15px;
+      letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer;
+    }
+
+    @media (max-width: 860px) {
+      .pdp-wrap { grid-template-columns: 1fr; }
+      .pdp-img-box img { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>KULT — Product Detail Page & Fit Recommender</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="kult-nav">
+    <div class="kult-nav-wrap">
+      <a href="index.html" class="kult-brand">KULT<span>.LAB</span></a>
+      <nav class="kult-nav-links">
+        <a href="index.html">Vault</a>
+        <a href="catalog.html">Drops</a>
+        <a href="product.html" class="active">Boxy Fit PDP</a>
+      </nav>
+      <a href="checkout.html" style="background:var(--kult-yellow); color:#000; padding:8px 16px; font-family:var(--font-mono); font-weight:800; font-size:12px; text-transform:uppercase;">Fast Cop 🛒</a>
+    </div>
+  </header>
+
+  <main class="pdp-wrap">
+    <div class="pdp-img-box">
+      <img src="../../images/streetwear/item1.jpg" alt="Acid Glitch Oversized Tee">
+    </div>
+
+    <div class="pdp-info">
+      <span class="pdp-tag">Vault Drop 04 // 280 GSM Heavyweight</span>
+      <h1 class="pdp-title">Acid Glitch Oversized Heavy Tee</h1>
+      <div class="pdp-price">₹2,199 <span style="font-size:12px; color:#888; font-family:var(--font-body);">incl. all taxes & free shipping</span></div>
+
+      <!-- Size Selector -->
+      <div class="size-title">Select Boxy Fit Size:</div>
+      <div class="size-pills">
+        <div class="size-pill" onclick="selectSize('S', this)">S (38")</div>
+        <div class="size-pill active" onclick="selectSize('M', this)">M (42")</div>
+        <div class="size-pill" onclick="selectSize('L', this)">L (46")</div>
+        <div class="size-pill" onclick="selectSize('XL', this)">XL (50")</div>
+      </div>
+
+      <!-- Fit Recommender -->
+      <div class="fit-helper">
+        📏 <b>Fit Recommendation:</b> Model is 5'11" (74kg) wearing size <b>M</b> for an authentic drop-shoulder oversized boxy drape. Pick your true size for relaxed boxy; size up for extreme skate fit.
+      </div>
+
+      <button onclick="copNow()" class="btn-cop-action">⚡ 1-Click Fast Cop (₹2,199)</button>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    let currentSize = 'M';
+    function selectSize(sz, el) {
+      document.querySelectorAll('.size-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      currentSize = sz;
+    }
+
+    function copNow() {
+      if (window.OrbitexToast) OrbitexToast.success(`Size ${currentSize} selected! Redirecting to fast 1-page drop checkout...`);
+      setTimeout(() => {
+        window.location.href = `checkout.html?size=${currentSize}`;
+      }, 600);
+    }
+  </script>
+</body>
+</html>

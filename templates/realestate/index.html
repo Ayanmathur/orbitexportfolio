@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenfield Heights — Luxury Residential Sanctuary & Villas</title>
+  <meta name="description" content="RERA-approved luxury 3 & 4 BHK residences with private sky decks, 40+ lifestyle amenities, and complimentary AC cab site visits.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --real-forest: #044e3a;
+      --real-emerald: #10b981;
+      --real-dark: #071c14;
+      --real-panel: #0d291e;
+      --real-border: rgba(16, 185, 129, 0.22);
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--real-dark);
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Top RERA Strip */
+    .rera-bar {
+      background: #022319;
+      border-bottom: 1px solid var(--real-border);
+      padding: 9px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--real-emerald);
+    }
+
+    /* Navbar */
+    .real-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(7, 28, 20, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--real-border);
+    }
+    .real-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .real-brand { font-family: var(--font-display); font-size: 24px; font-weight: 800; color: #fff; letter-spacing: 1px; }
+    .real-brand span { color: var(--real-emerald); }
+    .real-nav-links { display: flex; gap: 32px; font-size: 13.5px; font-weight: 600; }
+    .real-nav-links a { color: #94a3b8; text-transform: uppercase; }
+    .real-nav-links a.active { color: var(--real-emerald); }
+    .btn-real-nav {
+      background: var(--real-emerald); color: #000; padding: 8px 18px;
+      font-weight: 700; font-size: 12.5px; border-radius: 4px; text-transform: uppercase;
+    }
+
+    /* Hero */
+    .real-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(7,28,20,0.96) 0%, rgba(7,28,20,0.4) 100%),
+                  url('../../images/realestate/hero.jpg') center/cover no-repeat;
+      padding: 60px 24px;
+    }
+    .real-hero-wrap { max-width: 1280px; margin: 0 auto; width: 100%; }
+    .real-hero-content { max-width: 680px; }
+    .real-badge {
+      display: inline-block; background: rgba(16,185,129,0.15); border: 1px solid var(--real-emerald);
+      color: var(--real-emerald); padding: 6px 14px; font-family: var(--font-mono);
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .real-hero h1 {
+      font-family: var(--font-display); font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.1; color: #fff; margin-bottom: 18px;
+    }
+    .real-hero h1 span { color: var(--real-emerald); }
+    .real-hero p { font-size: 16.5px; color: #cbd5e1; margin-bottom: 34px; line-height: 1.7; }
+    .real-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-real-primary {
+      background: var(--real-emerald); color: #000; padding: 15px 34px;
+      border-radius: 4px; font-family: var(--font-display); font-weight: 800; font-size: 14px; text-transform: uppercase;
+    }
+    .btn-real-outline {
+      background: transparent; border: 1.5px solid var(--real-emerald); color: var(--real-emerald);
+      padding: 15px 28px; border-radius: 4px; font-family: var(--font-display); font-weight: 800; font-size: 14px; text-transform: uppercase;
+    }
+
+    /* Construction Milestone Tracker */
+    .milestone-section { max-width: 1280px; margin: 60px auto 40px; padding: 0 24px; }
+    .milestone-panel {
+      background: var(--real-panel); border: 1px solid var(--real-border);
+      border-radius: 12px; padding: 36px 30px;
+    }
+    .milestone-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+    .milestone-title { font-family: var(--font-display); font-size: 22px; color: #fff; }
+    .milestone-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative;
+    }
+    .milestone-step {
+      background: #071c14; border: 1px solid var(--real-border); border-radius: 8px;
+      padding: 18px 16px; text-align: center;
+    }
+    .milestone-step.done { border-color: var(--real-emerald); background: rgba(16, 185, 129, 0.08); }
+    .milestone-pct { font-family: var(--font-mono); font-size: 20px; font-weight: 700; color: var(--real-emerald); margin-bottom: 4px; }
+    .milestone-lbl { font-size: 12px; color: #cbd5e1; font-weight: 600; text-transform: uppercase; }
+
+    /* Properties Grid */
+    .prop-section { max-width: 1280px; margin: 80px auto; padding: 0 24px; }
+    .prop-head-center { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .prop-head-center h2 { font-family: var(--font-display); font-size: 38px; color: #fff; margin-bottom: 10px; }
+
+    .prop-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
+    }
+    .prop-card {
+      background: var(--real-panel); border: 1px solid var(--real-border);
+      border-radius: 8px; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .prop-img { height: 260px; width: 100%; object-fit: cover; }
+    .prop-body { padding: 26px; display: flex; flex-direction: column; flex: 1; }
+    .prop-tag { font-family: var(--font-mono); font-size: 11px; color: var(--real-emerald); margin-bottom: 6px; text-transform: uppercase; }
+    .prop-title { font-family: var(--font-display); font-size: 22px; color: #fff; margin-bottom: 8px; }
+    .prop-price { font-family: var(--font-mono); font-size: 24px; font-weight: 700; color: var(--real-emerald); margin-bottom: 14px; }
+    .btn-view-prop {
+      border: 1px solid var(--real-emerald); color: var(--real-emerald); padding: 12px;
+      font-family: var(--font-display); font-weight: 800; font-size: 13px; text-align: center;
+      text-transform: uppercase; border-radius: 4px; transition: all 0.2s;
+    }
+    .prop-card:hover .btn-view-prop { background: var(--real-emerald); color: #000; }
+
+    /* Footer */
+    footer.real-footer {
+      background: #022319; border-top: 1px solid var(--real-border);
+      color: #94a3b8; padding: 60px 24px 30px; font-size: 13.5px;
+    }
+    .real-footer-wrap {
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Greenfield Heights Luxury Residences</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- RERA Bar -->
+  <div class="rera-bar">
+    <div>🛡️ MAHARERA REGISTERED: <b>P51800049281</b> • 100% CLEAR TITLE LAND • ZERO GST ON READY UNITS</div>
+    <div>🚗 COMPLIMENTARY DOORSTEP AC CAB SITE VISITS</div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="real-nav">
+    <div class="real-nav-wrap">
+      <a href="index.html" class="real-brand">GREENFIELD <span>HEIGHTS</span></a>
+      <nav class="real-nav-links">
+        <a href="index.html" class="active">Overview</a>
+        <a href="properties.html">Residences & Floorplans</a>
+        <a href="property-single.html">EMI Calculator & Cab</a>
+      </nav>
+      <a href="property-single.html" class="btn-real-nav">Book Site Visit 🚗</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="real-hero">
+    <div class="real-hero-wrap">
+      <div class="real-hero-content">
+        <span class="real-badge">3 & 4 BHK Ultra-Luxury Sky Residences</span>
+        <h1>Sanctuary Above the Clouds in <span>Metro City</span></h1>
+        <p>Featuring 11-ft ceiling heights, expansive private sundecks, Italian marble finishes, and 45,000 sq.ft biophilic clubhouse overlooking central greens.</p>
+        <div class="real-hero-actions">
+          <a href="properties.html" class="btn-real-primary">View Master Floorplans (₹)</a>
+          <a href="property-single.html" class="btn-real-outline">Calculate Bank EMI & Cab Visit ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Construction Milestone Tracker Component -->
+  <section class="milestone-section">
+    <div class="milestone-panel">
+      <div class="milestone-head">
+        <div>
+          <h3 class="milestone-title">Construction Milestone & Possession Tracker</h3>
+          <p style="font-size:13px; color:#94a3b8;">Audited monthly by independent RERA compliance engineers.</p>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:13px; color:var(--real-emerald);">
+          <b>Target Possession:</b> December 2026 (On Schedule)
+        </div>
+      </div>
+
+      <div class="milestone-steps">
+        <div class="milestone-step done">
+          <div class="milestone-pct">100%</div>
+          <div class="milestone-lbl">Foundation & Piling</div>
+        </div>
+        <div class="milestone-step done">
+          <div class="milestone-pct">100%</div>
+          <div class="milestone-lbl">36-Floor RCC Structure</div>
+        </div>
+        <div class="milestone-step done">
+          <div class="milestone-pct">80%</div>
+          <div class="milestone-lbl">Brickwork & MEP</div>
+        </div>
+        <div class="milestone-step">
+          <div class="milestone-pct" style="color:#94a3b8;">45%</div>
+          <div class="milestone-lbl">Interior Finishing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Residences Grid -->
+  <section class="prop-section">
+    <div class="prop-head-center">
+      <span style="font-family:var(--font-mono); font-size:11px; color:var(--real-emerald); letter-spacing:2px;">[ EXCLUSIVE RESIDENCE TIERS ]</span>
+      <h2>Curated Sky Residences</h2>
+      <p style="color:#94a3b8;">Smart layouts with dedicated home office and separate staff quarters.</p>
+    </div>
+
+    <div class="prop-grid">
+      <!-- 1 -->
+      <div class="prop-card">
+        <img src="../../images/realestate/prop1.jpg" alt="3 BHK Residence" class="prop-img">
+        <div class="prop-body">
+          <span class="prop-tag">1,850 Sq.Ft RERA Carpet • 3 BHK + Deck</span>
+          <h3 class="prop-title">The Grand Emerald 3 BHK</h3>
+          <div class="prop-price">₹2.45 Cr <span style="font-size:13px; color:#94a3b8;">(All Incl.)</span></div>
+          <p style="font-size:13.5px; color:#94a3b8; margin-bottom:18px;">Double-height living room, master suite with walk-in wardrobe, and park-facing deck.</p>
+          <a href="property-single.html?unit=3bhk" class="btn-view-prop">Calculate EMI & Book Cab Visit ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="prop-card">
+        <img src="../../images/realestate/prop2.jpg" alt="4 BHK Sky Suite" class="prop-img">
+        <div class="prop-body">
+          <span class="prop-tag">2,650 Sq.Ft RERA Carpet • 4 BHK + Staff</span>
+          <h3 class="prop-title">The Royal Imperial 4 BHK</h3>
+          <div class="prop-price">₹3.80 Cr <span style="font-size:13px; color:#94a3b8;">(All Incl.)</span></div>
+          <p style="font-size:13.5px; color:#94a3b8; margin-bottom:18px;">Private elevator foyer, 360-degree panoramic city views, and Italian modular kitchen.</p>
+          <a href="property-single.html?unit=4bhk" class="btn-view-prop">Calculate EMI & Book Cab Visit ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="prop-card">
+        <img src="../../images/realestate/prop3.jpg" alt="Penthouse" class="prop-img">
+        <div class="prop-body">
+          <span class="prop-tag">4,200 Sq.Ft • Duplex Penthouse</span>
+          <h3 class="prop-title">The Crown Penthouse with Infinity Pool</h3>
+          <div class="prop-price">₹6.50 Cr <span style="font-size:13px; color:#94a3b8;">(All Incl.)</span></div>
+          <p style="font-size:13.5px; color:#94a3b8; margin-bottom:18px;">Private rooftop temperature-controlled plunge pool, personal elevator, and 5 suites.</p>
+          <a href="property-single.html?unit=penthouse" class="btn-view-prop">Calculate EMI & Book Cab Visit ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="real-footer">
+    <div class="real-footer-wrap">
+      <div>
+        <h4 style="color:#fff; font-family:var(--font-display); font-size:18px; margin-bottom:14px;">GREENFIELD HEIGHTS SANCTUARY</h4>
+        <p>Plot 88, Golf Course Extension Boulevard, Metro City 400010</p>
+        <p>Sales Gallery: +91 98765 43210</p>
+      </div>
+      <div>
+        <h4>Compliance</h4>
+        <p>MahaRERA: P51800049281</p>
+        <p>Approved by HDFC, SBI, ICICI, Axis Bank</p>
+      </div>
+    </div>
+    <div style="text-align:center; opacity:0.5; font-size:12px;">
+      © 2026 Greenfield Heights Sanctuary. Powered by Orbitex Production Suite.
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7-Day Rotating Homestyle Meal Wheel — Rasoi Ghar Tiffins</title>
+  <meta name="description" content="Rotating weekly lunch and dinner menu wheel. Fresh seasonal vegetables, slow-cooked dals, and pure whole wheat rotis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Georgia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --bg: #141009;
+      --panel: #201a11;
+      --card-bg: #272016;
+      --amber: #f97316;
+      --amber-glow: rgba(249, 115, 22, 0.25);
+      --gold: #e0a84a;
+      --gold-light: #fcd34d;
+      --cream: #fff9f0;
+      --muted: #a89f91;
+      --line: rgba(224, 168, 74, 0.22);
+      --font-serif: 'Georgia', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Dispatch Status Bar */
+    .dispatch-bar {
+      background: #2a1604;
+      border-bottom: 1px solid var(--line);
+      padding: 9px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .dispatch-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; box-shadow: 0 0 8px #22c55e; }
+
+    /* Navbar */
+    .tiffin-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(20, 16, 9, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .tiffin-nav-wrap {
+      max-width: 1240px; margin: 0 auto; padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .tiffin-brand { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--gold-light); }
+    .tiffin-brand span { color: var(--amber); }
+    .tiffin-nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 600; }
+    .tiffin-nav-links a.active { color: var(--amber); }
+
+    /* Main Container */
+    .wheel-container {
+      max-width: 1100px;
+      margin: 40px auto 90px;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .wheel-header { max-width: 640px; margin: 0 auto 40px; }
+    .wheel-header h1 { font-family: var(--font-serif); font-size: 38px; color: var(--cream); margin-bottom: 8px; }
+
+    /* 7-Day Day-Wheel Selector (Bowl Pill Shape with Amber Radial Glow) */
+    .day-selector-wheel {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 10px 4px 24px;
+      margin-bottom: 36px;
+    }
+    .day-pill {
+      background: var(--panel);
+      border: 1.5px solid var(--line);
+      border-radius: 9999px; /* Soft bowl pill */
+      padding: 14px 24px;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+    .day-pill.active, .day-pill:hover {
+      background: var(--amber);
+      color: #000;
+      border-color: var(--amber);
+      box-shadow: 0 0 25px var(--amber-glow); /* Warm radial glow */
+      transform: scale(1.05);
+    }
+
+    /* Active Day Card Flip / Focus Container */
+    .active-day-focus-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 0 35px var(--amber-glow);
+      text-align: left;
+      position: relative;
+    }
+    .meal-block {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .meal-time-tag {
+      font-size: 12px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--gold-light); margin-bottom: 6px;
+    }
+    .meal-items-list { font-size: 15px; color: var(--cream); font-weight: 600; line-height: 1.7; }
+    
+    .btn-sub-wheel {
+      display: block; background: var(--amber); color: #000; text-align: center;
+      padding: 16px; border-radius: 9999px; font-weight: 800; font-size: 15px;
+      box-shadow: 0 0 20px var(--amber-glow); margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Rasoi Ghar Tiffins — 7-Day Meal Wheel</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Live Dispatch Bar -->
+  <div class="dispatch-bar">
+    <div><span class="dispatch-dot"></span> <b>LIVE KITCHEN STATUS:</b> Taking Orders (Lunch Cutoff: 11:30 AM | Dinner Cutoff: 7:00 PM)</div>
+    <div>📦 Fresh Thermal Delivery</div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="tiffin-nav">
+    <div class="tiffin-nav-wrap">
+      <a href="index.html" class="tiffin-brand">RASOI <span>GHAR</span></a>
+      <nav class="tiffin-nav-links">
+        <a href="index.html">Kitchen Story</a>
+        <a href="menu-calendar.html" class="active">7-Day Meal Wheel</a>
+        <a href="subscribe.html">Monthly Configurator</a>
+      </nav>
+      <a href="subscribe.html" style="background:var(--amber); color:#000; padding:8px 18px; border-radius:9999px; font-weight:700; font-size:12.5px;">Subscribe (₹) 🍲</a>
+    </div>
+  </header>
+
+  <main class="wheel-container">
+    <div class="wheel-header">
+      <span style="font-size:12px; font-weight:800; color:var(--amber); text-transform:uppercase; letter-spacing:2px;">Daily Fresh Preparation</span>
+      <h1>7-Day Rotating Meal Wheel</h1>
+      <p style="color:var(--muted);">Tap any day on the wheel below to inspect the daily lunch and dinner sabzis, slow-cooked dals, and fresh phulkas.</p>
+    </div>
+
+    <!-- 7-Day Bowl Pill Wheel -->
+    <div class="day-selector-wheel">
+      <div class="day-pill active" onclick="setDay('Monday', 0, this)">Monday</div>
+      <div class="day-pill" onclick="setDay('Tuesday', 1, this)">Tuesday</div>
+      <div class="day-pill" onclick="setDay('Wednesday', 2, this)">Wednesday</div>
+      <div class="day-pill" onclick="setDay('Thursday', 3, this)">Thursday</div>
+      <div class="day-pill" onclick="setDay('Friday', 4, this)">Friday</div>
+      <div class="day-pill" onclick="setDay('Saturday', 5, this)">Saturday</div>
+      <div class="day-pill" onclick="setDay('Sunday (Special)', 6, this)">Sunday Feast 🌟</div>
+    </div>
+
+    <!-- Active Day Inspection Card -->
+    <div class="active-day-focus-card" id="dayDetailsCard">
+      <h2 style="font-family:var(--font-serif); font-size:26px; color:var(--gold-light); margin-bottom:20px;" id="selectedDayHeading">Monday's Homestyle Menu</h2>
+
+      <div class="meal-block">
+        <div class="meal-time-tag">☀️ Lunch Thali (Delivered 12:30 PM)</div>
+        <div class="meal-items-list" id="lunchMenu">
+          • Shahi Paneer Butter Masala<br>
+          • Slow-Simmered Yellow Moong Dal Tadka<br>
+          • 4 Soft 100% Whole Wheat Desi Ghee Phulkas<br>
+          • Steamed Fragrant Jeera Rice & Crunchy Cucumber Salad
+        </div>
+      </div>
+
+      <div class="meal-block">
+        <div class="meal-time-tag">🌙 Dinner Thali (Delivered 8:00 PM)</div>
+        <div class="meal-items-list" id="dinnerMenu">
+          • Aloo Gobi Adraki Masala<br>
+          • Homestyle Dhaba Dal Fry<br>
+          • 4 Fresh Warm Tawa Rotis<br>
+          • Steamed Basmati Rice & Roasted Masala Papad
+        </div>
+      </div>
+
+      <a href="subscribe.html" class="btn-sub-wheel">Start Monthly Subscription with this Menu (₹2,880/mo) ➔</a>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    const schedule = [
+      {
+        day: "Monday's Homestyle Menu",
+        lunch: "• Shahi Paneer Butter Masala<br>• Slow-Simmered Yellow Moong Dal Tadka<br>• 4 Soft 100% Whole Wheat Desi Ghee Phulkas<br>• Steamed Fragrant Jeera Rice & Cucumber Salad",
+        dinner: "• Aloo Gobi Adraki Masala<br>• Homestyle Dhaba Dal Fry<br>• 4 Fresh Warm Tawa Rotis<br>• Steamed Basmati Rice & Roasted Masala Papad"
+      },
+      {
+        day: "Tuesday's Homestyle Menu",
+        lunch: "• Matar Mushroom Masala<br>• Chana Dal with Pure Ghee Jeera Tadka<br>• 4 Soft Whole Wheat Phulkas<br>• Steamed Rice, Sweet Kheer & Pickle",
+        dinner: "• Baingan Bharta (Charred Smoky Style)<br>• Panchmel Dal<br>• 4 Warm Phulkas<br>• Steamed Rice & Green Salad"
+      },
+      {
+        day: "Wednesday's Homestyle Menu",
+        lunch: "• Paneer Bhurji with Bell Peppers<br>• Arhar / Toor Dal Fry<br>• 4 Ghee Phulkas<br>• Steamed Basmati Rice & Boondi Raita",
+        dinner: "• Mix Vegetable Korma<br>• Masoor Dal Tadka<br>• 4 Tawa Rotis<br>• Steamed Jeera Rice & Salad"
+      },
+      {
+        day: "Thursday's Homestyle Menu",
+        lunch: "• Dum Aloo Kashmiri<br>• Slow-Cooked Rajma Masala<br>• 4 Whole Wheat Phulkas<br>• Steamed Basmati Rice & Onion Lemon Salad",
+        dinner: "• Bhindi Do Pyaza (Crispy)<br>• Moong Dal Tadka<br>• 4 Warm Phulkas<br>• Steamed Rice & Pickle"
+      },
+      {
+        day: "Friday's Homestyle Menu",
+        lunch: "• Kadai Paneer Masala<br>• Black Urad Dal Tadka<br>• 4 Soft Ghee Phulkas<br>• Steamed Rice & Gulab Jamun (1 pc)",
+        dinner: "• Lauki Kofta Curry in Rich Gravy<br>• Toor Dal Fry<br>• 4 Warm Rotis<br>• Steamed Rice & Papad"
+      },
+      {
+        day: "Saturday's Homestyle Menu",
+        lunch: "• Amritsari Chole Kulche Style / Phulkas<br>• Pindi Chana Masala<br>• 4 Ghee Phulkas<br>• Fragrant Pulao & Mint Raita",
+        dinner: "• Sev Tamatar Ki Sabzi<br>• Moong Dal Khichdi with Ghee Tadka<br>• 4 Phulkas & Roasted Papad"
+      },
+      {
+        day: "Sunday's Special Feast",
+        lunch: "• Paneer Lababdar & Kashmiri Dum Pulao<br>• Dal Makhani Slow-Simmered Overnight<br>• 4 Butter Phulkas<br>• Fresh Mango Ras / Moong Dal Halwa",
+        dinner: "• Stuffed Capsicum Masala<br>• Chana Dal Fry<br>• 4 Warm Phulkas<br>• Steamed Rice & Green Salad"
+      }
+    ];
+
+    function setDay(dayName, idx, el) {
+      document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+
+      const data = schedule[idx];
+      document.getElementById('selectedDayHeading').textContent = data.day;
+      document.getElementById('lunchMenu').innerHTML = data.lunch;
+      document.getElementById('dinnerMenu').innerHTML = data.dinner;
+    }
+  </script>
+</body>
+</html>

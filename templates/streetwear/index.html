@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KULT STREETWEAR — Vault Drop 04 / Heavyweight French Terry</title>
+  <meta name="description" content="Neo-Y2K brutalist streetwear label. 280 GSM French terry oversized tees, acid-wash hoodies, and parachute cargos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --kult-black: #060606;
+      --kult-yellow: #facc15;
+      --kult-panel: #121212;
+      --kult-border: #262626;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--kult-black);
+      color: #fafafa;
+      font-family: var(--font-body);
+      line-height: 1.5;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Drop Announcement Marquee */
+    .kult-marquee {
+      background: var(--kult-yellow);
+      color: #000;
+      padding: 7px 0;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    /* Navbar */
+    .kult-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(6, 6, 6, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--kult-border);
+    }
+    .kult-nav-wrap {
+      max-width: 1300px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .kult-brand {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 700; letter-spacing: 3px; color: #fff;
+    }
+    .kult-brand span { color: var(--kult-yellow); }
+    .kult-nav-links { display: flex; gap: 32px; font-family: var(--font-mono); font-size: 12.5px; }
+    .kult-nav-links a { color: #888; text-transform: uppercase; letter-spacing: 1px; }
+    .kult-nav-links a.active { color: var(--kult-yellow); font-weight: 800; }
+    .btn-cop-nav {
+      background: var(--kult-yellow); color: #000; padding: 8px 18px;
+      font-family: var(--font-mono); font-weight: 800; font-size: 12px;
+      text-transform: uppercase; border-radius: 2px;
+    }
+
+    /* Hero */
+    .kult-hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(6,6,6,0.2) 0%, rgba(6,6,6,0.95) 100%),
+                  url('../../images/streetwear/hero.jpg') center/cover no-repeat;
+      padding: 80px 24px 60px;
+    }
+    .kult-hero-wrap { max-width: 1300px; margin: 0 auto; width: 100%; text-align: center; }
+    .kult-tag {
+      display: inline-block; background: #000; border: 1px solid var(--kult-yellow);
+      color: var(--kult-yellow); font-family: var(--font-mono); font-size: 11px;
+      padding: 6px 14px; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .kult-hero h1 {
+      font-family: var(--font-display); font-size: clamp(44px, 8vw, 92px);
+      font-weight: 700; text-transform: uppercase; letter-spacing: 2px; line-height: 0.95;
+      margin-bottom: 24px;
+    }
+    .kult-hero h1 span { color: var(--kult-yellow); }
+
+    /* Live Countdown Box */
+    .drop-timer-box {
+      max-width: 500px; margin: 0 auto 36px; background: rgba(18,18,18,0.9);
+      border: 1px solid var(--kult-border); padding: 18px; border-radius: 4px;
+    }
+    .timer-digits {
+      font-family: var(--font-mono); font-size: 28px; font-weight: 800;
+      color: var(--kult-yellow); letter-spacing: 3px; margin: 8px 0;
+    }
+    .stock-bar-wrap {
+      background: #262626; height: 6px; border-radius: 3px; overflow: hidden; margin-top: 10px;
+    }
+    .stock-bar { width: 78%; height: 100%; background: var(--kult-yellow); }
+
+    .kult-hero-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-cop-huge {
+      background: var(--kult-yellow); color: #000; padding: 16px 42px;
+      font-family: var(--font-mono); font-weight: 800; font-size: 14px;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .btn-catalog-huge {
+      background: transparent; border: 1px solid #444; color: #fff; padding: 16px 32px;
+      font-family: var(--font-mono); font-weight: 700; font-size: 14px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    /* Vault Grid */
+    .vault-section { max-width: 1300px; margin: 80px auto; padding: 0 24px; }
+    .vault-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
+    .vault-head h2 { font-family: var(--font-display); font-size: 38px; text-transform: uppercase; letter-spacing: 1px; }
+
+    .vault-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
+    }
+    .drop-card {
+      background: var(--kult-panel); border: 1px solid var(--kult-border);
+      border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+    }
+    .drop-img { height: 380px; width: 100%; object-fit: cover; }
+    .drop-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+    .drop-gsm {
+      font-family: var(--font-mono); font-size: 11px; color: var(--kult-yellow);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .drop-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+    .drop-price { font-family: var(--font-mono); font-size: 22px; font-weight: 800; margin-bottom: 14px; }
+    .btn-cop-item {
+      background: #222; border: 1px solid var(--kult-border); color: #fff; padding: 12px;
+      font-family: var(--font-mono); font-weight: 800; font-size: 12.5px;
+      text-align: center; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s;
+    }
+    .drop-card:hover .btn-cop-item { background: var(--kult-yellow); color: #000; border-color: var(--kult-yellow); }
+
+    /* Footer */
+    footer.kult-footer {
+      background: #000; border-top: 1px solid var(--kult-border);
+      color: #666; padding: 60px 24px 30px; font-family: var(--font-mono); font-size: 12px;
+    }
+    .kult-footer-wrap {
+      max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 30px; margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>KULT Gen-Z Streetwear Label</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="kult-marquee">
+    ⚡ DROP 04 LIVE NOW • 280 GSM HEAVYWEIGHT TERRY • LIMITED TO 250 PIECES GLOBALLY • FREE STICKER PACK
+  </div>
+
+  <!-- Navbar -->
+  <header class="kult-nav">
+    <div class="kult-nav-wrap">
+      <a href="index.html" class="kult-brand">KULT<span>.LAB</span></a>
+      <nav class="kult-nav-links">
+        <a href="index.html" class="active">Vault</a>
+        <a href="catalog.html">Drops</a>
+        <a href="product.html">Boxy Fit PDP</a>
+      </nav>
+      <a href="checkout.html" class="btn-cop-nav">Fast Cop 🛒</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="kult-hero">
+    <div class="kult-hero-wrap">
+      <span class="kult-tag">Vault Release // 04.2026</span>
+      <h1>HEAVYWEIGHT <span>BOXY ESSENTIALS</span></h1>
+      
+      <!-- Live Drop Countdown & Stock Indicator -->
+      <div class="drop-timer-box">
+        <div style="font-family:var(--font-mono); font-size:11px; color:#888; text-transform:uppercase;">Vault Doors Close In:</div>
+        <div class="timer-digits">04h : 18m : 42s</div>
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--kult-yellow);">⚠️ Only 42 of 250 Pieces Left</div>
+        <div class="stock-bar-wrap">
+          <div class="stock-bar"></div>
+        </div>
+      </div>
+
+      <div class="kult-hero-actions">
+        <a href="product.html" class="btn-cop-huge">Cop Oversized Tee (₹2,199)</a>
+        <a href="catalog.html" class="btn-catalog-huge">View All 4 Vault Pieces ➔</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vault Releases -->
+  <section class="vault-section">
+    <div class="vault-head">
+      <div>
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--kult-yellow); letter-spacing:2px;">[ CURRENT DROP ]</span>
+        <h2>Vault Pieces</h2>
+      </div>
+      <a href="catalog.html" style="font-family:var(--font-mono); font-size:12px; color:#888; text-decoration:underline;">See Full Drop Archive →</a>
+    </div>
+
+    <div class="vault-grid">
+      <!-- 1 -->
+      <div class="drop-card">
+        <img src="../../images/streetwear/item1.jpg" alt="Cyber Acid Wash Tee" class="drop-img">
+        <div class="drop-body">
+          <span class="drop-gsm">280 GSM French Terry • Drop Shoulder</span>
+          <h3 class="drop-title">Acid Glitch Oversized Heavy Tee</h3>
+          <div class="drop-price">₹2,199</div>
+          <a href="product.html?item=acid-tee" class="btn-cop-item">Select Size & Cop ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="drop-card">
+        <img src="../../images/streetwear/item2.jpg" alt="Thermal Hood" class="drop-img">
+        <div class="drop-body">
+          <span class="drop-gsm">450 GSM Heavy Fleece • Double Hooded</span>
+          <h3 class="drop-title">Distressed Concrete Boxy Hoodie</h3>
+          <div class="drop-price">₹3,899</div>
+          <a href="product.html?item=hoodie" class="btn-cop-item">Select Size & Cop ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="drop-card">
+        <img src="../../images/streetwear/item3.jpg" alt="Parachute Cargo" class="drop-img">
+        <div class="drop-body">
+          <span class="drop-gsm">Ripstop Cotton • 8-Pocket Tactical</span>
+          <h3 class="drop-title">Stealth Cyber Parachute Cargoes</h3>
+          <div class="drop-price">₹3,499</div>
+          <a href="product.html?item=cargos" class="btn-cop-item">Select Size & Cop ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="kult-footer">
+    <div class="kult-footer-wrap">
+      <div>
+        <h4 style="color:#fff; font-size:16px; margin-bottom:12px;">KULT.LAB</h4>
+        <p>Independent Streetwear Syndicate</p>
+        <p>Hauz Khas Social Basement, New Delhi</p>
+      </div>
+      <div>
+        <p>Drops every 1st Friday of the month.</p>
+        <p>No Restocks. When it's gone, it's gone.</p>
+      </div>
+    </div>
+    <div style="text-align:center; opacity:0.5;">
+      © 2026 KULT.LAB Syndicate. Powered by Orbitex Production Suite.
+    </div>
+  </footer>
+
+</body>
+</html>
