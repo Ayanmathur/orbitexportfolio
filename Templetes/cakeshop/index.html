@@ -3,345 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crumb & Co. Artisan Patisserie — Handcrafted Cakes & Desserts</title>
-  <meta name="description" content="Artisanal 100% eggless cakes, Belgian chocolate truffles, Basque cheesecakes, and same-day delivery fresh from our oven.">
+  <title>Crumb & Co. Patisserie — Artisanal Cakes & French Pastries</title>
+  <meta name="description" content="Artisanal French patisserie and customized celebration cakes. 4-step 3D cake builder, same-day delivery, and midnight surprise gifting.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/shared-components.css">
   <style>
     :root {
-      --cake-brown: #4a2818;
-      --cake-cream: #fdfbf7;
-      --cake-pink: #d97768;
-      --cake-gold: #c89d53;
-      --cake-border: #ede4d8;
+      --cake-berry: #be185d;
+      --cake-rose: #f43f5e;
+      --cake-vanilla: #fffbeb;
+      --cake-dark: #201318;
+      --cake-panel: #fff;
+      --cake-border: #fce7f3;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-sans);
-      background-color: var(--cake-cream);
-      color: var(--cake-brown);
+      background-color: var(--cake-vanilla);
+      color: var(--cake-dark);
       line-height: 1.6;
-      overflow-x: hidden;
     }
+    a { text-decoration: none; color: inherit; }
 
-    /* Same-day countdown notice bar */
-    .cake-cutoff-bar {
-      background: var(--cake-brown);
+    /* Top Delivery Cutoff Strip */
+    .cutoff-ticker-bar {
+      background: linear-gradient(90deg, #9d174d, var(--cake-berry));
       color: #fff;
       padding: 9px 24px;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      letter-spacing: 0.5px;
-    }
-    .cake-cutoff-bar span { color: #fcd34d; }
-
-    /* Navigation */
-    .cake-nav {
-      position: sticky;
-      top: 36px;
-      z-index: 999;
-      background: rgba(253, 251, 247, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--cake-border);
-    }
-    .cake-nav-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .cutoff-badge {
+      background: #fff;
+      color: var(--cake-berry);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      margin-left: 6px;
+    }
+
+    /* Navbar */
+    .cake-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(255, 251, 235, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--cake-border);
+    }
+    .cake-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
     }
     .cake-brand {
       font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--cake-brown);
-      text-decoration: none;
+      font-size: 24px; font-weight: 700; color: var(--cake-berry);
+      letter-spacing: 0.5px;
     }
-    .cake-brand span { color: var(--cake-pink); }
-    .cake-nav-links { display: flex; gap: 28px; align-items: center; }
-    .cake-nav-links a {
-      color: var(--cake-brown);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    .cake-nav-links a:hover { color: var(--cake-pink); }
-    .cake-nav-btn {
-      background: var(--cake-pink);
-      color: #fff;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
+    .cake-brand span { color: var(--cake-dark); }
+    .cake-nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 600; }
+    .cake-nav-links a { color: #55444a; }
+    .cake-nav-links a.active { color: var(--cake-berry); }
+    .btn-cake-builder-nav {
+      background: var(--cake-berry); color: #fff; padding: 9px 20px;
+      border-radius: 50px; font-size: 13px; font-weight: 700;
     }
 
-    /* Hero Section */
+    /* Hero */
     .cake-hero {
       position: relative;
       min-height: 80vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(to right, rgba(74, 40, 24, 0.8) 0%, rgba(74, 40, 24, 0.3) 100%),
+      background: linear-gradient(180deg, rgba(255,251,235,0.85) 0%, rgba(255,251,235,0.98) 100%),
                   url('../../images/cakeshop/hero.jpg') center/cover no-repeat;
-      color: #fff;
       padding: 60px 24px;
     }
-    .cake-hero-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      width: 100%;
-    }
+    .cake-hero-wrap { max-width: 1280px; margin: 0 auto; width: 100%; }
     .cake-hero-content { max-width: 650px; }
-    .cake-badge {
-      display: inline-block;
-      background: rgba(217, 119, 104, 0.3);
-      border: 1px solid var(--cake-pink);
-      color: #fff;
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
+    .cake-eyebrow {
+      font-size: 11.5px; font-weight: 800; color: var(--cake-berry);
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; display: block;
     }
     .cake-hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(38px, 5.5vw, 62px);
-      line-height: 1.15;
-      margin-bottom: 20px;
+      font-family: var(--font-serif); font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.1; color: var(--cake-dark); margin-bottom: 18px;
     }
-    .cake-hero h1 i { font-style: italic; color: #fed7aa; }
-    .cake-hero p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 32px;
-    }
+    .cake-hero h1 em { color: var(--cake-berry); font-style: italic; }
+    .cake-hero p { font-size: 16.5px; color: #66555b; margin-bottom: 34px; line-height: 1.7; }
+    
     .cake-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-cake-primary {
-      background: var(--cake-pink);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
-      transition: all 0.2s;
+      background: var(--cake-berry); color: #fff; padding: 15px 34px;
+      border-radius: 50px; font-weight: 700; font-size: 14px;
+      box-shadow: 0 10px 25px rgba(190, 24, 93, 0.25);
     }
-    .btn-cake-primary:hover { background: #c56557; transform: translateY(-2px); }
-
-    /* Catalog Section */
-    .cake-section {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 90px 24px;
-    }
-    .cake-header-center {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 50px;
-    }
-    .cake-sub {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--cake-pink);
-      margin-bottom: 10px;
-    }
-    .cake-header-center h2 {
-      font-family: var(--font-serif);
-      font-size: 38px;
-      margin-bottom: 12px;
+    .btn-cake-outline {
+      background: #fff; border: 1.5px solid var(--cake-berry); color: var(--cake-berry);
+      padding: 15px 28px; border-radius: 50px; font-weight: 700; font-size: 14px;
     }
 
-    /* Product Grid */
+    /* Section */
+    .cake-section { max-width: 1280px; margin: 80px auto; padding: 0 24px; }
+    .cake-head-center { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .cake-head-center h2 { font-family: var(--font-serif); font-size: 38px; color: var(--cake-dark); margin-bottom: 10px; }
+
     .cake-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 30px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
     }
     .cake-card {
-      background: #fff;
-      border: 1px solid var(--cake-border);
-      border-radius: 18px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 20px rgba(74, 40, 24, 0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: #fff; border: 1px solid var(--cake-border);
+      border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;
+      box-shadow: 0 10px 30px rgba(190, 24, 93, 0.04);
+      transition: all 0.3s;
     }
-    .cake-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(74, 40, 24, 0.1);
+    .cake-card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(190, 24, 93, 0.12); }
+    .cake-img { height: 260px; width: 100%; object-fit: cover; }
+    .cake-body { padding: 26px; display: flex; flex-direction: column; flex: 1; }
+    .cake-tag {
+      font-size: 11px; font-weight: 800; color: var(--cake-berry);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px;
     }
-    .cake-img {
-      height: 240px;
-      width: 100%;
-      object-fit: cover;
-    }
-    .cake-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .cake-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .cake-eggless-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #ecfdf5;
-      color: #065f46;
-      border: 1px solid #a7f3d0;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-    .cake-body h3 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 6px; }
-    .cake-desc { font-size: 13.5px; color: #786256; margin-bottom: 16px; flex: 1; line-height: 1.5; }
-    
-    /* Weight Pills */
-    .weight-pills {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 16px;
-      background: #fbf7f0;
-      padding: 4px;
-      border-radius: 10px;
-    }
-    .weight-pill {
-      flex: 1;
-      text-align: center;
-      padding: 6px 0;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #786256;
-      cursor: pointer;
+    .cake-title { font-family: var(--font-serif); font-size: 20px; color: var(--cake-dark); margin-bottom: 8px; }
+    .cake-price { font-size: 22px; font-weight: 800; color: var(--cake-berry); margin-bottom: 14px; }
+    .cake-desc { font-size: 13.5px; color: #77666c; margin-bottom: 20px; flex: 1; }
+    .btn-customize-cake {
+      background: var(--cake-vanilla); border: 1.5px solid var(--cake-berry); color: var(--cake-berry);
+      padding: 11px; font-weight: 700; font-size: 13px; text-align: center; border-radius: 50px;
       transition: all 0.2s;
     }
-    .weight-pill.active {
-      background: #fff;
-      color: var(--cake-brown);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-    }
-    .cake-footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-    }
-    .cake-price { font-size: 22px; font-weight: 800; color: var(--cake-brown); }
-    .btn-order-cake {
-      background: var(--cake-brown);
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn-order-cake:hover { background: var(--cake-pink); }
-
-    /* Modal */
-    .cake-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(74, 40, 24, 0.6);
-      backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .cake-modal-card {
-      background: #fff;
-      border-radius: 20px;
-      max-width: 500px;
-      width: 100%;
-      padding: 32px;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #888;
-    }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #555; }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--cake-border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 14px;
-    }
-    .btn-submit-order {
-      width: 100%;
-      background: var(--cake-pink);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 15px;
-      cursor: pointer;
-      margin-top: 8px;
-    }
+    .cake-card:hover .btn-customize-cake { background: var(--cake-berry); color: #fff; }
 
     /* Footer */
-    .cake-footer {
-      background: var(--cake-brown);
-      color: #fff;
-      padding: 60px 24px 30px;
+    footer.cake-footer {
+      background: #201318; color: #d1b8c2; padding: 60px 24px 30px; font-size: 13.5px;
     }
     .cake-footer-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
     }
-    .cake-footer h4 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 16px; color: #fed7aa; }
-    .cake-footer p, .cake-footer a { font-size: 13.5px; color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 8px; }
-    .cake-footer-bottom {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-    }
+    .cake-footer h4 { font-family: var(--font-serif); color: #fff; font-size: 18px; margin-bottom: 14px; }
+    .cake-footer p, .cake-footer a { color: #d1b8c2; display: block; margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -355,293 +165,137 @@
     </div>
   </div>
 
-  <!-- Delivery Cutoff Countdown -->
-  <div class="cake-cutoff-bar">
-    🎂 Order before 6:00 PM for Same-Day Express Delivery! ⏳ <span id="cutoffTimer">3h 42m remaining</span>
+  <!-- Real-Time Delivery Cutoff Countdown -->
+  <div class="cutoff-ticker-bar">
+    <div>
+      🎂 SAME-DAY DELIVERY CUTOFF (6:00 PM): <span id="cutoffTimer">03h : 22m : 18s Remaining</span>
+      <span class="cutoff-badge">Accepting Same-Day Orders</span>
+    </div>
+    <div>🌙 Midnight Surprise Gifting (11:30 PM Slot Available)</div>
   </div>
 
   <!-- Navbar -->
   <header class="cake-nav">
     <div class="cake-nav-wrap">
-      <a href="#home" class="cake-brand">CRUMB & CO. <span>PATISSERIE</span></a>
+      <a href="index.html" class="cake-brand">CRUMB <span>& CO.</span></a>
       <nav class="cake-nav-links">
-        <a href="#catalog">Artisan Cakes</a>
-        <a href="#about">Our Ingredients</a>
-        <a href="#custom">Custom Cake Builder</a>
-        <button class="cake-nav-btn" onclick="openCakeOrder('Custom Celebration Cake', 1500)">Order Custom 🎂</button>
+        <a href="index.html" class="active">Patisserie</a>
+        <a href="custom-cake.html">3D Cake Builder 🎂</a>
+        <a href="order.html">Delivery & Gifting</a>
       </nav>
+      <a href="custom-cake.html" class="btn-cake-builder-nav">Build Custom Cake 🍰</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="cake-hero" id="home">
+  <section class="cake-hero">
     <div class="cake-hero-wrap">
       <div class="cake-hero-content">
-        <div class="cake-badge">✨ 100% Eggless Gourmet Patisserie</div>
-        <h1>Freshly Baked <i>Moments of Pure Indulgence</i></h1>
-        <p>Crafted with 70% Belgian Callebaut chocolate, French butter, and organic vanilla beans. Same-day handcrafted delivery across the city.</p>
+        <span class="cake-eyebrow">100% Eggless Options • Belgian Couverture Chocolate</span>
+        <h1>Baked with Love & <em>French Finesse</em></h1>
+        <p>Bespoke 3D tiered celebration cakes, signature French macarons, and delicate entremets crafted fresh daily using pure New Zealand butter and Madagascar vanilla.</p>
         <div class="cake-hero-actions">
-          <a href="#catalog" class="btn-cake-primary">Explore Cake Menu (₹)</a>
+          <a href="custom-cake.html" class="btn-cake-primary">Launch 4-Step Cake Builder 🎂</a>
+          <a href="order.html" class="btn-cake-outline">View Ready Today Cakes (₹) ➔</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Cake Catalog -->
-  <section class="cake-section" id="catalog">
-    <div class="cake-header-center">
-      <div class="cake-sub">Bespoke Flavour Profiles</div>
-      <h2>Artisanal Celebration Cakes</h2>
-      <p>Select your preferred cake weight (0.5kg, 1kg, 2kg) to customize your price.</p>
+  <!-- Curated Pastry Collection -->
+  <section class="cake-section">
+    <div class="cake-head-center">
+      <span class="cake-eyebrow">Signature Creations</span>
+      <h2>Celebration Cakes & Entremets</h2>
+      <p style="color:#66555b;">Customize weight from 0.5kg to 3kg with personalized edible chocolate plaques.</p>
     </div>
 
     <div class="cake-grid">
       <!-- 1 -->
-      <div class="cake-card" data-base="750">
-        <img src="../../images/cakeshop/cake1.jpg" alt="Belgian Dark Truffle" class="cake-img">
+      <div class="cake-card">
+        <img src="../../images/cakeshop/cake1.jpg" alt="Belgian Truffle" class="cake-img">
         <div class="cake-body">
-          <div class="cake-card-top">
-            <span class="cake-eggless-badge">🟢 100% Eggless</span>
-            <span style="font-size:12px; color:#888;">Bestseller</span>
-          </div>
-          <h3>Belgian Dark Chocolate Truffle</h3>
-          <p class="cake-desc">Moist cocoa sponge layered with 70% Callebaut dark ganache and crunchy hazelnut praline pearls.</p>
-          
-          <div class="weight-pills">
-            <div class="weight-pill active" onclick="updateCakeWeight(this, 750, 1, '0.5 kg')">0.5 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 750, 1.8, '1.0 kg')">1.0 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 750, 3.4, '2.0 kg')">2.0 kg</div>
-          </div>
-
-          <div class="cake-footer-row">
-            <div class="cake-price">₹750</div>
-            <button class="btn-order-cake" onclick="openCakeOrder('Belgian Dark Chocolate Truffle', 750)">Order Now 🍰</button>
-          </div>
+          <span class="cake-tag">54% Callebaut Ganache</span>
+          <h3 class="cake-title">Noir Belgian Dark Truffle Cake</h3>
+          <div class="cake-price">₹850 <span style="font-size:12px; color:#888;">(0.5 kg)</span></div>
+          <p class="cake-desc">Moist chocolate sponge layered with silky Belgian dark chocolate ganache and dusted with Dutch cocoa.</p>
+          <a href="custom-cake.html?flavor=belgian-truffle" class="btn-customize-cake">Customize Weight & Name on Cake ➔</a>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="cake-card" data-base="850">
-        <img src="../../images/cakeshop/cake2.jpg" alt="Alphonso Mango Mousse" class="cake-img">
+      <div class="cake-card">
+        <img src="../../images/cakeshop/cake2.jpg" alt="Red Velvet" class="cake-img">
         <div class="cake-body">
-          <div class="cake-card-top">
-            <span class="cake-eggless-badge">🟢 100% Eggless</span>
-            <span style="font-size:12px; color:#888;">Seasonal</span>
-          </div>
-          <h3>Ratnagiri Alphonso Mango Mousse</h3>
-          <p class="cake-desc">Fresh Ratnagiri mango puree whipped with white chocolate mousse on an almond sponge base.</p>
-          
-          <div class="weight-pills">
-            <div class="weight-pill active" onclick="updateCakeWeight(this, 850, 1, '0.5 kg')">0.5 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 850, 1.8, '1.0 kg')">1.0 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 850, 3.4, '2.0 kg')">2.0 kg</div>
-          </div>
-
-          <div class="cake-footer-row">
-            <div class="cake-price">₹850</div>
-            <button class="btn-order-cake" onclick="openCakeOrder('Ratnagiri Alphonso Mango Mousse', 850)">Order Now 🍰</button>
-          </div>
+          <span class="cake-tag">Philadelphia Cream Cheese</span>
+          <h3 class="cake-title">Classic Red Velvet Cream Cheese</h3>
+          <div class="cake-price">₹950 <span style="font-size:12px; color:#888;">(0.5 kg)</span></div>
+          <p class="cake-desc">Traditional buttermilk red velvet sponge frosted with rich, tangy cream cheese frosting and white chocolate pearls.</p>
+          <a href="custom-cake.html?flavor=red-velvet" class="btn-customize-cake">Customize Weight & Name on Cake ➔</a>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="cake-card" data-base="950">
-        <img src="../../images/cakeshop/cake3.jpg" alt="Lotus Biscoff Cheesecake" class="cake-img">
+      <div class="cake-card">
+        <img src="../../images/cakeshop/cake3.jpg" alt="Biscoff Cheesecake" class="cake-img">
         <div class="cake-body">
-          <div class="cake-card-top">
-            <span class="cake-eggless-badge">🟢 100% Eggless</span>
-            <span style="font-size:12px; color:#888;">Chef's Special</span>
-          </div>
-          <h3>Lotus Biscoff Baked Cheesecake</h3>
-          <p class="cake-desc">Velvety Philadelphia cream cheese baked over a spiced Biscoff biscuit crust, topped with cookie butter drip.</p>
-          
-          <div class="weight-pills">
-            <div class="weight-pill active" onclick="updateCakeWeight(this, 950, 1, '0.5 kg')">0.5 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 950, 1.8, '1.0 kg')">1.0 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 950, 3.4, '2.0 kg')">2.0 kg</div>
-          </div>
-
-          <div class="cake-footer-row">
-            <div class="cake-price">₹950</div>
-            <button class="btn-order-cake" onclick="openCakeOrder('Lotus Biscoff Baked Cheesecake', 950)">Order Now 🍰</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="cake-card" data-base="800">
-        <img src="../../images/cakeshop/cake4.jpg" alt="Red Velvet Cheese" class="cake-img">
-        <div class="cake-body">
-          <div class="cake-card-top">
-            <span class="cake-eggless-badge">🟢 100% Eggless</span>
-          </div>
-          <h3>Red Velvet Cream Cheese Layer</h3>
-          <p class="cake-desc">Classic buttermilk red velvet sponge paired with Madagascar vanilla cream cheese frosting.</p>
-          
-          <div class="weight-pills">
-            <div class="weight-pill active" onclick="updateCakeWeight(this, 800, 1, '0.5 kg')">0.5 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 800, 1.8, '1.0 kg')">1.0 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 800, 3.4, '2.0 kg')">2.0 kg</div>
-          </div>
-
-          <div class="cake-footer-row">
-            <div class="cake-price">₹800</div>
-            <button class="btn-order-cake" onclick="openCakeOrder('Red Velvet Cream Cheese Layer', 800)">Order Now 🍰</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="cake-card" data-base="900">
-        <img src="../../images/cakeshop/cake5.jpg" alt="Hazelnut Nutella Gateau" class="cake-img">
-        <div class="cake-body">
-          <div class="cake-card-top">
-            <span class="cake-eggless-badge">🟢 100% Eggless</span>
-          </div>
-          <h3>Hazelnut Nutella Crunch Gateau</h3>
-          <p class="cake-desc">Rich Nutella mousse with roasted Italian hazelnuts, chocolate fudge layers, and feuilletine wafers.</p>
-          
-          <div class="weight-pills">
-            <div class="weight-pill active" onclick="updateCakeWeight(this, 900, 1, '0.5 kg')">0.5 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 900, 1.8, '1.0 kg')">1.0 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 900, 3.4, '2.0 kg')">2.0 kg</div>
-          </div>
-
-          <div class="cake-footer-row">
-            <div class="cake-price">₹900</div>
-            <button class="btn-order-cake" onclick="openCakeOrder('Hazelnut Nutella Crunch Gateau', 900)">Order Now 🍰</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="cake-card" data-base="850">
-        <img src="../../images/cakeshop/cake2.jpg" alt="Strawberry Chantilly" class="cake-img">
-        <div class="cake-body">
-          <div class="cake-card-top">
-            <span class="cake-eggless-badge">🟢 100% Eggless</span>
-          </div>
-          <h3>Mahabaleshwar Strawberry Chantilly</h3>
-          <p class="cake-desc">Soft chiffon sponge with fresh Mahabaleshwar strawberries and light French Chantilly whipped cream.</p>
-          
-          <div class="weight-pills">
-            <div class="weight-pill active" onclick="updateCakeWeight(this, 850, 1, '0.5 kg')">0.5 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 850, 1.8, '1.0 kg')">1.0 kg</div>
-            <div class="weight-pill" onclick="updateCakeWeight(this, 850, 3.4, '2.0 kg')">2.0 kg</div>
-          </div>
-
-          <div class="cake-footer-row">
-            <div class="cake-price">₹850</div>
-            <button class="btn-order-cake" onclick="openCakeOrder('Mahabaleshwar Strawberry Chantilly', 850)">Order Now 🍰</button>
-          </div>
+          <span class="cake-tag">Lotus Speculoos Spread</span>
+          <h3 class="cake-title">Lotus Biscoff Baked Cheesecake</h3>
+          <div class="cake-price">₹1,150 <span style="font-size:12px; color:#888;">(0.5 kg)</span></div>
+          <p class="cake-desc">New York style slow-baked cheesecake topped with warm speculoos cookie butter spread and crunchy Biscoff crumbs.</p>
+          <a href="custom-cake.html?flavor=biscoff" class="btn-customize-cake">Customize Weight & Name on Cake ➔</a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Cake Order Modal -->
-  <div id="cakeModal" class="cake-modal">
-    <div class="cake-modal-card">
-      <button class="modal-close" onclick="closeCakeOrder()">✕</button>
-      <h3 id="cakeModalTitle">Order Fresh Cake</h3>
-      <p style="font-size: 13.5px; color: #786256; margin-bottom: 18px;">Specify your message on the cake and delivery address.</p>
-      
-      <form onsubmit="handleCakeSubmit(event)">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" id="cakeCustName" required placeholder="e.g. Pooja Bhatt">
-        </div>
-        <div class="form-group">
-          <label>WhatsApp / Mobile Number</label>
-          <input type="tel" id="cakeCustPhone" required placeholder="+91 98765 43210">
-        </div>
-        <div class="form-group">
-          <label>Message on Cake</label>
-          <input type="text" id="cakeMessage" placeholder="e.g. Happy Birthday Aarav! 🎉">
-        </div>
-        <div class="form-group">
-          <label>Delivery Address & Pincode</label>
-          <textarea id="cakeAddress" rows="2" required placeholder="e.g. Flat 402, Sunshine Heights, Koramangala"></textarea>
-        </div>
-        <button type="submit" class="btn-submit-order">Confirm Order on WhatsApp 💬</button>
-      </form>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="cake-footer">
     <div class="cake-footer-wrap">
       <div>
-        <h4 style="color:#fff;">CRUMB & CO. ARTISAN PATISSERIE</h4>
-        <p>18, Baker's Avenue, Bandra West, Mumbai 400050</p>
-        <p>Bakery Phone: +91 98765 43210</p>
-        <p>Baking Hours: 8:00 AM – 11:00 PM Daily</p>
+        <h4 style="color:#fff;">CRUMB & CO. PATISSERIE</h4>
+        <p>18, Rosewood Promenade, Pastry District, Metro City 400008</p>
+        <p>Patisserie Desk: +91 98765 43210</p>
+        <p>Email: orders@crumbandco.in</p>
       </div>
       <div>
-        <h4>Bakery Specialties</h4>
-        <a href="#catalog">100% Eggless Cakes</a>
-        <a href="#catalog">Basque Cheesecakes</a>
-        <a href="#catalog">Custom Tiered Wedding Cakes</a>
+        <h4>Celebrations</h4>
+        <a href="custom-cake.html">Custom 3D Cake Builder</a>
+        <a href="order.html">Midnight Surprise Gifting</a>
+        <a href="order.html">French Macaron Boxes</a>
       </div>
       <div>
-        <h4>Quality Promise</h4>
-        <p>Zero Artificial Preservatives</p>
-        <p>100% Pure Cocoa Butter Chocolate</p>
-        <p>Temperature-Controlled Delivery</p>
+        <h4>Kitchen Standards</h4>
+        <p>100% Pure Butter Pastries</p>
+        <p>Zero Preservatives or Margarine</p>
+        <p>Temperature-Controlled Delivery Vans</p>
       </div>
     </div>
-    <div class="cake-footer-bottom">
-      © 2026 Crumb & Co. Artisan Patisserie. Powered by Orbitex Local Business Web Suite.
+    <div style="text-align:center; font-size:12px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+      © 2026 Crumb & Co. Patisserie. Powered by Orbitex Production Suite.
     </div>
   </footer>
 
   <script src="../../scripts/shared-components.js"></script>
   <script>
-    let activeCakeName = 'Belgian Chocolate Truffle';
-    let activeCakePrice = 750;
-    let activeCakeWeight = '0.5 kg';
+    // Live Countdown to 6 PM Same-Day Cutoff
+    function updateCutoffTimer() {
+      const now = new Date();
+      const cutoff = new Date();
+      cutoff.setHours(18, 0, 0, 0); // 6:00 PM today
 
-    function updateCakeWeight(pillEl, basePrice, mult, weightLabel) {
-      const card = pillEl.closest('.cake-card');
-      card.querySelectorAll('.weight-pill').forEach(p => p.classList.remove('active'));
-      pillEl.classList.add('active');
-
-      const finalPrice = Math.round(basePrice * mult);
-      card.querySelector('.cake-price').innerText = '₹' + finalPrice.toLocaleString('en-IN');
-      
-      const cakeName = card.querySelector('h3').innerText;
-      const btn = card.querySelector('.btn-order-cake');
-      btn.onclick = function() {
-        activeCakeWeight = weightLabel;
-        openCakeOrder(cakeName, finalPrice);
-      };
+      let diff = cutoff - now;
+      if (diff <= 0) {
+        document.getElementById('cutoffTimer').textContent = "Cutoff Reached — Now Booking for Tomorrow Morning";
+        return;
+      }
+      const hrs = Math.floor(diff / (1000 * 60 * 60)).toString().padStart(2, '0');
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+      const secs = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      document.getElementById('cutoffTimer').textContent = `${hrs}h : ${mins}m : ${secs}s Remaining`;
     }
-
-    function openCakeOrder(cakeName, price) {
-      activeCakeName = cakeName;
-      activeCakePrice = price;
-      document.getElementById('cakeModalTitle').innerText = 'Order: ' + cakeName + ' (₹' + price.toLocaleString('en-IN') + ')';
-      document.getElementById('cakeModal').style.display = 'flex';
-    }
-
-    function closeCakeOrder() {
-      document.getElementById('cakeModal').style.display = 'none';
-    }
-
-    function handleCakeSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('cakeCustName').value;
-      const phone = document.getElementById('cakeCustPhone').value;
-      const msg = document.getElementById('cakeMessage').value || 'None';
-      const address = document.getElementById('cakeAddress').value;
-
-      if (window.OrbitexToast) OrbitexToast.success('Order placed! Connecting to bakery on WhatsApp...');
-      const orderMsg = encodeURIComponent(`Hi Crumb & Co.! I'd like to order a fresh cake.\nCake: ${activeCakeName}\nWeight: ${activeCakeWeight}\nPrice: ₹${activeCakePrice}\nMessage on Cake: "${msg}"\nDelivery Address: ${address}\nCustomer: ${name}\nPhone: ${phone}`);
-      setTimeout(() => {
-        window.open(`https://wa.me/919876543210?text=${orderMsg}`, '_blank');
-        closeCakeOrder();
-      }, 700);
-    }
+    setInterval(updateCutoffTimer, 1000);
+    updateCutoffTimer();
   </script>
 </body>
 </html>

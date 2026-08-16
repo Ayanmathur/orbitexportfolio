@@ -96,6 +96,17 @@
     .cupping-val { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--coffee-copper-light); }
     .cupping-lbl { font-size: 11px; color: #888; text-transform: uppercase; margin-top: 2px; }
 
+    /* SVG Flavor Radar Chart */
+    .radar-box {
+      background: #140e0b;
+      border: 1px solid var(--coffee-border);
+      border-radius: 4px;
+      padding: 16px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .radar-svg { max-width: 240px; margin: 0 auto; display: block; }
+
     /* Grind Size Options */
     .option-title { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
     .grind-grid {
@@ -180,6 +191,32 @@
           <div class="cupping-val">Medium</div>
           <div class="cupping-lbl">Roast Level</div>
         </div>
+      </div>
+
+      <!-- Interactive Flavor Radar Chart -->
+      <div class="radar-box">
+        <div style="font-family:var(--font-mono); font-size:11px; color:var(--coffee-copper-light); text-transform:uppercase; margin-bottom:8px;">[ Cupping Flavor Profile ]</div>
+        <svg class="radar-svg" viewBox="0 0 200 200">
+          <!-- Background Grid Rings -->
+          <polygon points="100,20 176,64 176,136 100,180 24,136 24,64" fill="none" stroke="rgba(200,122,62,0.2)" stroke-width="1"/>
+          <polygon points="100,50 148,78 148,122 100,150 52,122 52,78" fill="none" stroke="rgba(200,122,62,0.2)" stroke-width="1"/>
+          <!-- Axis Lines -->
+          <line x1="100" y1="100" x2="100" y2="20" stroke="rgba(200,122,62,0.3)" stroke-width="1"/>
+          <line x1="100" y1="100" x2="176" y2="64" stroke="rgba(200,122,62,0.3)" stroke-width="1"/>
+          <line x1="100" y1="100" x2="176" y2="136" stroke="rgba(200,122,62,0.3)" stroke-width="1"/>
+          <line x1="100" y1="100" x2="100" y2="180" stroke="rgba(200,122,62,0.3)" stroke-width="1"/>
+          <line x1="100" y1="100" x2="24" y2="136" stroke="rgba(200,122,62,0.3)" stroke-width="1"/>
+          <line x1="100" y1="100" x2="24" y2="64" stroke="rgba(200,122,62,0.3)" stroke-width="1"/>
+          <!-- Data Plot: Acidity (8.8), Sweetness (9.2), Body (8.5), Floral (9.0), Chocolate (8.0), Clean Cup (9.5) -->
+          <polygon points="100,32 165,72 162,130 100,165 40,128 35,70" fill="rgba(200,122,62,0.35)" stroke="#c87a3e" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="100" y="14" fill="#e6a470" font-size="9" text-anchor="middle" font-family="Space Mono">Floral/Berries (9.0)</text>
+          <text x="180" y="65" fill="#e6a470" font-size="9" text-anchor="start" font-family="Space Mono">Sweetness (9.2)</text>
+          <text x="180" y="140" fill="#e6a470" font-size="9" text-anchor="start" font-family="Space Mono">Body (8.5)</text>
+          <text x="100" y="194" fill="#e6a470" font-size="9" text-anchor="middle" font-family="Space Mono">Cacao Nibs (8.0)</text>
+          <text x="20" y="140" fill="#e6a470" font-size="9" text-anchor="end" font-family="Space Mono">Acidity (8.8)</text>
+          <text x="20" y="65" fill="#e6a470" font-size="9" text-anchor="end" font-family="Space Mono">Clean Cup (9.5)</text>
+        </svg>
       </div>
 
       <!-- Equipment Grind Size -->
