@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linguini & Leaf Bistro — Wood-Fired Sourdough Pizza & Trattoria</title>
-  <meta name="description" content="Authentic Italian trattoria serving 48-hour sourdough wood-fired pizzas, handmade extruded pastas, and artisanal espresso.">
+  <title>Linguini & Leaf Trattoria — Wood-Fired Pizza & Handmade Pasta</title>
+  <meta name="description" content="Authentic Italian trattoria and bistro featuring 48-hour fermented sourdough wood-fired pizzas, handmade pasta, and espresso bar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/shared-components.css">
   <style>
     :root {
-      --cafe-espresso: #2a170d;
-      --cafe-terracotta: #c85a32;
-      --cafe-cream: #faf6f0;
-      --cafe-card: #ffffff;
-      --cafe-border: #e8ded2;
+      --flame: #E8420A;
+      --flame2: #C93408;
+      --gold: #F5A800;
+      --dark: #1A1202;
+      --cream: #FFFDF7;
+      --white: #FFFFFF;
+      --border: #E8E0D0;
+      --font-display: 'Bebas Neue', sans-serif;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
@@ -23,210 +26,122 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-sans);
-      background-color: var(--cafe-cream);
-      color: var(--cafe-espresso);
+      background-color: var(--white);
+      color: var(--dark);
       line-height: 1.6;
     }
 
-    /* Top Notice */
-    .cafe-top-bar {
-      background: var(--cafe-terracotta);
-      color: #fff;
-      padding: 8px 24px;
-      font-size: 12.5px;
-      font-weight: 700;
+    /* Top Strip */
+    .trattoria-topbar {
+      background: var(--dark);
+      color: var(--gold);
       text-align: center;
-      letter-spacing: 0.5px;
-    }
-
-    /* Navigation */
-    .cafe-nav {
-      position: sticky;
-      top: 36px;
-      z-index: 999;
-      background: rgba(250, 246, 240, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--cafe-border);
-    }
-    .cafe-nav-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .cafe-brand {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--cafe-espresso);
-      text-decoration: none;
-    }
-    .cafe-brand span { color: var(--cafe-terracotta); }
-    .cafe-nav-links { display: flex; gap: 28px; align-items: center; }
-    .cafe-nav-links a {
-      color: var(--cafe-espresso);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: color 0.2s;
-    }
-    .cafe-nav-links a:hover, .cafe-nav-links a.active { color: var(--cafe-terracotta); }
-    .cafe-nav-btn {
-      background: var(--cafe-espresso);
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-weight: 700;
+      padding: 9px 20px;
       font-size: 13px;
-      text-decoration: none;
-      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
+    .trattoria-topbar span { color: #fff; }
 
-    /* Hero Section */
-    .cafe-hero {
-      position: relative;
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(to right, rgba(42, 23, 13, 0.88) 0%, rgba(42, 23, 13, 0.35) 100%),
-                  url('../images/cafe/hero.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 60px 24px;
+    /* Navbar */
+    .bistro-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(255, 253, 247, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
-    .cafe-hero-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      width: 100%;
+    .bistro-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .cafe-hero-content { max-width: 650px; }
-    .cafe-badge {
-      display: inline-block;
-      background: rgba(200, 90, 50, 0.3);
-      border: 1px solid var(--cafe-terracotta);
-      color: #fff;
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .cafe-hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(38px, 5.5vw, 64px);
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-    .cafe-hero h1 i { font-style: italic; color: #fed7aa; }
-    .cafe-hero p {
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 34px;
-    }
-    .cafe-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-cafe-primary {
-      background: var(--cafe-terracotta);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 15px;
+    .bistro-brand {
+      font-family: var(--font-display);
+      font-size: 30px; letter-spacing: 1px; color: var(--flame);
       text-decoration: none;
     }
-    .btn-cafe-outline {
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.4);
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 15px;
-      text-decoration: none;
+    .bistro-brand span { color: var(--dark); }
+    .bistro-nav-links { display: flex; gap: 28px; }
+    .bistro-nav-links a {
+      color: var(--dark); text-decoration: none; font-size: 14px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .bistro-nav-links a.active { color: var(--flame); }
+    .btn-reserve-bistro {
+      background: var(--flame); color: #fff; padding: 9px 20px; border-radius: 4px;
+      font-family: var(--font-display); font-size: 16px; letter-spacing: 1px; text-decoration: none;
     }
 
-    /* Section */
-    .cafe-section {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 90px 24px;
+    /* Hero */
+    .hero {
+      background: linear-gradient(160deg, #1A0A02 0%, #7A1E05 50%, #C93408 100%);
+      color: var(--white); padding: 80px 20px 90px; text-align: center; position: relative; overflow: hidden;
     }
-    .cafe-heading {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 50px;
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0zm40 40h40v40H40z'/%3E%3C/g%3E%3C/svg%3E");
     }
-    .cafe-sub {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--cafe-terracotta);
-      margin-bottom: 10px;
+    .hero-badge {
+      display: inline-block; background: var(--gold); color: var(--dark);
+      font-size: 11.5px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 50px; margin-bottom: 22px;
     }
-    .cafe-heading h2 {
-      font-family: var(--font-serif);
-      font-size: 38px;
-      margin-bottom: 12px;
+    .hero h1 {
+      font-family: var(--font-display); font-size: clamp(48px, 8vw, 84px);
+      letter-spacing: 0.04em; line-height: 0.96; margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--gold); }
+    .hero p.sub {
+      font-size: 17px; color: rgba(255,255,255,0.85); max-width: 580px; margin: 0 auto 30px;
+    }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--gold); color: var(--dark); font-weight: 800; font-size: 15px;
+      padding: 16px 36px; border-radius: 4px; text-decoration: none;
+    }
+    .btn-hero-outline {
+      background: transparent; border: 1.5px solid rgba(255,255,255,0.4); color: #fff;
+      font-weight: 700; font-size: 15px; padding: 16px 30px; border-radius: 4px; text-decoration: none;
     }
 
-    /* Signature Dishes Grid */
-    .dishes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 30px;
+    /* Trust Bar */
+    .trustbar {
+      background: var(--dark); padding: 18px 20px; display: flex; justify-content: center;
+      gap: 40px; flex-wrap: wrap; color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 700;
     }
-    .dish-card {
-      background: #fff;
-      border: 1px solid var(--cafe-border);
-      border-radius: 18px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s;
+    .trust-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; display: inline-block; margin-right: 8px; }
+
+    /* Menu Section */
+    .menu-section { max-width: 1280px; margin: 60px auto 90px; padding: 0 24px; }
+    .section-head { text-align: center; max-width: 600px; margin: 0 auto 40px; }
+    .section-head h2 { font-family: var(--font-display); font-size: 42px; letter-spacing: 0.5px; color: var(--dark); }
+
+    .food-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
     }
-    .dish-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgba(42, 23, 13, 0.08);
-      border-color: var(--cafe-terracotta);
+    .food-card {
+      background: var(--cream); border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden; display: flex; flex-direction: column;
     }
-    .dish-img { height: 220px; width: 100%; object-fit: cover; }
-    .dish-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
-    .dish-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-    .dish-title { font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; gap: 8px; }
-    .veg-dot { width: 12px; height: 12px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 2px #dcfce7; display: inline-block; flex-shrink: 0; }
-    .nonveg-dot { width: 12px; height: 12px; border-radius: 50%; background: #dc2626; box-shadow: 0 0 0 2px #fee2e2; display: inline-block; flex-shrink: 0; }
-    .dish-price { font-size: 20px; font-weight: 800; }
-    .dish-desc { font-size: 13.5px; color: #786256; margin-bottom: 18px; flex: 1; }
+    .food-img { height: 240px; width: 100%; object-fit: cover; }
+    .food-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .food-title { font-family: var(--font-serif); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .food-price { font-size: 22px; font-weight: 900; color: var(--flame); margin-bottom: 12px; }
+    .food-desc { font-size: 13.5px; color: #555; margin-bottom: 20px; flex: 1; }
+    .btn-add-dish {
+      background: var(--dark); color: #fff; padding: 12px; border-radius: 4px;
+      font-weight: 700; font-size: 13px; text-align: center; text-decoration: none;
+    }
 
     /* Footer */
-    .cafe-footer {
-      background: var(--cafe-espresso);
-      color: #fff;
-      padding: 60px 24px 30px;
+    footer.bistro-footer {
+      background: var(--dark); color: #999; padding: 60px 24px 30px;
     }
-    .cafe-footer-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+    .bistro-footer-wrap {
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
     }
-    .cafe-footer h4 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 16px; color: #fed7aa; }
-    .cafe-footer p, .cafe-footer a { font-size: 13.5px; color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 8px; }
-    .cafe-footer-bottom {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255,255,255,0.5);
-    }
+    .bistro-footer h4 { font-family: var(--font-display); font-size: 20px; color: var(--gold); margin-bottom: 14px; }
+    .bistro-footer p, .bistro-footer a { font-size: 13.5px; color: #bbb; text-decoration: none; display: block; margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -235,118 +150,115 @@
   <div class="orbitex-return-bar">
     <div class="orbitex-return-container">
       <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
-      <span class="orbitex-return-tag">Template Preview: <b>Linguini & Leaf Bistro</b></span>
+      <span class="orbitex-return-tag">Template Preview: <b>Linguini & Leaf Trattoria</b></span>
       <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
     </div>
   </div>
 
-  <div class="cafe-top-bar">
-    🍕 48-HOUR SOURDOUGH FERMENTATION • NAPOLI WOOD-FIRED OVEN AT 450°C • FRESH PASTA ROLLED DAILY
+  <div class="trattoria-topbar">
+    🍕 48-HOUR COLD FERMENTED SOURDOUGH DOUGH • 450°C WOOD-FIRED OVEN • PURE EXTRA VIRGIN OLIVE OIL
   </div>
 
   <!-- Navbar -->
-  <header class="cafe-nav">
-    <div class="cafe-nav-wrap">
-      <a href="index.html" class="cafe-brand">LINGUINI & LEAF <span>BISTRO</span></a>
-      <nav class="cafe-nav-links">
-        <a href="index.html" class="active">Home</a>
+  <header class="bistro-nav">
+    <div class="bistro-nav-wrap">
+      <a href="index.html" class="bistro-brand">LINGUINI <span>& LEAF</span></a>
+      <nav class="bistro-nav-links">
+        <a href="index.html" class="active">Trattoria</a>
         <a href="menu.html">Digital Menu</a>
-        <a href="reserve.html">Table Reservation</a>
-        <a href="order.html">Takeaway & Delivery</a>
+        <a href="reserve.html">Reserve Table</a>
       </nav>
-      <a href="reserve.html" class="cafe-nav-btn">Reserve Table 🍷</a>
+      <a href="reserve.html" class="btn-reserve-bistro">Book Table 🍷</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="cafe-hero">
-    <div class="cafe-hero-wrap">
-      <div class="cafe-hero-content">
-        <div class="cafe-badge">✨ Sourdough Pizza & Hand-Rolled Pasta</div>
-        <h1>Wood-Fired Passions, <i>Handmade with Soul</i></h1>
-        <p>Experience authentic Neapolitan wood-fired pizzas, 48-hour cold fermented dough, durum wheat extruded pastas, and signature Italian tiramisu.</p>
-        <div class="cafe-hero-actions">
-          <a href="menu.html" class="btn-cafe-primary">Explore Trattoria Menu (₹)</a>
-          <a href="reserve.html" class="btn-cafe-outline">Book Candlelight Table ➔</a>
-        </div>
-      </div>
+  <section class="hero">
+    <span class="hero-badge">🔥 Authentic Italian Wood-Fired Oven</span>
+    <h1>Wood-Fired Pizza & <span>Handmade Pasta</span></h1>
+    <p class="sub">Crafted with stoneground flour, San Marzano tomato sauce, fresh Fior di Latte mozzarella, and hand-rolled pasta made fresh every morning.</p>
+    
+    <div class="hero-actions">
+      <a href="menu.html" class="btn-hero-primary">View Full Menu & Order (₹)</a>
+      <a href="reserve.html" class="btn-hero-outline">Reserve Candlelight Table ➔</a>
     </div>
   </section>
 
-  <!-- Signature Specials Section -->
-  <section class="cafe-section">
-    <div class="cafe-heading">
-      <div class="cafe-sub">Cucina Rustica</div>
-      <h2>Chef's Handcrafted Signatures</h2>
-      <p>Made with San Marzano DOP tomatoes, imported buffalo mozzarella, and cold-pressed extra virgin olive oil.</p>
+  <!-- Trust Bar -->
+  <div class="trustbar">
+    <div><span class="trust-dot"></span>48-Hour Fermented Dough</div>
+    <div><span class="trust-dot"></span>Imported Italian Cheeses</div>
+    <div><span class="trust-dot"></span>Wood-Fired at 450°C</div>
+    <div><span class="trust-dot"></span>Zero Added Sugar or Preservatives</div>
+  </div>
+
+  <!-- Signature Dishes -->
+  <section class="menu-section">
+    <div class="section-head">
+      <span style="font-size:12px; font-weight:800; color:var(--flame); letter-spacing:2px; text-transform:uppercase;">Chef's Special</span>
+      <h2>Artisanal Wood-Fired Creations</h2>
+      <p style="color:#666;">Blistered leopard-crust Neapolitan pizzas and rich slow-simmered sauces.</p>
     </div>
 
-    <div class="dishes-grid">
+    <div class="food-grid">
       <!-- 1 -->
-      <div class="dish-card">
-        <img src="../images/cafe/dish1.jpg" alt="Truffle Bruschetta" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-header">
-            <div class="dish-title"><span class="veg-dot"></span> Truffle Wild Mushroom Bruschetta</div>
-            <div class="dish-price">₹340</div>
-          </div>
-          <p class="dish-desc">Garlic sourdough topped with sautéed porcini & button mushrooms, white truffle glaze, and shaved Grana Padano.</p>
-          <a href="menu.html" class="cafe-nav-btn" style="text-align:center;">View in Full Menu ➔</a>
+      <div class="food-card">
+        <img src="../images/cafe/dish1.jpg" alt="Burrata Pizza" class="food-img">
+        <div class="food-body">
+          <h3 class="food-title">Margherita D.O.P. with Fresh Burrata</h3>
+          <div class="food-price">₹680</div>
+          <p class="food-desc">San Marzano tomato base, artisanal whole burrata ball, fresh sweet basil, and Ligurian extra virgin olive oil drizzle.</p>
+          <a href="order.html?dish=burrata-pizza" class="btn-add-dish">Add to Takeaway Order ➔</a>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="dish-card">
-        <img src="../images/cafe/dish2.jpg" alt="Margherita Di Bufala" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-header">
-            <div class="dish-title"><span class="veg-dot"></span> Margherita Di Bufala (12")</div>
-            <div class="dish-price">₹520</div>
-          </div>
-          <p class="dish-desc">San Marzano tomato base, fresh buffalo mozzarella, fresh sweet basil, and extra virgin olive oil drizzle.</p>
-          <a href="menu.html" class="cafe-nav-btn" style="text-align:center;">View in Full Menu ➔</a>
+      <div class="food-card">
+        <img src="../images/cafe/dish2.jpg" alt="Truffle Pasta" class="food-img">
+        <div class="food-body">
+          <h3 class="food-title">Wild Mushroom & Black Truffle Tagliatelle</h3>
+          <div class="food-price">₹720</div>
+          <p class="food-desc">Hand-rolled egg yolk tagliatelle ribbons tossed in porcini butter, black truffle cream, and 24-month aged Parmigiano Reggiano.</p>
+          <a href="order.html?dish=truffle-pasta" class="btn-add-dish">Add to Takeaway Order ➔</a>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="dish-card">
-        <img src="../images/cafe/dish4.jpg" alt="Fettuccine Carbonara" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-header">
-            <div class="dish-title"><span class="nonveg-dot"></span> Fettuccine Alla Carbonara</div>
-            <div class="dish-price">₹580</div>
-          </div>
-          <p class="dish-desc">Handmade egg pasta tossed with crispy cured bacon, pasture-raised egg yolk emulsion, and aged Pecorino Romano.</p>
-          <a href="menu.html" class="cafe-nav-btn" style="text-align:center;">View in Full Menu ➔</a>
+      <div class="food-card">
+        <img src="../images/cafe/dish3.jpg" alt="Tiramisu" class="food-img">
+        <div class="food-body">
+          <h3 class="food-title">Classic Espresso Savoiardi Tiramisu</h3>
+          <div class="food-price">₹420</div>
+          <p class="food-desc">Freshly dipped Italian ladyfinger biscuits in single-origin espresso, whipped mascarpone cream, and Dutch dark cocoa dusting.</p>
+          <a href="order.html?dish=tiramisu" class="btn-add-dish">Add to Takeaway Order ➔</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="cafe-footer">
-    <div class="cafe-footer-wrap">
+  <footer class="bistro-footer">
+    <div class="bistro-footer-wrap">
       <div>
-        <h4 style="color:#fff;">LINGUINI & LEAF BISTRO</h4>
-        <p>24, Lavelle Road, Shanthala Nagar, Bengaluru 560001</p>
-        <p>Reservations: +91 98765 43210</p>
-        <p>Kitchen Timings: 12:00 PM – 11:30 PM (All 7 Days)</p>
+        <h4 style="color:var(--gold);">LINGUINI & LEAF TRATTORIA</h4>
+        <p>18, Olive Grove Lane, Indiranagar, Bengaluru 560038</p>
+        <p>Table Booking Desk: +91 98765 43210</p>
       </div>
       <div>
-        <h4>Dining Experience</h4>
-        <a href="menu.html">Digital Menu</a>
-        <a href="reserve.html">Table Reservation</a>
-        <a href="order.html">Online Takeaway</a>
+        <h4>Courses</h4>
+        <a href="menu.html">Wood-Fired Neapolitan Pizza</a>
+        <a href="menu.html">Handmade Fresh Pasta</a>
+        <a href="menu.html">Italian Dolci & Gelato</a>
       </div>
       <div>
-        <h4>The Craft</h4>
-        <p>48-Hour Cold Fermented Sourdough</p>
-        <p>Caputo 00 Flour Imported from Napoli</p>
-        <p>Wood-Fired at 450°C</p>
+        <h4>Kitchen Standards</h4>
+        <p>100% Cold Fermented Dough</p>
+        <p>Imported San Marzano Tomatoes</p>
+        <p>Artisanal Stone Ovens</p>
       </div>
     </div>
-    <div class="cafe-footer-bottom">
-      © 2026 Linguini & Leaf Bistro. Powered by Orbitex Local Business Web Suite.
+    <div style="text-align:center; font-size:12px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
+      © 2026 Linguini & Leaf Trattoria. Powered by Orbitex Production Suite.
     </div>
   </footer>
 
