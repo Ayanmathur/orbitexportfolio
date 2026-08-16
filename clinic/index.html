@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Care Clinic & Dental Studio — Multi-Specialty Healthcare</title>
+  <meta name="description" content="Trusted multi-specialty healthcare, advanced painless dental implants, pediatric care, and executive health checkups with In-Clinic & Video consultations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --clinic-blue: #0284c7;
+      --clinic-dark: #0f172a;
+      --clinic-teal: #0d9488;
+      --clinic-bg: #f8fafc;
+      --clinic-card: #ffffff;
+      --clinic-border: #e2e8f0;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--clinic-bg);
+      color: var(--clinic-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Clinic Header */
+    .clinic-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--clinic-border);
+    }
+    .clinic-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .clinic-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--clinic-dark);
+      font-weight: 800;
+      font-size: 20px;
+    }
+    .clinic-brand span { color: var(--clinic-blue); }
+    .clinic-nav-links { display: flex; gap: 24px; align-items: center; }
+    .clinic-nav-links a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .clinic-nav-links a:hover { color: var(--clinic-blue); }
+    .clinic-nav-btn {
+      background: var(--clinic-blue);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .clinic-nav-btn:hover { background: #0369a1; transform: translateY(-1px); }
+
+    /* Emergency Alert Bar */
+    .emergency-bar {
+      background: #fef2f2;
+      border-bottom: 1px solid #fee2e2;
+      color: #991b1b;
+      padding: 8px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .emergency-bar a { color: #dc2626; font-weight: 700; text-decoration: underline; margin-left: 6px; }
+
+    /* Hero Section */
+    .clinic-hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(2, 132, 199, 0.75) 100%),
+                  url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 24px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+    .clinic-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .clinic-hero-content h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .clinic-hero-content p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    .hero-features-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .hero-feat-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #e0f2fe;
+    }
+
+    /* Consultation Booking Card in Hero */
+    .hero-booking-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px;
+      color: var(--clinic-dark);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    .hero-booking-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .hero-booking-card p { font-size: 13px; color: #64748b; margin-bottom: 20px; }
+    
+    /* Dual Consultation Switcher */
+    .consult-type-pills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .consult-pill {
+      border: 1.5px solid var(--clinic-border);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .consult-pill.active {
+      border-color: var(--clinic-blue);
+      background: #f0f9ff;
+    }
+    .consult-pill b { display: block; font-size: 14px; color: var(--clinic-dark); }
+    .consult-pill span { font-size: 12px; color: var(--clinic-blue); font-weight: 700; }
+
+    /* Section Styles */
+    .clinic-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .clinic-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .clinic-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: var(--clinic-blue);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .clinic-header-center h2 { font-size: 34px; font-weight: 800; margin-bottom: 12px; color: var(--clinic-dark); }
+    .clinic-header-center p { font-size: 16px; color: #64748b; }
+
+    /* Doctors Grid */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .doctor-card {
+      background: #fff;
+      border: 1px solid var(--clinic-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+      transition: transform 0.3s;
+    }
+    .doctor-card:hover { transform: translateY(-6px); }
+    .doctor-img {
+      height: 280px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .doctor-body { padding: 24px; }
+    .doctor-body h3 { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+    .doctor-qual { font-size: 13px; color: var(--clinic-blue); font-weight: 700; margin-bottom: 8px; }
+    .doctor-body p { font-size: 13.5px; color: #64748b; margin-bottom: 16px; line-height: 1.5; }
+    .doctor-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px dashed var(--clinic-border);
+    }
+    .doctor-fee { font-size: 14px; font-weight: 700; color: var(--clinic-dark); }
+    .doctor-btn {
+      background: #f0f9ff;
+      color: var(--clinic-blue);
+      border: 1px solid #bae6fd;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .doctor-btn:hover { background: var(--clinic-blue); color: #fff; }
+
+    /* Services Catalog */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--clinic-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      border-color: var(--clinic-blue);
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.1);
+      transform: translateY(-4px);
+    }
+    .service-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .service-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .service-top h3 { font-size: 18px; font-weight: 800; }
+    .service-price { font-size: 20px; font-weight: 800; color: var(--clinic-blue); }
+    .service-desc { font-size: 13.5px; color: #64748b; margin-bottom: 18px; flex: 1; }
+    .btn-book-service {
+      background: var(--clinic-dark);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .btn-book-service:hover { background: var(--clinic-blue); }
+
+    /* Booking Modal */
+    .clinic-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .clinic-modal-card {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+    }
+    .clinic-modal-card h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .clinic-modal-card p { font-size: 13px; color: #64748b; margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #334155; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--clinic-border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .btn-submit-consult {
+      width: 100%;
+      background: var(--clinic-blue);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+
+    /* Footer */
+    .clinic-footer {
+      background: var(--clinic-dark);
+      color: #fff;
+      padding: 60px 24px 30px;
+    }
+    .clinic-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .clinic-footer h4 { font-size: 16px; font-weight: 800; margin-bottom: 16px; color: #38bdf8; }
+    .clinic-footer p, .clinic-footer a { font-size: 13.5px; color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+    .clinic-footer a:hover { color: #fff; }
+    .clinic-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    @media (max-width: 900px) {
+      .clinic-hero-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Aura Care Clinic & Dental</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Emergency Notice Bar -->
+  <div class="emergency-bar">
+    🚨 Emergency Medical & Dental Triage Available 24/7 • Hotline: <a href="tel:+919876543210">+91 98765 43210</a>
+  </div>
+
+  <!-- Clinic Navbar -->
+  <header class="clinic-nav">
+    <div class="clinic-nav-wrap">
+      <a href="#home" class="clinic-brand">
+        🩺 AURA CARE <span>CLINIC</span>
+      </a>
+      <nav class="clinic-nav-links">
+        <a href="#services">Treatments & Pricing</a>
+        <a href="#doctors">Specialists</a>
+        <a href="#facilities">Accreditation</a>
+        <button class="clinic-nav-btn" onclick="openConsultModal('General Consultation', 500)">Book Appointment 📅</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="clinic-hero" id="home">
+    <div class="clinic-hero-wrap">
+      <div class="clinic-hero-content">
+        <h1>Compassionate Care, <span>Advanced Clinical Precision</span></h1>
+        <p>NABH-accredited multi-specialty healthcare and painless laser dentistry. Consult with top specialists in person or via high-definition secure video consultation.</p>
+        
+        <div class="hero-features-list">
+          <div class="hero-feat-item">✓ Zero Waiting Time Policy</div>
+          <div class="hero-feat-item">✓ Autoclaved German Instruments</div>
+          <div class="hero-feat-item">✓ Digital X-Ray & Instant Reports</div>
+          <div class="hero-feat-item">✓ Direct WhatsApp Prescription</div>
+        </div>
+
+        <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="clinic-nav-btn" style="padding: 14px 28px; font-size: 15px;">View Treatments & Pricing (₹)</button>
+      </div>
+
+      <!-- Quick Booking Form Card -->
+      <div class="hero-booking-card">
+        <h3>Book Instant Appointment</h3>
+        <p>Select your consultation format to get started:</p>
+        
+        <div class="consult-type-pills">
+          <div class="consult-pill active" onclick="setConsultMode(this, 'In-Clinic Visit', 500)">
+            <b>🏥 In-Clinic Visit</b>
+            <span>₹500 Consultation</span>
+          </div>
+          <div class="consult-pill" onclick="setConsultMode(this, 'Video Consult', 300)">
+            <b>📹 Online Video</b>
+            <span>₹300 Telehealth</span>
+          </div>
+        </div>
+
+        <form onsubmit="handleHeroBooking(event)">
+          <div class="form-group">
+            <label>Patient Full Name</label>
+            <input type="text" id="heroPatientName" required placeholder="e.g. Amit Saxena">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Mobile Number</label>
+            <input type="tel" id="heroPatientPhone" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Select Department</label>
+            <select id="heroDepartment">
+              <option>Laser Dentistry & Implants</option>
+              <option>General Medicine & Diabetology</option>
+              <option>Pediatrics & Child Care</option>
+              <option>Executive Health Checkup</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit-consult">Confirm Consultation Slot ➔</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctors Section -->
+  <section class="clinic-section" id="doctors">
+    <div class="clinic-header-center">
+      <span class="clinic-badge">Our Specialists</span>
+      <h2>Meet Our Senior Physicians & Dentists</h2>
+      <p>Over 40,000+ happy patients treated with modern, evidence-based medical protocols.</p>
+    </div>
+
+    <div class="doctors-grid">
+      <!-- Doc 1 -->
+      <div class="doctor-card">
+        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80" alt="Dr. Rohan Mehta" class="doctor-img">
+        <div class="doctor-body">
+          <h3>Dr. Rohan Mehta</h3>
+          <div class="doctor-qual">BDS, MDS • Orthodontics & Dental Implants</div>
+          <p>14+ Years Exp • Expert in invisible clear aligners, painless root canals, and single-sitting crowns.</p>
+          <div class="doctor-footer">
+            <span class="doctor-fee">Fee: ₹500</span>
+            <button class="doctor-btn" onclick="openConsultModal('Consultation with Dr. Rohan Mehta', 500)">Book Dr. Rohan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doc 2 -->
+      <div class="doctor-card">
+        <img src="https://images.unsplash.com/photo-1594824813501-5768a4114777?w=600&q=80" alt="Dr. Priya Sharma" class="doctor-img">
+        <div class="doctor-body">
+          <h3>Dr. Priya Sharma</h3>
+          <div class="doctor-qual">MBBS, MD • Internal Medicine & Diabetology</div>
+          <p>11+ Years Exp • Specialized in chronic metabolic disorder management, thyroid, and cardiac preventive care.</p>
+          <div class="doctor-footer">
+            <span class="doctor-fee">Fee: ₹500</span>
+            <button class="doctor-btn" onclick="openConsultModal('Consultation with Dr. Priya Sharma', 500)">Book Dr. Priya</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Doc 3 -->
+      <div class="doctor-card">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Dr. Vikram Iyer" class="doctor-img">
+        <div class="doctor-body">
+          <h3>Dr. Vikram Iyer</h3>
+          <div class="doctor-qual">MD (Pediatrics), DNB • Child Care Specialist</div>
+          <p>9+ Years Exp • Newborn care, developmental assessment, and painless pediatric vaccination protocols.</p>
+          <div class="doctor-footer">
+            <span class="doctor-fee">Fee: ₹400</span>
+            <button class="doctor-btn" onclick="openConsultModal('Consultation with Dr. Vikram Iyer', 400)">Book Dr. Vikram</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatment Catalog -->
+  <section class="clinic-section" id="services" style="background: #fff; border-top: 1px solid var(--clinic-border); border-bottom: 1px solid var(--clinic-border);">
+    <div class="clinic-header-center">
+      <span class="clinic-badge">Transparent Pricing (INR)</span>
+      <h2>Clinical Treatments & Packages</h2>
+      <p>No hidden costs. Complete transparent pricing on all diagnostic and dental procedures.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 1 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80" alt="Laser Teeth Whitening" class="service-img">
+        <div class="service-body">
+          <div class="service-top">
+            <h3>Laser Teeth Whitening</h3>
+            <span class="service-price">₹3,500</span>
+          </div>
+          <p class="service-desc">Single 45-minute sitting Philips Zoom laser whitening, removing up to 8 shades of coffee/tea stains.</p>
+          <button class="btn-book-service" onclick="openConsultModal('Laser Teeth Whitening', 3500)">Book Procedure 📅</button>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80" alt="Painless RCT & Crown" class="service-img">
+        <div class="service-body">
+          <div class="service-top">
+            <h3>Painless RCT + Crown</h3>
+            <span class="service-price">₹4,200</span>
+          </div>
+          <p class="service-desc">Rotary endodontics painless root canal with 3D CAD/CAM custom monolithic zirconia crown.</p>
+          <button class="btn-book-service" onclick="openConsultModal('Painless RCT + Zirconia Crown', 4200)">Book Procedure 📅</button>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Executive Health Checkup" class="service-img">
+        <div class="service-body">
+          <div class="service-top">
+            <h3>Executive Health Checkup</h3>
+            <span class="service-price">₹2,499</span>
+          </div>
+          <p class="service-desc">72 blood parameters including CBC, Lipid profile, Liver function, Kidney function, ECG & physician review.</p>
+          <button class="btn-book-service" onclick="openConsultModal('Executive Health Checkup (72 Tests)', 2499)">Book Package 📅</button>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80" alt="Clear Aligners Braces" class="service-img">
+        <div class="service-body">
+          <div class="service-top">
+            <h3>Invisible Clear Aligners</h3>
+            <span class="service-price">₹35,000</span>
+          </div>
+          <p class="service-desc">3D digital intraoral scan, customized invisible aligner trays with bi-weekly progress monitoring.</p>
+          <button class="btn-book-service" onclick="openConsultModal('Invisible Clear Aligners Package', 35000)">Book Scan & Consult 📅</button>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80" alt="Pediatric Vaccination" class="service-img">
+        <div class="service-body">
+          <div class="service-top">
+            <h3>Pediatric Vaccination</h3>
+            <span class="service-price">₹800</span>
+          </div>
+          <p class="service-desc">WHO-approved cold-chain vaccines administered by senior pediatrician with digital milestone booklet.</p>
+          <button class="btn-book-service" onclick="openConsultModal('Pediatric Vaccination & Checkup', 800)">Book Slot 📅</button>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80" alt="Diabetic Wellness Profile" class="service-img">
+        <div class="service-body">
+          <div class="service-top">
+            <h3>Diabetic Wellness Profile</h3>
+            <span class="service-price">₹1,100</span>
+          </div>
+          <p class="service-desc">HbA1c test, fasting & PP glucose, urine microalbumin, foot neuropathy checkup, and diet plan.</p>
+          <button class="btn-book-service" onclick="openConsultModal('Diabetic Wellness Profile', 1100)">Book Slot 📅</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Modal -->
+  <div id="consultModal" class="clinic-modal">
+    <div class="clinic-modal-card">
+      <button class="modal-close" onclick="closeConsultModal()">✕</button>
+      <h3 id="modalConsultTitle">Book Clinical Appointment</h3>
+      <p>Our patient coordinator will confirm your appointment time and send pre-visit instructions on WhatsApp.</p>
+      
+      <form onsubmit="handleModalBooking(event)">
+        <div class="form-group">
+          <label>Patient Full Name</label>
+          <input type="text" id="modalPatientName" required placeholder="e.g. Sneha Roy">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Phone Number</label>
+          <input type="tel" id="modalPatientPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Preferred Date & Time</label>
+          <input type="datetime-local" id="modalPatientDate" required>
+        </div>
+        <button type="submit" class="btn-submit-consult">Confirm Appointment on WhatsApp 💬</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="clinic-footer">
+    <div class="clinic-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">AURA CARE CLINIC & DENTAL</h4>
+        <p>Plot 45, Sector 18, Near Metro Station, Gurugram, Haryana 122002</p>
+        <p>Phone: +91 98765 43210 • info@auracare.in</p>
+        <p>Mon - Sat: 8:30 AM – 9:00 PM | Sun: 9:00 AM – 2:00 PM</p>
+      </div>
+      <div>
+        <h4>Specialties</h4>
+        <a href="#services">Laser Dentistry</a>
+        <a href="#services">Orthodontics & Aligners</a>
+        <a href="#services">General Medicine</a>
+        <a href="#services">Executive Diagnostics</a>
+      </div>
+      <div>
+        <h4>Patient Trust</h4>
+        <p>NABH Accredited Facility</p>
+        <p>100% Class-B Autoclaved Sterilization</p>
+        <p>Instant Digital WhatsApp Prescriptions</p>
+      </div>
+    </div>
+    <div class="clinic-footer-bottom">
+      © 2026 Aura Care Clinic & Dental Studio. Powered by Orbitex Local Business Web Suite.
+    </div>
+  </footer>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    let activeConsult = 'In-Clinic Visit';
+    let activeFee = 500;
+
+    function setConsultMode(el, mode, fee) {
+      document.querySelectorAll('.consult-pill').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      activeConsult = mode;
+      activeFee = fee;
+    }
+
+    function openConsultModal(title, fee) {
+      activeConsult = title;
+      activeFee = fee;
+      document.getElementById('modalConsultTitle').innerText = title + ' (₹' + fee.toLocaleString('en-IN') + ')';
+      document.getElementById('consultModal').style.display = 'flex';
+    }
+
+    function closeConsultModal() {
+      document.getElementById('consultModal').style.display = 'none';
+    }
+
+    function handleHeroBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('heroPatientName').value;
+      const phone = document.getElementById('heroPatientPhone').value;
+      const dept = document.getElementById('heroDepartment').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Consultation registered! Opening WhatsApp...');
+      const msg = encodeURIComponent(`Hi Aura Care Clinic! I'd like to book an appointment.\nMode: ${activeConsult}\nFee: ₹${activeFee}\nDepartment: ${dept}\nPatient: ${name}\nPhone: ${phone}`);
+      setTimeout(() => { window.open(`https://wa.me/919876543210?text=${msg}`, '_blank'); }, 700);
+    }
+
+    function handleModalBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('modalPatientName').value;
+      const phone = document.getElementById('modalPatientPhone').value;
+      const date = document.getElementById('modalPatientDate').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Appointment submitted! Connecting to clinic...');
+      const msg = encodeURIComponent(`Hi Aura Care Clinic! I'd like to book an appointment.\nTreatment: ${activeConsult}\nFee: ₹${activeFee}\nDate & Time: ${date}\nPatient: ${name}\nPhone: ${phone}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        closeConsultModal();
+      }, 700);
+    }
+  </script>
+</body>
+</html>

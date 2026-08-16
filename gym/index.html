@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge Athletics Club — Elite Gym, CrossFit & High-Performance Arena</title>
+  <meta name="description" content="State-of-the-art strength training, Olympic lifting platforms, certified personal trainers, CrossFit, and nutrition bar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --gym-neon: #a3e635;
+      --gym-dark: #0a0a0a;
+      --gym-card: #141414;
+      --gym-border: rgba(255, 255, 255, 0.1);
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--gym-dark);
+      color: #f4f4f5;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Promo Bar */
+    .gym-promo-bar {
+      background: var(--gym-neon);
+      color: #000;
+      padding: 8px 24px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Navigation */
+    .gym-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gym-border);
+    }
+    .gym-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gym-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .gym-brand span { color: var(--gym-neon); }
+    .gym-nav-links { display: flex; gap: 28px; align-items: center; }
+    .gym-nav-links a {
+      color: #a1a1aa;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .gym-nav-links a:hover { color: var(--gym-neon); }
+    .gym-nav-btn {
+      background: var(--gym-neon);
+      color: #000;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 13px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    /* Hero Section */
+    .gym-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 100%),
+                  url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover no-repeat;
+      padding: 60px 24px;
+    }
+    .gym-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .gym-hero-content { max-width: 680px; }
+    .gym-badge {
+      display: inline-block;
+      background: rgba(163, 230, 53, 0.15);
+      border: 1px solid var(--gym-neon);
+      color: var(--gym-neon);
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .gym-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(38px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .gym-hero h1 span { color: var(--gym-neon); }
+    .gym-hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #a1a1aa;
+      margin-bottom: 34px;
+    }
+    .gym-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-gym-primary {
+      background: var(--gym-neon);
+      color: #000;
+      border: none;
+      padding: 14px 34px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 15px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-gym-primary:hover {
+      background: #bef264;
+      transform: translateY(-2px);
+    }
+    .btn-gym-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 15px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-gym-outline:hover {
+      border-color: var(--gym-neon);
+      color: var(--gym-neon);
+    }
+
+    /* Section Structure */
+    .gym-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+    .gym-header-center {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+    .gym-sub {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gym-neon);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .gym-header-center h2 {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Interactive BMI Gauge Section */
+    .bmi-card {
+      background: var(--gym-card);
+      border: 1px solid var(--gym-border);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .bmi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .bmi-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .bmi-group input {
+      width: 100%;
+      padding: 12px 16px;
+      background: #1c1c1c;
+      border: 1px solid var(--gym-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 16px;
+    }
+    .bmi-result-display {
+      background: #1c1c1c;
+      border: 1px solid var(--gym-border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .bmi-score {
+      font-family: var(--font-heading);
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--gym-neon);
+      margin: 8px 0;
+    }
+    .bmi-track {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      margin: 16px 0;
+      overflow: hidden;
+    }
+    .bmi-fill {
+      height: 100%;
+      width: 50%;
+      background: var(--gym-neon);
+      transition: width 0.4s ease, background 0.4s ease;
+    }
+
+    /* Memberships Grid */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .plan-card {
+      background: var(--gym-card);
+      border: 1px solid var(--gym-border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .plan-card.popular {
+      border-color: var(--gym-neon);
+      box-shadow: 0 0 30px rgba(163, 230, 53, 0.15);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      right: 24px;
+      background: var(--gym-neon);
+      color: #000;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .plan-name { font-family: var(--font-heading); font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+    .plan-price-wrap { margin-bottom: 20px; }
+    .plan-price { font-family: var(--font-heading); font-size: 38px; font-weight: 900; color: #fff; }
+    .plan-dur-pills {
+      display: flex;
+      gap: 6px;
+      background: #1c1c1c;
+      padding: 4px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .plan-pill {
+      flex: 1;
+      text-align: center;
+      padding: 6px 0;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #a1a1aa;
+      cursor: pointer;
+    }
+    .plan-pill.active {
+      background: #333;
+      color: #fff;
+    }
+    .plan-features { list-style: none; margin-bottom: 28px; flex: 1; }
+    .plan-features li {
+      font-size: 13.5px;
+      color: #a1a1aa;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .plan-features li::before { content: '✓'; color: var(--gym-neon); font-weight: 900; }
+
+    /* Modal */
+    .gym-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .gym-modal-card {
+      background: #141414;
+      border: 1px solid var(--gym-border);
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #71717a;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 800; margin-bottom: 6px; color: #a1a1aa; text-transform: uppercase; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      background: #1c1c1c;
+      border: 1px solid var(--gym-border);
+      border-radius: 6px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .gym-footer {
+      background: #050505;
+      border-top: 1px solid var(--gym-border);
+      color: #71717a;
+      padding: 60px 24px 30px;
+    }
+    .gym-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .gym-footer h4 { font-family: var(--font-heading); color: #fff; font-size: 16px; font-weight: 900; text-transform: uppercase; margin-bottom: 16px; }
+    .gym-footer p, .gym-footer a { font-size: 13.5px; color: #a1a1aa; text-decoration: none; display: block; margin-bottom: 8px; }
+    .gym-footer a:hover { color: var(--gym-neon); }
+    .gym-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Forge Athletics & Gym Arena</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Promo Top Bar -->
+  <div class="gym-promo-bar">
+    🔥 FLASH PROMO: GET 40% OFF ANNUAL MEMBERSHIPS + 3 FREE PERSONAL TRAINING SESSIONS!
+  </div>
+
+  <!-- Navbar -->
+  <header class="gym-nav">
+    <div class="gym-nav-wrap">
+      <a href="#home" class="gym-brand">FORGE <span>ATHLETICS</span></a>
+      <nav class="gym-nav-links">
+        <a href="#plans">Memberships</a>
+        <a href="#bmi">BMI Calculator</a>
+        <a href="#facilities">Arena Tour</a>
+        <button class="gym-nav-btn" onclick="openJoinModal('Free Day Pass', 0)">Free Pass ⚡</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="gym-hero" id="home">
+    <div class="gym-hero-wrap">
+      <div class="gym-hero-content">
+        <div class="gym-badge">⚡ High Performance Training Facility</div>
+        <h1>Forge Your <span>Peak Strength</span> & Body</h1>
+        <p>15,000 sq.ft elite fitness arena featuring Eleiko Olympic lifting platforms, CrossFit functional turf, certified strength coaches, and recovery steam spa.</p>
+        <div class="gym-hero-actions">
+          <a href="#plans" class="btn-gym-primary">Explore Memberships (₹)</a>
+          <a href="#bmi" class="btn-gym-outline">Calculate BMI</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive BMI Calculator Section -->
+  <section class="gym-section" id="bmi">
+    <div class="gym-header-center">
+      <div class="gym-sub">Fitness Diagnostic</div>
+      <h2>Smart BMI & Health Gauge</h2>
+      <p>Enter your height and weight to calculate your Body Mass Index score and recommended training plan.</p>
+    </div>
+
+    <div class="bmi-card">
+      <div class="bmi-grid">
+        <div class="bmi-group">
+          <label>Height (in Centimeters)</label>
+          <input type="number" id="bmiHeight" value="175" min="100" max="250" oninput="calcBMI()">
+        </div>
+        <div class="bmi-group">
+          <label>Weight (in Kilograms)</label>
+          <input type="number" id="bmiWeight" value="72" min="30" max="200" oninput="calcBMI()">
+        </div>
+      </div>
+
+      <div class="bmi-result-display">
+        <div style="font-size:12px; color:#a1a1aa; text-transform:uppercase; font-weight:800;">Your Calculated BMI</div>
+        <div class="bmi-score" id="bmiScore">23.5</div>
+        <div id="bmiStatus" style="font-weight:800; font-size:16px; color:#a3e635;">Normal Weight (Healthy Target)</div>
+        
+        <div class="bmi-track">
+          <div class="bmi-fill" id="bmiFill" style="width: 50%;"></div>
+        </div>
+        <div style="font-size:12px; color:#71717a;">Recommended: Strength Training & Hypertrophy Routine (3-4x Weekly)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Plans -->
+  <section class="gym-section" id="plans" style="border-top: 1px solid var(--gym-border);">
+    <div class="gym-header-center">
+      <div class="gym-sub">Flexible Memberships</div>
+      <h2>Choose Your Training Tier</h2>
+      <p>No admission fees. 100% money-back guarantee within 7 days.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- Plan 1 -->
+      <div class="plan-card" data-base="2500">
+        <div class="plan-name">Base Arena Access</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price">₹2,500 <span style="font-size:14px; color:#a1a1aa;">/ mo</span></div>
+        </div>
+        <div class="plan-dur-pills">
+          <div class="plan-pill active" onclick="updatePlanPrice(this, 2500, 1, '1 Month')">1 Mo</div>
+          <div class="plan-pill" onclick="updatePlanPrice(this, 2500, 2.6, '3 Months')">3 Mo</div>
+          <div class="plan-pill" onclick="updatePlanPrice(this, 2500, 7.5, '12 Months')">12 Mo</div>
+        </div>
+        <ul class="plan-features">
+          <li>Full Gym & Cardio Floor Access</li>
+          <li>Locker & Shower Facility</li>
+          <li>Free Fitness Assessment & App</li>
+        </ul>
+        <button class="btn-gym-primary" onclick="openJoinModal('Base Arena Access', 2500)">Join Base Plan ⚡</button>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="plan-card popular" data-base="4200">
+        <span class="plan-badge">Most Popular</span>
+        <div class="plan-name">Pro CrossFit & Turf</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price">₹4,200 <span style="font-size:14px; color:#a1a1aa;">/ mo</span></div>
+        </div>
+        <div class="plan-dur-pills">
+          <div class="plan-pill active" onclick="updatePlanPrice(this, 4200, 1, '1 Month')">1 Mo</div>
+          <div class="plan-pill" onclick="updatePlanPrice(this, 4200, 2.6, '3 Months')">3 Mo</div>
+          <div class="plan-pill" onclick="updatePlanPrice(this, 4200, 7.5, '12 Months')">12 Mo</div>
+        </div>
+        <ul class="plan-features">
+          <li>All Base Floor Amenities</li>
+          <li>Unlimited Daily CrossFit & HIIT Classes</li>
+          <li>Olympic Lifting Turf Access</li>
+          <li>Steam & Sauna Recovery Lounge</li>
+        </ul>
+        <button class="btn-gym-primary" onclick="openJoinModal('Pro CrossFit & Turf', 4200)">Join Pro Plan ⚡</button>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="plan-card" data-base="7500">
+        <div class="plan-name">Elite VIP + Coach</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price">₹7,500 <span style="font-size:14px; color:#a1a1aa;">/ mo</span></div>
+        </div>
+        <div class="plan-dur-pills">
+          <div class="plan-pill active" onclick="updatePlanPrice(this, 7500, 1, '1 Month')">1 Mo</div>
+          <div class="plan-pill" onclick="updatePlanPrice(this, 7500, 2.6, '3 Months')">3 Mo</div>
+          <div class="plan-pill" onclick="updatePlanPrice(this, 7500, 7.5, '12 Months')">12 Mo</div>
+        </div>
+        <ul class="plan-features">
+          <li>All Pro & CrossFit Privileges</li>
+          <li>12 Personal Training Sessions / Month</li>
+          <li>Custom Macro Diet & Nutritionist Plan</li>
+          <li>Dedicated VIP Valet & Laundry</li>
+        </ul>
+        <button class="btn-gym-primary" onclick="openJoinModal('Elite VIP + Personal Coach', 7500)">Join VIP Elite ⚡</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Modal -->
+  <div id="gymModal" class="gym-modal">
+    <div class="gym-modal-card">
+      <button class="modal-close" onclick="closeJoinModal()">✕</button>
+      <h3 id="gymModalTitle" style="font-family: var(--font-heading); font-size: 22px; margin-bottom: 6px; text-transform: uppercase;">Join Forge Athletics</h3>
+      <p style="font-size: 13px; color: #a1a1aa; margin-bottom: 20px;">Claim your pass or membership and our fitness manager will reach out on WhatsApp.</p>
+      
+      <form onsubmit="handleGymSubmit(event)">
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="gymCustName" required placeholder="e.g. Varun Kapoor">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Mobile Number</label>
+          <input type="tel" id="gymCustPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Primary Fitness Goal</label>
+          <select id="gymCustGoal">
+            <option>Fat Loss & Toning</option>
+            <option>Muscle Gain & Hypertrophy</option>
+            <option>Strength & Olympic Powerlifting</option>
+            <option>Endurance & CrossFit</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-gym-primary" style="width: 100%; margin-top: 10px;">Activate on WhatsApp 💬</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="gym-footer">
+    <div class="gym-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">FORGE ATHLETICS CLUB</h4>
+        <p>Arena 7, Ring Road Hub, HSR Layout, Bengaluru 560102</p>
+        <p>Front Desk: +91 98765 43210</p>
+        <p>Hours: 5:30 AM – 11:30 PM (Mon-Sat) | 7:00 AM – 8:00 PM (Sun)</p>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <a href="#plans">CrossFit WOD</a>
+        <a href="#plans">Olympic Lifting</a>
+        <a href="#plans">Personal Coaching</a>
+        <a href="#bmi">BMI Diagnostic</a>
+      </div>
+      <div>
+        <h4>Arena Standards</h4>
+        <p>Eleiko & Rogue Certified Equipment</p>
+        <p>Full Air Ionization & HVAC</p>
+        <p>In-House Protein Bar & Cafe</p>
+      </div>
+    </div>
+    <div class="gym-footer-bottom">
+      © 2026 Forge Athletics Club. Powered by Orbitex Local Business Web Suite.
+    </div>
+  </footer>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    let activePlanName = 'Base Arena Access';
+    let activePlanPrice = 2500;
+    let activeDuration = '1 Month';
+
+    function calcBMI() {
+      const h = parseFloat(document.getElementById('bmiHeight').value) / 100;
+      const w = parseFloat(document.getElementById('bmiWeight').value);
+      if (!h || !w) return;
+
+      const bmi = (w / (h * h)).toFixed(1);
+      document.getElementById('bmiScore').innerText = bmi;
+
+      let status = 'Normal Weight (Healthy Target)';
+      let color = '#a3e635';
+      let pct = 50;
+
+      if (bmi < 18.5) {
+        status = 'Underweight (Muscle Gain Needed)';
+        color = '#38bdf8';
+        pct = 25;
+      } else if (bmi >= 25 && bmi < 30) {
+        status = 'Overweight (Fat Loss Protocol)';
+        color = '#f59e0b';
+        pct = 75;
+      } else if (bmi >= 30) {
+        status = 'Obese (Intensive Conditioning)';
+        color = '#ef4444';
+        pct = 95;
+      }
+
+      const statusEl = document.getElementById('bmiStatus');
+      statusEl.innerText = status;
+      statusEl.style.color = color;
+
+      const fillEl = document.getElementById('bmiFill');
+      fillEl.style.width = pct + '%';
+      fillEl.style.backgroundColor = color;
+    }
+
+    function updatePlanPrice(pillEl, basePrice, mult, durLabel) {
+      const card = pillEl.closest('.plan-card');
+      card.querySelectorAll('.plan-pill').forEach(p => p.classList.remove('active'));
+      pillEl.classList.add('active');
+
+      const finalPrice = Math.round(basePrice * mult);
+      card.querySelector('.plan-price').innerHTML = `₹${finalPrice.toLocaleString('en-IN')} <span style="font-size:14px; color:#a1a1aa;">/ ${durLabel}</span>`;
+
+      const planName = card.querySelector('.plan-name').innerText;
+      const btn = card.querySelector('.btn-gym-primary');
+      btn.onclick = function() {
+        activeDuration = durLabel;
+        openJoinModal(planName, finalPrice);
+      };
+    }
+
+    function openJoinModal(planName, price) {
+      activePlanName = planName;
+      activePlanPrice = price;
+      document.getElementById('gymModalTitle').innerText = 'Join: ' + planName + (price ? ' (₹' + price.toLocaleString('en-IN') + ')' : '');
+      document.getElementById('gymModal').style.display = 'flex';
+    }
+
+    function closeJoinModal() {
+      document.getElementById('gymModal').style.display = 'none';
+    }
+
+    function handleGymSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('gymCustName').value;
+      const phone = document.getElementById('gymCustPhone').value;
+      const goal = document.getElementById('gymCustGoal').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Membership activated! Connecting to gym desk...');
+      const msg = encodeURIComponent(`Hi Forge Athletics! I would like to activate a membership.\nPlan: ${activePlanName}\nDuration: ${activeDuration}\nPrice: ₹${activePlanPrice}\nPrimary Goal: ${goal}\nMember: ${name}\nPhone: ${phone}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        closeJoinModal();
+      }, 700);
+    }
+  </script>
+</body>
+</html>

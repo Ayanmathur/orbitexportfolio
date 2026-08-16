@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenfield Heights — Luxury Gated Communities & Smart Commercial Suites</title>
+  <meta name="description" content="RERA registered luxury 2/3/4 BHK sky apartments, sovereign golf villas, and Grade-A commercial properties with pre-approved bank loans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --re-green: #044e3a;
+      --re-emerald: #10b981;
+      --re-dark: #0f172a;
+      --re-bg: #f8fafc;
+      --re-border: #e2e8f0;
+      --font-display: 'Syne', sans-serif;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--re-bg);
+      color: var(--re-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* RERA Top Bar */
+    .rera-bar {
+      background: var(--re-green);
+      color: #fff;
+      padding: 8px 24px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .rera-bar span { color: #6ee7b7; }
+
+    /* Navbar */
+    .re-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--re-border);
+    }
+    .re-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .re-brand {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--re-green);
+      text-decoration: none;
+    }
+    .re-brand span { color: var(--re-emerald); }
+    .re-nav-links { display: flex; gap: 28px; align-items: center; }
+    .re-nav-links a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .re-nav-links a:hover { color: var(--re-emerald); }
+    .re-nav-btn {
+      background: var(--re-green);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .re-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(4, 78, 58, 0.9) 0%, rgba(15, 23, 42, 0.75) 100%),
+                  url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px;
+    }
+    .re-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .re-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.5vw, 62px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .re-hero h1 span { color: #6ee7b7; }
+    .re-hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 34px;
+    }
+
+    /* Hero Site Visit Card */
+    .re-visit-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      color: var(--re-dark);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .re-visit-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .re-visit-card p { font-size: 13px; color: #64748b; margin-bottom: 20px; }
+
+    /* Section Structure */
+    .re-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+    .re-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .re-sub {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--re-emerald);
+      margin-bottom: 10px;
+    }
+    .re-header-center h2 {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--re-dark);
+      margin-bottom: 12px;
+    }
+
+    /* Smart EMI Calculator Section */
+    .emi-card {
+      background: #fff;
+      border: 1px solid var(--re-border);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+    .emi-slider-group { margin-bottom: 24px; }
+    .emi-slider-header { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 8px; }
+    .emi-slider-header span { color: var(--re-emerald); font-size: 18px; }
+    .emi-slider-group input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      accent-color: var(--re-emerald);
+    }
+    .emi-result-box {
+      background: linear-gradient(135deg, var(--re-green), #065f46);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      color: #fff;
+    }
+    .emi-price { font-family: var(--font-display); font-size: 42px; font-weight: 800; color: #6ee7b7; margin: 4px 0; }
+
+    /* Property Catalog */
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .property-card {
+      background: #fff;
+      border: 1px solid var(--re-border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .property-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(4, 78, 58, 0.1);
+      border-color: var(--re-emerald);
+    }
+    .property-img {
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .property-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .property-top-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .rera-badge {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .property-body h3 { font-family: var(--font-display); font-size: 20px; margin-bottom: 6px; }
+    .property-price { font-size: 24px; font-weight: 800; color: var(--re-green); margin-bottom: 12px; }
+    .property-specs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: #f8fafc;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .spec-item b { display: block; font-size: 14px; color: var(--re-dark); }
+    .spec-item span { font-size: 11px; color: #64748b; text-transform: uppercase; }
+    .property-desc { font-size: 13.5px; color: #64748b; margin-bottom: 20px; flex: 1; line-height: 1.5; }
+    .btn-schedule-visit {
+      background: var(--re-green);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .btn-schedule-visit:hover { background: #065f46; }
+
+    /* Modal */
+    .re-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .re-modal-card {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #334155; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--re-border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .re-footer {
+      background: var(--re-dark);
+      color: #fff;
+      padding: 60px 24px 30px;
+    }
+    .re-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .re-footer h4 { font-family: var(--font-display); font-size: 16px; margin-bottom: 16px; color: #6ee7b7; }
+    .re-footer p, .re-footer a { font-size: 13.5px; color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+    .re-footer a:hover { color: #fff; }
+    .re-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    @media (max-width: 900px) {
+      .re-hero-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Greenfield Heights Real Estate</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- RERA Bar -->
+  <div class="rera-bar">
+    🏛️ 100% RERA Registered Projects • Pre-Approved Home Loans with SBI, HDFC & ICICI (Starting 8.5% ROI)
+  </div>
+
+  <!-- Navbar -->
+  <header class="re-nav">
+    <div class="re-nav-wrap">
+      <a href="#home" class="re-brand">GREENFIELD <span>HEIGHTS</span></a>
+      <nav class="re-nav-links">
+        <a href="#properties">Properties</a>
+        <a href="#emi">EMI Calculator</a>
+        <a href="#amenities">Masterplan</a>
+        <button class="re-nav-btn" onclick="openVisitModal('Site Visit Consultation', 0)">Book Site Visit 🚗</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="re-hero" id="home">
+    <div class="re-hero-wrap">
+      <div class="re-hero-content">
+        <h1>Luxury Living, <span>Rooted in Nature</span></h1>
+        <p>Premium 2, 3 & 4 BHK sky residences and sovereign villas overlooking 100 acres of green golf fairways. High capital appreciation and ready-to-move options.</p>
+        <button onclick="document.getElementById('properties').scrollIntoView({behavior:'smooth'})" class="re-nav-btn" style="background:#10b981; color:#044e3a; font-weight:800; font-size:15px; padding:14px 28px;">Explore Available Properties (₹)</button>
+      </div>
+
+      <!-- Quick Site Visit Card -->
+      <div class="re-visit-card">
+        <h3>Schedule Private Site Visit</h3>
+        <p>Complimentary AC cab pick-up & drop with dedicated relationship manager.</p>
+        
+        <form onsubmit="handleHeroVisit(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="visitHeroName" required placeholder="e.g. Vikram Malhotra">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Phone Number</label>
+            <input type="tel" id="visitHeroPhone" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Preferred Configuration</label>
+            <select id="visitHeroConfig">
+              <option>2 BHK Luxury (₹85 Lakhs+)</option>
+              <option>3 BHK Sky Penthouse (₹1.45 Cr+)</option>
+              <option>4 BHK Sovereign Villa (₹2.80 Cr+)</option>
+              <option>Commercial Office Suite (₹1.10 Cr+)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-schedule-visit" style="margin-top: 8px;">Confirm Site Visit ➔</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart EMI Calculator Section -->
+  <section class="re-section" id="emi">
+    <div class="re-header-center">
+      <div class="re-sub">Financial Planning</div>
+      <h2>Smart Home Loan EMI Calculator</h2>
+      <p>Estimate your monthly repayments based on current bank interest rates.</p>
+    </div>
+
+    <div class="emi-card">
+      <div class="emi-slider-group">
+        <div class="emi-slider-header">
+          <span>Loan Amount (₹)</span>
+          <b id="loanDisplay">₹60,00,000</b>
+        </div>
+        <input type="range" id="loanAmount" min="1000000" max="30000000" step="500000" value="6000000" oninput="calculateEMI()">
+      </div>
+
+      <div class="emi-slider-group">
+        <div class="emi-slider-header">
+          <span>Tenure (Years)</span>
+          <b id="tenureDisplay">20 Years</b>
+        </div>
+        <input type="range" id="loanTenure" min="5" max="30" step="1" value="20" oninput="calculateEMI()">
+      </div>
+
+      <div class="emi-slider-group">
+        <div class="emi-slider-header">
+          <span>Interest Rate (%)</span>
+          <b id="rateDisplay">8.5% p.a.</b>
+        </div>
+        <input type="range" id="loanRate" min="7.5" max="12.0" step="0.1" value="8.5" oninput="calculateEMI()">
+      </div>
+
+      <div class="emi-result-box">
+        <div style="font-size:12px; text-transform:uppercase; letter-spacing:1px;">Estimated Monthly EMI</div>
+        <div class="emi-price" id="emiResult">₹52,069</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.8);">Pre-approved by SBI, HDFC & ICICI Bank</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Catalog -->
+  <section class="re-section" id="properties" style="background:#fff; border-top:1px solid var(--re-border); border-bottom:1px solid var(--re-border);">
+    <div class="re-header-center">
+      <div class="re-sub">Verified Portfolio</div>
+      <h2>Available Residential & Commercial Units</h2>
+      <p>Transparent square footage, RERA approved layout plans, and flexible construction linked payment plans.</p>
+    </div>
+
+    <div class="property-grid">
+      <!-- 1 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="2 BHK Luxury Apartment" class="property-img">
+        <div class="property-body">
+          <div class="property-top-badge">
+            <span class="rera-badge">RERA: PRM/KA/RERA/1251/310</span>
+            <span style="font-size:12px; color:#64748b; font-weight:700;">Golf View</span>
+          </div>
+          <h3>2 BHK Luxury Golf Residence</h3>
+          <div class="property-price">₹85,00,000</div>
+          <div class="property-specs">
+            <div class="spec-item"><b>1,250</b><span>Sq.Ft</span></div>
+            <div class="spec-item"><b>2</b><span>Beds</span></div>
+            <div class="spec-item"><b>2</b><span>Baths</span></div>
+          </div>
+          <p class="property-desc">Italian marble flooring, imported modular kitchen, 12ft wide private sundeck overlooking the putting greens.</p>
+          <button class="btn-schedule-visit" onclick="openVisitModal('2 BHK Luxury Golf Residence', 8500000)">Schedule Site Visit 🚗</button>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="3 BHK Sky Penthouse" class="property-img">
+        <div class="property-body">
+          <div class="property-top-badge">
+            <span class="rera-badge">RERA: PRM/KA/RERA/1251/311</span>
+            <span style="font-size:12px; color:#64748b; font-weight:700;">Tower A Skydeck</span>
+          </div>
+          <h3>3 BHK Panoramic Sky Penthouse</h3>
+          <div class="property-price">₹1,45,00,000</div>
+          <div class="property-specs">
+            <div class="spec-item"><b>2,100</b><span>Sq.Ft</span></div>
+            <div class="spec-item"><b>3</b><span>Beds</span></div>
+            <div class="spec-item"><b>3</b><span>Baths</span></div>
+          </div>
+          <p class="property-desc">Duplex penthouse on the 28th floor with private plunge pool, double-height ceiling living room, and servant quarter.</p>
+          <button class="btn-schedule-visit" onclick="openVisitModal('3 BHK Panoramic Sky Penthouse', 14500000)">Schedule Site Visit 🚗</button>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="4 BHK Sovereign Villa" class="property-img">
+        <div class="property-body">
+          <div class="property-top-badge">
+            <span class="rera-badge">RERA: PRM/KA/RERA/1251/312</span>
+            <span style="font-size:12px; color:#64748b; font-weight:700;">Gated Enclave</span>
+          </div>
+          <h3>4 BHK Ultra-Luxury Sovereign Villa</h3>
+          <div class="property-price">₹2,80,00,000</div>
+          <div class="property-specs">
+            <div class="spec-item"><b>3,800</b><span>Sq.Ft</span></div>
+            <div class="spec-item"><b>4</b><span>Beds</span></div>
+            <div class="spec-item"><b>5</b><span>Baths</span></div>
+          </div>
+          <p class="property-desc">Standalone triplex villa with private landscaped lawn, 2 covered car parks, private elevator, and solar rooftop.</p>
+          <button class="btn-schedule-visit" onclick="openVisitModal('4 BHK Ultra-Luxury Sovereign Villa', 28000000)">Schedule Site Visit 🚗</button>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Commercial Office Suite" class="property-img">
+        <div class="property-body">
+          <div class="property-top-badge">
+            <span class="rera-badge">RERA: PRM/KA/RERA/1251/315</span>
+            <span style="font-size:12px; color:#64748b; font-weight:700;">Grade-A IT Park</span>
+          </div>
+          <h3>Commercial Office Suite (Grade-A)</h3>
+          <div class="property-price">₹1,10,00,000</div>
+          <div class="property-specs">
+            <div class="spec-item"><b>1,450</b><span>Sq.Ft</span></div>
+            <div class="spec-item"><b>24/7</b><span>Power</span></div>
+            <div class="spec-item"><b>8.5%</b><span>Rental Yield</span></div>
+          </div>
+          <p class="property-desc">Pre-leased commercial asset with 9-year lock-in tenant, 100% power backup, and high footfall location.</p>
+          <button class="btn-schedule-visit" onclick="openVisitModal('Commercial Office Suite (Grade-A)', 11000000)">Schedule Site Visit 🚗</button>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80" alt="1 BHK Smart Studio" class="property-img">
+        <div class="property-body">
+          <div class="property-top-badge">
+            <span class="rera-badge">RERA: PRM/KA/RERA/1251/316</span>
+            <span style="font-size:12px; color:#64748b; font-weight:700;">Smart Living</span>
+          </div>
+          <h3>1 BHK Executive Smart Studio</h3>
+          <div class="property-price">₹42,00,000</div>
+          <div class="property-specs">
+            <div class="spec-item"><b>650</b><span>Sq.Ft</span></div>
+            <div class="spec-item"><b>1</b><span>Bed</span></div>
+            <div class="spec-item"><b>1</b><span>Bath</span></div>
+          </div>
+          <p class="property-desc">Fully automated home automation with voice controls, built-in wardrobes, and club membership.</p>
+          <button class="btn-schedule-visit" onclick="openVisitModal('1 BHK Executive Smart Studio', 4200000)">Schedule Site Visit 🚗</button>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="property-card">
+        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80" alt="High-Street Retail Shop" class="property-img">
+        <div class="property-body">
+          <div class="property-top-badge">
+            <span class="rera-badge">RERA: PRM/KA/RERA/1251/318</span>
+            <span style="font-size:12px; color:#64748b; font-weight:700;">High Footfall</span>
+          </div>
+          <h3>High-Street Retail Shop Front</h3>
+          <div class="property-price">₹75,00,000</div>
+          <div class="property-specs">
+            <div class="spec-item"><b>820</b><span>Sq.Ft</span></div>
+            <div class="spec-item"><b>Ground</b><span>Floor</span></div>
+            <div class="spec-item"><b>Main Rd</b><span>Facing</span></div>
+          </div>
+          <p class="property-desc">Double-height storefront facing the 100ft arterial ring road. Perfect for banks, pharmacies, or luxury cafes.</p>
+          <button class="btn-schedule-visit" onclick="openVisitModal('High-Street Retail Shop Front', 7500000)">Schedule Site Visit 🚗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Visit Modal -->
+  <div id="visitModal" class="re-modal">
+    <div class="re-modal-card">
+      <button class="modal-close" onclick="closeVisitModal()">✕</button>
+      <h3 id="visitModalTitle" style="font-family: var(--font-display); font-size: 22px; color: var(--re-green); margin-bottom: 6px;">Schedule Site Visit</h3>
+      <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Our property advisor will confirm your free site visit cab & brochure on WhatsApp.</p>
+      
+      <form onsubmit="handleVisitSubmit(event)">
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="visitCustName" required placeholder="e.g. Alok Singhal">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Phone Number</label>
+          <input type="tel" id="visitCustPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Preferred Visit Date & Time</label>
+          <input type="datetime-local" id="visitCustDate" required>
+        </div>
+        <button type="submit" class="btn-schedule-visit" style="margin-top: 8px;">Confirm VIP Site Visit on WhatsApp 💬</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="re-footer">
+    <div class="re-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">GREENFIELD HEIGHTS REALTY</h4>
+        <p>Greenfield Boulevard, Sector 128, Expressway Corridor, Noida, UP 201304</p>
+        <p>Direct Sales Desk: +91 98765 43210</p>
+        <p>Sales Gallery: 10:00 AM – 7:00 PM (All 7 Days)</p>
+      </div>
+      <div>
+        <h4>Developments</h4>
+        <a href="#properties">Golf Residences</a>
+        <a href="#properties">Sky Penthouses</a>
+        <a href="#properties">Sovereign Villas</a>
+        <a href="#properties">Commercial IT Suites</a>
+      </div>
+      <div>
+        <h4>Developer Assurance</h4>
+        <p>100% RERA & Legal Title Clear</p>
+        <p>On-Time Delivery Guarantee</p>
+        <p>Pre-Approved Home Loans</p>
+      </div>
+    </div>
+    <div class="re-footer-bottom">
+      © 2026 Greenfield Heights Properties. Powered by Orbitex Local Business Web Suite.
+    </div>
+  </footer>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    let activeProperty = 'General Site Visit';
+    let activePropPrice = 0;
+
+    function calculateEMI() {
+      const P = parseFloat(document.getElementById('loanAmount').value);
+      const n = parseFloat(document.getElementById('loanTenure').value) * 12;
+      const annualR = parseFloat(document.getElementById('loanRate').value);
+      const r = annualR / 12 / 100;
+
+      document.getElementById('loanDisplay').innerText = '₹' + P.toLocaleString('en-IN');
+      document.getElementById('tenureDisplay').innerText = (n / 12) + ' Years';
+      document.getElementById('rateDisplay').innerText = annualR.toFixed(1) + '% p.a.';
+
+      if (P && r && n) {
+        const emi = Math.round(P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1));
+        document.getElementById('emiResult').innerText = '₹' + emi.toLocaleString('en-IN');
+      }
+    }
+
+    function openVisitModal(title, price) {
+      activeProperty = title;
+      activePropPrice = price;
+      document.getElementById('visitModalTitle').innerText = 'Site Visit: ' + title + (price ? ' (₹' + price.toLocaleString('en-IN') + ')' : '');
+      document.getElementById('visitModal').style.display = 'flex';
+    }
+
+    function closeVisitModal() {
+      document.getElementById('visitModal').style.display = 'none';
+    }
+
+    function handleHeroVisit(e) {
+      e.preventDefault();
+      const name = document.getElementById('visitHeroName').value;
+      const phone = document.getElementById('visitHeroPhone').value;
+      const config = document.getElementById('visitHeroConfig').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Site visit booked! Connecting to property desk...');
+      const msg = encodeURIComponent(`Hi Greenfield Heights! I would like to schedule a site visit.\nPreferred Unit: ${config}\nName: ${name}\nPhone: ${phone}`);
+      setTimeout(() => { window.open(`https://wa.me/919876543210?text=${msg}`, '_blank'); }, 700);
+    }
+
+    function handleVisitSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('visitCustName').value;
+      const phone = document.getElementById('visitCustPhone').value;
+      const date = document.getElementById('visitCustDate').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Site visit scheduled! Connecting to advisor on WhatsApp...');
+      const msg = encodeURIComponent(`Hi Greenfield Heights! I would like to book a site visit.\nProperty: ${activeProperty}\nPrice Range: ₹${activePropPrice}\nPreferred Date: ${date}\nBuyer: ${name}\nPhone: ${phone}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        closeVisitModal();
+      }, 700);
+    }
+  </script>
+</body>
+</html>

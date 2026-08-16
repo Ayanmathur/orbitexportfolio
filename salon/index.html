@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Silk Salon & Spa — Luxury Hair, Skin & Bridal Sanctuary</title>
+  <meta name="description" content="Experience award-winning hair design, keratin treatments, radiant facials, and luxury bridal artistry at The Silk Salon & Spa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --salon-cream: #faf7f2;
+      --salon-dark: #1b1918;
+      --salon-rose: #c98a7c;
+      --salon-gold: #c5a059;
+      --salon-card: #ffffff;
+      --salon-border: rgba(27, 25, 24, 0.1);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--salon-cream);
+      color: var(--salon-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Salon Navbar */
+    .salon-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(250, 247, 242, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--salon-border);
+    }
+    .salon-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .salon-logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--salon-dark);
+      text-decoration: none;
+    }
+    .salon-logo span { color: var(--salon-rose); }
+    .salon-nav-links { display: flex; gap: 28px; align-items: center; }
+    .salon-nav-links a {
+      color: var(--salon-dark);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .salon-nav-links a:hover { color: var(--salon-rose); }
+    .salon-nav-btn {
+      background: var(--salon-dark);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .salon-nav-btn:hover {
+      background: var(--salon-rose);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .salon-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(27, 25, 24, 0.75) 0%, rgba(27, 25, 24, 0.3) 100%),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px;
+    }
+    .salon-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .salon-hero-content { max-width: 680px; }
+    .salon-badge {
+      display: inline-block;
+      background: rgba(201, 138, 124, 0.3);
+      border: 1px solid var(--salon-rose);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .salon-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 5.5vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .salon-hero h1 i { font-style: italic; color: #f4d0c8; }
+    .salon-hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 32px;
+    }
+    .salon-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-gold {
+      background: var(--salon-rose);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-gold:hover { background: #b57668; transform: translateY(-2px); }
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.7);
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+
+    /* Section Shells */
+    .salon-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+    .salon-header-center {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+    .salon-sub {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--salon-rose);
+      margin-bottom: 10px;
+    }
+    .salon-header-center h2 {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      color: var(--salon-dark);
+      margin-bottom: 12px;
+    }
+
+    /* Stylists Grid */
+    .stylists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .stylist-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--salon-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s;
+    }
+    .stylist-card:hover { transform: translateY(-6px); }
+    .stylist-img {
+      height: 320px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .stylist-body { padding: 22px; text-align: center; }
+    .stylist-body h3 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 4px; }
+    .stylist-role { font-size: 13px; color: var(--salon-rose); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+    .stylist-exp { font-size: 13px; color: #777; margin-bottom: 16px; }
+    .stylist-btn {
+      background: var(--salon-cream);
+      border: 1px solid var(--salon-border);
+      color: var(--salon-dark);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .stylist-btn:hover { background: var(--salon-dark); color: #fff; }
+
+    /* Hair Transformation Carousel */
+    .transformation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+    .trans-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--salon-border);
+    }
+    .trans-img {
+      height: 260px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .trans-body { padding: 20px; }
+    .trans-body h4 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 6px; }
+    .trans-body p { font-size: 13.5px; color: #666; }
+
+    /* Catalog Services Grid */
+    .service-catalog {
+      background: #fff;
+      border-top: 1px solid var(--salon-border);
+      border-bottom: 1px solid var(--salon-border);
+      padding: 90px 24px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--salon-cream);
+      border: 1px solid var(--salon-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      border-color: var(--salon-rose);
+      box-shadow: 0 10px 30px rgba(201, 138, 124, 0.15);
+      transform: translateY(-4px);
+    }
+    .service-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .service-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .service-header h3 { font-family: var(--font-serif); font-size: 20px; }
+    .service-price { font-size: 20px; font-weight: 800; color: var(--salon-dark); }
+    .service-desc { font-size: 13.5px; color: #666; margin-bottom: 16px; flex: 1; line-height: 1.6; }
+    
+    /* Variant Duration Pills */
+    .duration-pills {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .duration-pill {
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--salon-border);
+      font-size: 12px;
+      font-weight: 700;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .duration-pill.active {
+      background: var(--salon-rose);
+      color: #fff;
+      border-color: var(--salon-rose);
+    }
+    .btn-book-service {
+      background: var(--salon-dark);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .btn-book-service:hover { background: var(--salon-rose); }
+
+    /* Appointment Modal */
+    .appointment-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .appointment-card {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .appointment-card h3 { font-family: var(--font-serif); font-size: 24px; margin-bottom: 6px; }
+    .appointment-card p { font-size: 13.5px; color: #666; margin-bottom: 20px; }
+    .appointment-form .form-group { margin-bottom: 16px; }
+    .appointment-form label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #444; }
+    .appointment-form input, .appointment-form select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .btn-confirm-booking {
+      width: 100%;
+      background: var(--salon-rose);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #888;
+    }
+
+    /* Footer */
+    .salon-footer {
+      background: var(--salon-dark);
+      color: #fff;
+      padding: 60px 24px 30px;
+    }
+    .salon-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .salon-footer h4 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 16px; color: var(--salon-rose); }
+    .salon-footer p, .salon-footer a { font-size: 13.5px; color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 8px; }
+    .salon-footer a:hover { color: #fff; }
+    .salon-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>The Silk Salon & Spa</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Salon Navbar -->
+  <header class="salon-nav">
+    <div class="salon-nav-wrap">
+      <a href="#home" class="salon-logo">THE SILK <span>SALON & SPA</span></a>
+      <nav class="salon-nav-links">
+        <a href="#services">Services</a>
+        <a href="#stylists">Our Artists</a>
+        <a href="#transformations">Lookbook</a>
+        <button class="salon-nav-btn" onclick="openAppointmentModal('General Consultation', 0)">Book Slot 📅</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="salon-hero" id="home">
+    <div class="salon-hero-wrap">
+      <div class="salon-hero-content">
+        <div class="salon-badge">✨ Luxury Hair, Skin & Wellness</div>
+        <h1>Elevate Your Beauty at <i>The Silk Studio</i></h1>
+        <p>Award-winning French Balayage, Japanese Keratin gloss, restorative Ayurvedic head spas, and royal bridal couture artistry. Crafted for the modern connoisseur.</p>
+        <div class="salon-hero-actions">
+          <a href="#services" class="btn-gold">Explore Menu & Pricing (₹)</a>
+          <button onclick="openAppointmentModal('Signature Blowout', 1200)" class="btn-outline-white">Book Appointment</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stylists Section -->
+  <section class="salon-section" id="stylists">
+    <div class="salon-header-center">
+      <div class="salon-sub">Master Stylists & Colorists</div>
+      <h2>Artistry in Every Snip & Shade</h2>
+      <p>Trained in Paris, London, and Mumbai, our senior artists customize every cut, color, and treatment to your face structure and lifestyle.</p>
+    </div>
+
+    <div class="stylists-grid">
+      <div class="stylist-card">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Dr. Ananya Ray" class="stylist-img">
+        <div class="stylist-body">
+          <h3>Ananya Ray</h3>
+          <div class="stylist-role">Creative Director & Color Specialist</div>
+          <div class="stylist-exp">12+ Years Exp • Balayage Maestro</div>
+          <button class="stylist-btn" onclick="openAppointmentModal('Consultation with Ananya Ray', 500)">Book with Ananya</button>
+        </div>
+      </div>
+
+      <div class="stylist-card">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80" alt="Rohan Mehta" class="stylist-img">
+        <div class="stylist-body">
+          <h3>Rohan Mehta</h3>
+          <div class="stylist-role">Senior Hair Architect</div>
+          <div class="stylist-exp">9+ Years Exp • Precision Cuts</div>
+          <button class="stylist-btn" onclick="openAppointmentModal('Consultation with Rohan Mehta', 400)">Book with Rohan</button>
+        </div>
+      </div>
+
+      <div class="stylist-card">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Simran Kaur" class="stylist-img">
+        <div class="stylist-body">
+          <h3>Simran Kaur</h3>
+          <div class="stylist-role">Head Bridal & HD Makeup Artist</div>
+          <div class="stylist-exp">10+ Years Exp • 500+ Brides Styled</div>
+          <button class="stylist-btn" onclick="openAppointmentModal('Bridal Consult with Simran', 1000)">Book with Simran</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transformations Lookbook -->
+  <section class="salon-section" id="transformations" style="background: #f4efe6; border-radius: 24px;">
+    <div class="salon-header-center">
+      <div class="salon-sub">Real Client Results</div>
+      <h2>Before & After Transformation Gallery</h2>
+      <p>Witness the radiant shine, flawless blends, and precision styling executed daily in our studio.</p>
+    </div>
+
+    <div class="transformation-grid">
+      <div class="trans-card">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="French Honey Balayage" class="trans-img">
+        <div class="trans-body">
+          <h4>French Honey Balayage</h4>
+          <p>Seamless root blend with golden dimensional tones on brunette hair.</p>
+        </div>
+      </div>
+
+      <div class="trans-card">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Keratin Silk Infusion" class="trans-img">
+        <div class="trans-body">
+          <h4>Keratin Silk Infusion</h4>
+          <p>Zero frizz, glassy mirror reflection and 5 months of effortless manageability.</p>
+        </div>
+      </div>
+
+      <div class="trans-card">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=80" alt="HD Airbrush Bridal Art" class="trans-img">
+        <div class="trans-body">
+          <h4>HD Airbrush Bridal Glam</h4>
+          <p>Long-lasting 16-hour sweatproof royal bridal glow with floral hair styling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services & Pricing Catalog -->
+  <section class="service-catalog" id="services">
+    <div class="salon-header-center">
+      <div class="salon-sub">Services & Pricing (INR)</div>
+      <h2>Signature Treatment Menu</h2>
+      <p>Transparent pricing, premium imported organic formulations, and personalized consultations.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 1 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Signature Blowout" class="service-img">
+        <div class="service-body">
+          <div class="service-header">
+            <h3>Signature Blowout</h3>
+            <span class="service-price">₹1,200</span>
+          </div>
+          <p class="service-desc">Shampoo wash, deep hydration conditioning, thermal heat protectant, and bouncy red-carpet blowout styling.</p>
+          <div class="duration-pills">
+            <span class="duration-pill active">45 Mins</span>
+            <span class="duration-pill">Wash + Style</span>
+          </div>
+          <button class="btn-book-service" onclick="openAppointmentModal('Signature Blowout', 1200)">Book Slot 📅</button>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="French Balayage" class="service-img">
+        <div class="service-body">
+          <div class="service-header">
+            <h3>French Balayage & Gloss</h3>
+            <span class="service-price">₹5,800</span>
+          </div>
+          <p class="service-desc">Freehand painted highlights, Olaplex bonding treatment, personalized toner gloss, and blowdry finish.</p>
+          <div class="duration-pills">
+            <span class="duration-pill active">180 Mins</span>
+            <span class="duration-pill">Full Head</span>
+          </div>
+          <button class="btn-book-service" onclick="openAppointmentModal('French Balayage & Gloss', 5800)">Book Slot 📅</button>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Japanese Keratin Treatment" class="service-img">
+        <div class="service-body">
+          <div class="service-header">
+            <h3>Japanese Keratin Gloss</h3>
+            <span class="service-price">₹4,500</span>
+          </div>
+          <p class="service-desc">Formaldehyde-free organic keratin protein sealant that eliminates 95% frizz while maintaining natural hair bounce.</p>
+          <div class="duration-pills">
+            <span class="duration-pill active">150 Mins</span>
+            <span class="duration-pill">Medium Length</span>
+          </div>
+          <button class="btn-book-service" onclick="openAppointmentModal('Japanese Keratin Gloss', 4500)">Book Slot 📅</button>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Ayurvedic Scalp Spa" class="service-img">
+        <div class="service-body">
+          <div class="service-header">
+            <h3>Ayurvedic Kesh Spa</h3>
+            <span class="service-price">₹2,200</span>
+          </div>
+          <p class="service-desc">Warm botanical herbal oil infusion, 20-minute acupressure head massage, steam follicle detox, and hair mask.</p>
+          <div class="duration-pills">
+            <span class="duration-pill active">60 Mins</span>
+            <span class="duration-pill">Stress Relief</span>
+          </div>
+          <button class="btn-book-service" onclick="openAppointmentModal('Ayurvedic Kesh Spa', 2200)">Book Slot 📅</button>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Hydra Radiance Facial" class="service-img">
+        <div class="service-body">
+          <div class="service-header">
+            <h3>Hydra-Radiance Facial</h3>
+            <span class="service-price">₹3,200</span>
+          </div>
+          <p class="service-desc">7-step vortex vacuum pore extraction, hyaluronic acid infusion, ultrasound lymphatic drainage, and LED light therapy.</p>
+          <div class="duration-pills">
+            <span class="duration-pill active">75 Mins</span>
+            <span class="duration-pill">Instant Glow</span>
+          </div>
+          <button class="btn-book-service" onclick="openAppointmentModal('Hydra-Radiance Facial', 3200)">Book Slot 📅</button>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=80" alt="Royal Bridal Couture" class="service-img">
+        <div class="service-body">
+          <div class="service-header">
+            <h3>Royal Bridal Artistry</h3>
+            <span class="service-price">₹12,500</span>
+          </div>
+          <p class="service-desc">High-definition airbrush makeup, luxury eyelashes, bridal dupatta draping, floral hair styling, and touch-up kit.</p>
+          <div class="duration-pills">
+            <span class="duration-pill active">240 Mins</span>
+            <span class="duration-pill">Bridal Package</span>
+          </div>
+          <button class="btn-book-service" onclick="openAppointmentModal('Royal Bridal Artistry', 12500)">Book Slot 📅</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Booking Modal -->
+  <div id="appointmentModal" class="appointment-modal">
+    <div class="appointment-card">
+      <button class="modal-close" onclick="closeAppointmentModal()">✕</button>
+      <h3 id="modalServiceTitle">Book Your Appointment</h3>
+      <p>Select your preferred slot and our reception team will confirm your booking via WhatsApp.</p>
+      <form class="appointment-form" onsubmit="handleAppointmentSubmit(event)">
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="custName" required placeholder="e.g. Radhika Sharma">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Phone</label>
+          <input type="tel" id="custPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Preferred Date & Time</label>
+          <input type="datetime-local" id="custDateTime" required>
+        </div>
+        <div class="form-group">
+          <label>Preferred Stylist</label>
+          <select id="custStylist">
+            <option>Any Available Master Stylist</option>
+            <option>Ananya Ray (Color Specialist)</option>
+            <option>Rohan Mehta (Hair Architect)</option>
+            <option>Simran Kaur (Bridal Specialist)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-confirm-booking">Confirm Booking on WhatsApp 💬</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="salon-footer">
+    <div class="salon-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">THE SILK SALON & SPA</h4>
+        <p>104, Rosewood Boulevard, Indiranagar, Bengaluru, Karnataka 560038</p>
+        <p>Call / WhatsApp: +91 98765 43210</p>
+        <p>Open Daily: 10:00 AM – 8:30 PM</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#services">Hair Treatments</a>
+        <a href="#services">Skin Care & Facials</a>
+        <a href="#transformations">Bridal Packages</a>
+        <a href="#stylists">Our Artists</a>
+      </div>
+      <div>
+        <h4>Sanctuary Promise</h4>
+        <p>100% Autoclaved Equipment</p>
+        <p>Cruelty-Free Organic Products</p>
+        <p>Private VIP Bridal Suites</p>
+      </div>
+    </div>
+    <div class="salon-footer-bottom">
+      © 2026 The Silk Salon & Spa. Powered by Orbitex Local Business Web Suite.
+    </div>
+  </footer>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    let currentService = 'General Consultation';
+    let currentPrice = 0;
+
+    function openAppointmentModal(serviceName, price) {
+      currentService = serviceName;
+      currentPrice = price;
+      document.getElementById('modalServiceTitle').innerText = 'Book: ' + serviceName + (price ? ' (₹' + price.toLocaleString('en-IN') + ')' : '');
+      document.getElementById('appointmentModal').style.display = 'flex';
+    }
+
+    function closeAppointmentModal() {
+      document.getElementById('appointmentModal').style.display = 'none';
+    }
+
+    function handleAppointmentSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value;
+      const phone = document.getElementById('custPhone').value;
+      const date = document.getElementById('custDateTime').value;
+      const stylist = document.getElementById('custStylist').value;
+
+      if (window.OrbitexToast) {
+        OrbitexToast.success('Appointment request received! Connecting to WhatsApp...');
+      }
+
+      const msg = encodeURIComponent(`Hi Silk Salon! I would like to book an appointment.\nService: ${currentService}\nPrice: ₹${currentPrice}\nDate & Time: ${date}\nPreferred Stylist: ${stylist}\nClient Name: ${name}\nPhone: ${phone}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        closeAppointmentModal();
+      }, 700);
+    }
+  </script>
+</body>
+</html>

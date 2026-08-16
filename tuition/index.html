@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Masters Tuition Academy — IIT-JEE, NEET & Foundation Coaching</title>
+  <meta name="description" content="Premier coaching institute producing top AIR ranks in JEE Advanced, NEET-UG, and Olympiads with IITian faculty & AI test analysis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --edu-blue: #1e3a8a;
+      --edu-cyan: #06b6d4;
+      --edu-amber: #f59e0b;
+      --edu-dark: #0f172a;
+      --edu-bg: #f8fafc;
+      --edu-border: #e2e8f0;
+      --font-display: 'Cabinet Grotesk', 'Plus Jakarta Sans', sans-serif;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-main);
+      background-color: var(--edu-bg);
+      color: var(--edu-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Admissions ticker bar */
+    .edu-ticker-bar {
+      background: var(--edu-blue);
+      color: #fff;
+      padding: 8px 24px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .edu-ticker-bar span { color: var(--edu-amber); }
+
+    /* Navbar */
+    .edu-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--edu-border);
+    }
+    .edu-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .edu-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--edu-blue);
+      font-weight: 800;
+      font-size: 20px;
+    }
+    .edu-brand span { color: var(--edu-amber); }
+    .edu-nav-links { display: flex; gap: 24px; align-items: center; }
+    .edu-nav-links a {
+      color: #334155;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .edu-nav-links a:hover { color: var(--edu-blue); }
+    .edu-nav-btn {
+      background: var(--edu-blue);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .edu-hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.8) 100%),
+                  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&q=80') center/cover no-repeat;
+      color: #fff;
+      padding: 80px 24px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+    .edu-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .edu-hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .edu-hero h1 span { color: var(--edu-amber); }
+    .edu-hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    .edu-stat-chips {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .edu-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
+    .edu-chip b { display: block; font-size: 20px; color: var(--edu-amber); }
+    .edu-chip span { font-size: 12px; color: #cbd5e1; }
+
+    /* Hero Form Card */
+    .edu-demo-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px;
+      color: var(--edu-dark);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .edu-demo-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .edu-demo-card p { font-size: 13px; color: #64748b; margin-bottom: 20px; }
+
+    /* Section Structure */
+    .edu-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .edu-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .edu-badge {
+      display: inline-block;
+      background: #e0f2fe;
+      color: var(--edu-blue);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .edu-header-center h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+
+    /* Rankers Carousel Cards */
+    .rankers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .ranker-card {
+      background: #fff;
+      border: 1px solid var(--edu-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .ranker-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 16px;
+      border: 3px solid var(--edu-amber);
+    }
+    .ranker-rank {
+      display: inline-block;
+      background: var(--edu-amber);
+      color: #000;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .ranker-name { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+    .ranker-exam { font-size: 13px; color: var(--edu-blue); font-weight: 700; margin-bottom: 12px; }
+    .ranker-quote { font-size: 13px; color: #64748b; font-style: italic; }
+
+    /* Courses Catalog */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .course-card {
+      background: #fff;
+      border: 1.5px solid var(--edu-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .course-card:hover {
+      border-color: var(--edu-blue);
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.1);
+      transform: translateY(-4px);
+    }
+    .course-header {
+      background: #f1f5f9;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--edu-border);
+    }
+    .course-target { font-size: 12px; font-weight: 800; color: var(--edu-blue); text-transform: uppercase; }
+    .course-header h3 { font-size: 20px; font-weight: 800; margin: 4px 0 0; }
+    .course-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .course-fee { font-size: 26px; font-weight: 800; color: var(--edu-blue); margin-bottom: 16px; }
+    .course-features { list-style: none; margin-bottom: 24px; flex: 1; }
+    .course-features li {
+      font-size: 13.5px;
+      color: #475569;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .course-features li::before { content: '✓'; color: #16a34a; font-weight: 800; }
+    .btn-enroll {
+      background: var(--edu-blue);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+    }
+    .btn-enroll:hover { background: #1e40af; }
+
+    /* Modal */
+    .edu-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .edu-modal-card {
+      background: #fff;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #94a3b8;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #334155; }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--edu-border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    .edu-footer {
+      background: var(--edu-dark);
+      color: #fff;
+      padding: 60px 24px 30px;
+    }
+    .edu-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .edu-footer h4 { font-size: 16px; font-weight: 800; margin-bottom: 16px; color: var(--edu-cyan); }
+    .edu-footer p, .edu-footer a { font-size: 13.5px; color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+    .edu-footer a:hover { color: #fff; }
+    .edu-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    @media (max-width: 900px) {
+      .edu-hero-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Apex Masters Tuition Academy</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Admissions Notice Bar -->
+  <div class="edu-ticker-bar">
+    🎯 Admissions Open for 2026-27 Batch • Up to <span>100% Scholarship</span> via Apex Talent Search Exam!
+  </div>
+
+  <!-- Navbar -->
+  <header class="edu-nav">
+    <div class="edu-nav-wrap">
+      <a href="#home" class="edu-brand">
+        🎓 APEX MASTERS <span>ACADEMY</span>
+      </a>
+      <nav class="edu-nav-links">
+        <a href="#courses">Courses & Fees</a>
+        <a href="#rankers">Hall of Fame</a>
+        <a href="#faculty">IITian Faculty</a>
+        <button class="edu-nav-btn" onclick="openEnrollModal('Demo Class & Scholarship Test', 0)">Book Free Demo 📚</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="edu-hero" id="home">
+    <div class="edu-hero-wrap">
+      <div class="edu-hero-content">
+        <h1>Transform Your Potential into <span>Top AIR Ranks</span></h1>
+        <p>Comprehensive classroom & hybrid coaching for IIT-JEE (Main + Advanced), NEET-UG, and Olympiads. Mentored directly by IIT Bombay & Delhi alumni.</p>
+        
+        <div class="edu-stat-chips">
+          <div class="edu-chip">
+            <b>42+</b>
+            <span>IIT-JEE Top 100 Ranks</span>
+          </div>
+          <div class="edu-chip">
+            <b>98.4%</b>
+            <span>NEET Qualifying Rate</span>
+          </div>
+          <div class="edu-chip">
+            <b>1:15</b>
+            <span>Teacher-Student Ratio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Demo Booking Card -->
+      <div class="edu-demo-card">
+        <h3>Book 2 Free Demo Classes</h3>
+        <p>Experience our live classroom pedagogy & receive free study material.</p>
+        
+        <form onsubmit="handleHeroDemo(event)">
+          <div class="form-group">
+            <label>Student's Full Name</label>
+            <input type="text" id="demoStudentName" required placeholder="e.g. Yash Vardhan">
+          </div>
+          <div class="form-group">
+            <label>Parent / Student WhatsApp Number</label>
+            <input type="tel" id="demoStudentPhone" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Target Exam & Class</label>
+            <select id="demoTargetExam">
+              <option>IIT-JEE (Class 11 / 12)</option>
+              <option>NEET-UG Medical (Class 11 / 12)</option>
+              <option>Class 9-10 STEM & Olympiad</option>
+              <option>Repeater / Dropper Target Batch</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-enroll" style="margin-top: 10px;">Reserve Demo Seat ➔</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hall of Fame Section -->
+  <section class="edu-section" id="rankers">
+    <div class="edu-header-center">
+      <span class="edu-badge">Proven Results</span>
+      <h2>Our Top Rankers & Champions</h2>
+      <p>Hard work, precise study material, and personalized mentorship make the difference.</p>
+    </div>
+
+    <div class="rankers-grid">
+      <!-- 1 -->
+      <div class="ranker-card">
+        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&q=80" alt="Aryan Deshmukh" class="ranker-avatar">
+        <span class="ranker-rank">AIR 42 • JEE Advanced</span>
+        <div class="ranker-name">Aryan Deshmukh</div>
+        <div class="ranker-exam">B.Tech Computer Science, IIT Bombay</div>
+        <p class="ranker-quote">"The test analytics and daily problem sheets by Apex faculty were exactly what pushed me into the top 50."</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="ranker-card">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&q=80" alt="Tanvi Kulkarni" class="ranker-avatar">
+        <span class="ranker-rank">AIR 118 • NEET-UG</span>
+        <div class="ranker-name">Tanvi Kulkarni</div>
+        <div class="ranker-exam">MBBS, AIIMS New Delhi</div>
+        <p class="ranker-quote">"10,000+ NCERT-based MCQs and weekly 3-hour mock tests made the actual NEET exam feel completely familiar."</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="ranker-card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&q=80" alt="Siddharth Jain" class="ranker-avatar">
+        <span class="ranker-rank">99.8% • Class 12 Boards</span>
+        <div class="ranker-name">Siddharth Jain</div>
+        <div class="ranker-exam">State 1st Ranker (PCM)</div>
+        <p class="ranker-quote">"Balanced board exam answer writing with competitive test prep without burning out."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses & Fee Catalog -->
+  <section class="edu-section" id="courses" style="background: #fff; border-top: 1px solid var(--edu-border); border-bottom: 1px solid var(--edu-border);">
+    <div class="edu-header-center">
+      <span class="edu-badge">Curriculum & Fee Structure</span>
+      <h2>Target Classroom & Hybrid Batches</h2>
+      <p>Installment options and merit scholarships available up to 100% of tuition fee.</p>
+    </div>
+
+    <div class="courses-grid">
+      <!-- 1 -->
+      <div class="course-card">
+        <div class="course-header">
+          <div class="course-target">Class 11 & 12 • 2 Years</div>
+          <h3>IIT-JEE Pinnacle Integrated</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-fee">₹85,000 <span style="font-size:14px; font-weight:600; color:#64748b;">/ year</span></div>
+          <ul class="course-features">
+            <li>750+ Hours Live Classroom Teaching</li>
+            <li>Physics, Chemistry & Math Modules</li>
+            <li>Weekly All India Test Series (AITS)</li>
+            <li>Daily 1-on-1 Doubt Clearing Sessions</li>
+          </ul>
+          <button class="btn-enroll" onclick="openEnrollModal('IIT-JEE Pinnacle Program', 85000)">Apply for Batch ➔</button>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="course-card">
+        <div class="course-header">
+          <div class="course-target">Class 11 & 12 • 2 Years</div>
+          <h3>NEET-UG Super 30 Medical</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-fee">₹78,000 <span style="font-size:14px; font-weight:600; color:#64748b;">/ year</span></div>
+          <ul class="course-features">
+            <li>Line-by-Line NCERT Biology Mastery</li>
+            <li>Physics & Chemistry Numerical Drills</li>
+            <li>80 Full-Syllabus OMR Mock Exams</li>
+            <li>Bi-Weekly Parent-Faculty Review</li>
+          </ul>
+          <button class="btn-enroll" onclick="openEnrollModal('NEET-UG Super 30 Medical', 78000)">Apply for Batch ➔</button>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="course-card">
+        <div class="course-header">
+          <div class="course-target">Class 9 & 10 • 1 Year</div>
+          <h3>STEM Foundation & Olympiad</h3>
+        </div>
+        <div class="course-body">
+          <div class="course-fee">₹42,000 <span style="font-size:14px; font-weight:600; color:#64748b;">/ year</span></div>
+          <ul class="course-features">
+            <li>Advanced Math & Science Concepts</li>
+            <li>NTSE, PRMO & IOQ Olympiad Prep</li>
+            <li>Logical Reasoning & Mental Ability</li>
+            <li>School Board Exam 100/100 Target</li>
+          </ul>
+          <button class="btn-enroll" onclick="openEnrollModal('STEM Foundation & Olympiad', 42000)">Apply for Batch ➔</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrollment Modal -->
+  <div id="enrollModal" class="edu-modal">
+    <div class="edu-modal-card">
+      <button class="modal-close" onclick="closeEnrollModal()">✕</button>
+      <h3 id="enrollModalTitle">Apply for Program</h3>
+      <p style="font-size: 13px; color: #64748b; margin-bottom: 20px;">Our academic counselor will call to schedule your diagnostic assessment & scholarship test.</p>
+      
+      <form onsubmit="handleModalEnroll(event)">
+        <div class="form-group">
+          <label>Student's Full Name</label>
+          <input type="text" id="modalStudentName" required placeholder="e.g. Rohan Sharma">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Phone Number</label>
+          <input type="tel" id="modalStudentPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Current Class / Standard</label>
+          <select id="modalStudentClass">
+            <option>Class 9th</option>
+            <option>Class 10th</option>
+            <option>Class 11th</option>
+            <option>Class 12th</option>
+            <option>12th Passed / Repeater</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-enroll">Submit Application on WhatsApp 💬</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="edu-footer">
+    <div class="edu-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">APEX MASTERS ACADEMY</h4>
+        <p>Knowledge Park III, Institutional Area, Greater Noida, UP 201310</p>
+        <p>Admissions Desk: +91 98765 43210</p>
+        <p>Counseling Hours: 9:00 AM – 7:30 PM (Mon-Sun)</p>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <a href="#courses">IIT-JEE Pinnacle</a>
+        <a href="#courses">NEET-UG Medical</a>
+        <a href="#courses">Foundation STEM</a>
+        <a href="#courses">All India Test Series</a>
+      </div>
+      <div>
+        <h4>Academy Advantage</h4>
+        <p>100% IITian & AIIMS Faculty</p>
+        <p>AI-Powered Student Performance App</p>
+        <p>Dedicated Doubt Clearing Classrooms</p>
+      </div>
+    </div>
+    <div class="edu-footer-bottom">
+      © 2026 Apex Masters Tuition Academy. Powered by Orbitex Local Business Web Suite.
+    </div>
+  </footer>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    let activeCourseName = 'Demo Class';
+    let activeCourseFee = 0;
+
+    function openEnrollModal(title, fee) {
+      activeCourseName = title;
+      activeCourseFee = fee;
+      document.getElementById('enrollModalTitle').innerText = 'Apply: ' + title + (fee ? ' (₹' + fee.toLocaleString('en-IN') + ')' : '');
+      document.getElementById('enrollModal').style.display = 'flex';
+    }
+
+    function closeEnrollModal() {
+      document.getElementById('enrollModal').style.display = 'none';
+    }
+
+    function handleHeroDemo(e) {
+      e.preventDefault();
+      const name = document.getElementById('demoStudentName').value;
+      const phone = document.getElementById('demoStudentPhone').value;
+      const exam = document.getElementById('demoTargetExam').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Demo booking registered! Connecting to WhatsApp...');
+      const msg = encodeURIComponent(`Hi Apex Academy! I would like to book 2 free demo classes.\nStudent: ${name}\nPhone: ${phone}\nTarget Program: ${exam}`);
+      setTimeout(() => { window.open(`https://wa.me/919876543210?text=${msg}`, '_blank'); }, 700);
+    }
+
+    function handleModalEnroll(e) {
+      e.preventDefault();
+      const name = document.getElementById('modalStudentName').value;
+      const phone = document.getElementById('modalStudentPhone').value;
+      const std = document.getElementById('modalStudentClass').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Application received! Connecting to counseling desk...');
+      const msg = encodeURIComponent(`Hi Apex Academy! I'd like to apply for:\nCourse: ${activeCourseName}\nFee: ₹${activeCourseFee}\nStudent Name: ${name}\nClass: ${std}\nPhone: ${phone}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        closeEnrollModal();
+      }, 700);
+    }
+  </script>
+</body>
+</html>

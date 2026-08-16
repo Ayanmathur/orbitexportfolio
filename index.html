@@ -3,53 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orbitex Portfolio — Premium Indian Local Business Web Suite</title>
-  <meta name="description" content="Explore Orbitex's showcase of 10 bespoke web design solutions built for Indian local businesses.">
+  <title>Orbitex — Premium Indian Local Business Web Suite & Templates</title>
+  <meta name="description" content="Explore Orbitex's showcase of 10 bespoke standalone website templates engineered for Indian local businesses. Complete with INR pricing, booking, and catalogs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/niches.css">
   <link rel="stylesheet" href="styles/shared-components.css">
 </head>
 <body>
 
+  <!-- Master Header (Clean Transparent Logo + Quick Navigation) -->
   <header class="orbitex-bar">
     <div class="orbitex-nav-container">
-      <a class="orbitex-brand" onclick="showHomePortfolio()" title="Back to Orbitex Home">
-        <img src="images/orbitex-logo.png" alt="Orbitex Logo">
-        <div class="orbitex-brand-title">
-          <b>ORBITEX</b>
-          <span>Web Portfolio</span>
-        </div>
+      <a href="index.html" class="orbitex-brand" title="Orbitex Home">
+        <img src="images/orbitex-logo.png" alt="Orbitex">
       </a>
-      <nav class="niche-nav-scroll">
-        <button class="niche-btn active" data-niche="home"><i>✨</i> All Designs</button>
-        <button class="niche-btn" data-niche="salon"><i>✂️</i> Salon</button>
-        <button class="niche-btn" data-niche="clinic"><i>🩺</i> Clinic</button>
-        <button class="niche-btn" data-niche="jeweller"><i>💎</i> Jeweller</button>
-        <button class="niche-btn" data-niche="cakeshop"><i>🎂</i> Cake Shop</button>
-        <button class="niche-btn" data-niche="tuition"><i>📚</i> Tuition</button>
-        <button class="niche-btn" data-niche="gym"><i>💪</i> Gym</button>
-        <button class="niche-btn" data-niche="cafe"><i>🍕</i> Cafe / Resto</button>
-        <button class="niche-btn" data-niche="clothing"><i>👗</i> Clothing</button>
-        <button class="niche-btn" data-niche="realestate"><i>🏢</i> Real Estate</button>
-        <button class="niche-btn" data-niche="tiffin"><i>🍱</i> Tiffin Services</button>
-      </nav>
-      <div id="viewSubnavContainer" class="view-subnav" style="display: none;">
-        <button class="view-tab active" data-view="overview" onclick="setNicheView('overview')">Overview</button>
-        <button class="view-tab" data-view="catalog" onclick="setNicheView('catalog')">Catalog (₹)</button>
+      <div class="master-header-links">
+        <a href="#templates" class="master-nav-link">All Templates (10)</a>
+        <a href="#features" class="master-nav-link">Platform Highlights</a>
+        <a href="#reviews" class="master-nav-link">Client Reviews</a>
+        <a href="#access" class="master-nav-cta">Get Template Access ↗</a>
       </div>
     </div>
   </header>
 
+  <!-- Master Landing Page Content -->
   <main id="portfolioHomeView">
-    <section class="portfolio-hero" data-aos="fade-up">
-      <div class="portfolio-hero-badge">✨ Orbitex Enterprise Suite & Templates</div>
-      <h1>Production-Ready Web Suite for <span>Indian Enterprises</span></h1>
-      <p>Explore 10 high-conversion, production-ready website templates engineered for Indian local businesses. Each template features a bespoke <b>Overview Experience</b>, a complete <b>Catalog Engine</b> with authentic INR (₹) pricing, and client-ready checkout & inquiry flows.</p>
+    
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+      <div class="portfolio-hero-badge">✨ Production-Ready Local Business Templates</div>
+      <h1>Standalone Web Suite for <span>Indian Enterprises</span></h1>
+      <p>10 independently crafted website templates tailored for Indian commerce. Each template features bespoke design, authentic INR (₹) pricing, interactive calculators, search drawers, and conversion-optimized booking flows.</p>
       
-      <!-- Platform Features Row -->
+      <!-- Stats Row -->
       <div class="hero-stats-row">
         <div class="hero-stat-pill">
           <span class="hero-stat-num">10</span>
@@ -68,138 +56,450 @@
         <div class="hero-stat-divider"></div>
         <div class="hero-stat-pill">
           <span class="hero-stat-num">0.8s</span>
-          <span class="hero-stat-label">Ultra-Fast Load</span>
+          <span class="hero-stat-label">Fast Load Time</span>
         </div>
       </div>
 
-      <div class="filter-pills">
+      <!-- Filter Tabs -->
+      <div class="filter-pills" id="templates">
         <button class="filter-pill active" onclick="filterPortfolioCategory('all', this)">All Templates (10)</button>
         <button class="filter-pill" onclick="filterPortfolioCategory('services', this)">Services & Property</button>
-        <button class="filter-pill" onclick="filterPortfolioCategory('food', this)">Food & Hospitality</button>
+        <button class="filter-pill" onclick="filterPortfolioCategory('food', this)">Food & Dining</button>
         <button class="filter-pill" onclick="filterPortfolioCategory('retail', this)">Retail & Luxury</button>
         <button class="filter-pill" onclick="filterPortfolioCategory('health', this)">Health & Fitness</button>
         <button class="filter-pill" onclick="filterPortfolioCategory('education', this)">Education</button>
       </div>
     </section>
 
-    <!-- Templates Grid -->
-    <section class="bento-grid" id="portfolioGrid"></section>
+    <!-- 10 Standalone Template Bento Cards -->
+    <section class="bento-grid" id="portfolioGrid">
+
+      <!-- 1. Salon -->
+      <article class="bento-card" data-category="services">
+        <div class="card-img-wrap">
+          <img src="images/salon.jpg" alt="The Silk Salon & Spa" loading="lazy">
+          <span class="card-badge">Services & Beauty</span>
+        </div>
+        <div class="card-body">
+          <h3>The Silk Salon & Spa</h3>
+          <div class="card-tagline">Premium Hair, Skin & Wellness Sanctuary</div>
+          <p class="card-desc">Bespoke salon experience featuring stylist profiles, hair transformation sliders, service duration selectors, and appointment booking.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">✂️ Stylist Match</span>
+            <span class="card-feat-pill">⏱ Duration Variant</span>
+            <span class="card-feat-pill">📅 Slot Booking</span>
+          </div>
+          <div class="card-footer">
+            <a href="salon/" class="btn-launch">Explore Site →</a>
+            <a href="salon/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('The Silk Salon & Spa')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. Clinic -->
+      <article class="bento-card" data-category="health">
+        <div class="card-img-wrap">
+          <img src="images/clinic.jpg" alt="Aura Care Clinic & Dental" loading="lazy">
+          <span class="card-badge">Healthcare</span>
+        </div>
+        <div class="card-body">
+          <h3>Aura Care Clinic & Dental</h3>
+          <div class="card-tagline">Multi-Specialty Healthcare & Dental Studio</div>
+          <p class="card-desc">Dual consultation system (In-Clinic ₹500 vs Video ₹300), verified doctor credentials, treatment pathways, and emergency hotline.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">🩺 Dual Consult</span>
+            <span class="card-feat-pill">📋 Treatment Steps</span>
+            <span class="card-feat-pill">🏥 NABH Verified</span>
+          </div>
+          <div class="card-footer">
+            <a href="clinic/" class="btn-launch">Explore Site →</a>
+            <a href="clinic/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Aura Care Clinic & Dental')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3. Jeweller -->
+      <article class="bento-card" data-category="retail">
+        <div class="card-img-wrap">
+          <img src="images/jeweller.jpg" alt="Ratna Heritage Jewellers" loading="lazy">
+          <span class="card-badge">Luxury Retail</span>
+        </div>
+        <div class="card-body">
+          <h3>Ratna Heritage Jewellers</h3>
+          <div class="card-tagline">22K Gold, Polki & Certified Solitaires</div>
+          <p class="card-desc">Live bullion market ticker, 22K BIS 916 purity badges, gold weight breakdown, and transparent making charges calculator.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">📈 Live Gold Ticker</span>
+            <span class="card-feat-pill">⚖️ Weight Engine</span>
+            <span class="card-feat-pill">💎 22K BIS 916</span>
+          </div>
+          <div class="card-footer">
+            <a href="jeweller/" class="btn-launch">Explore Site →</a>
+            <a href="jeweller/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Ratna Heritage Jewellers')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Cake Shop -->
+      <article class="bento-card" data-category="food">
+        <div class="card-img-wrap">
+          <img src="images/cakeshop.jpg" alt="Crumb & Co. Artisan Patisserie" loading="lazy">
+          <span class="card-badge">Bakery & Cafe</span>
+        </div>
+        <div class="card-body">
+          <h3>Crumb & Co. Patisserie</h3>
+          <div class="card-tagline">Artisanal Cakes, Desserts & Same-Day Bakes</div>
+          <p class="card-desc">Real-time same-day cutoff countdown (6 PM), interactive cake weight multipliers (0.5kg to 3kg), and 3-step custom cake builder.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">⏳ 6 PM Cutoff</span>
+            <span class="card-feat-pill">🎂 Weight Multiplier</span>
+            <span class="card-feat-pill">🟢 100% Eggless</span>
+          </div>
+          <div class="card-footer">
+            <a href="cakeshop/" class="btn-launch">Explore Site →</a>
+            <a href="cakeshop/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Crumb & Co. Patisserie')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5. Tuition -->
+      <article class="bento-card" data-category="education">
+        <div class="card-img-wrap">
+          <img src="images/tuition.jpg" alt="Apex Masters Tuition Academy" loading="lazy">
+          <span class="card-badge">Education</span>
+        </div>
+        <div class="card-body">
+          <h3>Apex Masters Academy</h3>
+          <div class="card-tagline">IIT-JEE, NEET & Foundation Excellence</div>
+          <p class="card-desc">Recent enrollment live tickers, topper results showcase, interactive batch selector, scholarship calculator, and demo class booking.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">🏆 AIR Rankers</span>
+            <span class="card-feat-pill">📊 Batch Compare</span>
+            <span class="card-feat-pill">📝 Demo Test Slot</span>
+          </div>
+          <div class="card-footer">
+            <a href="tuition/" class="btn-launch">Explore Site →</a>
+            <a href="tuition/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Apex Masters Academy')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Gym -->
+      <article class="bento-card" data-category="health">
+        <div class="card-img-wrap">
+          <img src="images/gym.jpg" alt="Forge Athletics & Arena" loading="lazy">
+          <span class="card-badge">Fitness</span>
+        </div>
+        <div class="card-body">
+          <h3>Forge Athletics Club</h3>
+          <div class="card-tagline">Elite Training, CrossFit & Nutrition Bar</div>
+          <p class="card-desc">Interactive BMI gauge calculator with color-coded health zones, flexible plan duration engine (1mo/3mo/12mo), and supplement shop.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">⚡ Interactive BMI</span>
+            <span class="card-feat-pill">📅 Duration Switcher</span>
+            <span class="card-feat-pill">🥤 Nutrition Shop</span>
+          </div>
+          <div class="card-footer">
+            <a href="gym/" class="btn-launch">Explore Site →</a>
+            <a href="gym/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Forge Athletics Club')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Cafe -->
+      <article class="bento-card" data-category="food">
+        <div class="card-img-wrap">
+          <img src="images/cafe.jpg" alt="Linguini & Leaf Bistro" loading="lazy">
+          <span class="card-badge">Dining & Bistro</span>
+        </div>
+        <div class="card-body">
+          <h3>Linguini & Leaf Bistro</h3>
+          <div class="card-tagline">Wood-Fired Pizza, Handmade Pasta & Espresso</div>
+          <p class="card-desc">Italian artisanal styling, veg/non-veg indicator badges, table reservation engine, dietary preference filters, and takeaway orders.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">🍕 Wood-Fire Menu</span>
+            <span class="card-feat-pill">🟢 Veg/Non-Veg Badges</span>
+            <span class="card-feat-pill">🍷 Table Reserve</span>
+          </div>
+          <div class="card-footer">
+            <a href="cafe/" class="btn-launch">Explore Site →</a>
+            <a href="cafe/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Linguini & Leaf Bistro')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Clothing -->
+      <article class="bento-card" data-category="retail">
+        <div class="card-img-wrap">
+          <img src="images/clothing.jpg" alt="Sutra Handlooms & Couture" loading="lazy">
+          <span class="card-badge">Fashion & Handloom</span>
+        </div>
+        <div class="card-body">
+          <h3>Sutra Couture & Handlooms</h3>
+          <div class="card-tagline">Artisanal Silks, Festive Kurtas & Ethnic Wear</div>
+          <p class="card-desc">3-tier mega dropdown navigation, size & color swatch selector, BXGY threshold cart tracker, and video lookbook carousel.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">🎨 Color Swatches</span>
+            <span class="card-feat-pill">🎁 BXGY Cart Tracker</span>
+            <span class="card-feat-pill">👗 Size Variant Engine</span>
+          </div>
+          <div class="card-footer">
+            <a href="clothing/" class="btn-launch">Explore Site →</a>
+            <a href="clothing/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Sutra Couture & Handlooms')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Real Estate -->
+      <article class="bento-card" data-category="services">
+        <div class="card-img-wrap">
+          <img src="images/realestate.jpg" alt="Greenfield Heights Real Estate" loading="lazy">
+          <span class="card-badge">Real Estate</span>
+        </div>
+        <div class="card-body">
+          <h3>Greenfield Heights Properties</h3>
+          <div class="card-tagline">Luxury Gated Communities & Commercial Suites</div>
+          <p class="card-desc">RERA certified property cards, smart multi-bank EMI calculator, construction progress milestones, and side-by-side comparison drawer.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">🏦 Smart EMI Calc</span>
+            <span class="card-feat-pill">⚖️ Property Compare</span>
+            <span class="card-feat-pill">🏗 Construction Progress</span>
+          </div>
+          <div class="card-footer">
+            <a href="realestate/" class="btn-launch">Explore Site →</a>
+            <a href="realestate/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Greenfield Heights Properties')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Tiffin -->
+      <article class="bento-card" data-category="food">
+        <div class="card-img-wrap">
+          <img src="images/tiffin.jpg" alt="Bangre Authentic Tiffin Services" loading="lazy">
+          <span class="card-badge">Food Delivery</span>
+        </div>
+        <div class="card-body">
+          <h3>Bangre Authentic Tiffin Services</h3>
+          <div class="card-tagline">Ghar Ka Swad — Daily Homestyle Tiffins & Subs</div>
+          <p class="card-desc">Rotating thali visualization, pincode delivery zone validator, 7-day meal schedule planner, and subscription pause/resume workflow.</p>
+          <div class="card-pills-row">
+            <span class="card-feat-pill">📍 Pincode Checker</span>
+            <span class="card-feat-pill">🍱 Weekly Meal Calendar</span>
+            <span class="card-feat-pill">🔄 Flexible Subscriptions</span>
+          </div>
+          <div class="card-footer">
+            <a href="tiffin/" class="btn-launch">Explore Site →</a>
+            <a href="tiffin/?view=catalog" class="btn-catalog-quick">Catalog (₹)</a>
+            <button onclick="openClientAccessModal('Bangre Authentic Tiffin Services')" class="btn-use-template">Use Template ↗</button>
+          </div>
+        </div>
+      </article>
+
+    </section>
 
     <!-- Platform Highlights Section -->
-    <section class="platform-features-section" data-aos="fade-up">
+    <section class="platform-features-section" id="features">
       <div class="section-badge">⚡ Why Choose Orbitex Templates</div>
-      <h2>Engineered for Real Business Growth</h2>
+      <h2>Engineered for High-Conversion Local Business Growth</h2>
       <p class="section-subtitle">Unlike generic site builders, Orbitex templates are meticulously tailored for Indian local business mechanics.</p>
       
       <div class="features-triple-grid">
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
           <div class="feature-icon-wrap">🛒</div>
           <h3>Native Indian Commerce</h3>
           <p>Built-in 3-step checkout flows, INR (₹) price formatting, GST & making charge breakdowns, and WhatsApp-integrated ordering.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-icon-wrap">🔍</div>
-          <h3>Predictive Search & Filter Engine</h3>
-          <p>Instant search drawers with search history memory, category quick chips, and multi-attribute filters tailored to each industry.</p>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📱</div>
+          <h3>App-Like Mobile Navigation</h3>
+          <p>Sticky thumb-friendly bottom action bars, slide-out filter drawers, and micro-animations designed for mobile-first shoppers.</p>
         </div>
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-icon-wrap">🚀</div>
-          <h3>Client Deployment Ready</h3>
-          <p>Easily connected to subdomains (e.g. <code>portfolio.orbitexapp.tech</code>) or client custom domains with pre-configured SEO and metadata.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Client Testimonials Strip -->
-    <section class="testimonials-section" data-aos="fade-up">
-      <div class="section-badge">💬 Client Feedback</div>
-      <h2>Trusted by Indian Local Businesses</h2>
-      <div class="testimonials-grid">
-        <div class="client-review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"The Bangre Tiffin template boosted our daily meal subscriptions by 40% in the first month. Our customers love the weekly menu timeline and WhatsApp ordering."</p>
-          <div class="reviewer-meta">
-            <div class="reviewer-avatar">RB</div>
-            <div>
-              <b>Rajesh Bangre</b>
-              <span>Founder, Bangre Tiffin Services (Nagpur)</span>
-            </div>
-          </div>
-        </div>
-        <div class="client-review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"The live gold ticker and 22K jewelry catalog gave our showroom a modern digital storefront. Our appointment bookings doubled within weeks."</p>
-          <div class="reviewer-meta">
-            <div class="reviewer-avatar">AS</div>
-            <div>
-              <b>Amitabh Soni</b>
-              <span>Director, Heritage Jewellers</span>
-            </div>
-          </div>
-        </div>
-        <div class="client-review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Patients find it effortless to book both physical visits and online consultations. The treatment procedure breakdown build immense trust."</p>
-          <div class="reviewer-meta">
-            <div class="reviewer-avatar">SD</div>
-            <div>
-              <b>Dr. Shubh Dave</b>
-              <span>Chief Dental Surgeon, Shubh Clinic</span>
-            </div>
-          </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap">⚡</div>
+          <h3>Zero-Bloat Performance</h3>
+          <p>Lightning-fast static HTML/CSS/JS architecture loading under 0.8s with no third-party framework overhead.</p>
         </div>
       </div>
     </section>
 
-    <!-- Client Access CTA Banner -->
-    <section class="client-access-banner" data-aos="fade-up">
-      <div class="access-banner-content">
+    <!-- Client Testimonials -->
+    <section class="reviews-section" id="reviews">
+      <div class="section-badge">🌟 Client Testimonials</div>
+      <h2>Trusted by Indian Business Owners</h2>
+      <p class="section-subtitle">Real businesses launched with Orbitex custom templates.</p>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The live gold price ticker and making charge calculator increased our online bridal appointment bookings by 240% in just one month."</p>
+          <div class="review-author">
+            <div class="author-avatar">👑</div>
+            <div class="author-info">
+              <b>Rajesh Varma</b>
+              <span>Director, Ratna Heritage Jewellers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Our patients love the dual In-Clinic vs Video consultation booking. It cut down reception phone calls by 70% and organized our schedule."</p>
+          <div class="review-author">
+            <div class="author-avatar">🩺</div>
+            <div class="author-info">
+              <b>Dr. Priya Sharma</b>
+              <span>Chief Dentist, Aura Care Clinic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The same-day delivery countdown bar and cake weight multiplier made ordering seamless for our customers. Online sales jumped immediately."</p>
+          <div class="review-author">
+            <div class="author-avatar">🎂</div>
+            <div class="author-info">
+              <b>Kavita Seth</b>
+              <span>Head Baker, Crumb & Co.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Onboarding & Custom Domain Banner -->
+    <section class="client-access-banner" id="access">
+      <div class="banner-content">
         <h2>Want to use these templates for your business?</h2>
-        <p>Get a fully branded, custom-domain website ready in 24 hours with your catalog, pricing, and WhatsApp integration.</p>
-        <div class="access-banner-actions">
-          <button class="btn-primary-large" onclick="openClientAccessModal()">
-            <span>Get Template Access →</span>
-          </button>
-          <a href="mailto:contact@orbitexapp.tech" class="btn-secondary-large">
-            <span>Contact Orbitex Support</span>
-          </a>
+        <p>Deploy under your custom domain (e.g. <b>portfolio.orbitexapp.tech</b> or <b>yourbusiness.com</b>) with full branding, payment gateways, and WhatsApp catalog integration.</p>
+        <div class="banner-actions">
+          <button onclick="openClientAccessModal('General Inquiry')" class="btn-banner-primary">Request Template License 🚀</button>
+          <a href="https://github.com/Ayanmathur/orbitexportfolio" target="_blank" class="btn-banner-secondary">View GitHub Repository ↗</a>
         </div>
       </div>
     </section>
+
   </main>
 
-  <div id="nicheViewContainer"></div>
-
-  <!-- Global Action / Consultation Modal -->
-  <div class="orbitex-modal-overlay" id="orbitexModalOverlay">
+  <!-- Client Access & Onboarding Modal -->
+  <div id="clientAccessModal" class="orbitex-modal-backdrop" style="display: none;">
     <div class="orbitex-modal-card">
-      <button class="modal-close-btn" onclick="closeModal()">✕</button>
-      <div id="modalBodyContent"></div>
+      <div class="modal-header">
+        <h3 id="modalTemplateTitle">Get Access to Template</h3>
+        <button class="modal-close-btn" onclick="closeClientAccessModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>Get a production license, custom domain setup (<b>orbitexapp.tech</b>), branding customization, and WhatsApp automation.</p>
+        <form id="clientInquiryForm" onsubmit="handleClientInquiry(event)">
+          <div class="form-group">
+            <label>Your Name / Business Name</label>
+            <input type="text" id="clientName" required placeholder="e.g. Rahul Verma / Apex Academy">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Phone Number</label>
+            <input type="tel" id="clientPhone" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Target Domain / Subdomain</label>
+            <input type="text" id="clientDomain" placeholder="e.g. mybusiness.orbitexapp.tech">
+          </div>
+          <div class="form-group">
+            <label>Selected Template</label>
+            <input type="text" id="selectedTemplateInput" readonly>
+          </div>
+          <button type="submit" class="btn-submit-inquiry">Submit & Connect on WhatsApp 💬</button>
+        </form>
+      </div>
     </div>
   </div>
 
+  <!-- Global Footer -->
   <footer class="orbitex-footer">
-    <div class="orbitex-nav-container" style="justify-content: center; flex-direction: column; text-align: center;">
-      <p><b>ORBITEX WEB SOLUTIONS</b> — Production-Ready Bespoke Web Suite for Indian Businesses</p>
-      <p style="opacity: 0.7; font-size: 12px; margin-top: 6px;">Available on <a href="https://portfolio.orbitexapp.tech" target="_blank" style="color: var(--orbitex-terracotta); text-decoration: none; font-weight: 700;">portfolio.orbitexapp.tech</a> • © 2026 Orbitex. All rights reserved.</p>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <img src="images/orbitex-logo.png" alt="Orbitex Logo" style="height: 38px; mix-blend-mode: multiply; margin-bottom: 12px;">
+        <p>Engineering bespoke, high-conversion web experiences for Indian local businesses.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Templates</h4>
+        <a href="salon/">Salon & Spa</a>
+        <a href="clinic/">Clinic & Dental</a>
+        <a href="jeweller/">Jewellery Studio</a>
+        <a href="cakeshop/">Artisan Patisserie</a>
+        <a href="tuition/">Coaching Academy</a>
+      </div>
+      <div class="footer-col">
+        <h4>More Templates</h4>
+        <a href="gym/">Fitness & Gym</a>
+        <a href="cafe/">Bistro & Cafe</a>
+        <a href="clothing/">Fashion Couture</a>
+        <a href="realestate/">Real Estate</a>
+        <a href="tiffin/">Tiffin Services</a>
+      </div>
+      <div class="footer-col">
+        <h4>Deployment</h4>
+        <p>Host on <b>portfolio.orbitexapp.tech</b> or custom domains with SSL & instant CDN.</p>
+        <p style="margin-top: 8px;">© 2026 Orbitex Technologies. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Shared component library -->
   <script src="scripts/shared-components.js"></script>
-  <!-- Niche-specific modules (each is an individual project) -->
-  <script src="scripts/niche-salon.js"></script>
-  <script src="scripts/niche-clinic.js"></script>
-  <script src="scripts/niche-jeweller.js"></script>
-  <script src="scripts/niche-cakeshop.js"></script>
-  <script src="scripts/niche-tuition.js"></script>
-  <script src="scripts/niche-gym.js"></script>
-  <script src="scripts/niche-cafe.js"></script>
-  <script src="scripts/niche-clothing.js"></script>
-  <script src="scripts/niche-realestate.js"></script>
-  <script src="scripts/niche-tiffin.js"></script>
-  <!-- Master coordinator -->
-  <script src="scripts/app.js"></script>
+  <script>
+    function filterPortfolioCategory(category, btn) {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
 
+      const cards = document.querySelectorAll('.bento-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openClientAccessModal(templateName) {
+      const modal = document.getElementById('clientAccessModal');
+      const input = document.getElementById('selectedTemplateInput');
+      const title = document.getElementById('modalTemplateTitle');
+      if (input) input.value = templateName || 'All Orbitex Templates';
+      if (title) title.innerText = 'Get Access: ' + (templateName || 'Orbitex Template');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeClientAccessModal() {
+      const modal = document.getElementById('clientAccessModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function handleClientInquiry(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value;
+      const phone = document.getElementById('clientPhone').value;
+      const domain = document.getElementById('clientDomain').value || 'portfolio.orbitexapp.tech';
+      const template = document.getElementById('selectedTemplateInput').value;
+
+      if (window.OrbitexToast) {
+        OrbitexToast.success('Inquiry submitted! Redirecting to WhatsApp setup...');
+      }
+
+      const msg = encodeURIComponent(`Hi Orbitex! I'm interested in deploying the "${template}" template for my business (${name}). Preferred domain: ${domain}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+        closeClientAccessModal();
+      }, 800);
+    }
+  </script>
 </body>
 </html>
