@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Auto Detailing & Ceramic Studio — 9H Ceramic, TPU PPF & Paint Correction</title>
+  <meta name="description" content="Precision automotive detailing studio offering self-healing Paint Protection Film (PPF), 9H Matrix Ceramic Coating, and interior deep restoration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --auto-red: #e11d48;
+      --auto-cyan: #38bdf8;
+      --auto-dark: #090a0f;
+      --auto-card: #13161f;
+      --auto-border: rgba(255, 255, 255, 0.12);
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--auto-dark);
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    /* Promo Bar */
+    .auto-top-bar {
+      background: linear-gradient(90deg, #be123c, #e11d48);
+      color: #fff;
+      padding: 8px 24px;
+      font-family: var(--font-heading);
+      font-size: 12.5px;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Navbar */
+    .auto-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(9, 10, 15, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--auto-border);
+    }
+    .auto-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .auto-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+    }
+    .auto-brand span { color: var(--auto-red); }
+    .auto-nav-links { display: flex; gap: 28px; }
+    .auto-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .auto-nav-links a:hover, .auto-nav-links a.active { color: #fff; }
+    .auto-nav-btn {
+      background: var(--auto-red);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    /* Hero Section */
+    .auto-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(9, 10, 15, 0.92) 0%, rgba(9, 10, 15, 0.35) 100%),
+                  url('../images/detailing/hero.jpg') center/cover no-repeat;
+      padding: 60px 24px;
+    }
+    .auto-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .auto-hero-content { max-width: 680px; }
+    .auto-badge {
+      display: inline-block;
+      background: rgba(225, 29, 72, 0.15);
+      border: 1px solid var(--auto-red);
+      color: #fda4af;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .auto-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 900;
+      line-height: 1.08;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .auto-hero h1 span { color: var(--auto-red); }
+    .auto-hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-bottom: 34px;
+    }
+    .auto-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-auto-primary {
+      background: var(--auto-red);
+      color: #fff;
+      padding: 15px 36px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .btn-auto-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      padding: 15px 30px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    /* Section */
+    .auto-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+    .auto-header-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+    .auto-sub {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--auto-red);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .auto-header-center h2 {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Services Grid */
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .auto-card {
+      background: var(--auto-card);
+      border: 1px solid var(--auto-border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .auto-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--auto-red);
+      box-shadow: 0 16px 32px rgba(225, 29, 72, 0.15);
+    }
+    .auto-img { height: 240px; width: 100%; object-fit: cover; }
+    .auto-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .auto-warranty {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--auto-cyan);
+      border: 1px solid var(--auto-cyan);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .auto-title { font-family: var(--font-heading); font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 6px; }
+    .auto-price { font-size: 22px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .auto-desc { font-size: 13.5px; color: #94a3b8; margin-bottom: 20px; flex: 1; }
+    .btn-card-action {
+      background: #1e222d;
+      border: 1px solid var(--auto-border);
+      color: #fff;
+      padding: 12px;
+      border-radius: 4px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .auto-card:hover .btn-card-action { background: var(--auto-red); border-color: var(--auto-red); }
+
+    /* Footer */
+    .auto-footer {
+      background: #040507;
+      border-top: 1px solid var(--auto-border);
+      color: #64748b;
+      padding: 60px 24px 30px;
+    }
+    .auto-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .auto-footer h4 { font-family: var(--font-heading); color: #fff; font-size: 16px; font-weight: 900; text-transform: uppercase; margin-bottom: 16px; }
+    .auto-footer p, .auto-footer a { font-size: 13.5px; color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
+    .auto-footer a:hover { color: var(--auto-red); }
+    .auto-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Apex Auto Detailing & Ceramic Studio</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="auto-top-bar">
+    ⚡ 5-YEAR & 10-YEAR OFFICIAL WARRANTY • HEATED DUST-FREE PAINT BOOTHS • CERTIFIED XPEL & GYEON INSTALLERS
+  </div>
+
+  <!-- Navbar -->
+  <header class="auto-nav">
+    <div class="auto-nav-wrap">
+      <a href="index.html" class="auto-brand">APEX <span>AUTOCARE</span></a>
+      <nav class="auto-nav-links">
+        <a href="index.html" class="active">Studio</a>
+        <a href="services.html">Packages & PPF</a>
+        <a href="book.html">Book Inspection</a>
+      </nav>
+      <a href="book.html" class="auto-nav-btn">Schedule Studio Slot ➔</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="auto-hero">
+    <div class="auto-hero-wrap">
+      <div class="auto-hero-content">
+        <div class="auto-badge">🛡️ Precision Supercar & Luxury Detailing</div>
+        <h1>Armor Your Paint with <span>9H Ceramic & TPU PPF</span></h1>
+        <p>10,000 sq.ft climate-controlled detailing bay featuring infrared curing lamps, instant self-healing paint protection film, and multi-stage rotary swirl correction.</p>
+        <div class="auto-hero-actions">
+          <a href="services.html" class="btn-auto-primary">Explore Packages (₹)</a>
+          <a href="book.html" class="btn-auto-outline">Book Free Paint Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Studio Services -->
+  <section class="auto-section">
+    <div class="auto-header-center">
+      <div class="auto-sub">Automotive Armor</div>
+      <h2>Precision Detailing Packages</h2>
+      <p>Using imported Gyeon quartz ceramics and optically clear hydrophobic TPU films.</p>
+    </div>
+
+    <div class="auto-grid">
+      <!-- 1 -->
+      <div class="auto-card">
+        <img src="../images/detailing/service1.jpg" alt="TPU PPF" class="auto-img">
+        <div class="auto-body">
+          <span class="auto-warranty">10-Year Replacement Warranty</span>
+          <h3 class="auto-title">Full Body Self-Healing TPU PPF</h3>
+          <div class="auto-price">₹85,000 <span style="font-size:13px; color:#94a3b8;">(Sedan)</span></div>
+          <p class="auto-desc">200-micron thick thermoplastic polyurethane film that self-heals rock chips, scratches, and key marks under sunlight.</p>
+          <a href="book.html?pkg=ppf" class="btn-card-action">Book PPF Slot ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="auto-card">
+        <img src="../images/detailing/service2.jpg" alt="9H Ceramic" class="auto-img">
+        <div class="auto-body">
+          <span class="auto-warranty">5-Year Certified Warranty</span>
+          <h3 class="auto-title">9H Matrix Graphene Ceramic Shield</h3>
+          <div class="auto-price">₹32,000 <span style="font-size:13px; color:#94a3b8;">(Sedan)</span></div>
+          <p class="auto-desc">Triple-layer quartz ceramic coating providing extreme candy gloss, 110° water contact angle, and chemical resistance.</p>
+          <a href="book.html?pkg=ceramic" class="btn-card-action">Book Ceramic Slot ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="auto-card">
+        <img src="../images/detailing/service3.jpg" alt="Interior Spa" class="auto-img">
+        <div class="auto-body">
+          <span class="auto-warranty">Antibacterial Steam</span>
+          <h3 class="auto-title">Deep Interior Spa & Leather Nourish</h3>
+          <div class="auto-price">₹8,500 <span style="font-size:13px; color:#94a3b8;">(All Cars)</span></div>
+          <p class="auto-desc">140°C pressurized dry steam sanitization, leather balm enrichment, roof liner foam extraction, and AC ozone purification.</p>
+          <a href="book.html?pkg=interior" class="btn-card-action">Book Spa Slot ➔</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="auto-footer">
+    <div class="auto-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">APEX AUTOCARE STUDIO</h4>
+        <p>Plot 88, Automotive Hub, OMR Road, Bengaluru 560068</p>
+        <p>Studio Desk: +91 98765 43210</p>
+        <p>Timings: 9:00 AM – 8:00 PM (Mon-Sat)</p>
+      </div>
+      <div>
+        <h4>Treatments</h4>
+        <a href="services.html">Self-Healing TPU PPF</a>
+        <a href="services.html">9H Matrix Ceramic</a>
+        <a href="services.html">Paint Correction</a>
+        <a href="services.html">Interior Ozone Sanitization</a>
+      </div>
+      <div>
+        <h4>Studio Standards</h4>
+        <p>Heated Clean-Room Paint Booths</p>
+        <p>Rupes Dual-Action Polishers</p>
+        <p>100% Genuine Imported Consumables</p>
+      </div>
+    </div>
+    <div class="auto-footer-bottom">
+      © 2026 Apex Auto Detailing & Ceramic Studio. Powered by Orbitex Local Business Web Suite.
+    </div>
+  </footer>
+
+</body>
+</html>
