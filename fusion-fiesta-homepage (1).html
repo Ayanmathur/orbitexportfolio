@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fusion Fiesta Lounge | Nagpur — Fine Dining, Cocktails &amp; Events</title>
+<meta name="description" content="Fusion Fiesta Lounge, Nagpur — Indian, Continental &amp; Asian fusion cuisine, craft cocktails, and home of the Annapurna Cooking League.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --flame:#E8420A; --flame2:#C93408; --gold:#F5A800; --gold-lt:#FFD060;
+  --dark:#1A1202; --mid:#4a3f30; --teal:#0D6B5E; --teal-lt:#14977A;
+  --cream:#FFFDF7; --white:#FFFFFF; --border:#E8E0D0;
+  --gray100:#FBF8F3; --gray500:#8a8070; --gray700:#4a4030;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--gray700);line-height:1.65;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+h1,h2,h3{font-family:'Bebas Neue',sans-serif;letter-spacing:.04em;color:var(--dark);line-height:1.1;}
+.container{max-width:1240px;margin:0 auto;padding:0 40px;}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--flame2);display:block;margin-bottom:10px;}
+.eyebrow.light{color:var(--gold-lt);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:3px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:.25s;cursor:pointer;border:2px solid transparent;}
+.btn-gold{background:var(--gold);color:var(--dark);}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);}
+.btn-outline{border-color:rgba(255,255,255,.6);color:var(--white);}
+.btn-outline:hover{background:rgba(255,255,255,.12);border-color:var(--white);}
+.btn-flame{background:var(--flame);color:var(--white);}
+.btn-flame:hover{background:var(--flame2);}
+
+/* ===== UTILITY BAR ===== */
+.util-bar{background:var(--dark);color:rgba(255,255,255,.7);font-size:12.5px;padding:8px 40px;display:flex;justify-content:space-between;align-items:center;}
+.util-left{display:flex;gap:22px;align-items:center;flex-wrap:wrap;}
+.util-left a{color:rgba(255,255,255,.7);transition:.2s;}
+.util-left a:hover{color:var(--gold-lt);}
+.util-right{display:flex;gap:14px;}
+.util-right a{width:26px;height:26px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:rgba(255,255,255,.8);transition:.2s;}
+.util-right a:hover{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+
+/* ===== MAIN NAV ===== */
+.navbar{background:var(--dark);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:200;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 40px;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.06em;color:var(--white);display:flex;align-items:center;gap:8px;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:34px;}
+.nav-links a{font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.75);transition:.2s;position:relative;}
+.nav-links a:hover{color:var(--gold-lt);}
+.nav-cta-wrap{display:flex;align-items:center;gap:20px;}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;}
+.burger span{width:24px;height:2px;background:var(--white);}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;color:var(--white);overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1800&q=80&auto=format&fit=crop') center/cover;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,10,2,.92) 0%,rgba(122,30,5,.75) 55%,rgba(201,52,8,.55) 100%);}
+.hero-content{position:relative;z-index:2;max-width:720px;padding:0 40px;}
+.hero-content h1{font-size:clamp(42px,6vw,68px);margin-bottom:16px;color:var(--white);}
+.hero-content h1 span{color:var(--gold);}
+.hero-content p{font-size:16px;color:rgba(255,255,255,.82);max-width:520px;margin-bottom:34px;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.6);font-size:11px;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.hero-scroll::after{content:'';width:1px;height:34px;background:rgba(255,255,255,.4);}
+
+/* ===== TRUST BAR ===== */
+.trust-bar{background:var(--dark);padding:26px 0;}
+.trust-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:13.5px;font-weight:600;letter-spacing:.3px;}
+.trust-item .ic{font-size:18px;}
+
+/* ===== SECTION HEADER ===== */
+.sec-head{text-align:center;max-width:640px;margin:0 auto 50px;}
+.sec-head h2{font-size:clamp(30px,4vw,44px);margin-bottom:14px;}
+.sec-head p{font-size:15px;color:var(--gray500);}
+section{padding:90px 0;}
+section.tight{padding:70px 0;}
+.bg-cream2{background:var(--gray100);}
+.bg-dark{background:var(--dark);color:rgba(255,255,255,.85);}
+.bg-dark h2, .bg-dark h3{color:var(--white);}
+
+/* ===== CUISINE CARDS ===== */
+.cuisine-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.cuisine-card{position:relative;border-radius:8px;overflow:hidden;height:320px;}
+.cuisine-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.cuisine-card:hover img{transform:scale(1.08);}
+.cuisine-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(26,10,2,.88) 10%,rgba(26,10,2,.05) 60%);}
+.cuisine-label{position:absolute;left:0;right:0;bottom:0;padding:22px 20px;z-index:2;}
+.cuisine-tag{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-lt);display:block;margin-bottom:4px;}
+.cuisine-label h3{color:var(--white);font-size:22px;}
+.cuisine-arrow{position:absolute;top:16px;right:16px;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:14px;backdrop-filter:blur(4px);}
+
+/* ===== ATMOSPHERE ===== */
+.atmos-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px;}
+.atmos-cell{border-radius:8px;overflow:hidden;position:relative;min-height:260px;}
+.atmos-cell.tall{min-height:540px;grid-row:span 2;}
+.atmos-cell img{width:100%;height:100%;object-fit:cover;}
+.atmos-cap{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(0deg,rgba(0,0,0,.65),transparent);color:var(--white);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+
+/* ===== MENU ===== */
+.menu-tabs{display:flex;justify-content:center;gap:0;margin-bottom:46px;border:1px solid var(--border);border-radius:50px;overflow:hidden;max-width:360px;margin-left:auto;margin-right:auto;}
+.menu-tab-btn{flex:1;text-align:center;padding:13px 20px;font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;background:var(--white);color:var(--gray700);transition:.2s;border:0;}
+.menu-tab-btn.active{background:var(--flame);color:var(--white);}
+.menu-panel{display:none;}
+.menu-panel.active{display:block;}
+.chef-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:50px;}
+.chef-card{border-radius:8px;overflow:hidden;position:relative;height:200px;}
+.chef-card img{width:100%;height:100%;object-fit:cover;}
+.chef-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 55%);}
+.chef-cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;color:var(--white);z-index:2;}
+.chef-cap .tag{background:var(--gold);color:var(--dark);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:20px;display:inline-block;margin-bottom:5px;}
+.chef-cap h4{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.03em;}
+.menu-cat-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--flame2);margin:36px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--border);}
+.menu-cat-title:first-of-type{margin-top:0;}
+.menu-cat-title.t{color:var(--teal);}
+.dish-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
+.dish-line{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px dashed var(--border);}
+.dish-line .di{flex:1;}
+.dish-line h5{font-size:14.5px;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:7px;}
+.veg-dot{width:9px;height:9px;border:1.5px solid #2e7d32;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.veg-dot::after{content:'';width:4px;height:4px;border-radius:50%;background:#2e7d32;}
+.veg-dot.non{border-color:#b71c1c;}
+.veg-dot.non::after{background:#b71c1c;}
+.dish-line p{font-size:12px;color:var(--gray500);margin-top:2px;}
+.dish-price{font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:700;color:var(--flame2);white-space:nowrap;}
+.menu-note{background:#fff8e6;border:1px solid #f0d080;border-radius:6px;padding:12px 16px;font-size:12.5px;color:#7a5a00;margin-top:36px;display:flex;gap:10px;}
+
+/* ===== GALLERY ===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:10px;}
+.gal-item{border-radius:6px;overflow:hidden;position:relative;cursor:pointer;}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.gal-item:hover img{transform:scale(1.07);}
+.gal-item.big{grid-column:span 2;grid-row:span 2;}
+.gal-item::after{content:'⛶';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:22px;background:rgba(20,10,2,0);opacity:0;transition:.25s;}
+.gal-item:hover::after{background:rgba(20,10,2,.35);opacity:1;}
+
+/* ===== ICON BUTTONS ===== */
+.icon-btn svg{width:14px;height:14px;fill:currentColor;}
+.icon-btn.big svg{width:16px;height:16px;}
+
+/* ===== ACL BANNER ===== */
+.acl-banner{background:linear-gradient(160deg,#1A0A02 0%,#7A1E05 55%,#C93408 100%);border-radius:14px;padding:60px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;color:var(--white);position:relative;overflow:hidden;}
+.acl-banner::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1400&q=70&auto=format&fit=crop') center/cover;opacity:.16;mix-blend-mode:overlay;}
+.acl-text{position:relative;z-index:2;max-width:560px;}
+.acl-badge{display:inline-block;background:var(--gold);color:var(--dark);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:16px;}
+.acl-text h2{color:var(--white);font-size:clamp(30px,4vw,46px);}
+.acl-text h2 span{color:var(--gold);}
+.acl-text p{color:rgba(255,255,255,.82);font-size:14.5px;margin:14px 0 24px;}
+.acl-judges{position:relative;z-index:2;display:flex;gap:16px;}
+.judge{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:18px 22px;text-align:center;min-width:150px;}
+.judge-avatar{width:50px;height:50px;border-radius:50%;background:var(--flame);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:17px;margin:0 auto 8px;}
+.judge-name{font-family:'Bebas Neue',sans-serif;letter-spacing:.04em;color:var(--gold-lt);font-size:15px;}
+.judge-title{font-size:10.5px;color:rgba(255,255,255,.6);margin-top:2px;}
+
+/* ===== TESTIMONIALS ===== */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.testi-card{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:8px;padding:26px;}
+.stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:12px;}
+.testi-card p{font-family:'Playfair Display',sans-serif;font-style:italic;font-size:15px;color:var(--gray700);margin-bottom:18px;}
+.testi-name{font-weight:700;font-size:13px;color:var(--dark);}
+.testi-meta{font-size:11px;color:var(--gray500);margin-top:2px;}
+
+/* ===== RESERVE CTA ===== */
+.reserve-cta{position:relative;padding:100px 0;text-align:center;color:var(--white);overflow:hidden;}
+.reserve-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1800&q=75&auto=format&fit=crop') center/cover;}
+.reserve-overlay{position:absolute;inset:0;background:rgba(15,8,2,.82);}
+.reserve-cta .inner{position:relative;z-index:2;}
+.reserve-cta h2{color:var(--white);font-size:clamp(32px,5vw,52px);margin-bottom:14px;}
+.reserve-cta p{color:rgba(255,255,255,.78);font-size:15px;max-width:480px;margin:0 auto 30px;}
+
+/* ===== FOOTER ===== */
+.footer-widgets{background:var(--gray100);padding:70px 0 50px;}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;}
+.f-widget{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.f-widget-img{height:150px;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=75&auto=format&fit=crop') center/cover;}
+.f-widget-body{padding:22px;}
+.f-widget h3{font-size:19px;margin-bottom:8px;}
+.f-widget p{font-size:13px;color:var(--gray500);margin-bottom:14px;}
+.hours-row{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px dashed var(--border);}
+.hours-row:last-child{border-bottom:none;}
+.hours-row .d{font-weight:700;color:var(--dark);}
+.hours-row .t{color:var(--gray500);}
+.hours-row.closed .t{color:var(--flame2);font-weight:700;}
+
+.footer-bottom{background:var(--dark);color:rgba(255,255,255,.6);padding:34px 0 0;}
+.footer-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-nav{display:flex;gap:24px;flex-wrap:wrap;}
+.footer-nav a{font-size:12.5px;color:rgba(255,255,255,.65);}
+.footer-nav a:hover{color:var(--gold-lt);}
+.footer-social{display:flex;gap:12px;}
+.footer-social a{width:30px;height:30px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;}
+.footer-social a:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);}
+.footer-copy{text-align:center;font-size:12px;padding:20px 0;color:rgba(255,255,255,.45);}
+.footer-copy a{color:var(--gold-lt);}
+.footer-legal{display:flex;gap:16px;justify-content:center;margin-top:6px;flex-wrap:wrap;}
+.footer-legal a{font-size:11.5px;color:rgba(255,255,255,.4);}
+.footer-legal a:hover{color:var(--gold-lt);}
+
+/* ===== STICKIES ===== */
+.reserve-side{position:fixed;right:0;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;background:var(--gold);color:var(--dark);padding:16px 10px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:6px 0 0 6px;z-index:150;cursor:pointer;box-shadow:-2px 0 10px rgba(0,0,0,.15);}
+.wa-bubble{position:fixed;left:22px;bottom:22px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:26px;z-index:150;box-shadow:0 4px 16px rgba(0,0,0,.25);}
+.event-strip{background:linear-gradient(90deg,var(--flame2),var(--flame));color:var(--white);text-align:center;font-size:12.5px;font-weight:700;letter-spacing:.5px;padding:9px 20px;}
+.event-strip a{color:var(--gold-lt);text-decoration:underline;margin-left:6px;}
+
+@media(max-width:980px){
+  .nav-links,.util-left{display:none;}
+  .burger{display:flex;}
+  .cuisine-grid{grid-template-columns:repeat(2,1fr);}
+  .atmos-grid{grid-template-columns:1fr 1fr;}
+  .atmos-cell.tall{grid-row:auto;min-height:260px;}
+  .footer-grid,.testi-grid{grid-template-columns:1fr;}
+  .acl-banner{padding:40px 26px;}
+  .container{padding:0 22px;}
+  .util-bar{padding:8px 22px;}
+  .nav-inner{padding:14px 22px;}
+}
+</style>
+</head>
+<body>
+
+<div class="event-strip">🔥 ANNAPURNA COOKING LEAGUE IS LIVE — 50 dishes, real-time slots <a href="#acl">Reserve yours now →</a></div>
+
+<!-- UTILITY BAR -->
+<div class="util-bar">
+  <div class="util-left">
+    <a href="tel:+917100000000">📞 +91 710 000 0000</a>
+    <a href="#reserve">Reserve a Table</a>
+    <span>Wardhaman Nagar, Nagpur</span>
+  </div>
+  <div class="util-right">
+    <a href="https://instagram.com/fusion_fiesta_lounge" target="_blank" rel="noopener" aria-label="Instagram" class="icon-btn"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.17.46.36 1.26.4 2.43.06 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.17-1.26.36-2.43.4-1.25.06-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.17-.46-.36-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.6 1.8c.46-.17 1.26-.36 2.43-.4C9.28 2.2 9.68 2.2 12 2.2zm0 3.05a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5zm0 11.13a4.38 4.38 0 1 1 0-8.76 4.38 4.38 0 0 1 0 8.76zm7.02-11.4a1.58 1.58 0 1 1-3.15 0 1.58 1.58 0 0 1 3.15 0z"/></svg></a>
+    <a href="#" aria-label="Facebook" class="icon-btn"><svg viewBox="0 0 24 24"><path d="M13.5 21.9v-8.4h2.82l.42-3.27h-3.24V8.14c0-.95.26-1.6 1.63-1.6h1.74V3.62A23.4 23.4 0 0 0 14.32 3.5c-2.5 0-4.22 1.53-4.22 4.34v2.42H7.27v3.27h2.83v8.37h3.4z"/></svg></a>
+    <a href="https://www.google.com/maps/place/Fusion+Fiesta+Loungee/@21.0676411,79.0557043,17z/data=!4m15!1m8!3m7!1s0x3bd4bf8a4b082d27:0xe28e21d41a9922d8!2sFusion+Fiesta+Loungee!8m2!3d21.0676411!4d79.0582792!10e9!16s%2Fg%2F11xvgms3gt!3m5!1s0x3bd4bf8a4b082d27:0xe28e21d41a9922d8!8m2!3d21.0676411!4d79.0582792!16s%2Fg%2F11xvgms3gt?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Find us on Google Maps" class="icon-btn"><svg viewBox="0 0 24 24"><path d="M12 2C7.8 2 4.4 5.4 4.4 9.6c0 5.4 6.7 11.6 7 11.9a.9.9 0 0 0 1.2 0c.3-.3 7-6.5 7-11.9C19.6 5.4 16.2 2 12 2zm0 10.3a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8z"/></svg></a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="logo">🔥 Fusion <span>Fiesta</span></a>
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#cuisine">Cuisine</a>
+      <a href="#menu">Menu</a>
+      <a href="#acl">Events</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta-wrap">
+      <a href="#reserve" class="btn btn-gold">Reserve Table</a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero" style="padding:0;">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow light">Nagpur's Fusion Dining &amp; Lounge</span>
+    <h1>Where Every Bite Tells <span>a Story</span></h1>
+    <p>The finest fusion of flavours — dine, drink, and celebrate under one roof. Indian, Continental &amp; Asian cuisine meets craft cocktails and festival-grade hospitality.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-outline">Explore Menu</a>
+      <a href="#reserve" class="btn btn-gold">Reserve Your Table ▶</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container trust-inner">
+    <div class="trust-item"><span class="ic">🍽</span> 50+ Signature Dishes</div>
+    <div class="trust-item"><span class="ic">🍹</span> Craft Cocktails &amp; Mocktails</div>
+    <div class="trust-item"><span class="ic">🎉</span> Private Events &amp; Celebrations</div>
+    <div class="trust-item"><span class="ic">⭐</span> 500+ Happy Reviews</div>
+    <div class="trust-item"><span class="ic">📍</span> Nagpur, Maharashtra</div>
+  </div>
+</div>
+
+<!-- CUISINE TEASER -->
+<section id="cuisine">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">The Experience</span>
+      <h2>Signature Cuisines</h2>
+      <p>Four worlds of flavour, one table. A cinematic preview of what's cooking — the full menu is just one click away.</p>
+    </div>
+    <div class="cuisine-grid">
+      <a href="#menu" class="cuisine-card">
+        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=700&q=75&auto=format&fit=crop" alt="Indian Fusion dish">
+        <span class="cuisine-arrow">↗</span>
+        <div class="cuisine-label"><span class="cuisine-tag">🍛 Indian Fusion</span><h3>Classic Meets Craft</h3></div>
+      </a>
+      <a href="#menu" class="cuisine-card">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&q=75&auto=format&fit=crop" alt="Continental dish">
+        <span class="cuisine-arrow">↗</span>
+        <div class="cuisine-label"><span class="cuisine-tag">🍝 Continental</span><h3>Rustic &amp; Warm</h3></div>
+      </a>
+      <a href="#menu" class="cuisine-card">
+        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=700&q=75&auto=format&fit=crop" alt="Asian fusion noodles">
+        <span class="cuisine-arrow">↗</span>
+        <div class="cuisine-label"><span class="cuisine-tag">🥢 Asian / Oriental</span><h3>Wok-Tossed Energy</h3></div>
+      </a>
+      <a href="#menu" class="cuisine-card">
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=75&auto=format&fit=crop" alt="Signature cocktail">
+        <span class="cuisine-arrow">↗</span>
+        <div class="cuisine-label"><span class="cuisine-tag">🍸 Signature Cocktails</span><h3>The Bar Identity</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="bg-cream2">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Taste the Full Line-Up</span>
+      <h2>Our Menu</h2>
+      <p>Food menu and drink menu, side by side. Prices shown are indicative — see the full priced menu with the button below.</p>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab-btn active" onclick="showMenuTab('food', this)">Food Menu</button>
+      <button class="menu-tab-btn" onclick="showMenuTab('drink', this)">Drink Menu</button>
+    </div>
+
+    <!-- FOOD PANEL -->
+    <div class="menu-panel active" id="menu-food">
+      <div class="chef-row">
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&q=70&auto=format&fit=crop" alt="Chef recommends dish">
+          <div class="chef-cap"><span class="tag">Chef Recommends</span><h4>Tandoori Fusion Platter</h4></div>
+        </div>
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500&q=70&auto=format&fit=crop" alt="Chef recommends dish">
+          <div class="chef-cap"><span class="tag">Chef Recommends</span><h4>Butter Garlic Prawns</h4></div>
+        </div>
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=500&q=70&auto=format&fit=crop" alt="Chef recommends dish">
+          <div class="chef-cap"><span class="tag">Chef Recommends</span><h4>Fusion Biryani Bowl</h4></div>
+        </div>
+      </div>
+
+      <div class="menu-cat-title">Starters</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Peri-Peri Paneer Tikka</h5><p>Char-grilled paneer, peri-peri glaze, mint dip</p></div><div class="dish-price">₹ 320</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot non"></span>Dragon Chicken</h5><p>Wok-tossed chicken, chilli-garlic glaze</p></div><div class="dish-price">₹ 380</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Crispy Corn Chaat</h5><p>Golden corn, tangy masala, pomegranate</p></div><div class="dish-price">₹ 260</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot non"></span>Fish Amritsari</h5><p>Batter-fried fish, ajwain, house chutney</p></div><div class="dish-price">₹ 420</div></div>
+      </div>
+
+      <div class="menu-cat-title">Mains</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot non"></span>Butter Chicken Fusion</h5><p>Slow-cooked curry, smoked tomato, cream</p></div><div class="dish-price">₹ 460</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Truffle Alfredo Penne</h5><p>Continental pasta, mushroom, truffle oil</p></div><div class="dish-price">₹ 420</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Paneer Lababdar</h5><p>Rich tomato gravy, cottage cheese</p></div><div class="dish-price">₹ 380</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot non"></span>Grilled Basil Chicken Steak</h5><p>Herb-marinated, pepper jus, veggies</p></div><div class="dish-price">₹ 520</div></div>
+      </div>
+
+      <div class="menu-cat-title">Biryani &amp; Rice</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot non"></span>Fusion Fiesta Special Biryani</h5><p>Dum-cooked, saffron, signature raita</p></div><div class="dish-price">₹ 440</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Veg Dum Biryani</h5><p>Fragrant rice, seasonal vegetables</p></div><div class="dish-price">₹ 360</div></div>
+      </div>
+
+      <div class="menu-cat-title">Desserts</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Molten Chocolate Fusion</h5><p>Warm lava cake, vanilla bean ice cream</p></div><div class="dish-price">₹ 260</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Gulab Jamun Cheesecake</h5><p>East-meets-west dessert mashup</p></div><div class="dish-price">₹ 280</div></div>
+      </div>
+
+      <div class="menu-cat-title">Kids' Menu</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot"></span>Mini Cheese Pizza</h5><p>Kid-sized, extra cheese</p></div><div class="dish-price">₹ 220</div></div>
+        <div class="dish-line"><div class="di"><h5><span class="veg-dot non"></span>Chicken Nuggets &amp; Fries</h5><p>Served with ketchup dip</p></div><div class="dish-price">₹ 240</div></div>
+      </div>
+    </div>
+
+    <!-- DRINK PANEL -->
+    <div class="menu-panel" id="menu-drink">
+      <div class="chef-row">
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=500&q=70&auto=format&fit=crop" alt="Signature cocktail">
+          <div class="chef-cap"><span class="tag">Signature Drink</span><h4>Smoked Fiesta Old Fashioned</h4></div>
+        </div>
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1541976590-713941681591?w=500&q=70&auto=format&fit=crop" alt="Signature cocktail">
+          <div class="chef-cap"><span class="tag">Signature Drink</span><h4>Tandoori Mary</h4></div>
+        </div>
+        <div class="chef-card">
+          <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500&q=70&auto=format&fit=crop" alt="Mocktail">
+          <div class="chef-cap"><span class="tag">Signature Drink</span><h4>Guava Chilli Mocktail</h4></div>
+        </div>
+      </div>
+
+      <div class="menu-cat-title t">Cocktails</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5>Smoked Fiesta Old Fashioned</h5><p>Bourbon, smoked chips, orange bitters</p></div><div class="dish-price">₹ 650</div></div>
+        <div class="dish-line"><div class="di"><h5>Tandoori Mary</h5><p>Vodka, tandoori-spiced tomato mix</p></div><div class="dish-price">₹ 600</div></div>
+        <div class="dish-line"><div class="di"><h5>Lychee Basil Martini</h5><p>Vodka, lychee, fresh basil</p></div><div class="dish-price">₹ 620</div></div>
+      </div>
+
+      <div class="menu-cat-title t">Mocktails</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5>Guava Chilli Cooler</h5><p>Guava, chilli salt rim, lime</p></div><div class="dish-price">₹ 320</div></div>
+        <div class="dish-line"><div class="di"><h5>Blue Lagoon Fizz</h5><p>Blue curaçao syrup, soda, mint</p></div><div class="dish-price">₹ 300</div></div>
+      </div>
+
+      <div class="menu-cat-title t">Beer &amp; Spirits</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5>Craft Beer (Pint)</h5><p>Rotating local &amp; imported selection</p></div><div class="dish-price">₹ 380</div></div>
+        <div class="dish-line"><div class="di"><h5>Single Malt (60ml)</h5><p>Ask your server for today's selection</p></div><div class="dish-price">₹ 550+</div></div>
+      </div>
+
+      <div class="menu-cat-title t">Hot Beverages &amp; Fresh Juices</div>
+      <div class="dish-list">
+        <div class="dish-line"><div class="di"><h5>Masala Chai</h5><p>House-blend spices, slow brewed</p></div><div class="dish-price">₹ 120</div></div>
+        <div class="dish-line"><div class="di"><h5>Fresh Watermelon Juice</h5><p>Chilled, no added sugar</p></div><div class="dish-price">₹ 180</div></div>
+      </div>
+    </div>
+
+    <div class="menu-note">⚠️ <span>Prices &amp; items shown are representative. Final priced menu to be confirmed against the in-house menu — see it live at <a href="https://maps.app.goo.gl/8Cc7TpWKgLAezsng9" target="_blank" rel="noopener" style="color:#7a5a00;font-weight:700;text-decoration:underline;">Fusion Fiesta Lounge on Google Maps</a>.</span></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">In Frame</span>
+      <h2>Gallery</h2>
+      <p>A look inside the lounge — plates, pours, and the moments in between.</p>
+    </div>
+    <div class="gallery-grid">
+      <a class="gal-item big" href="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=70&auto=format&fit=crop" alt="Restaurant interior">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=70&auto=format&fit=crop" alt="Bar area">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=500&q=70&auto=format&fit=crop" alt="Cocktail pour">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&q=70&auto=format&fit=crop" alt="Indian fusion dish">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=500&q=70&auto=format&fit=crop" alt="Continental pasta dish">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?w=500&q=70&auto=format&fit=crop" alt="Asian noodle dish">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500&q=70&auto=format&fit=crop" alt="Dessert plating">
+      </a>
+      <a class="gal-item" href="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1000&q=80&auto=format&fit=crop" target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500&q=70&auto=format&fit=crop" alt="Chef cooking - Annapurna Cooking League">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / ATMOSPHERE -->
+<section id="about" class="bg-cream2">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">More Than a Meal</span>
+      <h2>It's an Experience</h2>
+      <p>From the buzz of the bar to the calm of private dining — every corner of Fusion Fiesta is designed to be felt, not just seen.</p>
+    </div>
+    <div class="atmos-grid">
+      <div class="atmos-cell tall">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=900&q=75&auto=format&fit=crop" alt="Bar area at Fusion Fiesta">
+        <div class="atmos-cap">The Bar</div>
+      </div>
+      <div class="atmos-cell">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=75&auto=format&fit=crop" alt="Main dining room">
+        <div class="atmos-cap">Main Dining</div>
+      </div>
+      <div class="atmos-cell">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=75&auto=format&fit=crop" alt="Private dining space">
+        <div class="atmos-cap">Private Dining</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACL FEATURED EVENT -->
+<section id="acl">
+  <div class="container">
+    <div class="acl-banner">
+      <div class="acl-text">
+        <span class="acl-badge">🔥 Flagship Event</span>
+        <h2>Annapurna <span>Cooking League</span></h2>
+        <p>"Think You Can Cook? Bring It On." 50 dishes, real-time slot booking, and two judges who don't hold back. Book your slot before it greys out.</p>
+        <a href="#" class="btn btn-gold">See Event Details</a>
+      </div>
+      <div class="acl-judges">
+        <div class="judge">
+          <div class="judge-avatar">VG</div>
+          <div class="judge-name">Vikram Gandhe</div>
+          <div class="judge-title">Head Judge</div>
+        </div>
+        <div class="judge">
+          <div class="judge-avatar">AG</div>
+          <div class="judge-name">Ajinkya Gandhe</div>
+          <div class="judge-title">Judge</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="bg-cream2">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">Guest Reviews</span>
+      <h2>Loved by Nagpur</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"The fusion platter genuinely surprised me — every dish had a story. The cocktails matched the energy perfectly."</p>
+        <div class="testi-name">Ritika Deshmukh</div>
+        <div class="testi-meta">Google Review · Nagpur</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Booked the private dining space for a birthday — the team handled everything, and the ambience was spot on."</p>
+        <div class="testi-name">Arjun Mehta</div>
+        <div class="testi-meta">Google Review · Nagpur</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Competed in the Annapurna Cooking League — an incredible experience, and the judges truly know their food."</p>
+        <div class="testi-name">Sneha Patil</div>
+        <div class="testi-meta">ACL Participant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE CTA -->
+<section id="reserve" class="reserve-cta">
+  <div class="reserve-bg"></div>
+  <div class="reserve-overlay"></div>
+  <div class="inner container">
+    <span class="eyebrow light">Book Ahead</span>
+    <h2>Your Table Is Waiting</h2>
+    <p>Weekends fill up fast — especially during the Annapurna Cooking League. Reserve now to skip the wait.</p>
+    <a href="#contact" class="btn btn-gold">Book Now</a>
+  </div>
+</section>
+
+<!-- FOOTER WIDGETS -->
+<div class="footer-widgets" id="contact">
+  <div class="container footer-grid">
+    <div class="f-widget">
+      <div class="f-widget-img"></div>
+      <div class="f-widget-body">
+        <h3>Reserve Online</h3>
+        <p>Use our reservation form to book your table, bar seat, or private dining space in seconds.</p>
+        <a href="#reserve" class="btn btn-flame" style="padding:10px 20px;font-size:11px;">Book a Table</a>
+      </div>
+    </div>
+    <div class="f-widget">
+      <div class="f-widget-body">
+        <h3>Opening Hours</h3>
+        <p>Doors open every evening — extended hours on weekends and event nights.</p>
+        <div class="hours-row"><span class="d">Mon – Thu</span><span class="t">12 PM – 11 PM</span></div>
+        <div class="hours-row"><span class="d">Fri – Sat</span><span class="t">12 PM – 1 AM</span></div>
+        <div class="hours-row"><span class="d">Sunday</span><span class="t">12 PM – 11 PM</span></div>
+      </div>
+    </div>
+    <div class="f-widget">
+      <div class="f-widget-body">
+        <h3>About Fusion Fiesta</h3>
+        <p>A Nagpur fusion lounge built on the idea that great food is a conversation between cultures — home of the Annapurna Cooking League.</p>
+        <a href="#about" class="btn btn-flame" style="padding:10px 20px;font-size:11px;">Our Story</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER BOTTOM -->
+<footer class="footer-bottom">
+  <div class="container">
+    <div class="footer-bottom-inner">
+      <div class="footer-nav">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="#cuisine">Cuisine</a>
+        <a href="#menu">Menu</a>
+        <a href="#acl">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://instagram.com/fusion_fiesta_lounge" target="_blank" rel="noopener" aria-label="Instagram" class="icon-btn big"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.17.46.36 1.26.4 2.43.06 1.25.07 1.65.07 4.85s0 3.6-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.17-1.26.36-2.43.4-1.25.06-1.65.07-4.85.07s-3.6 0-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.17-.46-.36-1.26-.4-2.43C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.6 1.8c.46-.17 1.26-.36 2.43-.4C9.28 2.2 9.68 2.2 12 2.2zm0 3.05a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5zm0 11.13a4.38 4.38 0 1 1 0-8.76 4.38 4.38 0 0 1 0 8.76zm7.02-11.4a1.58 1.58 0 1 1-3.15 0 1.58 1.58 0 0 1 3.15 0z"/></svg></a>
+        <a href="#" aria-label="Facebook" class="icon-btn big"><svg viewBox="0 0 24 24"><path d="M13.5 21.9v-8.4h2.82l.42-3.27h-3.24V8.14c0-.95.26-1.6 1.63-1.6h1.74V3.62A23.4 23.4 0 0 0 14.32 3.5c-2.5 0-4.22 1.53-4.22 4.34v2.42H7.27v3.27h2.83v8.37h3.4z"/></svg></a>
+        <a href="https://www.google.com/maps/place/Fusion+Fiesta+Loungee/@21.0676411,79.0557043,17z/data=!4m15!1m8!3m7!1s0x3bd4bf8a4b082d27:0xe28e21d41a9922d8!2sFusion+Fiesta+Loungee!8m2!3d21.0676411!4d79.0582792!10e9!16s%2Fg%2F11xvgms3gt!3m5!1s0x3bd4bf8a4b082d27:0xe28e21d41a9922d8!8m2!3d21.0676411!4d79.0582792!16s%2Fg%2F11xvgms3gt?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Find us on Google Maps" class="icon-btn big"><svg viewBox="0 0 24 24"><path d="M12 2C7.8 2 4.4 5.4 4.4 9.6c0 5.4 6.7 11.6 7 11.9a.9.9 0 0 0 1.2 0c.3-.3 7-6.5 7-11.9C19.6 5.4 16.2 2 12 2zm0 10.3a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      Copyright © 2026 Fusion Fiesta Lounge. All rights reserved. · Powered by <a href="#">Imborn Digital</a>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a><a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- GLOBAL STICKIES -->
+<a href="#reserve" class="reserve-side">Reserve Table</a>
+<a href="https://wa.me/917100000000?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Fusion%20Fiesta%20Lounge!" class="wa-bubble" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script>
+document.querySelector('.burger')?.addEventListener('click', () => {
+  document.querySelector('.nav-links').classList.toggle('mobile-open');
+});
+function showMenuTab(which, btn){
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('menu-' + which).classList.add('active');
+  document.querySelectorAll('.menu-tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

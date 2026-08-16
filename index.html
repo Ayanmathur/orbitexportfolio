@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbitex Portfolio — Premium Indian Local Business Web Suite</title>
+  <meta name="description" content="Explore Orbitex's showcase of 10 bespoke web design solutions built for Indian local businesses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/niches.css">
+  <link rel="stylesheet" href="styles/shared-components.css">
+</head>
+<body>
+
+  <header class="orbitex-bar">
+    <div class="orbitex-nav-container">
+      <a class="orbitex-brand" onclick="showHomePortfolio()" title="Back to Orbitex Home">
+        <img src="images/orbitex-logo.png" alt="Orbitex Logo">
+        <div class="orbitex-brand-title">
+          <b>ORBITEX</b>
+          <span>Web Portfolio</span>
+        </div>
+      </a>
+      <nav class="niche-nav-scroll">
+        <button class="niche-btn active" data-niche="home"><i>✨</i> All Designs</button>
+        <button class="niche-btn" data-niche="salon"><i>✂️</i> Salon</button>
+        <button class="niche-btn" data-niche="clinic"><i>🩺</i> Clinic</button>
+        <button class="niche-btn" data-niche="jeweller"><i>💎</i> Jeweller</button>
+        <button class="niche-btn" data-niche="cakeshop"><i>🎂</i> Cake Shop</button>
+        <button class="niche-btn" data-niche="tuition"><i>📚</i> Tuition</button>
+        <button class="niche-btn" data-niche="gym"><i>💪</i> Gym</button>
+        <button class="niche-btn" data-niche="cafe"><i>🍕</i> Cafe / Resto</button>
+        <button class="niche-btn" data-niche="clothing"><i>👗</i> Clothing</button>
+        <button class="niche-btn" data-niche="realestate"><i>🏢</i> Real Estate</button>
+        <button class="niche-btn" data-niche="tiffin"><i>🍱</i> Tiffin Services</button>
+      </nav>
+      <div id="viewSubnavContainer" class="view-subnav" style="display: none;">
+        <button class="view-tab active" data-view="overview" onclick="setNicheView('overview')">Overview</button>
+        <button class="view-tab" data-view="catalog" onclick="setNicheView('catalog')">Catalog (₹)</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="portfolioHomeView">
+    <section class="portfolio-hero" data-aos="fade-up">
+      <div class="portfolio-hero-badge">✨ Orbitex Enterprise Suite & Templates</div>
+      <h1>Production-Ready Web Suite for <span>Indian Enterprises</span></h1>
+      <p>Explore 10 high-conversion, production-ready website templates engineered for Indian local businesses. Each template features a bespoke <b>Overview Experience</b>, a complete <b>Catalog Engine</b> with authentic INR (₹) pricing, and client-ready checkout & inquiry flows.</p>
+      
+      <!-- Platform Features Row -->
+      <div class="hero-stats-row">
+        <div class="hero-stat-pill">
+          <span class="hero-stat-num">10</span>
+          <span class="hero-stat-label">Bespoke Niches</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-pill">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">Client-Deployable</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-pill">
+          <span class="hero-stat-num">₹ INR</span>
+          <span class="hero-stat-label">Localized Commerce</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-pill">
+          <span class="hero-stat-num">0.8s</span>
+          <span class="hero-stat-label">Ultra-Fast Load</span>
+        </div>
+      </div>
+
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterPortfolioCategory('all', this)">All Templates (10)</button>
+        <button class="filter-pill" onclick="filterPortfolioCategory('services', this)">Services & Property</button>
+        <button class="filter-pill" onclick="filterPortfolioCategory('food', this)">Food & Hospitality</button>
+        <button class="filter-pill" onclick="filterPortfolioCategory('retail', this)">Retail & Luxury</button>
+        <button class="filter-pill" onclick="filterPortfolioCategory('health', this)">Health & Fitness</button>
+        <button class="filter-pill" onclick="filterPortfolioCategory('education', this)">Education</button>
+      </div>
+    </section>
+
+    <!-- Templates Grid -->
+    <section class="bento-grid" id="portfolioGrid"></section>
+
+    <!-- Platform Highlights Section -->
+    <section class="platform-features-section" data-aos="fade-up">
+      <div class="section-badge">⚡ Why Choose Orbitex Templates</div>
+      <h2>Engineered for Real Business Growth</h2>
+      <p class="section-subtitle">Unlike generic site builders, Orbitex templates are meticulously tailored for Indian local business mechanics.</p>
+      
+      <div class="features-triple-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon-wrap">🛒</div>
+          <h3>Native Indian Commerce</h3>
+          <p>Built-in 3-step checkout flows, INR (₹) price formatting, GST & making charge breakdowns, and WhatsApp-integrated ordering.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon-wrap">🔍</div>
+          <h3>Predictive Search & Filter Engine</h3>
+          <p>Instant search drawers with search history memory, category quick chips, and multi-attribute filters tailored to each industry.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon-wrap">🚀</div>
+          <h3>Client Deployment Ready</h3>
+          <p>Easily connected to subdomains (e.g. <code>portfolio.orbitexapp.tech</code>) or client custom domains with pre-configured SEO and metadata.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Testimonials Strip -->
+    <section class="testimonials-section" data-aos="fade-up">
+      <div class="section-badge">💬 Client Feedback</div>
+      <h2>Trusted by Indian Local Businesses</h2>
+      <div class="testimonials-grid">
+        <div class="client-review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The Bangre Tiffin template boosted our daily meal subscriptions by 40% in the first month. Our customers love the weekly menu timeline and WhatsApp ordering."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">RB</div>
+            <div>
+              <b>Rajesh Bangre</b>
+              <span>Founder, Bangre Tiffin Services (Nagpur)</span>
+            </div>
+          </div>
+        </div>
+        <div class="client-review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The live gold ticker and 22K jewelry catalog gave our showroom a modern digital storefront. Our appointment bookings doubled within weeks."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">AS</div>
+            <div>
+              <b>Amitabh Soni</b>
+              <span>Director, Heritage Jewellers</span>
+            </div>
+          </div>
+        </div>
+        <div class="client-review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Patients find it effortless to book both physical visits and online consultations. The treatment procedure breakdown build immense trust."</p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">SD</div>
+            <div>
+              <b>Dr. Shubh Dave</b>
+              <span>Chief Dental Surgeon, Shubh Clinic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Access CTA Banner -->
+    <section class="client-access-banner" data-aos="fade-up">
+      <div class="access-banner-content">
+        <h2>Want to use these templates for your business?</h2>
+        <p>Get a fully branded, custom-domain website ready in 24 hours with your catalog, pricing, and WhatsApp integration.</p>
+        <div class="access-banner-actions">
+          <button class="btn-primary-large" onclick="openClientAccessModal()">
+            <span>Get Template Access →</span>
+          </button>
+          <a href="mailto:contact@orbitexapp.tech" class="btn-secondary-large">
+            <span>Contact Orbitex Support</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="nicheViewContainer"></div>
+
+  <!-- Global Action / Consultation Modal -->
+  <div class="orbitex-modal-overlay" id="orbitexModalOverlay">
+    <div class="orbitex-modal-card">
+      <button class="modal-close-btn" onclick="closeModal()">✕</button>
+      <div id="modalBodyContent"></div>
+    </div>
+  </div>
+
+  <footer class="orbitex-footer">
+    <div class="orbitex-nav-container" style="justify-content: center; flex-direction: column; text-align: center;">
+      <p><b>ORBITEX WEB SOLUTIONS</b> — Production-Ready Bespoke Web Suite for Indian Businesses</p>
+      <p style="opacity: 0.7; font-size: 12px; margin-top: 6px;">Available on <a href="https://portfolio.orbitexapp.tech" target="_blank" style="color: var(--orbitex-terracotta); text-decoration: none; font-weight: 700;">portfolio.orbitexapp.tech</a> • © 2026 Orbitex. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Shared component library -->
+  <script src="scripts/shared-components.js"></script>
+  <!-- Niche-specific modules (each is an individual project) -->
+  <script src="scripts/niche-salon.js"></script>
+  <script src="scripts/niche-clinic.js"></script>
+  <script src="scripts/niche-jeweller.js"></script>
+  <script src="scripts/niche-cakeshop.js"></script>
+  <script src="scripts/niche-tuition.js"></script>
+  <script src="scripts/niche-gym.js"></script>
+  <script src="scripts/niche-cafe.js"></script>
+  <script src="scripts/niche-clothing.js"></script>
+  <script src="scripts/niche-realestate.js"></script>
+  <script src="scripts/niche-tiffin.js"></script>
+  <!-- Master coordinator -->
+  <script src="scripts/app.js"></script>
+
+</body>
+</html>

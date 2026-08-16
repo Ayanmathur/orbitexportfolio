@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bansal Classes — Landing Page Content Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-deep:   #0B3D78;
+  --blue:        #1664B8;
+  --blue-bright: #0E6FE0;
+  --blue-light:  #4FA9E0;
+  --blue-lighter:#EAF4FC;
+  --white:       #ffffff;
+  --black:       #10151c;
+  --gray-100:    #F3F6F9;
+  --gray-200:    #E2E8F0;
+  --gray-500:    #7B8794;
+  --gray-700:    #46505C;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--blue-lighter); color: var(--black); line-height: 1.6; }
+
+.edit-bar { background: var(--blue-deep); color: rgba(255,255,255,0.9); font-size: 12px; padding: 9px 40px; display: flex; align-items: center; gap: 20px; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--blue-light); }
+.edit-bar strong { color: var(--blue-light); }
+.edit-bar span { opacity: 0.75; }
+.edit-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue-light); display: inline-block; }
+
+.cover { background: var(--blue-deep); color: var(--white); padding: 56px 80px 48px; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(79,169,224,0.16); pointer-events: none; }
+.cover-badge { display: inline-block; background: var(--blue-bright); color: var(--white); font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 20px; }
+.cover h1 { font-family: 'Poppins', sans-serif; font-size: 42px; font-weight: 800; line-height: 1.18; margin-bottom: 10px; }
+.cover h1 span { color: var(--blue-light); }
+.cover-sub { font-size: 15px; color: rgba(255,255,255,0.78); margin-bottom: 36px; max-width: 660px; }
+.cover-meta { display: flex; gap: 36px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.18); }
+.cover-meta-item label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.55); display: block; margin-bottom: 3px; }
+.cover-meta-item span { font-size: 13px; font-weight: 600; color: var(--white); }
+
+.toc { background: var(--white); border-left: 4px solid var(--blue); padding: 30px 80px; }
+.toc-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; color: var(--blue-deep); margin-bottom: 16px; }
+.toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 40px; }
+.toc-item { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: var(--gray-700); border-bottom: 1px dashed var(--gray-200); }
+.toc-num { background: var(--blue); color: var(--white); font-size: 9px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.toc-num.accent-num { background: var(--blue-bright); color: var(--white); }
+.toc-anchor { font-size: 9px; background: #E5F0FC; color: var(--blue); padding: 2px 6px; border-radius: 10px; margin-left: auto; font-weight: 700; letter-spacing: 0.5px; }
+.toc-anchor.hidden { background: #EEF1F4; color: var(--gray-500); }
+.toc-anchor.optional { background: #FDF1E7; color: #7a4a00; }
+
+.research-note { background: #EAF4FC; border-top: 1px solid #BFE0F7; border-bottom: 1px solid #BFE0F7; padding: 16px 80px; font-size: 13px; color: #0B3D78; }
+.research-note strong { color: #062a55; }
+
+.acc { border-bottom: 1px solid var(--gray-200); }
+.acc-head { display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+.acc-head-left { display: flex; align-items: flex-start; gap: 14px; padding: 24px 0; flex: 1; }
+.acc-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.acc-icon.accent-icon { background: var(--blue-bright); }
+.acc-icon.muted { background: #8aa0b8; }
+.acc-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 3px; }
+.acc-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 21px; color: var(--blue-deep); }
+.acc-badge { font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; margin-top: 4px; display: inline-block; }
+.acc-badge.in-nav { background: #E5F0FC; color: var(--blue); }
+.acc-badge.hidden-nav { background: #EEF1F4; color: var(--gray-500); }
+.acc-badge.optional-badge { background: #FDF1E7; color: #7a4a00; }
+.acc-btn { background: none; border: 1px solid var(--gray-200); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; color: var(--blue-deep); }
+.acc-btn:hover { background: var(--blue); border-color: var(--blue); color: var(--white); }
+.acc-arrow { font-size: 11px; transition: transform 0.25s; display: inline-block; line-height: 1; }
+.acc.open .acc-arrow { transform: rotate(180deg); }
+.acc-body { display: none; padding: 0 80px 36px; }
+.acc.open .acc-body { display: block; }
+
+.cblock { background: var(--gray-100); border-left: 3px solid var(--blue); padding: 13px 17px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.cblock.accent { border-left-color: var(--blue-bright); }
+.cblock h4 { font-size: 13px; font-weight: 700; color: var(--blue-deep); margin-bottom: 5px; }
+.cblock.accent h4 { color: #0a4f9c; }
+.cblock p, .cblock li { font-size: 13px; color: var(--gray-700); line-height: 1.65; }
+.cblock ul { padding-left: 16px; }
+
+.note { background: #EAF4FC; border: 1px solid #BFE0F7; border-radius: 6px; padding: 10px 14px; font-size: 13px; color: #0B3D78; margin-top: 10px; display: flex; gap: 10px; align-items: flex-start; }
+.note-icon { flex-shrink: 0; }
+.note.tbd { background: #FDF1E7; border-color: #F0CBA0; color: #7a4a00; }
+
+.card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 14px; }
+.card-grid-2 { grid-template-columns: repeat(2,1fr); }
+.card-grid-4 { grid-template-columns: repeat(4,1fr); }
+.card { background: var(--blue-lighter); border: 1px solid var(--gray-200); border-radius: 7px; padding: 16px; }
+.card.highlight { border-top: 3px solid var(--blue-bright); }
+.card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 6px; }
+.card p { font-size: 12px; color: var(--gray-700); line-height: 1.6; }
+
+.palette { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.swatch { border-radius: 8px; overflow: hidden; width: 130px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.swatch-color { height: 70px; }
+.swatch-info { background: var(--white); padding: 9px 11px; border: 1px solid var(--gray-200); border-top: none; }
+.swatch-name { font-size: 12px; font-weight: 700; color: var(--black); }
+.swatch-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-500); margin-top: 2px; }
+.swatch-use { font-size: 10px; color: var(--gray-500); margin-top: 2px; }
+
+.nav-strip { display: flex; background: var(--blue-deep); border-radius: 7px; overflow: hidden; margin-top: 16px; flex-wrap: wrap; }
+.nav-tab { flex: 1; text-align: center; padding: 12px 8px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.7); border-right: 1px solid rgba(255,255,255,0.1); min-width: 80px; }
+.nav-tab:last-child { border-right: none; }
+.nav-tab.active { background: var(--blue); color: var(--white); }
+.nav-tab.cta-tab { background: var(--blue-bright); color: var(--white); }
+.nav-tab .tab-num { display: block; font-size: 9px; letter-spacing: 1px; opacity: 0.6; text-transform: uppercase; margin-bottom: 2px; }
+
+.wireframe { background: #0c1b2e; color: #cfe2f5; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.85; padding: 22px 26px; border-radius: 7px; margin-top: 14px; white-space: pre; overflow-x: auto; }
+.wireframe .wc { color: #6fc6ff; }
+.wireframe .wh { color: #4FA9E0; }
+.wireframe .wg { color: #9bb8d4; }
+.wireframe .wo { color: #f0b86e; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 14px; }
+.stat { background: var(--white); border: 1px solid var(--gray-200); border-top: 3px solid var(--blue-bright); padding: 14px 18px; border-radius: 0 0 7px 7px; text-align: center; }
+.stat-num { font-family: 'Poppins', sans-serif; font-size: 24px; color: var(--blue-deep); font-weight: 800; }
+.stat-label { font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.stat-row-label { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 1px; margin-top: 18px; margin-bottom: 4px; }
+
+.sec-band { background: var(--blue); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 80px; display: flex; align-items: center; gap: 12px; }
+.sec-band.optional-band { background: #8a6b1f; }
+.sec-band .pill { background: var(--blue-bright); color: var(--white); padding: 2px 8px; border-radius: 10px; font-size: 9px; letter-spacing: 1px; }
+.sec-band .pill.hidden-pill { background: rgba(255,255,255,0.2); color: var(--white); }
+.sec-band .pill.optional-pill { background: rgba(255,255,255,0.25); color: var(--white); }
+
+.form-mock { background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; padding: 18px; margin-top: 12px; }
+.form-mock-title { font-size: 13px; font-weight: 700; color: var(--blue-deep); margin-bottom: 12px; border-bottom: 1px solid var(--gray-200); padding-bottom: 9px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.form-field { background: var(--gray-100); border: 1px dashed var(--gray-200); border-radius: 5px; padding: 9px 12px; font-size: 12px; color: var(--gray-500); font-family: 'JetBrains Mono', monospace; }
+.form-field.full { grid-column: 1/-1; }
+.form-btn { background: var(--blue-bright); color: var(--white); padding: 11px 24px; border-radius: 5px; font-weight: 800; font-size: 12px; display: inline-block; margin-top: 9px; }
+
+.proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 12px; }
+.proj-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; }
+.proj-img { height: 78px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 10px; font-family: 'JetBrains Mono', monospace; text-align: center; padding: 6px; }
+.proj-body { padding: 11px 13px; }
+.proj-name { font-size: 13px; font-weight: 700; color: var(--blue-deep); }
+.proj-loc { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+.proj-cta { display: block; text-align: center; background: var(--blue); color: var(--white); padding: 7px; font-size: 11px; font-weight: 700; margin-top: 8px; border-radius: 4px; }
+
+.amenity-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-top: 12px; }
+.amenity-item { background: var(--white); border: 1px solid var(--gray-200); border-radius: 7px; padding: 12px; text-align: center; }
+.amenity-icon { font-size: 22px; display: block; margin-bottom: 5px; }
+.amenity-label { font-size: 11px; color: var(--gray-700); font-weight: 600; }
+
+.tag { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin: 2px 2px 2px 0; }
+.tag-green { background: #e3f3ea; color: #1f6b42; }
+.tag-blue-soft  { background: #E5F0FC; color: #0B3D78; }
+.tag-blue  { background: #DCEEFB; color: #0E6FE0; }
+.tag-gray  { background: #EEF1F4; color: #555; }
+
+.sticky-cta-demo { background: var(--blue-bright); color: var(--white); border-radius: 8px 0 0 8px; padding: 13px 18px; font-size: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; letter-spacing: 0.5px; }
+.sticky-wa-demo { background: #25D366; color: var(--white); border-radius: 50%; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; margin-top: 14px; margin-left: 10px; }
+
+.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.filter-tab { padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid var(--gray-200); background: var(--white); color: var(--gray-700); }
+.filter-tab.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+hr.fancy { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--blue-light), transparent); margin: 20px 0; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 12px; }
+.gallery-cell { border-radius: 6px; overflow: hidden; }
+.gallery-cell.tall { grid-row: span 2; }
+.gallery-img { display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: 'JetBrains Mono', monospace; color: rgba(255,255,255,0.8); text-align: center; padding: 8px; }
+
+.footer-mock { background: var(--blue-deep); border-radius: 8px; padding: 26px; margin-top: 12px; color: var(--white); }
+.footer-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 9px; }
+.footer-col p, .footer-col li { font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.7; list-style: none; }
+.footer-brochure { text-align: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.18); }
+.brochure-btn { display: inline-block; background: var(--blue-bright); color: var(--white); padding: 11px 28px; border-radius: 5px; font-weight: 800; font-size: 13px; }
+
+.associate-bar { background: #07203f; border-radius: 8px; padding: 18px 24px; margin-top: 12px; display: flex; align-items: center; gap: 18px; }
+.assoc-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 20px; flex-shrink: 0; }
+.assoc-name { font-size: 15px; font-weight: 700; color: var(--white); }
+.assoc-role { font-size: 12px; color: var(--blue-light); margin-top: 2px; }
+.assoc-tags { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+.assoc-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); padding: 2px 8px; border-radius: 10px; font-size: 10px; }
+
+.event-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-top: 14px; }
+.event-head { background: var(--blue-deep); color: var(--white); padding: 16px 20px; }
+.event-head .ev-tag { background: var(--blue-bright); color: var(--white); font-size: 9px; font-weight: 800; letter-spacing: 1px; padding: 2px 8px; border-radius: 10px; }
+.event-head h5 { font-family: 'Poppins',sans-serif; font-size: 18px; margin-top: 8px; }
+.event-head p { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+.event-body { padding: 16px 20px; }
+.event-meta { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; color: var(--gray-700); margin-bottom: 12px; }
+.event-topics { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.event-topic { background: var(--gray-100); border: 1px solid var(--gray-200); border-radius: 20px; padding: 5px 12px; font-size: 11px; color: var(--blue-deep); font-weight: 600; }
+.event-price { display: flex; align-items: center; justify-content: space-between; background: var(--gray-100); border-radius: 6px; padding: 10px 14px; }
+.event-price b { color: var(--blue-deep); font-size: 14px; }
+
+.doc-footer { background: var(--blue-deep); color: rgba(255,255,255,0.65); text-align: center; padding: 24px; font-size: 12px; }
+.doc-footer strong { color: var(--white); }
+</style>
+</head>
+<body>
+
+<div class="edit-bar">
+  <span class="dot"></span>
+  <strong>BANSAL CLASSES</strong>
+  <span>General Landing Page Content Plan — 11 Core Sections + 2 Optional Per-Centre Modules, Blue Brand Theme</span>
+  <span style="margin-left:auto;">📋 Developer Handoff · June 2026</span>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">Website Content Plan</div>
+  <h1>Bansal Classes <span>Landing Page</span><br>Admission Page Blueprint</h1>
+  <p class="cover-sub">A complete, section-by-section blueprint built to turn curious parents and students into booked demo classes and enrolled batches. Every section below is written to move a visitor forward — see it, feel the energy, hit a button. This is a general-purpose template, kept deliberately free of any single centre's people or premises, so it can be safely reused as the base for any Bansal Classes location. Ready for direct developer handoff.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><label>Client</label><span>Bansal Classes</span></div>
+    <div class="cover-meta-item"><label>Parent Brand</label><span>Bansal Classes Pvt. Ltd. (Est. 1984, Kota)</span></div>
+    <div class="cover-meta-item"><label>Scope</label><span>General template — fill [Centre / City] per location</span></div>
+    <div class="cover-meta-item"><label>Format</label><span>Single-Page Scroll Landing</span></div>
+    <div class="cover-meta-item"><label>Core Sections</label><span>11 + 2 optional per-centre modules</span></div>
+    <div class="cover-meta-item"><label>Primary Goal</label><span>Drive Enquiries → Free Demo Bookings → Enrollments</span></div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">Section Index — Landing Page Flow</div>
+  <div class="toc-grid">
+    <div class="toc-item"><div class="toc-num">1</div> Hero / Home <span class="toc-anchor">IN NAV</span></div>
+    <div class="toc-item"><div class="toc-num">2</div> Achievements Bar <span class="toc-anchor hidden">HIDDEN</span></div>
+    <div class="toc-item"><div class="toc-num">3</div> Courses &amp; Batches <span class="toc-anchor">IN NAV</span></div>
+    <div class="toc-item"><div class="toc-num">4</div> Why Bansal Classes <span class="toc-anchor hidden">HIDDEN</span></div>
+    <div class="toc-item"><div class="toc-num">5</div> Results Wall / Our Rankers <span class="toc-anchor">IN NAV</span></div>
+    <div class="toc-item"><div class="toc-num">6</div> Events &amp; Seminars <span class="toc-anchor">IN NAV</span></div>
+    <div class="toc-item"><div class="toc-num">7</div> Testimonials <span class="toc-anchor hidden">HIDDEN</span></div>
+    <div class="toc-item"><div class="toc-num">8</div> Gallery <span class="toc-anchor hidden">HIDDEN</span></div>
+    <div class="toc-item"><div class="toc-num">9</div> Admission Process &amp; Scholarship <span class="toc-anchor hidden">HIDDEN</span></div>
+    <div class="toc-item"><div class="toc-num">10</div> Contact / Enquire Now <span class="toc-anchor">IN NAV</span></div>
+    <div class="toc-item"><div class="toc-num accent-num">11</div> Footer <span class="toc-anchor hidden">HIDDEN</span></div>
+    <div class="toc-item" style="border:none; padding-top:12px;"><div class="toc-num" style="background:var(--blue-bright);">⚡</div> Global: Sticky "Book Free Demo Class" CTA + WhatsApp "Enquire Now" bubble (always visible)</div>
+  </div>
+  <hr class="fancy">
+  <div class="toc-title" style="font-size:14px; margin-bottom:10px;">Optional Modules — Add Only When Adapting For a Specific Centre</div>
+  <div class="toc-grid">
+    <div class="toc-item"><div class="toc-num accent-num">A</div> Meet Our Faculty <span class="toc-anchor optional">PER-CENTRE</span></div>
+    <div class="toc-item"><div class="toc-num accent-num">B</div> Centre Director Strip <span class="toc-anchor optional">PER-CENTRE</span></div>
+  </div>
+  <p style="font-size:11px; color:var(--gray-500); margin-top:10px;">These two modules are left out of the core plan below on purpose — they require a named individual's photo, qualifications, and consent, which doesn't exist for a general template. Full specs for both live in "How to Adapt This for a Specific Centre" near the end of this document, ready to drop in once that data exists.</p>
+</div>
+
+<div class="research-note">
+  <strong>📌 Research &amp; data-accuracy note — please read before development:</strong> "Bansal Classes" is run as an independently-managed franchise model — several unrelated businesses also trade under the "Bansal Classes" name in different cities, with no connection to the original Kota-founded brand. Because of this, only facts confirmed on the official national site <strong>bansalclasses.in</strong> are used as verified brand content below: founding year, founder, official course names (BULL'S EYE / NUCLEUS / STERLING / Pre-Foundation), the BAITS test series, the BOOST scholarship test, and the DLP program. Everything specific to a particular centre — address, phone number, fee structure, faculty names, local results, director name, and centre photography — is left as a clearly-marked <strong>[Centre Name]</strong> / <strong>TBD</strong> placeholder rather than guessed, so this plan can be safely reused as the base for any individual Bansal Classes location without ever risking another centre's data being put in the wrong place. Whoever adapts this for a specific centre should fill in those placeholders — and add the two optional per-centre modules — with that centre's own confirmed details.
+</div>
+
+<!-- NAV -->
+<div class="acc" id="sec-nav">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🗂️</div>
+      <div>
+        <div class="acc-label">Navigation</div>
+        <div class="acc-title">Navbar + Sticky CTA Design</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Structure</h4>
+      <p>Sticky navbar at top, white background, soft shadow on scroll. <strong>Left:</strong> Bansal Classes logo + "[Centre / City]" sub-label in blue. <strong>Center:</strong> anchor links (Home · Courses · Results · Events · Contact). <strong>Right:</strong> bold "Book Free Demo Class" button in the brightest blue on the page — it should be the single most eye-catching element in the navbar. Thin helpline utility bar above, matching the national site's pattern. Hamburger menu on mobile, CTA button stays visible. If a centre adds the optional Faculty module, insert a "Faculty" link here between Results and Events.</p>
+    </div>
+    <div class="nav-strip">
+      <div class="nav-tab active"><span class="tab-num">Logo</span>🎓 Bansal Classes</div>
+      <div class="nav-tab"><span class="tab-num">§1</span>Home</div>
+      <div class="nav-tab"><span class="tab-num">§3</span>Courses</div>
+      <div class="nav-tab"><span class="tab-num">§5</span>Results</div>
+      <div class="nav-tab"><span class="tab-num">§6</span>Events</div>
+      <div class="nav-tab"><span class="tab-num">§10</span>Contact</div>
+      <div class="nav-tab cta-tab"><span class="tab-num">CTA →</span>Book Free Demo Class</div>
+    </div>
+    <div>
+      <div class="sticky-cta-demo">📝 Book Free Demo Class →</div><div class="sticky-wa-demo">💬</div>
+    </div>
+    <p style="font-size:11px; color:var(--gray-500); margin-top:6px;">↑ Demo: bright-blue CTA fixed to right edge (anchors §10) + green WhatsApp "Enquire Now" bubble fixed bottom-left, both visible at every scroll depth — this single decision recovers the leads that would otherwise scroll past and never come back.</p>
+  </div>
+</div>
+
+<!-- §1 HERO -->
+<div class="sec-band"><span class="pill">IN NAV · #home</span> SECTION 1 — Hero / Home</div>
+<div class="acc" id="sec1">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🎓</div>
+      <div>
+        <div class="acc-label">Section 01 · #home</div>
+        <div class="acc-title">Hero — Home</div>
+        <div><span class="acc-badge in-nav">In Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="card-grid card-grid-2">
+      <div>
+        <div class="cblock">
+          <h4>Background — Image/Video Type Needed</h4>
+          <p><strong>Type:</strong> Short looping video (10–15s, muted autoplay) of an actual classroom in session — teacher at the board, students leaning in, energy visible — OR a sharp daylight photo of the centre's entrance/signage. Deep-blue gradient overlay (~60%) so white headline text stays crisp and readable on any device.</p>
+        </div>
+        <div class="cblock accent" style="margin-top:10px;">
+          <h4>Left Side Content — Make It Punch</h4>
+          <p><strong>Tagline:</strong> "Kota-Level Coaching. [Right Here in Your City]."<br>
+          <strong>Sub-line:</strong> 40+ Years of Bansal Legacy · IIT-JEE · NEET-UG · Foundation (Class 8–12)<br>
+          <strong>Trust Badges:</strong> 🏆 40+ Years Legacy &nbsp; 🎯 Kota-Origin Methodology &nbsp; 📈 Result-Driven Teaching<br>
+          <strong>CTA Buttons:</strong> [Book Free Demo Class] → §10 (primary, brightest blue) &nbsp;|&nbsp; [Know More] → §3 (secondary, outline)</p>
+        </div>
+      </div>
+      <div>
+        <div class="cblock"><h4>Right Side — Lead Form (floating card)</h4><p>White card, soft shadow, right-aligned over the hero, slight upward float so it reads as "above" the background. Heading: "Enquire Now — Get a Free Demo Class". This single form is the highest-value conversion element on the entire page.</p></div>
+        <div class="form-mock">
+          <div class="form-mock-title">📋 Hero Lead Form</div>
+          <div class="form-row">
+            <div class="form-field">Student Name *</div>
+            <div class="form-field">Parent's Mobile *</div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">Class ▾ (8th–12th / Dropper)</div>
+            <div class="form-field">Target Exam ▾ (JEE/NEET/Foundation)</div>
+          </div>
+          <div class="form-btn">🎯 Claim My Free Demo Class</div>
+          <p style="font-size:10px; color:var(--gray-500); margin-top:7px;">⚡ Limited seats per batch · No spam, ever</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §2 ACHIEVEMENTS BAR -->
+<div class="sec-band"><span class="pill hidden-pill">NOT IN NAV</span> SECTION 2 — Achievements Bar</div>
+<div class="acc" id="sec2">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon muted">📊</div>
+      <div>
+        <div class="acc-label">Section 02 · No Anchor</div>
+        <div class="acc-title">Achievements Bar</div>
+        <div><span class="acc-badge hidden-nav">Not in Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>Sits directly under the hero as a scroll continuation — animated counter strip, no separate heading needed. Two clearly-labelled rows so national legacy and this centre's own performance are never blurred together — parents specifically distrust coaching pages that quietly pass off head-office numbers as the local branch's own results.</p>
+    </div>
+    <div class="stat-row-label">Row 1 — Bansal Group Legacy (confirmed from bansalclasses.in)</div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">1984</div><div class="stat-label">Founded by V.K. Bansal, Kota</div></div>
+      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Years of Coaching Legacy</div></div>
+      <div class="stat"><div class="stat-num">100+</div><div class="stat-label">Centres Nationwide*</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Flagship Tracks: JEE · NEET · Foundation</div></div>
+    </div>
+    <p style="font-size:10px; color:var(--gray-500); margin-top:6px;">*"100+ centres" is widely cited for the Bansal network; confirm the current official count with head office before publishing it as a hard number.</p>
+    <div class="stat-row-label" style="margin-top:18px;">Row 2 — This Centre (placeholder — fill with real, centre-specific numbers)</div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">[X]</div><div class="stat-label">Years Running at This Centre</div></div>
+      <div class="stat"><div class="stat-num">[X]</div><div class="stat-label">Students Currently Enrolled</div></div>
+      <div class="stat"><div class="stat-num">[X]</div><div class="stat-label">Selections From This Centre</div></div>
+      <div class="stat"><div class="stat-num">[X]</div><div class="stat-label">Top Rankers (Latest Batch)</div></div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed per centre:</strong> Pull real local enrollment/result numbers from that centre's franchise owner before launch. A genuine local number — even a modest one — converts a first-time-visiting parent far better than a borrowed national stat, and avoids any centre ever being accused of using another branch's figures.</span></div>
+  </div>
+</div>
+
+<!-- §3 COURSES -->
+<div class="sec-band"><span class="pill">IN NAV · #courses</span> SECTION 3 — Courses &amp; Batches</div>
+<div class="acc" id="sec3">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">📚</div>
+      <div>
+        <div class="acc-label">Section 03 · #courses</div>
+        <div class="acc-title">Courses &amp; Batches</div>
+        <div><span class="acc-badge in-nav">In Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>White section. Heading: "Find Your Track. Start Your Climb." Filter tabs let a visitor jump straight to their exam in one tap. 3-col card grid (desktop) / 1-col (mobile). Names below are the real official Bansal programs (confirmed on bansalclasses.in) — keep these exact, they carry national brand recognition that a made-up name would throw away. Every card ends on "Know More" → course detail page or a WhatsApp enquiry pre-filled with that course name, so the visitor never has to retype anything. Add a state-specific overlay course (e.g. a local CET) only where that centre's state actually has one.</p>
+    </div>
+    <div class="filter-tabs">
+      <div class="filter-tab active">All</div>
+      <div class="filter-tab">JEE</div>
+      <div class="filter-tab">NEET</div>
+      <div class="filter-tab">Foundation</div>
+      <div class="filter-tab">Dropper</div>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-img" style="background:linear-gradient(135deg,#0B3D78,#1664B8);">[ TYPE: students mid-class, focused ]</div>
+        <div class="proj-body">
+          <div class="proj-name">BULL'S EYE</div>
+          <div class="proj-loc">🎯 Class XI · 2-Year Track</div>
+          <div style="font-size:11px; color:var(--gray-700); margin-top:3px;">Foundation-to-advanced JEE/NEET launchpad for X→XI movers.</div>
+          <div style="margin-top:5px;"><span class="tag tag-blue-soft">JEE</span><span class="tag tag-blue-soft">NEET</span></div>
+          <div class="proj-cta">Know More →</div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background:linear-gradient(135deg,#1664B8,#4FA9E0);">[ TYPE: teacher explaining on board ]</div>
+        <div class="proj-body">
+          <div class="proj-name">NUCLEUS</div>
+          <div class="proj-loc">🎯 Class XII · Continuing Track</div>
+          <div style="font-size:11px; color:var(--gray-700); margin-top:3px;">For XI→XII movers — the final sprint toward an IIT/AIIMS-level score.</div>
+          <div style="margin-top:5px;"><span class="tag tag-blue-soft">JEE</span><span class="tag tag-blue-soft">NEET</span></div>
+          <div class="proj-cta">Know More →</div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background:linear-gradient(135deg,#0B3D78,#0E6FE0);">[ TYPE: test series / exam hall photo ]</div>
+        <div class="proj-body">
+          <div class="proj-name">STERLING</div>
+          <div class="proj-loc">🎯 XII Passed / Dropper Batch</div>
+          <div style="font-size:11px; color:var(--gray-700); margin-top:3px;">An intensive 1-year repeater batch built for the rank you know you deserve.</div>
+          <div style="margin-top:5px;"><span class="tag tag-blue-soft">JEE</span><span class="tag tag-blue-soft">NEET</span></div>
+          <div class="proj-cta">Know More →</div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background:linear-gradient(135deg,#4FA9E0,#0E6FE0);">[ TYPE: younger students, bright classroom ]</div>
+        <div class="proj-body">
+          <div class="proj-name">Pre-Foundation</div>
+          <div class="proj-loc">🎯 Class 8–10</div>
+          <div style="font-size:11px; color:var(--gray-700); margin-top:3px;">Early NTSE/Olympiad grounding plus a real head-start on JEE/NEET thinking.</div>
+          <div style="margin-top:5px;"><span class="tag tag-blue">Foundation</span></div>
+          <div class="proj-cta">Know More →</div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background:linear-gradient(135deg,#0B3D78,#1664B8);">[ TYPE: optional — state-specific imagery ]</div>
+        <div class="proj-body">
+          <div class="proj-name">[State CET] Integrated <span style="font-weight:400; font-size:10px; color:var(--gray-500);">(optional)</span></div>
+          <div class="proj-loc">🎯 Class XI–XII</div>
+          <div style="font-size:11px; color:var(--gray-700); margin-top:3px;">JEE/NEET prep with a local state-entrance overlay — include only where relevant to this centre's state.</div>
+          <div style="margin-top:5px;"><span class="tag tag-blue-soft">State CET</span></div>
+          <div class="proj-cta">Know More →</div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img" style="background:linear-gradient(135deg,#1664B8,#0B3D78);">[ TYPE: laptop/tablet study setup ]</div>
+        <div class="proj-body">
+          <div class="proj-name">Bansal DLP</div>
+          <div class="proj-loc">🎯 Distance Learning</div>
+          <div style="font-size:11px; color:var(--gray-700); margin-top:3px;">Official Bansal study material + AITS test series for students who can't attend in person.</div>
+          <div style="margin-top:5px;"><span class="tag tag-blue">Online</span></div>
+          <div class="proj-cta">Know More →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- §4 WHY BANSAL -->
+<div class="sec-band"><span class="pill hidden-pill">NOT IN NAV</span> SECTION 4 — Why Bansal Classes</div>
+<div class="acc" id="sec4">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon muted">🏆</div>
+      <div>
+        <div class="acc-label">Section 04 · No Anchor</div>
+        <div class="acc-title">Why Bansal Classes?</div>
+        <div><span class="acc-badge hidden-nav">Not in Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock accent">
+      <h4>Headline</h4>
+      <p>"Why Thousands of Parents Trust the Bansal Name" — deep-blue full-bleed background, white/light-blue text, confident and energetic tone. 6 USP cards, 2-col.</p>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:12px;">
+      <div class="card"><div class="card-title">🏛️ Kota-Origin Legacy</div><p>Founded in 1984 by V.K. Bansal in Kota — the methodology that helped build India's coaching capital, now teaching students nationwide.</p></div>
+      <div class="card"><div class="card-title">👨‍🏫 Trained Faculty</div><p>Teachers grounded in the original Bansal pedagogy — concept-first learning, not rote memorisation.</p></div>
+      <div class="card"><div class="card-title">👥 Small Batch Size</div><p>Personal attention every student can actually feel — never lost in a crowd of hundreds.</p></div>
+      <div class="card"><div class="card-title">📝 Bansal AITS</div><p>The All-India Test Series — the same national-level test exposure Kota students get, at your local centre.</p></div>
+      <div class="card"><div class="card-title">📈 A Proven System</div><p>40+ years of refining one method: clear concepts, regular testing, focused mentorship.</p></div>
+      <div class="card"><div class="card-title">🎓 BOOST Scholarships</div><p>Merit-based fee concessions via the national Bansal BOOST scholarship &amp; aptitude test.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- §5 RESULTS WALL -->
+<div class="sec-band"><span class="pill">IN NAV · #results</span> SECTION 5 — Results Wall / Our Rankers</div>
+<div class="acc" id="sec5">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon accent-icon">🥇</div>
+      <div>
+        <div class="acc-label">Section 05 · #results</div>
+        <div class="acc-title">Results Wall — Our Rankers</div>
+        <div><span class="acc-badge in-nav">In Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout — Highest-Priority Conversion Section</h4>
+      <p>For a coaching institute, nothing on the page sells harder than this one. Light-blue tinted background so the photos pop. Heading: "Our Rankers Speak Louder Than Words." Year filter tabs (latest 3 years). Grid of topper cards: photo, name, rank/score, exam, batch year, one short quote in their own voice. Go big on photos here — real faces convert far better than icons.</p>
+    </div>
+    <div class="filter-tabs">
+      <div class="filter-tab active">Latest Year</div>
+      <div class="filter-tab">Year −1</div>
+      <div class="filter-tab">Year −2</div>
+      <div class="filter-tab">All Years</div>
+    </div>
+    <div class="card-grid" style="margin-top:12px;">
+      <div class="card highlight">
+        <div style="height:60px; background:linear-gradient(135deg,#0B3D78,#1664B8); border-radius:6px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.65); font-size:10px; font-family:'JetBrains Mono',monospace;">[ TYPE: topper headshot ]</div>
+        <div class="card-title" style="margin-top:8px;">Student Name — TBD</div>
+        <p>AIR [XXX] · JEE Advanced<br>"Quote from the topper about their journey."</p>
+      </div>
+      <div class="card highlight">
+        <div style="height:60px; background:linear-gradient(135deg,#1664B8,#4FA9E0); border-radius:6px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.65); font-size:10px; font-family:'JetBrains Mono',monospace;">[ TYPE: topper headshot ]</div>
+        <div class="card-title" style="margin-top:8px;">Student Name — TBD</div>
+        <p>NEET-UG Score [XXX]<br>"Quote from the topper about their journey."</p>
+      </div>
+      <div class="card highlight">
+        <div style="height:60px; background:linear-gradient(135deg,#0E6FE0,#4FA9E0); border-radius:6px; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.65); font-size:10px; font-family:'JetBrains Mono',monospace;">[ TYPE: topper headshot ]</div>
+        <div class="card-title" style="margin-top:8px;">Student Name — TBD</div>
+        <p>[State CET] Percentile [XX.XX]<br>"Quote from the topper about their journey."</p>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed per centre:</strong> Real local rankers — names, photos (with written consent), rank/score, exam, and a short quote each. This is the single most important asset to collect before launch; the rest of the page can go live without it, but this section shouldn't be skipped or filled with stock data.</span></div>
+  </div>
+</div>
+
+<!-- §6 EVENTS -->
+<div class="sec-band"><span class="pill">IN NAV · #events</span> SECTION 6 — Events &amp; Seminars</div>
+<div class="acc" id="sec6">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon accent-icon">🎤</div>
+      <div>
+        <div class="acc-label">Section 06 · #events</div>
+        <div class="acc-title">Events &amp; Seminars</div>
+        <div><span class="acc-badge in-nav">In Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock accent">
+      <h4>Why this section exists</h4>
+      <p>Heading: "Beyond Academics — Building Future-Ready Families." Many Bansal centres already run high-converting parent-child seminars on social media — this section turns that kind of WhatsApp/Instagram content into a standing, bookable page feature, and works as a separate lead-capture funnel from the admissions form. Every event card should end on a clear "Enquire Now" or "Register" CTA — never leave an interested parent without a next click.</p>
+    </div>
+    <div class="event-card">
+      <div class="event-head">
+        <span class="ev-tag">FLAGSHIP SEMINAR</span>
+        <h5>From Foundation to Future</h5>
+        <p>A Parenting &amp; Youth Seminar — "Strong Foundation, Secure Destination"</p>
+      </div>
+      <div class="event-body">
+        <div class="event-meta">
+          <span>📅 Date — TBD</span>
+          <span>📍 Venue — TBD</span>
+          <span>⏰ Batch-wise time slots — TBD</span>
+        </div>
+        <div class="event-topics">
+          <span class="event-topic">🤖 AI Readiness</span>
+          <span class="event-topic">🚫 Addiction Awareness</span>
+          <span class="event-topic">📱 Healthy Screen-Time</span>
+          <span class="event-topic">🧠 Mental Wellbeing</span>
+        </div>
+        <div class="event-price">
+          <span>👨‍👩‍👧 Joint parent + child session · Live Q&amp;A · Free parenting guide</span>
+          <b>Entry fee — TBD</b>
+        </div>
+        <div class="proj-cta" style="margin-top:12px;">Enquire Now via WhatsApp →</div>
+      </div>
+    </div>
+    <div class="cblock" style="margin-top:14px;">
+      <h4>Future-Event Template</h4>
+      <p>Build the event card above as a repeatable template (icon, title, date, venue, topic tags, price, CTA) so any centre can publish new seminars, parent-orientation days, and scholarship-test drives without touching the page structure each time.</p>
+    </div>
+    <div class="cblock accent" style="margin-top:10px;">
+      <h4>Past-Seminar Credibility Strip</h4>
+      <p>Below the flagship card: a slim horizontal strip — "[X] seminars hosted · [X]+ families attended" — with 3–4 thumbnail photos from past events. Builds proof that this isn't a one-off; numbers and photos to be supplied by that centre.</p>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed per centre:</strong> Confirmed date, venue, timing and entry fee for the next seminar, plus 3–4 photos from a past event for the credibility strip.</span></div>
+  </div>
+</div>
+
+<!-- §7 TESTIMONIALS -->
+<div class="sec-band"><span class="pill hidden-pill">NOT IN NAV</span> SECTION 7 — Testimonials</div>
+<div class="acc" id="sec7">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon muted">💬</div>
+      <div>
+        <div class="acc-label">Section 07 · No Anchor</div>
+        <div class="acc-title">Testimonials</div>
+        <div><span class="acc-badge hidden-nav">Not in Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>Light-blue tinted background. Heading: "What Our Parents &amp; Students Say." Auto-rotating carousel, 3 cards visible on desktop. Each card: ★ star rating, 2–3 line quote, name + class/batch, optional small photo. Pull these only from genuine Google reviews or written parent permissions for this specific centre — never reuse quotes seen on other Bansal-named sites elsewhere, even if they sound generic enough to "fit."</p>
+    </div>
+    <div class="card-grid">
+      <div class="card"><div class="card-title">⭐⭐⭐⭐⭐</div><p>"Parent/student testimonial — TBD, sourced from real local Google reviews or written permission."</p></div>
+      <div class="card"><div class="card-title">⭐⭐⭐⭐⭐</div><p>"Parent/student testimonial — TBD, sourced from real local Google reviews or written permission."</p></div>
+      <div class="card"><div class="card-title">⭐⭐⭐⭐⭐</div><p>"Parent/student testimonial — TBD, sourced from real local Google reviews or written permission."</p></div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed per centre:</strong> 6–9 genuine reviews/quotes with names, plus written consent to publish.</span></div>
+  </div>
+</div>
+
+<!-- §8 GALLERY -->
+<div class="sec-band"><span class="pill hidden-pill">NOT IN NAV</span> SECTION 8 — Gallery</div>
+<div class="acc" id="sec8">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon muted">🖼️</div>
+      <div>
+        <div class="acc-label">Section 08 · No Anchor</div>
+        <div class="acc-title">Gallery</div>
+        <div><span class="acc-badge hidden-nav">Not in Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>White background. Heading: "Life at Bansal Classes." Masonry-style photo grid mixing classroom shots, doubt-clearing sessions, felicitation/topper moments, and short vertical reels — matching the energetic, social-media-native feel a coaching brand's Instagram usually has. This is where the page should feel most alive and current — update it every few months.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-cell tall"><div class="gallery-img" style="height:100%; background:linear-gradient(135deg,#0B3D78,#1664B8);">[ TYPE: classroom wide shot ]</div></div>
+      <div class="gallery-cell"><div class="gallery-img" style="height:100px; background:linear-gradient(135deg,#1664B8,#4FA9E0);">[ TYPE: doubt session ]</div></div>
+      <div class="gallery-cell"><div class="gallery-img" style="height:100px; background:linear-gradient(135deg,#0E6FE0,#4FA9E0);">[ TYPE: felicitation event ]</div></div>
+      <div class="gallery-cell"><div class="gallery-img" style="height:100px; background:linear-gradient(135deg,#4FA9E0,#0E6FE0);">[ TYPE: reel / short video ]</div></div>
+      <div class="gallery-cell"><div class="gallery-img" style="height:100px; background:linear-gradient(135deg,#0B3D78,#0E6FE0);">[ TYPE: centre entrance/signage ]</div></div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed per centre:</strong> 10–15 real, recent photos/reels from that centre and its social accounts, with permission to publish.</span></div>
+  </div>
+</div>
+
+<!-- §9 ADMISSION PROCESS -->
+<div class="sec-band"><span class="pill hidden-pill">NOT IN NAV</span> SECTION 9 — Admission Process &amp; Scholarship</div>
+<div class="acc" id="sec9">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon muted">🪜</div>
+      <div>
+        <div class="acc-label">Section 09 · No Anchor</div>
+        <div class="acc-title">Admission Process &amp; Scholarship</div>
+        <div><span class="acc-badge hidden-nav">Not in Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock accent">
+      <h4>Layout — Removes the Last Hesitation</h4>
+      <p>Heading: "Your Path to Bansal, In 3 Simple Steps." A clean 3-step horizontal flow with connecting arrows — this section exists purely to remove any final uncertainty about "what happens after I enquire."</p>
+    </div>
+    <div class="amenity-grid">
+      <div class="amenity-item"><span class="amenity-icon">1️⃣</span><div class="amenity-label">Book a Free Demo Class</div></div>
+      <div class="amenity-item"><span class="amenity-icon">2️⃣</span><div class="amenity-label">Attempt the BOOST Scholarship Test</div></div>
+      <div class="amenity-item"><span class="amenity-icon">3️⃣</span><div class="amenity-label">Enroll &amp; Start Your Batch</div></div>
+      <div class="amenity-item"><span class="amenity-icon">🎓</span><div class="amenity-label">Merit-based fee concession via BOOST</div></div>
+    </div>
+    <div class="note"><span class="note-icon">💡</span><span>The BOOST scholarship test is a confirmed national Bansal program — keep this exact name. Local test dates, scholarship slabs, and fee figures are centre-specific and must come from each franchise owner.</span></div>
+  </div>
+</div>
+
+<!-- §10 CONTACT -->
+<div class="sec-band"><span class="pill">IN NAV · #contact</span> SECTION 10 — Contact Us / Enquire Now</div>
+<div class="acc open" id="sec10">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon accent-icon">📞</div>
+      <div>
+        <div class="acc-label">Section 10 · #contact</div>
+        <div class="acc-title">Contact Us — Enquire Now</div>
+        <div><span class="acc-badge in-nav">In Navbar · Sticky CTA Target</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>Two-column split. <strong>Left:</strong> centre address, phone, email, helpline, embedded Google Map, and quick WhatsApp/call buttons. <strong>Right:</strong> a fuller version of the lead form — this is the final, most-detailed conversion point on the page, so capture everything useful here without making it feel long.</p>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:12px;">
+      <div>
+        <div class="cblock accent">
+          <h4>Centre Info (placeholder — confirm with each client)</h4>
+          <p>📍 Address: [Centre address] — TBD<br>📞 Phone/Helpline: TBD<br>✉️ Email: TBD<br>🕘 Office Hours: TBD<br>🗺️ Embedded Google Map pin to be placed once address is confirmed</p>
+        </div>
+        <div style="margin-top:14px;">
+          <div class="sticky-cta-demo">📞 Call Now</div><div class="sticky-wa-demo">💬</div>
+        </div>
+      </div>
+      <div>
+        <div class="form-mock">
+          <div class="form-mock-title">📋 Contact Lead Form (CTA Anchor)</div>
+          <div class="form-row">
+            <div class="form-field">Student Name *</div>
+            <div class="form-field">Parent's Mobile *</div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">Class ▾</div>
+            <div class="form-field">Target Exam ▾</div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">Email Address</div>
+            <div class="form-field">Preferred Visit Date ▾</div>
+          </div>
+          <div class="form-field full" style="display:block; margin-top:8px; height:50px;">Message / Query</div>
+          <div class="form-btn" style="width:100%; display:block; text-align:center; margin-top:10px;">🎯 Book My Free Demo Class</div>
+          <p style="font-size:10px; color:var(--gray-500); margin-top:7px; text-align:center;">🔒 100% secure. No spam, ever.</p>
+        </div>
+      </div>
+    </div>
+    <div class="note"><span class="note-icon">⚡</span><span>On submit → "Thank You" confirmation screen + instant forward to the centre's email and WhatsApp via API, so no enquiry sits unread overnight. Both the sticky CTA and the navbar's "Book Free Demo Class" button anchor here at <code>#contact</code>.</span></div>
+  </div>
+</div>
+
+<!-- §11 FOOTER -->
+<div class="sec-band"><span class="pill hidden-pill">NOT IN NAV</span> SECTION 11 — Footer</div>
+<div class="acc" id="sec11">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon accent-icon">🔻</div>
+      <div>
+        <div class="acc-label">Section 11 · Not in Navbar</div>
+        <div class="acc-title">Footer</div>
+        <div><span class="acc-badge hidden-nav">Not in Navbar</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>Deep-blue background. 3-column grid. Below columns: <strong>Download Brochure</strong> button, centered, in the brightest blue on the page. Bottom bar: copyright + a short franchise disclaimer.</p>
+    </div>
+    <div class="footer-mock">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-col-title">Bansal Classes</div>
+          <p>Kota-Origin Coaching for IIT-JEE &amp; NEET-UG.<br>40+ Years of Bansal Legacy.</p><br>
+          <p>🏆 BULL'S EYE · NUCLEUS · STERLING · Pre-Foundation</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Quick Links</div>
+          <ul><li>Home</li><li>Courses</li><li>Results</li><li>Events</li><li>Enquire Now</li></ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <p>📞 TBD<br>✉️ TBD<br>📍 [Centre Address] — TBD</p>
+          <div style="margin-top:10px; display:flex; gap:8px;">
+            <div style="background:rgba(255,255,255,0.12); border-radius:5px; padding:4px 10px; font-size:11px;">📘 Facebook</div>
+            <div style="background:rgba(255,255,255,0.12); border-radius:5px; padding:4px 10px; font-size:11px;">📷 Instagram</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-brochure">
+        <div class="brochure-btn">⬇️ Download Brochure (PDF)</div>
+        <p style="font-size:11px; color:rgba(255,255,255,0.45); margin-top:10px;">© 2026 Bansal Classes. All Rights Reserved.</p>
+        <p style="font-size:10px; color:rgba(255,255,255,0.35); margin-top:3px;">This centre operates as an independently-run authorised Bansal Classes franchise. Results, fees and offers are subject to change — please verify current details directly with the centre before enrolling.</p>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed per centre:</strong> Brochure PDF, logo file, and final contact block from that client before this section can be finalised.</span></div>
+  </div>
+</div>
+
+<!-- DESIGN GUIDE -->
+<div class="acc" id="sec-design">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🎨</div>
+      <div>
+        <div class="acc-label">Design Reference</div>
+        <div class="acc-title">Color Palette, Typography &amp; Style Guide</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Design Philosophy</h4>
+      <p>A blue, light-blue, white &amp; grey palette — built to match bansalclasses.in's own brand direction, and to read as trustworthy, academic, and forward-looking rather than loud. The brightest blue is reserved almost entirely for CTAs and conversion points (buttons, sticky bar, brochure download), so a visitor's eye is always pulled toward the next action — book a demo, enquire now, know more — instead of getting lost in decoration. Bold sans-serif type keeps the energy active; generous white/light-blue space keeps result numbers and topper photos the visual focus.</p>
+    </div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0B3D78;"></div>
+        <div class="swatch-info"><div class="swatch-name">Deep Blue</div><div class="swatch-hex">#0B3D78</div><div class="swatch-use">Navbar · Hero overlay · Footer</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1664B8;"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand Blue</div><div class="swatch-hex">#1664B8</div><div class="swatch-use">Section bands · Secondary buttons · Tags</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0E6FE0;"></div>
+        <div class="swatch-info"><div class="swatch-name">Action Blue</div><div class="swatch-hex">#0E6FE0</div><div class="swatch-use">Primary CTA Buttons · Sticky CTA</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#4FA9E0;"></div>
+        <div class="swatch-info"><div class="swatch-name">Light Blue</div><div class="swatch-hex">#4FA9E0</div><div class="swatch-use">Accents · Hover states · Highlights</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#EAF4FC; border:1px solid #E2E8F0;"></div>
+        <div class="swatch-info"><div class="swatch-name">Lighter Blue</div><div class="swatch-hex">#EAF4FC</div><div class="swatch-use">Page BG · Light tinted sections</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ffffff; border:1px solid #E2E8F0;"></div>
+        <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-use">Cards · Forms · Body sections</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#46505C;"></div>
+        <div class="swatch-info"><div class="swatch-name">Grey (Body Text)</div><div class="swatch-hex">#46505C</div><div class="swatch-use">Paragraph text · Captions</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E2E8F0;"></div>
+        <div class="swatch-info"><div class="swatch-name">Grey (Borders)</div><div class="swatch-hex">#E2E8F0</div><div class="swatch-use">Card borders · Dividers</div></div>
+      </div>
+    </div>
+    <div class="note"><span class="note-icon">🎨</span><span>These hex values are a close working recommendation built around the blue/light-blue/grey/white direction you asked for, not pixel-sampled from live brand assets. Before development, have the designer eyedropper-sample exact tones from the bansalclasses.in logo/banners for a precise match.</span></div>
+    <hr class="fancy">
+    <div class="card-grid card-grid-2" style="margin-top:4px;">
+      <div class="card">
+        <div class="card-title">Display / Heading Font</div>
+        <p style="font-family:'Poppins',sans-serif; font-weight:800; font-size:20px; color:var(--blue-deep);">Poppins</p>
+        <p style="font-size:12px; color:var(--gray-500); margin-top:5px;">H1, H2, section titles, stat numbers. Weights: 500, 700, 800. Google Fonts — free.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Body / UI Font</div>
+        <p style="font-family:'Inter',sans-serif; font-size:17px; font-weight:600; color:var(--blue);">Inter</p>
+        <p style="font-size:12px; color:var(--gray-500); margin-top:5px;">Body copy, nav, buttons, forms, tags. Weights: 300–700. Google Fonts — free.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA GUIDE -->
+<div class="acc" id="sec-cta">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon accent-icon">⚡</div>
+      <div>
+        <div class="acc-label">Conversion Reference</div>
+        <div class="acc-title">Call-to-Action Wording — Keep It Consistent</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock accent">
+      <h4>Why this matters</h4>
+      <p>Every CTA on the page should come from this short, consistent set — mixing in new button text section-to-section makes a page feel improvised and dilutes which action actually matters most. Three buttons do all the work:</p>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:12px;">
+      <div class="card highlight"><div class="card-title">🎯 Book Free Demo Class</div><p>The <strong>primary</strong> action everywhere — navbar, hero, sticky bar, results wall, contact form. Brightest blue, largest button on the page.</p></div>
+      <div class="card highlight"><div class="card-title">💬 Enquire Now</div><p>The <strong>fast, low-friction</strong> action — WhatsApp bubble, event cards, course cards. One tap, no form to fill.</p></div>
+      <div class="card highlight"><div class="card-title">ℹ️ Know More</div><p>The <strong>soft, exploratory</strong> action — course cards, "Why Bansal" section, secondary hero button. For visitors who aren't ready to commit yet.</p></div>
+      <div class="card highlight"><div class="card-title">⬇️ Download Brochure</div><p>A <strong>low-commitment fallback</strong> for visitors who want to think it over — footer, end of admission-process section.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO USE THIS TEMPLATE -->
+<div class="acc" id="sec-howto">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🧩</div>
+      <div>
+        <div class="acc-label">Template Usage</div>
+        <div class="acc-title">How to Adapt This for a Specific Centre</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Step-by-step</h4>
+      <p>1. Replace every <code>[Centre / City]</code>, <code>[Centre Name]</code>, and <code>[City]</code> placeholder with that centre's real name and location.<br>
+      2. Collect and insert all <strong>TBD</strong> items flagged above — address, phone, rankers, photos — directly from that centre's franchise owner. Never copy these from a different centre's listing or a third-party directory site, even if the name matches.<br>
+      3. Add a state-specific course (e.g. a local CET) in §3 only if relevant to that state.<br>
+      4. Keep the official course names, BOOST, BAITS, and DLP branding exactly as shown — these are confirmed national Bansal Classes terms and should not be altered per centre.<br>
+      5. Add the two optional modules below — <strong>Meet Our Faculty</strong> and <strong>Centre Director Strip</strong> — once that centre's real people, photos and consent exist. Insert Faculty after §5 Results and before §6 Events; insert the Director Strip as a bottom strip below §11 Footer, exactly as in this reference.<br>
+      6. Hand the finished, filled-in version to the designer/developer along with real logo files and brand assets.</p>
+    </div>
+
+    <hr class="fancy">
+
+    <div class="cblock accent">
+      <h4>Optional Module A — Meet Our Faculty <span class="acc-badge optional-badge" style="margin-left:8px;">Add Per-Centre</span></h4>
+      <p>Left out of the core plan because it requires a named teacher's photo, qualification, and consent — none of which exists in a general template. Once a centre supplies these, slot it in as an "In Navbar" section between Results and Events (renumber accordingly), anchor <code>#faculty</code>.</p>
+    </div>
+    <div class="cblock" style="margin-top:10px;">
+      <h4>Layout</h4>
+      <p>White background. Heading: "Learn From The Best." 4-col card grid (desktop) / 2-col mobile. Each card: photo, name, subject taught, qualification (e.g. M.Sc/B.Tech + institute), years of experience. Parents specifically scroll looking for "who is actually teaching my child" — don't let this section feel like an afterthought once it's added.</p>
+    </div>
+    <div class="card-grid card-grid-4" style="margin-top:12px;">
+      <div class="card" style="text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:var(--blue); margin:0 auto 8px; display:flex; align-items:center; justify-content:center; color:white; font-size:10px; font-family:'JetBrains Mono',monospace;">[PHOTO]</div>
+        <div class="card-title" style="text-align:center;">Faculty Name — TBD</div>
+        <p style="text-align:center;">Physics · M.Sc<br>[X] Yrs Experience</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:var(--blue); margin:0 auto 8px; display:flex; align-items:center; justify-content:center; color:white; font-size:10px; font-family:'JetBrains Mono',monospace;">[PHOTO]</div>
+        <div class="card-title" style="text-align:center;">Faculty Name — TBD</div>
+        <p style="text-align:center;">Chemistry · M.Sc<br>[X] Yrs Experience</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:var(--blue); margin:0 auto 8px; display:flex; align-items:center; justify-content:center; color:white; font-size:10px; font-family:'JetBrains Mono',monospace;">[PHOTO]</div>
+        <div class="card-title" style="text-align:center;">Faculty Name — TBD</div>
+        <p style="text-align:center;">Mathematics · M.Sc<br>[X] Yrs Experience</p>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="width:56px; height:56px; border-radius:50%; background:var(--blue); margin:0 auto 8px; display:flex; align-items:center; justify-content:center; color:white; font-size:10px; font-family:'JetBrains Mono',monospace;">[PHOTO]</div>
+        <div class="card-title" style="text-align:center;">Faculty Name — TBD</div>
+        <p style="text-align:center;">Biology · M.Sc<br>[X] Yrs Experience</p>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed before adding this module:</strong> Faculty names, photos, qualifications, subject assignments, and consent to publish — for that specific centre only.</span></div>
+
+    <hr class="fancy">
+
+    <div class="cblock accent">
+      <h4>Optional Module B — Centre Director Strip <span class="acc-badge optional-badge" style="margin-left:8px;">Add Per-Centre</span></h4>
+      <p>Also left out of the core plan — it names one real person as the face of one specific franchise, so it only makes sense once that centre exists. Once supplied, place it as a narrow strip directly below the Footer, not in the navbar.</p>
+    </div>
+    <div class="cblock" style="margin-top:10px;">
+      <h4>Layout</h4>
+      <p>Narrow dark-blue strip below the footer. Photo + name + designation + credentials, business-card style. Parents researching a franchise coaching brand want to know exactly who is personally running the local centre — this builds accountability the same way the Faculty and Results sections do.</p>
+    </div>
+    <div class="associate-bar">
+      <div class="assoc-avatar">?</div>
+      <div style="flex:1;">
+        <div class="assoc-name">Centre Director Name — TBD</div>
+        <div class="assoc-role">Bansal Classes, Franchise Director — [City]</div>
+        <div class="assoc-tags">
+          <span class="assoc-tag">🎓 Authorised Bansal Franchise</span>
+          <span class="assoc-tag">📍 [City]</span>
+          <span class="assoc-tag">⏱ [X] Years Running Centre</span>
+        </div>
+      </div>
+      <div style="flex-shrink:0; text-align:right;">
+        <div style="font-size:11px; color:rgba(255,255,255,0.55);">📞 TBD</div>
+        <div style="font-size:11px; color:rgba(255,255,255,0.45); margin-top:3px;">TBD email</div>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Action needed before adding this module:</strong> Director/franchise-owner name, professional photo, and a 1–2 line personal message, with consent to publish.</span></div>
+  </div>
+</div>
+
+<!-- README LAYOUT -->
+<div class="acc" id="sec-readme" style="border-bottom:none;">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">📋</div>
+      <div>
+        <div class="acc-label">Quick Reference</div>
+        <div class="acc-title">Page Layout — README Format</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>How to read this</h4>
+      <p>A single-glance ASCII map of the whole page, top to bottom, for quick developer reference. Sections in blue are the 11 core sections in this plan; the two amber-tagged blocks are the optional per-centre modules from above — insert them at the marked points only once that centre's real data exists.</p>
+    </div>
+    <div class="wireframe">┌──────────────────────────────────────────────────────────────────────┐
+│  <span class="wh">STICKY NAVBAR</span>  [Logo] Home · Courses · Results · Events ·            │
+│                Contact  |  <span class="wc">[Book Free Demo Class ▶]</span> (action-blue CTA)  │
+├──────────────────────────────────────────────────────────────────────┤  <span class="wc">┌──────────┐</span>
+│  <span class="wh">§1 HERO</span>  Classroom video/photo BG + deep-blue overlay               │  <span class="wc">│Book Free │</span>
+│          Left: Tagline · Legacy badges · 2 CTA buttons              │  <span class="wc">│ Demo ▶   │</span>
+│          Right: Floating free-demo lead form                        │  <span class="wc">│ (sticky  │</span>
+├──────────────────────────────────────────────────────────────────────┤  <span class="wc">│  right)  │</span>
+│  <span class="wh">§2 ACHIEVEMENTS</span>  [1984][40+ Yrs][100+ Centres] national row         │  <span class="wc">└──────────┘</span>
+│                  [Local stats row — TBD per-centre numbers]         │  <span class="wg">  💬 ←WA</span>
+├──────────────────────────────────────────────────────────────────────┤  <span class="wg">  bubble</span>
+│  <span class="wh">§3 COURSES</span>  [All|JEE|NEET|Foundation|Dropper] tabs                   │
+│             BULL'S EYE · NUCLEUS · STERLING · Pre-Foundation · DLP  │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wg">§4 WHY BANSAL</span>  6 USP cards · Deep-blue BG (hidden from nav)          │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">§5 RESULTS WALL</span>  Year tabs · Topper photo grid (TBD real data)      │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│  <span class="wo">[OPTIONAL] MEET OUR FACULTY</span>  4-col teacher cards — add only once    │
+│             real names/photos/consent exist for that centre        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│  <span class="wh">§6 EVENTS</span>  "Foundation to Future" seminar card + future-event        │
+│            template + past-seminar credibility strip                │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wg">§7 TESTIMONIALS</span>  Carousel · ★ ratings (hidden from nav, verify)      │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wg">§8 GALLERY</span>  Masonry · photo + short reel types (hidden from nav)     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wg">§9 ADMISSION STEPS</span>  Demo → BOOST Test → Enroll (hidden from nav)     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">§10 CONTACT US</span>  ← Sticky CTA anchor target (#contact)               │
+│               Left: Info + Map (TBD) · Right: Full lead form        │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wg">§11 FOOTER</span>  3-col grid · Quick links · Contact                       │
+│             ┌──────────────────────────┐                            │
+│             │  ⬇ Download Brochure PDF │  ← centered action-blue   │
+│             └──────────────────────────┘     button                 │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│  <span class="wo">[OPTIONAL] CENTRE DIRECTOR STRIP</span>  [Photo] Director Name — TBD        │
+│                       Franchise Director · [City] · [X] yrs        │
+└──────────────────────────────────────────────────────────────────────┘</div>
+    <div class="note"><span class="note-icon">🧩</span><span>Solid blue dividers (───) separate the 11 core sections always present in this plan. Dashed amber dividers (╌╌╌) mark where the two optional per-centre modules slot in — they're shown here in position for reference, but should stay out of the build until a specific centre's real Faculty/Director data exists.</span></div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  Prepared for <strong>Bansal Classes</strong> · June 2026 ·
+  General content plan — reusable as the base for any centre. Final brand assets, photos &amp; centre-specific verified data to be supplied by each client before development begins.
+</div>
+
+<script>
+function toggleAcc(btn) {
+  const acc = btn.closest('.acc');
+  acc.classList.toggle('open');
+}
+document.querySelectorAll('.acc').forEach((a, i) => { if (i < 2) a.classList.add('open'); });
+</script>
+</body>
+</html>

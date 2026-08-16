@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahalaxmi Nagar-45 — Landing Page Content Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:       #2d6b5b;
+  --teal-dark:  #1c3a32;
+  --teal-light: #4a9282;
+  --gold:       #c9852a;
+  --gold-light: #e0a855;
+  --cream:      #faf8f4;
+  --white:      #ffffff;
+  --black:      #0f0f0f;
+  --gray-100:   #f5f5f5;
+  --gray-200:   #e8e8e8;
+  --gray-500:   #8a8a8a;
+  --gray-700:   #444444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--black); line-height: 1.6; }
+
+.edit-bar {
+  background: var(--teal-dark); color: rgba(255,255,255,0.9); font-size: 12px;
+  padding: 9px 40px; display: flex; align-items: center; gap: 20px;
+  position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--gold); flex-wrap: wrap;
+}
+.edit-bar strong { color: var(--gold-light); }
+.edit-bar span { opacity: 0.75; }
+.edit-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); display: inline-block; }
+
+.cover { background: var(--teal-dark); color: var(--white); padding: 56px 80px 48px; position: relative; overflow: hidden; }
+.cover::before { content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: rgba(201,133,42,0.10); pointer-events: none; }
+.cover-badge { display: inline-block; background: var(--gold); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 20px; }
+.cover h1 { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; line-height: 1.15; margin-bottom: 10px; }
+.cover h1 span { color: var(--gold-light); }
+.cover-sub { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 36px; max-width: 640px; }
+.cover-meta { display: flex; gap: 36px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.15); }
+.cover-meta-item label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.5); display: block; margin-bottom: 3px; }
+.cover-meta-item span { font-size: 13px; font-weight: 600; color: var(--white); }
+
+.toc { background: var(--white); border-left: 4px solid var(--teal); padding: 32px 80px; }
+.toc-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--teal-dark); margin-bottom: 18px; }
+.toc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 40px; }
+.toc-item { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: 13px; color: var(--gray-700); border-bottom: 1px dashed var(--gray-200); cursor: pointer; transition: color 0.2s; }
+.toc-item:hover { color: var(--teal); }
+.toc-num { background: var(--teal); color: var(--white); font-size: 9px; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.acc { border-bottom: 1px solid var(--gray-200); }
+.acc:nth-child(even) .acc-body { background: var(--white); }
+.acc-head { display: flex; align-items: center; justify-content: space-between; padding: 0 80px; background: inherit; cursor: default; }
+.acc-head-left { display: flex; align-items: flex-start; gap: 14px; padding: 28px 0; flex: 1; }
+.acc-icon { width: 40px; height: 40px; background: var(--teal); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.acc-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.acc-title { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--teal-dark); }
+.acc-btn { background: none; border: 1px solid var(--gray-200); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; color: var(--teal-dark); }
+.acc-btn:hover { background: var(--teal); border-color: var(--teal); color: var(--white); }
+.acc-arrow { font-size: 11px; transition: transform 0.25s; display: inline-block; line-height: 1; }
+.acc.open .acc-arrow { transform: rotate(180deg); }
+.acc-body { display: none; padding: 0 80px 40px; }
+.acc.open .acc-body { display: block; }
+
+.cblock { background: var(--gray-100); border-left: 3px solid var(--teal); padding: 14px 18px; margin: 10px 0; border-radius: 0 6px 6px 0; }
+.cblock.gold { border-left-color: var(--gold); }
+.cblock h4 { font-size: 13px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+.cblock.gold h4 { color: #7a4a10; }
+.cblock p, .cblock li { font-size: 13px; color: var(--gray-700); line-height: 1.65; }
+.cblock ul { padding-left: 16px; }
+.note { background: #fff8e6; border: 1px solid #f0d080; border-radius: 6px; padding: 11px 15px; font-size: 13px; color: #7a5a00; margin-top: 10px; display: flex; gap: 10px; align-items: flex-start; }
+.note-icon { flex-shrink: 0; }
+.note.red { background: #fdeceb; border-color: #f0b3ac; color: #8a2e22; }
+
+.card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 16px; }
+.card-grid-2 { grid-template-columns: repeat(2,1fr); }
+.card { background: var(--cream); border: 1px solid var(--gray-200); border-radius: 7px; padding: 18px; }
+.card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin-bottom: 7px; }
+.card p { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+
+.palette { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.swatch { border-radius: 8px; overflow: hidden; width: 130px; box-shadow: 0 2px 8px rgba(0,0,0,0.10); }
+.swatch-color { height: 70px; position: relative; cursor: pointer; }
+.swatch-color:hover::after { content: 'Click to edit'; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.75); color: var(--white); font-size: 9px; font-family: 'Inter', sans-serif; padding: 2px 8px; border-radius: 3px; white-space: nowrap; pointer-events: none; }
+.color-picker { opacity: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; border: none; }
+.swatch-info { background: var(--white); padding: 9px 11px; border: 1px solid var(--gray-200); border-top: none; }
+.swatch-name { font-size: 12px; font-weight: 700; color: var(--black); }
+.swatch-hex { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-500); margin-top: 2px; }
+.swatch-use { font-size: 10px; color: var(--gray-500); margin-top: 2px; }
+
+.nav-strip { display: flex; background: var(--teal-dark); border-radius: 7px; overflow: hidden; margin-top: 18px; flex-wrap: wrap; }
+.nav-tab { flex: 1; min-width: 90px; text-align: center; padding: 13px 8px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.65); border-right: 1px solid rgba(255,255,255,0.08); }
+.nav-tab:last-child { border-right: none; }
+.nav-tab .tab-num { display: block; font-size: 9px; letter-spacing: 1px; opacity: 0.55; text-transform: uppercase; margin-bottom: 2px; }
+.nav-tab.active { background: var(--gold); color: var(--white); }
+.cta-sticky-demo { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: var(--white); border-radius: 8px; padding: 22px 28px; margin-top: 18px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.cta-sticky-demo .cta-btn-demo { margin-left: auto; background: var(--gold); color: var(--white); padding: 11px 22px; border-radius: 5px; font-weight: 700; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+
+.wireframe { background: #12121e; color: #d0d0e0; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.85; padding: 22px 26px; border-radius: 7px; margin-top: 14px; white-space: pre; overflow-x: auto; }
+.wireframe .wc { color: #5b8fc9; }
+.wireframe .wh { color: var(--gold-light); }
+.wireframe .wr { color: #e08a7d; }
+
+.pp-table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 13px; }
+.pp-table th { background: var(--teal-dark); color: var(--white); padding: 11px 14px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.pp-table td { padding: 11px 14px; border-bottom: 1px solid var(--gray-200); vertical-align: top; }
+.pp-table tr:nth-child(even) td { background: var(--gray-100); }
+.pp-table tr:hover td { background: #e6efef; }
+
+.tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin: 2px 2px 2px 0; }
+.tag-green { background: #e6f4ea; color: #2d6b3f; }
+.tag-gold  { background: #fdf3e3; color: #9a5c10; }
+.tag-teal  { background: #e6efec; color: #1c3a32; }
+.tag-red   { background: #fdecea; color: #a3352b; }
+
+.stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 14px; }
+.stat { background: var(--white); border: 1px solid var(--gray-200); border-top: 3px solid var(--gold); padding: 14px 18px; border-radius: 0 0 7px 7px; text-align: center; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--teal-dark); font-weight: 700; }
+.stat-label { font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+.sub-acc { border: 1px solid var(--gray-200); border-radius: 9px; overflow: hidden; margin-bottom: 18px; background: var(--white); }
+.sub-acc-head { background: var(--teal-dark); color: var(--white); padding: 14px 22px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.sub-num { background: var(--gold); color: var(--white); font-size: 12px; font-weight: 800; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sub-acc-head h3 { font-family: 'Playfair Display', serif; font-size: 17px; flex: 1; }
+.sub-acc-head .route { font-size: 11px; font-family: 'JetBrains Mono', monospace; opacity: 0.55; margin-right: 10px; }
+.sub-acc-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; width: 28px; height: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--white); flex-shrink: 0; transition: background 0.2s; }
+.sub-acc-btn:hover { background: rgba(255,255,255,0.3); }
+.sub-body { display: none; padding: 20px 22px; }
+.sub-acc.open .sub-body { display: block; }
+.sub-acc.open .acc-arrow { transform: rotate(180deg); }
+.sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sub-block { background: var(--cream); border-radius: 6px; padding: 13px 15px; }
+.sub-block-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); margin-bottom: 7px; }
+.sub-block ul { list-style: none; padding: 0; }
+.sub-block li { font-size: 12.5px; color: var(--gray-700); padding: 3px 0 3px 13px; position: relative; }
+.sub-block li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+.sub-block.full { grid-column: 1 / -1; }
+
+.checklist { list-style: none; margin-top: 10px; }
+.check-item { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; font-size: 13px; border-bottom: 1px dashed var(--gray-200); }
+.chk-icon { font-size: 16px; color: var(--teal); cursor: pointer; flex-shrink: 0; line-height: 1.4; transition: color 0.2s; user-select: none; }
+.chk-icon:hover { color: var(--gold); }
+.check-item.checked .chk-icon { color: #2d6b3f; }
+.check-item.checked .chk-text { text-decoration: line-through; color: var(--gray-500); }
+.chk-text { color: var(--gray-700); line-height: 1.5; }
+
+hr.fancy { border: none; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 22px 0; }
+
+.doc-footer { background: var(--teal-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 26px; font-size: 12px; }
+.doc-footer strong { color: var(--white); }
+
+.marquee-demo { background: var(--teal-dark); overflow: hidden; border-radius: 7px; margin-top: 16px; padding: 14px 0; white-space: nowrap; position: relative; }
+.marquee-track { display: inline-block; animation: scrollmq 18s linear infinite; }
+.marquee-track span { color: var(--white); font-size: 13px; font-weight: 600; margin-right: 40px; }
+.marquee-track span b { color: var(--gold-light); }
+@keyframes scrollmq { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+[contenteditable]:focus { outline: 2px solid var(--gold); border-radius: 3px; background: rgba(201,133,42,0.06); padding: 0 2px; }
+[contenteditable]:hover:not(:focus) { background: rgba(201,133,42,0.04); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<div class="edit-bar">
+  <span class="dot"></span>
+  <span><strong>LIVE EDIT MODE</strong></span>
+  <span>Click any <strong>text</strong> to edit it inline</span>
+  <span>Click <strong>colour swatches</strong> to change the palette</span>
+  <span>Click <strong>checkboxes</strong> to mark done</span>
+  <span>Click <strong>section headers</strong> to expand / collapse</span>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge" contenteditable="true">Landing Page Content Plan</div>
+  <h1 contenteditable="true">Mahalaxmi Nagar-45 <span>Landing Page</span><br>Content &amp; Conversion Blueprint</h1>
+  <p class="cover-sub" contenteditable="true">A single-project, conversion-first landing page plan for Mahalaxmi Nagar-45, Sumthana. Replaces the multi-project structure of the old site with one focused page built to turn paid traffic into site visits and enquiries — ready for developer handoff.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><label>Project</label><span contenteditable="true">Mahalaxmi Nagar-45, Sumthana</span></div>
+    <div class="cover-meta-item"><label>Developer</label><span contenteditable="true">Mahalaxmi Group</span></div>
+    <div class="cover-meta-item"><label>Reference Site</label><span contenteditable="true">kb.mahalaxmiinfra.in (elements carried forward + improved)</span></div>
+    <div class="cover-meta-item"><label>Email</label><span contenteditable="true">mahalaxmidevelopers14@gmail.com</span></div>
+    <div class="cover-meta-item"><label>Prepared On</label><span contenteditable="true">July 2026</span></div>
+    <div class="cover-meta-item"><label>Status</label><span contenteditable="true">Planning Phase</span></div>
+    <div class="cover-meta-item"><label>Version</label><span contenteditable="true">2.0 — includes README / dev handoff</span></div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title" contenteditable="true">Table of Contents</div>
+  <div class="toc-grid">
+    <div class="toc-item" onclick="jumpTo('sec1')"><div class="toc-num">1</div> Project Snapshot &amp; Facts</div>
+    <div class="toc-item" onclick="jumpTo('sec2')"><div class="toc-num">2</div> Design Direction &amp; Color Palette</div>
+    <div class="toc-item" onclick="jumpTo('sec3')"><div class="toc-num">3</div> Why a Single-Page, Single-Project Site</div>
+    <div class="toc-item" onclick="jumpTo('sec4')"><div class="toc-num">4</div> One-Page Flow (Wireframe)</div>
+    <div class="toc-item" onclick="jumpTo('sec5')"><div class="toc-num">5</div> Section-by-Section Content Plan</div>
+    <div class="toc-item" onclick="jumpTo('sec6')"><div class="toc-num">6</div> Sticky CTAs, WhatsApp &amp; Lead Magnets</div>
+    <div class="toc-item" onclick="jumpTo('sec7')"><div class="toc-num">7</div> Image &amp; Asset Assignment</div>
+    <div class="toc-item" onclick="jumpTo('sec8')"><div class="toc-num">8</div> SEO &amp; Technical Notes</div>
+    <div class="toc-item" onclick="jumpTo('sec9')"><div class="toc-num">9</div> Pre-Launch Checklist</div>
+    <div class="toc-item" onclick="jumpTo('sec10')"><div class="toc-num">10</div> README — Page Structure &amp; Sticky Lead Capture</div>
+  </div>
+</div>
+
+<!-- ======== SECTION 1: PROJECT SNAPSHOT ======== -->
+<div class="acc" id="sec1">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🏗</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 01</div>
+        <div class="acc-title" contenteditable="true">Project Snapshot &amp; Facts</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" contenteditable="true">30 Acres</div><div class="stat-label" contenteditable="true">Total Development</div></div>
+      <div class="stat"><div class="stat-num" contenteditable="true">2.75 Acres</div><div class="stat-label" contenteditable="true">Landscaped Area</div></div>
+      <div class="stat"><div class="stat-num" contenteditable="true">35+</div><div class="stat-label" contenteditable="true">Amenities On-Site</div></div>
+      <div class="stat"><div class="stat-num" contenteditable="true">3 Sectors</div><div class="stat-label" contenteditable="true">Planned Layout</div></div>
+    </div>
+    <hr class="fancy">
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title" contenteditable="true">Location &amp; Land Records</div>
+        <p contenteditable="true">Mouza Sumthana, Hingna, Nagpur. Sector-1: Kh. No. 38/3, 50(part), 51/1, Sumthana, Hingna, Nagpur – 441108. Sector-2: Kh. No. 37/2, 37/3 &amp; 59/1, Sumthana, Hingna, Nagpur – 441108.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Approvals</div>
+        <p contenteditable="true">NMRDA Sanctioned · RL (Residential Layout) Approved · MahaRERA Registered — Sector 1: PP1190002501447 · Sector 2: PP1190002501287</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Developer Credibility (Group-Level)</div>
+        <p contenteditable="true">Mahalaxmi Group — 70+ completed projects, 12 ongoing projects, 17,000+ happy home buyers. "A Tradition of Trust."</p>
+      </div>
+    </div>
+    <div class="cblock gold" style="margin-top:18px;">
+      <h4 contenteditable="true">Positioning Note — This Page Is Only About Nagar-45</h4>
+      <p contenteditable="true">Per the improvement brief, this landing page must not promote the wider Mahalaxmi Group project portfolio up front. One project, one objective, one enquiry form. Other Mahalaxmi projects appear only inside a collapsed "More Projects by Mahalaxmi Group" section near the footer, opened only if the visitor clicks.</p>
+    </div>
+    <div class="cblock" style="margin-top:14px;">
+      <h4 contenteditable="true">Contact &amp; Registered Office</h4>
+      <p contenteditable="true">Head Office: N-103, 104 Laxmivihar Apartment, B/s. Hotel Airport Center Point, Wardha Road, Somalwada, Nagpur – 440025<br>Email: mahalaxmidevelopers14@gmail.com &nbsp;|&nbsp; Website: www.mahalaxmiinfra.in</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 2: COLOR PALETTE ======== -->
+<div class="acc" id="sec2">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🎨</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 02</div>
+        <div class="acc-title" contenteditable="true">Design Direction &amp; Color Palette</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4 contenteditable="true">Design Philosophy</h4>
+      <p contenteditable="true">Pulled directly from the Nagar-45 brochure: deep forest green, warm marigold gold, and warm cream/off-white — with a Devanagari-inspired logomark (महालक्ष्मी नगर-४५) and the line "a tradition of trust." Headline typography leans on elegant display serifs and hand-styled script accents (as seen on "peace and prosperity", "good fortune", "dream bigger"); body copy stays clean and highly legible. The web version should feel like the brochure come alive — not a generic real-estate template.</p>
+    </div>
+    <div class="note">
+      <span class="note-icon">🎨</span>
+      <span contenteditable="true">Click any colour swatch below to open the colour picker. All colours update live across this document.</span>
+    </div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--teal-dark);">
+          <input type="color" class="color-picker" value="#1c3a32" data-css="--teal-dark" title="Click to change Deep Forest Green">
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name" contenteditable="true">Deep Forest Green</div>
+          <div class="swatch-hex" data-css="--teal-dark">#1c3a32</div>
+          <div class="swatch-use" contenteditable="true">Hero, Nav, Footer, Backgrounds</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--teal);">
+          <input type="color" class="color-picker" value="#2d6b5b" data-css="--teal" title="Click to change Brand Green">
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name" contenteditable="true">Brand Green</div>
+          <div class="swatch-hex" data-css="--teal">#2d6b5b</div>
+          <div class="swatch-use" contenteditable="true">Icons, Section Accents</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--teal-light);">
+          <input type="color" class="color-picker" value="#4a9282" data-css="--teal-light" title="Click to change Green Light">
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name" contenteditable="true">Green Light</div>
+          <div class="swatch-hex" data-css="--teal-light">#4a9282</div>
+          <div class="swatch-use" contenteditable="true">Hover States</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--gold);">
+          <input type="color" class="color-picker" value="#c9852a" data-css="--gold" title="Click to change Marigold Gold">
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name" contenteditable="true">Marigold Gold</div>
+          <div class="swatch-hex" data-css="--gold">#c9852a</div>
+          <div class="swatch-use" contenteditable="true">CTA Buttons, Highlights, Logo Leaf</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--gold-light);">
+          <input type="color" class="color-picker" value="#e0a855" data-css="--gold-light" title="Click to change Gold Light">
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name" contenteditable="true">Gold Light</div>
+          <div class="swatch-hex" data-css="--gold-light">#e0a855</div>
+          <div class="swatch-use" contenteditable="true">Script Accents, Gold Hover</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--cream); border: 1px solid var(--gray-200);">
+          <input type="color" class="color-picker" value="#faf8f4" data-css="--cream" title="Click to change Warm Cream">
+        </div>
+        <div class="swatch-info">
+          <div class="swatch-name" contenteditable="true">Warm Cream</div>
+          <div class="swatch-hex" data-css="--cream">#faf8f4</div>
+          <div class="swatch-use" contenteditable="true">Light Section Backgrounds</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:16px;">
+      <div class="card">
+        <div class="card-title" contenteditable="true">Fonts</div>
+        <p contenteditable="true">Headings: Playfair Display (serif, elegant, matches brochure display type). Body/UI: Inter. Keep the Devanagari logomark as an image/SVG, not live text, to preserve the brochure's hand-crafted look.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Reference Competitor Look</div>
+        <p contenteditable="true">deragreensnagpur.in was flagged as a structural reference for this landing page — single project focus, sticky lead capture, strong location storytelling. Use for structure inspiration only; keep all visuals and copy original to Mahalaxmi Nagar-45.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 3: WHY SINGLE PAGE ======== -->
+<div class="acc" id="sec3">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🎯</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 03</div>
+        <div class="acc-title" contenteditable="true">Why a Single-Page, Single-Project Site</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock gold">
+      <h4 contenteditable="true">The Core Problem With the Old Site</h4>
+      <p contenteditable="true">kb.mahalaxmiinfra.in spreads attention across 15 projects, a blog, testimonials, and a generic FAQ. For paid traffic aimed at one project, this dilutes intent and lowers conversion. This plan keeps every element the old site does well (trust stats, amenities grid, testimonials, FAQ, contact form) but re-points all of it at Nagar-45 only.</p>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:14px;">
+      <div class="card">
+        <div class="card-title" contenteditable="true">Kept From Old Site</div>
+        <p contenteditable="true">Sticky enquire button, amenities grid with icons, testimonials with photos, FAQ accordion, click-to-call and WhatsApp links, Google Maps embed, footer with RERA number.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Removed / Deferred</div>
+        <p contenteditable="true">Multi-project portfolio grid (moved to a collapsed footer section), blog/news section, generic "Why Choose Us" icon grid replaced with Nagar-45-specific investment story, generic stock-style amenity icons replaced with real render photography.</p>
+      </div>
+    </div>
+    <div class="cblock" style="margin-top:14px;">
+      <h4 contenteditable="true">Guiding Principle</h4>
+      <p contenteditable="true">Every section on the page should answer one of three questions for the visitor: What is this project? Why is this location a good investment? Why should I enquire right now?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 4: ONE-PAGE FLOW ======== -->
+<div class="acc" id="sec4">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🧭</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 04</div>
+        <div class="acc-title" contenteditable="true">One-Page Flow (Wireframe)</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="wireframe"><span class="wc">┌──────────────────────────────────────────────────────────────────────────────────────────┐</span>
+<span class="wc">│  STICKY NAV: Logo | Home·Location·Amenities·Layout·Gallery·FAQ | 📞 Call [ENQUIRE NOW]  │</span>
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="wh">│  01 · HERO — full-width entrance-gate render background                                 │</span>
+<span class="wh">│      "Own an NMRDA Approved Plot Near Samruddhi Circle — From Project Rate"              │</span>
+<span class="wh">│      Near AIIMS • IIM • MIHAN • Samruddhi Expressway · Up To 90% Bank Finance            │</span>
+<span class="wh">│      [ GET PRICE LIST ]        [ BOOK SITE VISIT ]                                       │</span>
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+<span class="wr">│  02 · MARQUEE — sliding USP strip: NMRDA Approved · RL Sanctioned · Bank Finance Ready   │</span>
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  03 · TRUST BAR:  70+ Projects Delivered · 17,000+ Happy Families · 13+ Yrs · RERA Reg.  │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  04 · LOCATION ADVANTAGE — connectivity list + embedded map                              │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  05 · PROJECT HIGHLIGHTS — 30 acres, 3 sectors, clubhouse, layout plan preview           │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  06 · INVESTMENT STORY — "Why Samruddhi Circle Is Nagpur's Next Growth Corridor"         │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  07 · SCARCITY STRIP — limited plots, phase pricing, price revision date, corner plots   │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  08 · AMENITIES — clubhouse, pool, sports courts, gardens (real render photos)           │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  09 · ACTUAL SITE PHOTOS — entrance, internal roads, street lights, drone views          │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  10 · TESTIMONIALS — photo, plot details, profession (+ video if available)              │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  11 · FAQ — NMRDA status, finance, title, possession, hidden charges                     │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  12 · LEAD FORM — Name / Phone / Plot interest   [ GET CURRENT PRICE LIST ]              │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  13 · FINAL CTA BANNER — "Book Your Free Site Visit Today" + phone + WhatsApp            │
+<span class="wc">├──────────────────────────────────────────────────────────────────────────────────────────┤</span>
+│  FOOTER — RERA numbers, address, collapsed "More Projects by Mahalaxmi Group"            │
+<span class="wc">└──────────────────────────────────────────────────────────────────────────────────────────┘</span>
+<span class="wr">   MOBILE ONLY: fixed bottom bar — [ 📞 Call ] [ Price List ] [ WhatsApp ] always visible</span></div>
+    <div class="cblock" style="margin-top:14px;">
+      <h4 contenteditable="true">Flow Rationale</h4>
+      <p contenteditable="true">This order matches the recommended paid-traffic flow: Hero → Trust → Location → Highlights → Investment Potential → Real Photos → Testimonials → FAQ → Lead Form → Final CTA. The enquiry form is pulled up right after FAQ instead of buried at the very bottom, and sticky buttons mean a visitor never has to scroll to find a way to enquire.</p>
+    </div>
+
+    <hr class="fancy">
+
+    <div class="sub-block-title" style="margin-top:4px;" contenteditable="true">Website Structure: Navigation Tabs</div>
+    <div class="cblock gold">
+      <h4 contenteditable="true">Why a Condensed Tab Bar</h4>
+      <p contenteditable="true">The page has 14 stacked sections (see the flow above), but a full-menu navbar listing all of them overwhelms a visitor and dilutes the one goal — enquiry. The sticky nav instead surfaces only <strong>six</strong> jump-to tabs for the sections a buyer actually searches for, and quietly folds the rest (Marquee, Trust Bar, Investment Story, Scarcity, Site Photos, Testimonials, Final CTA) into the natural scroll — reachable, just not competing for nav space.</p>
+    </div>
+
+    <div class="nav-strip" style="margin-top:16px;">
+      <div class="nav-tab active"><span class="tab-num">01</span>Home</div>
+      <div class="nav-tab"><span class="tab-num">02</span>Location</div>
+      <div class="nav-tab"><span class="tab-num">03</span>Amenities</div>
+      <div class="nav-tab"><span class="tab-num">04</span>Layout Plan</div>
+      <div class="nav-tab"><span class="tab-num">05</span>Gallery</div>
+      <div class="nav-tab"><span class="tab-num">06</span>FAQ</div>
+    </div>
+    <div class="sub-block full" style="margin-top:12px;">
+      <div class="sub-block-title" contenteditable="true">Tab → Section Mapping</div>
+      <ul>
+        <li contenteditable="true">Home → #top (Hero)</li>
+        <li contenteditable="true">Location → #location (Location Advantage)</li>
+        <li contenteditable="true">Amenities → #amenities</li>
+        <li contenteditable="true">Layout Plan → #project (Project Highlights + layout plan preview)</li>
+        <li contenteditable="true">Gallery → #gallery (Actual Site Photos)</li>
+        <li contenteditable="true">FAQ → #faq</li>
+      </ul>
+    </div>
+
+    <div class="cta-sticky-demo" style="margin-top:16px;">
+      <span style="font-size:22px;">🟡</span>
+      <div>
+        <strong contenteditable="true">Sticky "Enquire Now" Button — Always Visible</strong><br>
+        <span style="font-size:12px; opacity:0.85;" contenteditable="true">Desktop: top-right corner of the navbar. Mobile: full-width fixed bar pinned to the bottom of the screen. Gold background, white text. Tapping it opens the enquiry modal or smooth-scrolls to the Lead Form (#enquire).</span>
+      </div>
+      <div class="cta-btn-demo" contenteditable="true">ENQUIRE NOW</div>
+    </div>
+
+    <div class="sub-block-title" style="margin-top:18px;" contenteditable="true">Navbar Anatomy (Sticky on Scroll)</div>
+    <div class="sub-grid">
+      <div class="sub-block">
+        <div class="sub-block-title" contenteditable="true">Desktop Layout</div>
+        <ul>
+          <li contenteditable="true"><strong>Left</strong> — Logo, links back to Home / #top</li>
+          <li contenteditable="true"><strong>Centre</strong> — the six navigation tabs above</li>
+          <li contenteditable="true"><strong>Right</strong> — phone icon with click-to-call, then the gold <strong>ENQUIRE NOW</strong> button</li>
+        </ul>
+      </div>
+      <div class="sub-block">
+        <div class="sub-block-title" contenteditable="true">Mobile Layout</div>
+        <ul>
+          <li contenteditable="true">Logo left, hamburger menu right (opens the six tabs as a slide-down list)</li>
+          <li contenteditable="true">Full-width gold <strong>ENQUIRE NOW</strong> bar fixed to the bottom of the screen, replacing the desktop navbar button</li>
+        </ul>
+      </div>
+      <div class="sub-block full">
+        <div class="sub-block-title" contenteditable="true">Scroll Behaviour</div>
+        <ul>
+          <li contenteditable="true">Transparent navbar over the Hero image so the entrance-gate render shows through fully on load</li>
+          <li contenteditable="true">After ~80px of scroll, the navbar switches to a solid white background with a subtle drop shadow, and logo/text switch from white to dark green for contrast</li>
+          <li contenteditable="true">The active tab (matching whichever section is in view) highlights in gold as the visitor scrolls, so they always know where they are on the page</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" style="margin-top:12px;">
+      <span class="note-icon">📌</span>
+      <span contenteditable="true">This tab bar works alongside — not instead of — the Sticky Lead Form and Mobile Sticky Bar defined in Sections 06 and 10. The nav gets a visitor to the right section; the lead form/CTA bar gets them to enquire once they're there.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 5: SECTION-BY-SECTION CONTENT PLAN ======== -->
+<div class="acc" id="sec5">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">📄</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 05</div>
+        <div class="acc-title" contenteditable="true">Section-by-Section Content Plan</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+
+    <!-- 1 HERO -->
+    <div class="sub-acc" id="s-hero">
+      <div class="sub-acc-head">
+        <div class="sub-num">1</div>
+        <h3 contenteditable="true">Hero Section</h3>
+        <span class="route" contenteditable="true">above the fold</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-grid">
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Copy</div>
+            <ul>
+              <li contenteditable="true">Headline: "Own an NMRDA Approved Plot Near Samruddhi Circle — From Project Rate"</li>
+              <li contenteditable="true">Subheadline: "Near AIIMS • IIM • MIHAN • Samruddhi Expressway | Up To 90% Bank Finance Available"</li>
+              <li contenteditable="true">Buttons: "Get Price List" (primary, gold) and "Book Site Visit" (secondary, outline)</li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Visual</div>
+            <ul>
+              <li contenteditable="true">Background: entrance gate render (from brochure, page 3) or drone aerial layout shot</li>
+              <li contenteditable="true">Dark green overlay/gradient so white headline text stays readable</li>
+              <li contenteditable="true">Small trust chips under buttons: "NMRDA Approved" · "RERA Registered" · "70+ Projects Delivered"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 MARQUEE -->
+    <div class="sub-acc" id="s-marquee">
+      <div class="sub-acc-head">
+        <div class="sub-num">2</div>
+        <h3 contenteditable="true">Marquee (USP Strip)</h3>
+        <span class="route" contenteditable="true">below hero</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="marquee-demo">
+          <div class="marquee-track">
+            <span>🟢 <b>NMRDA APPROVED</b></span>
+            <span>📜 <b>RL SANCTIONED</b></span>
+            <span>🏦 <b>90% BANK FINANCE AVAILABLE</b></span>
+            <span>📍 <b>2 MIN FROM SAMRUDDHI CIRCLE</b></span>
+            <span>🌳 <b>35+ AMENITIES</b></span>
+            <span>🟢 <b>NMRDA APPROVED</b></span>
+            <span>📜 <b>RL SANCTIONED</b></span>
+            <span>🏦 <b>90% BANK FINANCE AVAILABLE</b></span>
+            <span>📍 <b>2 MIN FROM SAMRUDDHI CIRCLE</b></span>
+            <span>🌳 <b>35+ AMENITIES</b></span>
+          </div>
+        </div>
+        <div class="sub-block full" style="margin-top:12px;">
+          <div class="sub-block-title" contenteditable="true">Build Notes</div>
+          <ul>
+            <li contenteditable="true">Continuous left-to-right (or right-to-left) auto-scroll, dark green band, pause on hover</li>
+            <li contenteditable="true">Each item: small icon + short USP text, repeated in a loop for seamless scrolling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 TRUST BAR -->
+    <div class="sub-acc" id="s-trust">
+      <div class="sub-acc-head">
+        <div class="sub-num">3</div>
+        <h3 contenteditable="true">Trust Bar</h3>
+        <span class="route" contenteditable="true">above the fold, second screen max</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="stats-row">
+          <div class="stat"><div class="stat-num">70+</div><div class="stat-label">Projects Delivered</div></div>
+          <div class="stat"><div class="stat-num">17,000+</div><div class="stat-label">Happy Families</div></div>
+          <div class="stat"><div class="stat-num">13+ Yrs</div><div class="stat-label">Of Trust</div></div>
+          <div class="stat"><div class="stat-num">RERA</div><div class="stat-label">Approved Project</div></div>
+        </div>
+        <div class="sub-block full" style="margin-top:12px;">
+          <div class="sub-block-title" contenteditable="true">Note</div>
+          <ul><li contenteditable="true">Placed immediately after the marquee so credibility is visible before any scrolling is needed.</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 LOCATION ADVANTAGE -->
+    <div class="sub-acc" id="s-location">
+      <div class="sub-acc-head">
+        <div class="sub-num">4</div>
+        <h3 contenteditable="true">Location Advantage</h3>
+        <span class="route" contenteditable="true">#location</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-grid">
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Connectivity Highlights</div>
+            <ul>
+              <li contenteditable="true">Samruddhi Circle — 2 minutes</li>
+              <li contenteditable="true">AIIMS — 10 minutes</li>
+              <li contenteditable="true">IIM Nagpur — 12 minutes</li>
+              <li contenteditable="true">MIHAN — 15 minutes</li>
+              <li contenteditable="true">Nagpur International Airport — 20 minutes</li>
+              <li contenteditable="true">Wardha Road — 10 minutes</li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Also Nearby (from brochure)</div>
+            <ul>
+              <li contenteditable="true">Hospitals: National Cancer Institute, Midas, Suretech, Swami Vivekanand, Suraj Eye Care</li>
+              <li contenteditable="true">Education: NLU, IIT, Wainganga Engineering College, Delhi Public School, Montfort School</li>
+              <li contenteditable="true">Business hubs: TCS, Infosys, Tech Mahindra, L&amp;T, Lupin, Orange City &amp; Patanjali Logistics Parks</li>
+              <li contenteditable="true">Transit: Gumgaon Railway Station, Metro Station, City Bus route</li>
+            </ul>
+          </div>
+          <div class="sub-block full">
+            <div class="sub-block-title" contenteditable="true">Visual</div>
+            <ul><li contenteditable="true">Embed the brochure's "Near by development" location map (page 15) or a live Google Map pin; keep the connectivity list as a simple scannable strip beside it.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 PROJECT HIGHLIGHTS -->
+    <div class="sub-acc" id="s-highlights">
+      <div class="sub-acc-head">
+        <div class="sub-num">5</div>
+        <h3 contenteditable="true">Project Highlights &amp; Layout</h3>
+        <span class="route" contenteditable="true">#project</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-grid">
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Key Facts</div>
+            <ul>
+              <li contenteditable="true">30 acres total development across Sector 1, 2 &amp; 3</li>
+              <li contenteditable="true">2.75 acres of dedicated landscaped/amenity area</li>
+              <li contenteditable="true">Wide 9M–24M internal roads, corner &amp; open-space plots available</li>
+              <li contenteditable="true">Clubhouse with pool, sports courts, banquet hall</li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Visual</div>
+            <ul>
+              <li contenteditable="true">Layout plan image (brochure page 6) — zoomable on click</li>
+              <li contenteditable="true">"Download Full Layout Plan" as a lead-magnet CTA (captures phone number)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 INVESTMENT STORY -->
+    <div class="sub-acc" id="s-investment">
+      <div class="sub-acc-head">
+        <div class="sub-num">6</div>
+        <h3 contenteditable="true">Investment &amp; Growth Story</h3>
+        <span class="route" contenteditable="true">#why-invest</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="cblock gold">
+          <h4 contenteditable="true">Section Headline</h4>
+          <p contenteditable="true">"Why Samruddhi Circle Is Becoming Nagpur's Next Growth Corridor"</p>
+        </div>
+        <div class="sub-block full" style="margin-top:12px;">
+          <div class="sub-block-title" contenteditable="true">Growth Drivers to Highlight (as icon row)</div>
+          <ul>
+            <li contenteditable="true">AIIMS Nagpur</li>
+            <li contenteditable="true">IIM Nagpur</li>
+            <li contenteditable="true">MIHAN Industrial &amp; Logistics Zone</li>
+            <li contenteditable="true">Samruddhi Mahamarg (Expressway)</li>
+            <li contenteditable="true">Outer Ring Road</li>
+          </ul>
+        </div>
+        <div class="cblock" style="margin-top:12px;">
+          <h4 contenteditable="true">Framing</h4>
+          <p contenteditable="true">Write this as a short "future value" narrative, not a features list — help a first-time buyer understand why land here is likely to appreciate, tying each growth driver back to real-world demand (jobs, connectivity, institutions).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 SCARCITY -->
+    <div class="sub-acc" id="s-scarcity">
+      <div class="sub-acc-head">
+        <div class="sub-num">7</div>
+        <h3 contenteditable="true">Scarcity &amp; Urgency Strip</h3>
+        <span class="route" contenteditable="true">#availability</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-block full">
+          <div class="sub-block-title" contenteditable="true">Elements (fill with live figures at launch)</div>
+          <ul>
+            <li contenteditable="true">"Limited plots available in current phase"</li>
+            <li contenteditable="true">"Current phase pricing — revises on [date]"</li>
+            <li contenteditable="true">"[X] plots sold in the last [Y] months"</li>
+            <li contenteditable="true">"Corner plots — limited availability"</li>
+          </ul>
+        </div>
+        <div class="note">
+          <span class="note-icon">⚠️</span>
+          <span contenteditable="true">Keep every scarcity claim factually accurate and update it regularly — this builds urgency without ever misleading a buyer.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 AMENITIES -->
+    <div class="sub-acc" id="s-amenities">
+      <div class="sub-acc-head">
+        <div class="sub-num">8</div>
+        <h3 contenteditable="true">Amenities</h3>
+        <span class="route" contenteditable="true">#amenities</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-grid">
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Clubhouse Facilities</div>
+            <ul>
+              <li contenteditable="true">Reception, office, gymnasium, cafeteria, kitchen</li>
+              <li contenteditable="true">Card room / library, toddler room, banquet hall</li>
+              <li contenteditable="true">Yoga park, green gym, jogging area, amphitheater</li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Outdoor &amp; Sports</div>
+            <ul>
+              <li contenteditable="true">Swimming pool, kids' play area, open lawn</li>
+              <li contenteditable="true">Badminton, basketball &amp; volleyball courts, multipurpose court</li>
+              <li contenteditable="true">Open deck area, landscaped pathways, water body</li>
+            </ul>
+          </div>
+          <div class="sub-block full">
+            <div class="sub-block-title" contenteditable="true">Visual</div>
+            <ul><li contenteditable="true">Use the actual clubhouse plan and render photos from the brochure (reception, gymnasium, banquet hall, card room, toddler room) — not stock icons.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 SITE PHOTOS -->
+    <div class="sub-acc" id="s-photos">
+      <div class="sub-acc-head">
+        <div class="sub-num">9</div>
+        <h3 contenteditable="true">Actual Site Photos</h3>
+        <span class="route" contenteditable="true">#gallery</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-grid">
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Photos to Source</div>
+            <ul>
+              <li contenteditable="true">Entrance gate (day + evening)</li>
+              <li contenteditable="true">Internal roads with street lighting</li>
+              <li contenteditable="true">Ongoing development / civil work</li>
+              <li contenteditable="true">Drone aerial views of the plotted layout</li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Layout</div>
+            <ul>
+              <li contenteditable="true">Simple grid or horizontal-scroll gallery, lightbox on click</li>
+              <li contenteditable="true">Label each image (e.g. "Site Entrance — July 2026") to reinforce authenticity</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note">
+          <span class="note-icon">📸</span>
+          <span contenteditable="true">Renders build aspiration; real site photos build trust. Use renders earlier (hero, amenities) and real photography here to close the credibility gap before the enquiry form.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 TESTIMONIALS -->
+    <div class="sub-acc" id="s-testimonials">
+      <div class="sub-acc-head">
+        <div class="sub-num">10</div>
+        <h3 contenteditable="true">Testimonials</h3>
+        <span class="route" contenteditable="true">#testimonials</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-block full">
+          <div class="sub-block-title" contenteditable="true">Format for Each Testimonial</div>
+          <ul>
+            <li contenteditable="true">Customer photo (real, not stock)</li>
+            <li contenteditable="true">Plot number / sector purchased</li>
+            <li contenteditable="true">Profession / city</li>
+            <li contenteditable="true">Video testimonial embed where available, photo card otherwise</li>
+          </ul>
+        </div>
+        <div class="cblock">
+          <h4 contenteditable="true">Request From Client</h4>
+          <p contenteditable="true">Ask existing Nagar-45 buyers for 3–5 short video or written testimonials with photo + plot details before launch.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11 FAQ -->
+    <div class="sub-acc" id="s-faq">
+      <div class="sub-acc-head">
+        <div class="sub-num">11</div>
+        <h3 contenteditable="true">FAQ</h3>
+        <span class="route" contenteditable="true">#faq</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-block full">
+          <div class="sub-block-title" contenteditable="true">Questions to Answer</div>
+          <ul>
+            <li contenteditable="true">Is Mahalaxmi Nagar-45 NMRDA approved?</li>
+            <li contenteditable="true">Is bank finance available, and up to how much?</li>
+            <li contenteditable="true">Is the title clear?</li>
+            <li contenteditable="true">What is the possession timeline?</li>
+            <li contenteditable="true">Are there any hidden charges?</li>
+            <li contenteditable="true">What is the MahaRERA registration number?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 LEAD FORM -->
+    <div class="sub-acc" id="s-leadform">
+      <div class="sub-acc-head">
+        <div class="sub-num">12</div>
+        <h3 contenteditable="true">Lead Form</h3>
+        <span class="route" contenteditable="true">#enquire</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="sub-grid">
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">Fields</div>
+            <ul>
+              <li contenteditable="true">Name, Phone (required), Email (optional)</li>
+              <li contenteditable="true">Interested in: Price List / Layout Plan / Site Visit / Finance Details</li>
+            </ul>
+          </div>
+          <div class="sub-block">
+            <div class="sub-block-title" contenteditable="true">CTA Button Copy</div>
+            <ul>
+              <li contenteditable="true">"Get Current Price List"</li>
+              <li contenteditable="true">"Check Plot Availability"</li>
+              <li contenteditable="true">"Book Free Site Visit"</li>
+              <li contenteditable="true">"Claim Launch Offer" (if a phase offer is running)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13 FINAL CTA -->
+    <div class="sub-acc" id="s-finalcta">
+      <div class="sub-acc-head">
+        <div class="sub-num">13</div>
+        <h3 contenteditable="true">Final CTA Banner</h3>
+        <span class="route" contenteditable="true">before footer</span>
+        <button class="sub-acc-btn" onclick="toggleSubAcc(this)"><span class="acc-arrow">▼</span></button>
+      </div>
+      <div class="sub-body">
+        <div class="cta-sticky-demo">
+          <span style="font-size:22px;">📞</span>
+          <div>
+            <strong contenteditable="true">Book Your Free Site Visit Today</strong><br>
+            <span style="font-size:12px; opacity:0.85;" contenteditable="true">Full-width gold-on-green band. Phone number + WhatsApp button, repeated once more before the footer.</span>
+          </div>
+          <div class="cta-btn-demo" contenteditable="true">CALL NOW</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======== SECTION 6: STICKY CTAs / LEAD MAGNETS ======== -->
+<div class="acc" id="sec6">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">📌</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 06</div>
+        <div class="acc-title" contenteditable="true">Sticky CTAs, WhatsApp Funnel &amp; Lead Magnets</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cta-sticky-demo">
+      <span style="font-size:22px;">📱</span>
+      <div>
+        <strong contenteditable="true">Mobile Sticky Bar (always visible)</strong><br>
+        <span style="font-size:12px; opacity:0.85;" contenteditable="true">Fixed bottom bar, 3 equal buttons: Call Now · Get Price List · WhatsApp Now.</span>
+      </div>
+    </div>
+    <div class="card-grid" style="margin-top:16px;">
+      <div class="card">
+        <div class="card-title" contenteditable="true">WhatsApp Funnel</div>
+        <p contenteditable="true">Persistent floating WhatsApp icon (bottom-right on desktop). Pre-filled message: "Get Price List on WhatsApp." Real estate enquiries convert heavily on WhatsApp — keep this visible in every section.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Lead Magnets</div>
+        <p contenteditable="true">Offer something of value in exchange for contact details: Price List PDF, Master Layout Plan, Plot Availability Sheet, Finance/EMI Details, or a Free Site Visit slot.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">CTA Wording Rule</div>
+        <p contenteditable="true">Avoid generic "Contact Us." Use specific, benefit-led CTAs: "Get Current Price List," "Check Plot Availability," "Book Free Site Visit," "Get Layout Plan," "Claim Launch Offer."</p>
+      </div>
+    </div>
+    <div class="cblock gold" style="margin-top:14px;">
+      <h4 contenteditable="true">Placement Rule</h4>
+      <p contenteditable="true">A visitor should never need more than one screen-scroll to find a way to enquire. Sticky nav bar, mobile bottom bar, and the floating WhatsApp icon together guarantee this on every section of the page.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 7: IMAGE ASSIGNMENT ======== -->
+<div class="acc" id="sec7">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🖼</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 07</div>
+        <div class="acc-title" contenteditable="true">Image &amp; Asset Assignment</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <table class="pp-table">
+      <thead>
+        <tr>
+          <th contenteditable="true">Asset (from Brochure V10)</th>
+          <th contenteditable="true">Use In Section</th>
+          <th contenteditable="true">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td contenteditable="true">Mahalaxmi Nagar-45 logomark (Devanagari + leaf icon)</td>
+          <td><span class="tag tag-teal">Nav</span> <span class="tag tag-teal">Footer</span></td>
+          <td contenteditable="true">Request transparent PNG/SVG version from client</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Entrance gate render (street level)</td>
+          <td><span class="tag tag-gold">Hero</span></td>
+          <td contenteditable="true">Primary hero background, with dark overlay for text contrast</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Drone/aerial layout render</td>
+          <td><span class="tag tag-gold">Investment Story</span> <span class="tag tag-teal">Highlights</span></td>
+          <td contenteditable="true">Reinforces scale of the 30-acre development</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Layout plan (Sector 1/2/3 with plot numbers)</td>
+          <td><span class="tag tag-gold">Project Highlights</span></td>
+          <td contenteditable="true">Make zoomable; pair with "Download Layout Plan" lead magnet</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Clubhouse plan + reception/gym/banquet/card room renders</td>
+          <td><span class="tag tag-gold">Amenities</span></td>
+          <td contenteditable="true">Use real interior renders, not icon sets</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Sports court, basketball, pool renders</td>
+          <td><span class="tag tag-teal">Amenities</span></td>
+          <td contenteditable="true">Supports "sports &amp; lifestyle" USP</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">"Near by development" map graphic</td>
+          <td><span class="tag tag-gold">Location Advantage</span></td>
+          <td contenteditable="true">Or replace with a live embedded Google Map</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Actual site photos (entrance, roads, civil work, drone)</td>
+          <td><span class="tag tag-red">Site Photos</span></td>
+          <td contenteditable="true">Not in brochure yet — request fresh photography from site team</td>
+        </tr>
+        <tr>
+          <td contenteditable="true">Customer photos + plot details</td>
+          <td><span class="tag tag-red">Testimonials</span></td>
+          <td contenteditable="true">Not in brochure yet — collect from existing buyers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== SECTION 8: SEO & TECHNICAL ======== -->
+<div class="acc" id="sec8">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">⚙️</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 08</div>
+        <div class="acc-title" contenteditable="true">SEO &amp; Technical Notes</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="card-title" contenteditable="true">Page Title &amp; Meta</div>
+        <p contenteditable="true">Title: "Mahalaxmi Nagar-45 | NMRDA Approved Plots Near Samruddhi Circle, Nagpur." Meta description should mention AIIMS, IIM, MIHAN proximity and bank finance, matching the hero copy.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Performance</div>
+        <p contenteditable="true">Compress all renders/photos to WebP, under 200KB each. Lazy-load below-the-fold images. Target under 3 seconds load on 4G, since this page is built for paid traffic.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Tracking</div>
+        <p contenteditable="true">Install GA4 and Meta/Google Ads pixels on Day 1. Track conversion events separately: price-list form submits, WhatsApp clicks, call clicks, and layout-plan downloads.</p>
+      </div>
+      <div class="card">
+        <div class="card-title" contenteditable="true">Legal &amp; Compliance</div>
+        <p contenteditable="true">Display both MahaRERA numbers (PP1190002501447, PP1190002501287) in the footer with QR codes linking to maharera.maharashtra.gov.in, matching the brochure back cover.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 9: CHECKLIST ======== -->
+<div class="acc" id="sec9">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">✅</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 09</div>
+        <div class="acc-title" contenteditable="true">Pre-Launch Checklist</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="card-grid card-grid-2">
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color: var(--teal-dark); margin-bottom:8px;" contenteditable="true">Assets to Collect from Client</div>
+        <ul class="checklist">
+          <li class="check-item checked"><span class="chk-icon" onclick="toggleCheck(this)">☑</span><span class="chk-text" contenteditable="true"><strong>Brochure V10 PDF</strong> — received, used as primary content source</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true"><strong>Real site photos</strong> — entrance, roads, drone, civil work-in-progress</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true"><strong>Customer testimonials</strong> — photo, plot number, profession, video if possible</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true"><strong>Current phase price list &amp; availability sheet</strong> — for lead magnet + scarcity messaging</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true"><strong>Bank finance partner details</strong> — for the "90% finance" claim</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true"><strong>Logomark</strong> — transparent PNG/SVG of the Nagar-45 logo</li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true"><strong>WhatsApp Business number</strong> — for the floating funnel button</span></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color: var(--teal-dark); margin-bottom:8px;" contenteditable="true">Development Checklist</div>
+        <ul class="checklist">
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Single-project landing page live at a dedicated URL/subdomain</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Sticky nav bar with Call / Price List / WhatsApp buttons</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Mobile fixed bottom CTA bar built and tested</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Auto-scrolling marquee USP strip working on all breakpoints</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Lead form connected to CRM/email + WhatsApp API if available</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Google Maps embedded in Location Advantage section</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">FAQ accordion built and content-reviewed</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">"More Projects by Mahalaxmi Group" collapsed section near footer</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">GA4, Search Console and ad pixels installed and verified</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Images converted to WebP, lazy-loaded, page under 3s load</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Both MahaRERA numbers + QR codes displayed in footer</span></li>
+          <li class="check-item"><span class="chk-icon" onclick="toggleCheck(this)">☐</span><span class="chk-text" contenteditable="true">Mobile responsive tested 320px–1920px, cross-browser checked</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SECTION 10: README ======== -->
+<div class="acc" id="sec10">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">📘</div>
+      <div>
+        <div class="acc-label" contenteditable="true">Section 10</div>
+        <div class="acc-title" contenteditable="true">README — Page Structure &amp; Sticky Lead Capture</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+
+    <div class="cblock gold">
+      <h4 contenteditable="true">Purpose of This README</h4>
+      <p contenteditable="true">This section is written for whoever builds the page (developer / agency) — it's the handoff spec. It defines the literal component tree, where every CTA lives, and exactly how the persistent lead-capture element behaves from the moment the page loads, on both desktop and mobile.</p>
+    </div>
+
+    <hr class="fancy">
+
+    <div class="sub-block-title" style="margin-top:4px;" contenteditable="true">1. Page / Component Tree</div>
+    <div class="wireframe">README.md — Mahalaxmi Nagar-45 Landing Page
+<span class="wc">─────────────────────────────────────────────────────</span>
+<span class="wh">/landing-page</span>
+├── <span class="wc">components/</span>
+│&nbsp;&nbsp; ├── StickyNav.*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; logo · 6 tabs (Home/Location/Amenities/Layout/Gallery/FAQ) · call · ENQUIRE NOW
+│&nbsp;&nbsp; ├── <span class="wr">StickyLeadForm.*</span>&nbsp;&nbsp; ← loads with Hero, persists on scroll (see §3)
+│&nbsp;&nbsp; ├── Hero.*
+│&nbsp;&nbsp; ├── MarqueeUSP.*
+│&nbsp;&nbsp; ├── TrustBar.*
+│&nbsp;&nbsp; ├── LocationAdvantage.*
+│&nbsp;&nbsp; ├── ProjectHighlights.*
+│&nbsp;&nbsp; ├── InvestmentStory.*
+│&nbsp;&nbsp; ├── ScarcityStrip.*
+│&nbsp;&nbsp; ├── Amenities.*
+│&nbsp;&nbsp; ├── SitePhotoGallery.*
+│&nbsp;&nbsp; ├── Testimonials.*
+│&nbsp;&nbsp; ├── FAQAccordion.*
+│&nbsp;&nbsp; ├── LeadFormFull.*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; expanded version, pre-footer
+│&nbsp;&nbsp; ├── FinalCTABanner.*
+│&nbsp;&nbsp; ├── MoreProjects.*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collapsed, footer only, click-to-expand
+│&nbsp;&nbsp; ├── Footer.*
+│&nbsp;&nbsp; ├── FloatingWhatsApp.*&nbsp;&nbsp; fixed, bottom-right, all breakpoints
+│&nbsp;&nbsp; └── MobileStickyBar.*&nbsp;&nbsp; fixed, bottom, mobile only (&lt;768px)
+├── assets/&nbsp;&nbsp;&nbsp;&nbsp; renders, site-photos, layout-plan, logomark (see §7)
+└── config/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; phone number, WhatsApp number, RERA IDs, phase pricing</div>
+
+    <hr class="fancy">
+
+    <div class="sub-block-title" style="margin-top:4px;" contenteditable="true">2. Section Order &amp; Route Anchors</div>
+    <table class="pp-table">
+      <thead><tr><th contenteditable="true">#</th><th contenteditable="true">Section</th><th contenteditable="true">Anchor</th><th contenteditable="true">CTA(s) present</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td contenteditable="true">Hero</td><td contenteditable="true">#top</td><td><span class="tag tag-gold">Get Price List</span> <span class="tag tag-teal">Book Site Visit</span></td></tr>
+        <tr><td>—</td><td contenteditable="true"><strong>Sticky Lead Form</strong> (see §3)</td><td contenteditable="true">persistent</td><td><span class="tag tag-red">Get Current Price List</span></td></tr>
+        <tr><td>02</td><td contenteditable="true">Marquee USP Strip</td><td contenteditable="true">—</td><td contenteditable="true">none (visual only)</td></tr>
+        <tr><td>03</td><td contenteditable="true">Trust Bar</td><td contenteditable="true">—</td><td contenteditable="true">none (visual only)</td></tr>
+        <tr><td>04</td><td contenteditable="true">Location Advantage</td><td contenteditable="true">#location</td><td><span class="tag tag-teal">Get Layout Plan</span></td></tr>
+        <tr><td>05</td><td contenteditable="true">Project Highlights</td><td contenteditable="true">#project</td><td><span class="tag tag-teal">Get Layout Plan</span></td></tr>
+        <tr><td>06</td><td contenteditable="true">Investment &amp; Growth Story</td><td contenteditable="true">#why-invest</td><td contenteditable="true">none (narrative section)</td></tr>
+        <tr><td>07</td><td contenteditable="true">Scarcity Strip</td><td contenteditable="true">#availability</td><td><span class="tag tag-red">Check Plot Availability</span></td></tr>
+        <tr><td>08</td><td contenteditable="true">Amenities</td><td contenteditable="true">#amenities</td><td contenteditable="true">none (visual only)</td></tr>
+        <tr><td>09</td><td contenteditable="true">Actual Site Photos</td><td contenteditable="true">#gallery</td><td contenteditable="true">none (visual only)</td></tr>
+        <tr><td>10</td><td contenteditable="true">Testimonials</td><td contenteditable="true">#testimonials</td><td contenteditable="true">none (trust only)</td></tr>
+        <tr><td>11</td><td contenteditable="true">FAQ</td><td contenteditable="true">#faq</td><td contenteditable="true">none (objection handling)</td></tr>
+        <tr><td>12</td><td contenteditable="true">Lead Form (full)</td><td contenteditable="true">#enquire</td><td><span class="tag tag-gold">Get Current Price List</span> <span class="tag tag-gold">Claim Launch Offer</span></td></tr>
+        <tr><td>13</td><td contenteditable="true">Final CTA Banner</td><td contenteditable="true">—</td><td><span class="tag tag-gold">Call Now</span> <span class="tag tag-teal">WhatsApp Now</span></td></tr>
+        <tr><td>14</td><td contenteditable="true">Footer + More Projects (collapsed)</td><td contenteditable="true">#more-projects</td><td contenteditable="true">none</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="fancy">
+
+    <div class="sub-block-title" style="margin-top:4px;" contenteditable="true">3. Sticky Lead Form — Behaviour Spec</div>
+    <div class="note">
+      <span class="note-icon">📌</span>
+      <span contenteditable="true">This is distinct from the sticky nav buttons in Section 06 — it is an actual inline form (not just a button) that appears the moment the Hero loads, so a ready-to-buy visitor never has to hunt for the enquiry form even on their first screen.</span>
+    </div>
+    <div class="sub-grid" style="margin-top:12px;">
+      <div class="sub-block">
+        <div class="sub-block-title" contenteditable="true">Desktop (&gt;1024px)</div>
+        <ul>
+          <li contenteditable="true">Compact 3-field card (Name, Phone, "Get Price List" button) docked to the right edge of the Hero</li>
+          <li contenteditable="true">On scroll past Hero, it un-docks and sticks to the bottom-right of the viewport as a slim floating card</li>
+          <li contenteditable="true">Collapses to a single gold pill "Get Price List" once the visitor reaches the full Lead Form section (#enquire), so it never duplicates the form on-screen</li>
+        </ul>
+      </div>
+      <div class="sub-block">
+        <div class="sub-block-title" contenteditable="true">Mobile (&lt;768px)</div>
+        <ul>
+          <li contenteditable="true">Inline compact form sits directly under the Hero buttons — no separate float needed above the fold</li>
+          <li contenteditable="true">From section 2 onward, it hands off to the fixed <strong>Mobile Sticky Bar</strong> (Call · Price List · WhatsApp) defined in Section 06</li>
+          <li contenteditable="true">Tapping "Price List" on the sticky bar opens the same form as a bottom sheet, pre-filled with nothing, 2 fields only (Name, Phone) to reduce friction</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta-sticky-demo" style="margin-top:14px;">
+      <span style="font-size:22px;">📝</span>
+      <div>
+        <strong contenteditable="true">Sticky Lead Form — Hero Placement (Desktop)</strong><br>
+        <span style="font-size:12px; opacity:0.85;" contenteditable="true">Name field · Phone field (required) · gold button. Docked top-right of Hero, un-docks to floating card on scroll.</span>
+      </div>
+      <div class="cta-btn-demo" contenteditable="true">GET PRICE LIST</div>
+    </div>
+
+    <hr class="fancy">
+
+    <div class="sub-block-title" style="margin-top:4px;" contenteditable="true">4. CTA Inventory (Copy, Style, Tracking)</div>
+    <table class="pp-table">
+      <thead><tr><th contenteditable="true">CTA Copy</th><th contenteditable="true">Style</th><th contenteditable="true">Where It Appears</th><th contenteditable="true">Tracking Event</th></tr></thead>
+      <tbody>
+        <tr><td contenteditable="true">Enquire Now</td><td><span class="tag tag-gold">Primary / Gold, always visible</span></td><td contenteditable="true">Navbar top-right (desktop), full-width fixed bottom bar (mobile) — every section</td><td contenteditable="true">click_enquire_now</td></tr>
+        <tr><td contenteditable="true">Get Price List</td><td><span class="tag tag-gold">Primary / Gold</span></td><td contenteditable="true">Nav, Hero, Sticky Lead Form, Mobile Bar</td><td contenteditable="true">lead_price_list</td></tr>
+        <tr><td contenteditable="true">Book Site Visit</td><td><span class="tag tag-teal">Secondary / Outline</span></td><td contenteditable="true">Hero, Final CTA</td><td contenteditable="true">lead_site_visit</td></tr>
+        <tr><td contenteditable="true">Check Plot Availability</td><td><span class="tag tag-gold">Primary / Gold</span></td><td contenteditable="true">Scarcity Strip</td><td contenteditable="true">lead_availability</td></tr>
+        <tr><td contenteditable="true">Get Layout Plan</td><td><span class="tag tag-teal">Secondary / Outline</span></td><td contenteditable="true">Location, Project Highlights</td><td contenteditable="true">lead_layout_download</td></tr>
+        <tr><td contenteditable="true">Claim Launch Offer</td><td><span class="tag tag-gold">Primary / Gold</span></td><td contenteditable="true">Lead Form (full) — only if a phase offer is live</td><td contenteditable="true">lead_launch_offer</td></tr>
+        <tr><td contenteditable="true">Call Now</td><td><span class="tag tag-red">Tel Link</span></td><td contenteditable="true">Nav, Mobile Bar, Final CTA</td><td contenteditable="true">click_call</td></tr>
+        <tr><td contenteditable="true">Get Price List on WhatsApp</td><td><span class="tag tag-red">WhatsApp Link</span></td><td contenteditable="true">Floating icon (all pages), Nav, Mobile Bar</td><td contenteditable="true">click_whatsapp</td></tr>
+      </tbody>
+    </table>
+
+    <div class="cblock" style="margin-top:16px;">
+      <h4 contenteditable="true">Handoff Rule</h4>
+      <p contenteditable="true">Every CTA in this table must fire its own tracking event (see Section 08 — SEO &amp; Technical Notes) so price-list requests, layout-plan downloads, WhatsApp clicks, and call clicks can be reported separately in ad platform dashboards, not lumped into one generic "conversion."</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <strong contenteditable="true">Mahalaxmi Nagar-45 — Landing Page Content Plan</strong><br>
+  <span contenteditable="true">Prepared July 2026 · For internal use during web development · Version 2.0 — added README / page-structure &amp; sticky lead-capture spec</span><br>
+  <span contenteditable="true">mahalaxmidevelopers14@gmail.com · www.mahalaxmiinfra.in</span>
+</div>
+
+<script>
+function toggleAcc(btn) { btn.closest('.acc').classList.toggle('open'); }
+function toggleSubAcc(btn) { btn.closest('.sub-acc').classList.toggle('open'); }
+function jumpTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!el.classList.contains('open')) el.classList.add('open');
+  setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+}
+function toggleCheck(iconEl) {
+  const li = iconEl.closest('.check-item');
+  const isNowChecked = li.classList.toggle('checked');
+  iconEl.textContent = isNowChecked ? '☑' : '☐';
+}
+document.querySelectorAll('.color-picker').forEach(function(picker) {
+  picker.addEventListener('input', function() {
+    var cssVar = this.dataset.css;
+    var val = this.value;
+    document.documentElement.style.setProperty(cssVar, val);
+    var swatchColor = this.closest('.swatch-color');
+    if (swatchColor) swatchColor.style.background = val;
+    var hexEl = this.closest('.swatch').querySelector('.swatch-hex');
+    if (hexEl) hexEl.textContent = val.toLowerCase();
+  });
+});
+document.querySelectorAll('[contenteditable]').forEach(function(el) {
+  el.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) e.preventDefault();
+  });
+});
+</script>
+</body>
+</html>

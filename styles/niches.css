@@ -1,0 +1,656 @@
+/* ==========================================================================
+   Niches CSS (v3) — Anti-AI-Slop Architecture & Bespoke Theme System
+   ========================================================================== */
+
+/* Google Fonts Imports */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Jost:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@500;700;900&family=Outfit:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Poppins:wght@500;600;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Motion & Animation Keyframes */
+@keyframes heartPulse {
+  0% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.18); opacity: 1; filter: drop-shadow(0 0 14px #84cc16); }
+  100% { transform: scale(1); opacity: 0.85; }
+}
+
+@keyframes woodfireFlame {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-5px) scale(1.1); opacity: 1; filter: drop-shadow(0 0 12px #ea580c); }
+  100% { transform: translateY(0) scale(1); opacity: 0.9; }
+}
+
+@keyframes steamRise {
+  0% { transform: translateY(0) scaleX(1); opacity: 0; }
+  50% { transform: translateY(-12px) scaleX(1.25); opacity: 0.75; }
+  100% { transform: translateY(-24px) scaleX(0.75); opacity: 0; }
+}
+
+@keyframes tickerMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Niche Page Container Setup */
+.niche-page {
+  min-height: 100vh;
+  width: 100%;
+  line-height: 1.6;
+}
+
+.niche-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Common Niche Header */
+.niche-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.niche-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.niche-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.niche-nav-links a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.niche-nav-links a:hover,
+.niche-nav-links a.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.niche-btn-primary {
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Catalog View Elements */
+.catalog-head {
+  padding: 56px 28px 32px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.catalog-head h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.catalog-filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 24px 0;
+  position: sticky;
+  top: 65px;
+  z-index: 50;
+  background: inherit;
+  backdrop-filter: blur(14px);
+}
+
+.catalog-filter-btn {
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+  padding: 40px 28px 80px;
+}
+
+.catalog-item-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-item-card:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.9);
+}
+
+.catalog-item-top h3 {
+  font-size: 19px;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.catalog-item-desc {
+  font-size: 13.5px;
+  opacity: 0.8;
+  margin-bottom: 16px;
+  line-height: 1.55;
+}
+
+.catalog-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(0,0,0,0.12);
+}
+
+.price-tag {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   THEME 1: SALON — BOTANICAL PAPER & INK
+   ========================================================================== */
+.theme-salon {
+  background: #f6f1e7;
+  color: #1c261e;
+  font-family: 'Work Sans', sans-serif;
+}
+.theme-salon h1, .theme-salon h2, .theme-salon h3, .theme-salon .brand-font {
+  font-family: 'Fraunces', serif;
+  color: #142419;
+}
+.theme-salon .niche-header {
+  background: rgba(246, 241, 231, 0.94);
+  border-bottom: 1px solid rgba(31, 54, 38, 0.14);
+}
+.theme-salon .niche-btn-primary {
+  background: #142419;
+  color: #f6f1e7;
+  border: 1px solid #142419;
+}
+.theme-salon .niche-btn-primary:hover {
+  background: #c89b53;
+  color: #fff;
+}
+.theme-salon .eyebrow {
+  color: #c89b53;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+}
+.theme-salon .catalog-filter-btn.active {
+  background: #142419;
+  color: #f6f1e7;
+  border-color: #142419;
+}
+.theme-salon .price-tag {
+  color: #c89b53;
+  font-family: 'Fraunces', serif;
+}
+
+/* ==========================================================================
+   THEME 2: CLINIC — MEDICAL PRECISION
+   ========================================================================== */
+.theme-clinic {
+  background: #eaf7f5;
+  color: #1e293b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.theme-clinic h1, .theme-clinic h2, .theme-clinic h3, .theme-clinic .brand-font {
+  font-family: 'Outfit', sans-serif;
+  color: #0f172a;
+}
+.theme-clinic .niche-header {
+  background: rgba(234, 247, 245, 0.95);
+  border-bottom: 1px solid rgba(0, 109, 119, 0.15);
+}
+.theme-clinic .niche-btn-primary {
+  background: #006d77;
+  color: #fff;
+  border-radius: 8px;
+}
+.theme-clinic .niche-btn-primary:hover {
+  background: #004d54;
+}
+.theme-clinic .eyebrow {
+  color: #006d77;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+}
+.theme-clinic .catalog-filter-btn.active {
+  background: #006d77;
+  color: #fff;
+  border-color: #006d77;
+}
+.theme-clinic .price-tag {
+  color: #006d77;
+}
+
+/* ==========================================================================
+   THEME 3: JEWELLER — ROYAL MAROON VELVET & GOLD TICKER
+   ========================================================================== */
+.theme-jeweller {
+  background: #3b0811;
+  color: #fdfbf7;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+}
+.theme-jeweller h1, .theme-jeweller h2, .theme-jeweller h3, .theme-jeweller .brand-font {
+  font-family: 'Cinzel', serif;
+  color: #d4af37;
+}
+.theme-jeweller .niche-header {
+  background: rgba(59, 8, 17, 0.96);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+.theme-jeweller .niche-btn-primary {
+  background: linear-gradient(135deg, #d4af37, #b88e1a);
+  color: #3b0811;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+.theme-jeweller .catalog-item-card {
+  background: #4a0d18;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #fdfbf7;
+  box-shadow: 4px 4px 0px #1a0307;
+}
+.theme-jeweller .catalog-filter-btn {
+  color: #d4af37;
+  border-color: rgba(212, 175, 55, 0.4);
+}
+.theme-jeweller .catalog-filter-btn.active {
+  background: #d4af37;
+  color: #3b0811;
+}
+.theme-jeweller .price-tag {
+  color: #d4af37;
+  font-family: 'Cinzel', serif;
+}
+
+.gold-rate-bar {
+  background: #25040a;
+  border-y: 1.5px solid rgba(212, 175, 55, 0.4);
+  padding: 11px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.gold-rate-scroll {
+  display: inline-block;
+  animation: tickerMarquee 25s linear infinite;
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: #d4af37;
+  font-weight: 700;
+}
+
+.gold-rate-scroll span {
+  margin: 0 32px;
+}
+
+/* ==========================================================================
+   THEME 4: CAKE SHOP — GOURMET CARAMEL & CORAL
+   ========================================================================== */
+.theme-cakeshop {
+  background: #fffdf7;
+  color: #1f1610;
+  font-family: 'Inter', sans-serif;
+}
+.theme-cakeshop h1, .theme-cakeshop h2, .theme-cakeshop h3, .theme-cakeshop .brand-font {
+  font-family: 'Playfair Display', serif;
+  color: #1f1610;
+}
+.theme-cakeshop .niche-header {
+  background: rgba(255, 253, 247, 0.95);
+  border-bottom: 1px solid rgba(225, 29, 72, 0.2);
+}
+.theme-cakeshop .niche-btn-primary {
+  background: linear-gradient(135deg, #e11d48, #f59e0b);
+  color: #fff;
+  border-radius: 20px;
+}
+.theme-cakeshop .catalog-filter-btn.active {
+  background: #e11d48;
+  color: #fff;
+  border-color: #e11d48;
+}
+.theme-cakeshop .price-tag {
+  color: #e11d48;
+}
+
+/* ==========================================================================
+   THEME 5: TUITION — ACADEMIC NAVY & CRIMSON
+   ========================================================================== */
+.theme-tuition {
+  background: #fcf8f3;
+  color: #0f172a;
+  font-family: 'Inter', sans-serif;
+}
+.theme-tuition h1, .theme-tuition h2, .theme-tuition h3, .theme-tuition .brand-font {
+  font-family: 'Poppins', sans-serif;
+  color: #881337;
+}
+.theme-tuition .niche-header {
+  background: rgba(252, 248, 243, 0.95);
+  border-bottom: 2px solid #d97706;
+}
+.theme-tuition .niche-btn-primary {
+  background: #881337;
+  color: #fff;
+  border-radius: 4px;
+}
+.theme-tuition .catalog-filter-btn.active {
+  background: #881337;
+  color: #fff;
+  border-color: #881337;
+}
+.theme-tuition .price-tag {
+  color: #881337;
+}
+
+.ranker-badge {
+  background: #0f172a;
+  color: #facc15;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   THEME 6: GYM — NEO-BRUTALIST HIGH CONTRAST
+   ========================================================================== */
+.theme-gym {
+  background: #0a0a0a;
+  color: #f8fafc;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.theme-gym h1, .theme-gym h2, .theme-gym h3, .theme-gym .brand-font {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+}
+.theme-gym .niche-header {
+  background: rgba(10, 10, 10, 0.96);
+  border-bottom: 2px solid #84cc16;
+}
+.theme-gym .niche-btn-primary {
+  background: #84cc16;
+  color: #0a0a0a;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 2px solid #0a0a0a;
+  box-shadow: 3px 3px 0px #fff;
+}
+.theme-gym .catalog-item-card {
+  background: #171717;
+  border: 2px solid #84cc16;
+  color: #fff;
+  box-shadow: 4px 4px 0px #84cc16;
+}
+.theme-gym .catalog-filter-btn {
+  color: #84cc16;
+  border-color: #84cc16;
+}
+.theme-gym .catalog-filter-btn.active {
+  background: #84cc16;
+  color: #0a0a0a;
+}
+.theme-gym .price-tag {
+  color: #84cc16;
+}
+
+.pulse-heart-icon {
+  animation: heartPulse 1.4s infinite ease-in-out;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   THEME 7: CAFE — TUSCAN TERRACOTTA BISTRO
+   ========================================================================== */
+.theme-cafe {
+  background: #faf6f0;
+  color: #2e261f;
+  font-family: 'Lora', serif;
+}
+.theme-cafe h1, .theme-cafe h2, .theme-cafe h3, .theme-cafe .brand-font {
+  font-family: 'Playfair Display', serif;
+  color: #9a3412;
+}
+.theme-cafe .niche-header {
+  background: rgba(250, 246, 240, 0.95);
+  border-bottom: 1px solid rgba(154, 52, 18, 0.15);
+}
+.theme-cafe .niche-btn-primary {
+  background: #9a3412;
+  color: #fff;
+  border-radius: 6px;
+}
+.theme-cafe .catalog-filter-btn.active {
+  background: #9a3412;
+  color: #fff;
+  border-color: #9a3412;
+}
+.theme-cafe .price-tag {
+  color: #9a3412;
+}
+.flame-icon {
+  animation: woodfireFlame 1.2s infinite ease-in-out;
+  display: inline-block;
+}
+
+.badge-veg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #16a34a;
+  padding: 2px;
+  border-radius: 2px;
+}
+.badge-veg::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+.badge-nonveg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #dc2626;
+  padding: 2px;
+  border-radius: 2px;
+}
+.badge-nonveg::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #dc2626;
+}
+
+/* ==========================================================================
+   THEME 8: CLOTHING — HIGH FASHION EDITORIAL STUDIO
+   ========================================================================== */
+.theme-clothing {
+  background: #faf8f6;
+  color: #2e103f;
+  font-family: 'Jost', sans-serif;
+}
+.theme-clothing h1, .theme-clothing h2, .theme-clothing h3, .theme-clothing .brand-font {
+  font-family: 'Bodoni Moda', serif;
+  color: #2e103f;
+}
+.theme-clothing .niche-header {
+  background: rgba(250, 248, 246, 0.95);
+  border-bottom: 1px solid rgba(46, 16, 63, 0.15);
+}
+.theme-clothing .niche-btn-primary {
+  background: #2e103f;
+  color: #fff;
+  border-radius: 0px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.theme-clothing .catalog-filter-btn.active {
+  background: #2e103f;
+  color: #fff;
+  border-color: #2e103f;
+}
+.theme-clothing .price-tag {
+  color: #2e103f;
+  font-family: 'Bodoni Moda', serif;
+}
+
+/* ==========================================================================
+   THEME 9: REAL ESTATE — ARCHITECTURAL EMERALD
+   ========================================================================== */
+.theme-realestate {
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: 'Outfit', sans-serif;
+}
+.theme-realestate h1, .theme-realestate h2, .theme-realestate h3, .theme-realestate .brand-font {
+  font-family: 'Syne', sans-serif;
+  color: #044e3a;
+}
+.theme-realestate .niche-header {
+  background: rgba(248, 250, 252, 0.95);
+  border-bottom: 1px solid rgba(4, 78, 58, 0.15);
+}
+.theme-realestate .niche-btn-primary {
+  background: #044e3a;
+  color: #fff;
+  border-radius: 6px;
+}
+.theme-realestate .catalog-filter-btn.active {
+  background: #044e3a;
+  color: #fff;
+  border-color: #044e3a;
+}
+.theme-realestate .price-tag {
+  color: #044e3a;
+}
+
+/* ==========================================================================
+   THEME 10: TIFFIN — HOMELY AMBER & OWNER ADMIN PANEL
+   ========================================================================== */
+.theme-tiffin {
+  background: #1c1917;
+  color: #f6ecd9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.theme-tiffin h1, .theme-tiffin h2, .theme-tiffin h3, .theme-tiffin .brand-font {
+  font-family: Georgia, serif;
+  color: #f3cf88;
+}
+.theme-tiffin .niche-header {
+  background: rgba(28, 25, 23, 0.95);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.3);
+}
+.theme-tiffin .niche-btn-primary {
+  background: linear-gradient(90deg, #ea580c, #d97706);
+  color: #fff;
+  border-radius: 8px;
+}
+.theme-tiffin .catalog-item-card {
+  background: #292524;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  color: #f6ecd9;
+  box-shadow: 4px 4px 0px #0c0a09;
+}
+.theme-tiffin .catalog-filter-btn {
+  color: #f3cf88;
+  border-color: rgba(217, 119, 6, 0.4);
+}
+.theme-tiffin .catalog-filter-btn.active {
+  background: #ea580c;
+  color: #fff;
+}
+.theme-tiffin .price-tag {
+  color: #f3cf88;
+}
+
+.steam-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.steam-line {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 2px;
+  height: 12px;
+  background: rgba(243, 207, 136, 0.7);
+  border-radius: 50%;
+  animation: steamRise 1.8s infinite ease-out;
+}
+
+@media (max-width: 800px) {
+  .niche-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .niche-nav-links {
+    gap: 16px;
+  }
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+  }
+}

@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fusion Fiesta Lounge — Website Content Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --flame:   #E8420A;
+  --flame2:  #C93408;
+  --gold:    #F5A800;
+  --gold-lt: #FFD060;
+  --dark:    #1A1202;
+  --mid:     #4a3f30;
+  --teal:    #0D6B5E;
+  --teal-lt: #14977A;
+  --cream:   #FFFDF7;
+  --white:   #FFFFFF;
+  --border:  #E8E0D0;
+  --gray100: #FBF8F3;
+  --gray500: #8a8070;
+  --gray700: #4a4030;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark);line-height:1.6;}
+
+.edit-bar{background:var(--dark);color:rgba(255,255,255,.9);font-size:12px;padding:9px 40px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--gold);}
+.edit-bar strong{color:var(--gold-lt);}
+.edit-bar span{opacity:.75;}
+.edit-bar .dot{width:8px;height:8px;border-radius:50%;background:var(--flame);display:inline-block;}
+
+.cover{background:linear-gradient(160deg,#1A0A02 0%,#7A1E05 55%,#C93408 100%);color:var(--white);padding:56px 80px 48px;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0zm40 40h40v40H40z'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+.cover-badge{display:inline-block;background:var(--gold);color:var(--dark);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:20px;}
+.cover h1{font-family:'Bebas Neue',sans-serif;font-size:52px;letter-spacing:.04em;line-height:1.1;margin-bottom:10px;}
+.cover h1 span{color:var(--gold);}
+.cover-sub{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:36px;max-width:640px;}
+.cover-meta{display:flex;gap:36px;flex-wrap:wrap;padding-top:28px;border-top:1px solid rgba(255,255,255,.15);}
+.cover-meta-item label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);display:block;margin-bottom:3px;}
+.cover-meta-item span{font-size:13px;font-weight:600;color:var(--white);}
+
+.toc{background:var(--white);border-left:4px solid var(--flame);padding:30px 80px;}
+.toc-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.06em;color:var(--flame2);margin-bottom:16px;}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px;}
+.toc-item{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:13px;color:var(--gray700);border-bottom:1px dashed var(--border);}
+.toc-num{background:var(--flame);color:var(--white);font-size:9px;font-weight:700;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.toc-num.t-gold{background:var(--gold);color:var(--dark);}
+.toc-num.t-teal{background:var(--teal);color:var(--white);}
+.toc-page{font-size:9px;background:#fef3e2;color:#8a5200;padding:2px 6px;border-radius:10px;margin-left:auto;font-weight:700;letter-spacing:.5px;}
+.toc-page.policy{background:#f0ede6;color:var(--gray500);}
+.toc-page.special{background:#e8f5f2;color:var(--teal);}
+
+.sec-band{background:var(--flame);color:var(--white);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 80px;display:flex;align-items:center;gap:12px;}
+.sec-band .pill{background:var(--gold);color:var(--dark);padding:2px 8px;border-radius:10px;font-size:9px;letter-spacing:1px;}
+.sec-band .pill.teal-pill{background:var(--teal);color:var(--white);}
+.sec-band .pill.dim{background:rgba(255,255,255,.2);color:var(--white);}
+
+.acc{border-bottom:1px solid var(--border);}
+.acc-head{display:flex;align-items:center;justify-content:space-between;padding:0 80px;}
+.acc-head-left{display:flex;align-items:flex-start;gap:14px;padding:22px 0;flex:1;}
+.acc-icon{width:40px;height:40px;background:var(--flame);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.acc-icon.t-teal{background:var(--teal);}
+.acc-icon.t-gold{background:var(--gold);}
+.acc-icon.t-dark{background:var(--dark);}
+.acc-icon.t-mid{background:var(--mid);}
+.acc-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.acc-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.05em;color:var(--dark);}
+.acc-type{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-top:4px;display:inline-block;}
+.acc-type.pg-main{background:#fef3e2;color:var(--flame2);}
+.acc-type.pg-special{background:#e8f5f2;color:var(--teal);}
+.acc-type.pg-policy{background:#f0ede6;color:var(--gray500);}
+.acc-btn{background:none;border:1px solid var(--border);border-radius:50%;width:32px;height:32px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.2s;color:var(--dark);}
+.acc-btn:hover{background:var(--flame);border-color:var(--flame);color:var(--white);}
+.acc-arrow{font-size:11px;transition:transform .25s;display:inline-block;line-height:1;}
+.acc.open .acc-arrow{transform:rotate(180deg);}
+.acc-body{display:none;padding:0 80px 36px;}
+.acc.open .acc-body{display:block;}
+
+.cblock{background:var(--gray100);border-left:3px solid var(--flame);padding:13px 17px;margin:10px 0;border-radius:0 6px 6px 0;}
+.cblock.gold{border-left-color:var(--gold);}
+.cblock.teal{border-left-color:var(--teal);}
+.cblock.dark{border-left-color:var(--dark);}
+.cblock h4{font-size:13px;font-weight:700;color:var(--flame2);margin-bottom:5px;}
+.cblock.gold h4{color:#8a5200;}
+.cblock.teal h4{color:var(--teal);}
+.cblock.dark h4{color:var(--dark);}
+.cblock p,.cblock li{font-size:13px;color:var(--gray700);line-height:1.65;}
+.cblock ul{padding-left:16px;}
+
+.note{background:#fff8e6;border:1px solid #f0d080;border-radius:6px;padding:10px 14px;font-size:13px;color:#7a5a00;margin-top:10px;display:flex;gap:10px;align-items:flex-start;}
+.note-icon{flex-shrink:0;}
+.note.tbd{background:#fef0ec;border-color:#f0b8a0;color:#8a3010;}
+.note.teal-note{background:#e8f5f2;border-color:#a0d8ce;color:var(--teal);}
+
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
+.card-grid-2{grid-template-columns:repeat(2,1fr);}
+.card-grid-4{grid-template-columns:repeat(4,1fr);}
+.card{background:var(--cream);border:1px solid var(--border);border-radius:7px;padding:16px;}
+.card.hl{border-top:3px solid var(--gold);}
+.card.hl-flame{border-top:3px solid var(--flame);}
+.card.hl-teal{border-top:3px solid var(--teal);}
+.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--flame2);margin-bottom:6px;}
+.card-title.t{color:var(--teal);}
+.card p{font-size:12px;color:var(--gray700);line-height:1.6;}
+
+.palette{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+.swatch{border-radius:8px;overflow:hidden;width:130px;box-shadow:0 2px 8px rgba(0,0,0,.1);}
+.swatch-color{height:70px;}
+.swatch-info{background:var(--white);padding:9px 11px;border:1px solid var(--border);border-top:none;}
+.swatch-name{font-size:12px;font-weight:700;color:var(--dark);}
+.swatch-hex{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gray500);margin-top:2px;}
+.swatch-use{font-size:10px;color:var(--gray500);margin-top:2px;}
+
+.wireframe{background:#120802;color:#e8d8c8;font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:1.85;padding:22px 26px;border-radius:7px;margin-top:14px;white-space:pre;overflow-x:auto;}
+.wireframe .wh{color:var(--gold-lt);}
+.wireframe .wc{color:#F5A800;}
+.wireframe .wg{color:#7ecfa0;}
+.wireframe .wt{color:#5DD4BE;}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin:2px 2px 2px 0;}
+.t-flame{background:#fdeee8;color:var(--flame2);}
+.t-gold{background:#fef3e2;color:#8a5200;}
+.t-teal{background:#e8f5f2;color:var(--teal);}
+.t-dark{background:#e8e4dc;color:var(--dark);}
+.t-gray{background:#f0ede6;color:var(--gray500);}
+
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;}
+.stat{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:14px 18px;border-radius:0 0 7px 7px;text-align:center;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--flame2);letter-spacing:.04em;}
+.stat-label{font-size:10px;color:var(--gray500);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+
+.form-mock{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:18px;margin-top:12px;}
+.form-mock-title{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:9px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+.form-field{background:var(--gray100);border:1px dashed var(--border);border-radius:5px;padding:9px 12px;font-size:12px;color:var(--gray500);font-family:'JetBrains Mono',monospace;}
+.form-field.full{grid-column:1/-1;}
+.form-btn{background:var(--gold);color:var(--dark);padding:11px 24px;border-radius:5px;font-weight:700;font-size:12px;display:inline-block;margin-top:9px;}
+.form-btn.flame{background:var(--flame);color:var(--white);}
+.form-btn.teal{background:var(--teal);color:var(--white);}
+
+.nav-strip{display:flex;background:var(--dark);border-radius:7px;overflow:hidden;margin-top:16px;flex-wrap:wrap;}
+.nav-tab{flex:1;text-align:center;padding:11px 8px;font-size:11px;font-weight:600;color:rgba(255,255,255,.65);border-right:1px solid rgba(255,255,255,.08);min-width:80px;}
+.nav-tab:last-child{border-right:none;}
+.nav-tab.active{background:var(--flame);color:var(--white);}
+.nav-tab.cta{background:var(--gold);color:var(--dark);}
+.nav-tab .tab-num{display:block;font-size:9px;letter-spacing:1px;opacity:.55;text-transform:uppercase;margin-bottom:2px;}
+
+.dish-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+.dish-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);}
+.dish-img{height:70px;display:flex;align-items:center;justify-content:center;font-size:10px;font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,.6);text-align:center;padding:4px;}
+.dish-body{padding:9px 12px;background:var(--white);}
+.dish-name{font-size:12px;font-weight:700;color:var(--dark);}
+.dish-meta{font-size:10px;color:var(--gray500);margin-top:2px;}
+.dish-status{display:flex;align-items:center;gap:6px;margin-top:6px;}
+.slot-dot{width:10px;height:10px;border-radius:50%;background:#4caf50;flex-shrink:0;}
+.slot-dot.booked{background:#ccc;}
+.slot-text{font-size:10px;font-weight:700;}
+.slot-text.full{color:#999;text-decoration:line-through;}
+.dish-btn{display:block;text-align:center;background:var(--teal);color:var(--white);padding:5px;font-size:10px;font-weight:700;margin-top:6px;border-radius:4px;}
+.dish-btn.grey{background:#ccc;color:#888;}
+
+.acl-hero{background:linear-gradient(160deg,#1A0A02,#7A1E05,#C93408);border-radius:8px;padding:24px;margin-top:14px;text-align:center;color:var(--white);}
+.acl-hero .acl-badge{background:var(--gold);color:var(--dark);font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+.acl-hero h3{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.05em;color:var(--gold);}
+.acl-hero p{font-size:13px;color:rgba(255,255,255,.8);margin-top:6px;}
+
+.judge-card{background:var(--dark);border-radius:8px;padding:16px;text-align:center;flex:1;}
+.judge-avatar{width:56px;height:56px;border-radius:50%;background:var(--flame);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:18px;font-family:'Bebas Neue',sans-serif;}
+.judge-name{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.05em;color:var(--gold);}
+.judge-title{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px;}
+
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+.gal-cell{border-radius:6px;overflow:hidden;}
+.gal-cell.tall{grid-row:span 2;}
+.gal-img{display:flex;align-items:center;justify-content:center;font-size:10px;font-family:'JetBrains Mono',monospace;color:rgba(255,255,255,.7);text-align:center;padding:8px;}
+
+.footer-mock{background:var(--dark);border-radius:8px;padding:26px;margin-top:12px;color:var(--white);}
+.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-lt);margin-bottom:9px;}
+.footer-col p,.footer-col li{font-size:12px;color:rgba(255,255,255,.6);line-height:1.7;list-style:none;}
+.footer-bottom{text-align:center;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);}
+
+.hr-fancy{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px 0;}
+
+.doc-footer{background:var(--dark);color:rgba(255,255,255,.6);text-align:center;padding:24px;font-size:12px;}
+.doc-footer strong{color:var(--gold);}
+.doc-footer a{color:var(--gold-lt);}
+</style>
+</head>
+<body>
+
+<div class="edit-bar">
+  <span class="dot"></span>
+  <strong>FUSION FIESTA LOUNGE</strong>
+  <span>Website Content Plan — 14 Pages</span>
+  <span style="margin-left:auto">📋 Developer Handoff · July 2026 · Imborn Digital</span>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">🍽 WEBSITE CONTENT PLAN</div>
+  <h1>FUSION FIESTA <span>LOUNGE</span><br>WEBSITE BLUEPRINT</h1>
+  <p class="cover-sub">Complete page-by-page content structure, design direction, and developer handoff plan for the Fusion Fiesta Lounge multi-page website — including the flagship ACL (Annapurna  Cooking League) event system.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><label>Brand</label><span>Fusion Fiesta Lounge</span></div>
+    <div class="cover-meta-item"><label>Instagram</label><span>@fusion_fiesta_lounge</span></div>
+    <div class="cover-meta-item"><label>Format</label><span>Multi-Page Website</span></div>
+    <div class="cover-meta-item"><label>Total Pages</label><span>14</span></div>
+    <div class="cover-meta-item"><label>ACL Chef Judges</label><span>Vikram Gandhe &amp; Ajinkya Gandhe</span></div>
+    <div class="cover-meta-item"><label>Built By</label><span>Imborn Digital</span></div>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-title">PAGE INDEX</div>
+  <div class="toc-grid">
+    <div class="toc-item"><div class="toc-num">1</div> Home Page <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">2</div> About Us Page <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">3</div> Cuisine &amp; Drink Page <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">4</div> Menu Page — Food + Drink <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">5</div> Event Page + Category Pages <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num t-teal">6</div> ACL Landing Page — Annapurna Cooking League <span class="toc-page special">SPECIAL</span></div>
+    <div class="toc-item"><div class="toc-num">7</div> Testimonial Page <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">8</div> Dynamic Gallery Pages <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">9</div> Reserve Table Page <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num">10</div> Contact Us Page <span class="toc-page">MAIN</span></div>
+    <div class="toc-item"><div class="toc-num t-gold">11</div> Privacy Policy Page <span class="toc-page policy">LEGAL</span></div>
+    <div class="toc-item"><div class="toc-num t-gold">12</div> Terms &amp; Conditions Page <span class="toc-page policy">LEGAL</span></div>
+    <div class="toc-item"><div class="toc-num t-gold">13</div> Refund Policy Page <span class="toc-page policy">LEGAL</span></div>
+    <div class="toc-item"><div class="toc-num t-teal">→</div> Global: Sticky Navbar + WhatsApp Bubble + Reserve CTA <span class="toc-page special">GLOBAL</span></div>
+  </div>
+</div>
+
+<!-- GLOBAL NAV -->
+<div class="acc" id="sec-nav">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-dark">🗂️</div>
+      <div>
+        <div class="acc-label">Global Element</div>
+        <div class="acc-title">NAVBAR + GLOBAL STICKIES</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock dark">
+      <h4>Structure — appears on all pages</h4>
+      <p><strong>Top utility bar</strong> (dark bg, gold text): Phone number · "Reserve a Table" text link · Instagram icon.<br><strong>Main navbar</strong> (dark bg, flame hover): Logo left. Nav links center. "Reserve Table" gold CTA button right.<br><strong>Mobile</strong>: hamburger collapse. Sticky on scroll.</p>
+    </div>
+    <div class="nav-strip">
+      <div class="nav-tab active"><span class="tab-num">Logo</span>🔥 Fusion Fiesta</div>
+      <div class="nav-tab"><span class="tab-num">PG1</span>Home</div>
+      <div class="nav-tab"><span class="tab-num">PG2</span>About Us</div>
+      <div class="nav-tab"><span class="tab-num">PG3</span>Cuisine</div>
+      <div class="nav-tab"><span class="tab-num">PG4</span>Menu</div>
+      <div class="nav-tab"><span class="tab-num">PG5</span>Events</div>
+      <div class="nav-tab"><span class="tab-num">PG8</span>Gallery</div>
+      <div class="nav-tab"><span class="tab-num">PG10</span>Contact</div>
+      <div class="nav-tab cta"><span class="tab-num">CTA</span>Reserve Table</div>
+    </div>
+    <div class="cblock teal" style="margin-top:14px;">
+      <h4>Always-visible stickies</h4>
+      <p>1. <strong>Gold "Reserve Table" button</strong> — fixed right edge, visible on all pages, links to Reserve Table page.<br>2. <strong>WhatsApp green bubble</strong> — fixed bottom-left, opens WhatsApp chat pre-filled: "Hi, I'd like to know more about Fusion Fiesta Lounge!"<br>3. <strong>ACL Event banner strip</strong> (during event season): thin dismissible top strip in flame gradient → "🔥 Annapurna  Cooking League is LIVE! 50 dishes · Reserve yours now →"</p>
+    </div>
+  </div>
+</div>
+
+<!-- PG1 HOME -->
+<div class="sec-band"><span class="pill">PAGE 1</span> HOME PAGE</div>
+<div class="acc" id="pg1">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🏠</div>
+      <div>
+        <div class="acc-label">Page 01 · Homepage</div>
+        <div class="acc-title">HOME — THE FIRST IMPRESSION</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock gold">
+      <h4>Tone &amp; Goal</h4>
+      <p>First impression, vibe-heavy. Make visitors feel the lounge before they walk in. Goal: drive 3 conversions — Table Reservation · Menu Browse · Event Signup. Reference competitor: hitchki.co uses bold hero + cuisine teaser + testimonial strip. Go bolder with video BG.</p>
+    </div>
+    <div class="wireframe">┌──────────────────────────────────────────────────────────────┐
+│ <span class="wh">SECTION A — HERO (full screen)</span>                               │
+│ BG: Short looping video — plating close-up, cocktail pour,    │
+│     smoky atmosphere. Dark overlay (60%).                     │
+│                                                               │
+│ TYPE: Moodboard ambiance video or high-res interior photo     │
+│                                                               │
+│  🔥 "WHERE EVERY BITE TELLS A STORY"                         │
+│  Sub: The finest fusion of flavours — dine, drink, celebrate  │
+│  [Explore Menu] [Reserve Your Table ▶]                        │
+├──────────────────────────────────────────────────────────────┤
+│ <span class="wh">SECTION B — QUICK TRUST BAR</span> (dark strip, animated)            │
+│  🍽 50+ Dishes  |  🍹 Craft Cocktails  |  🎉 Private Events │
+│  |  ⭐ [X]+ Reviews  |  📍 [Location, Nagpur]                │
+├──────────────────────────────────────────────────────────────┤
+│ <span class="wh">SECTION C — SIGNATURE CUISINES TEASER</span> (4 cards)               │
+│  [Indian] [Continental] [Asian] [Fusion]                      │
+│  Each: food photo + cuisine name → links to Cuisine page      │
+├──────────────────────────────────────────────────────────────┤
+│ <span class="wh">SECTION D — ATMOSPHERE STRIP</span>                                  │
+│  "More than a meal — it's an experience"                      │
+│  3 mood photos: Bar · Dining · Private Dining                 │
+├──────────────────────────────────────────────────────────────┤
+│ <span class="wh">SECTION E — FEATURED EVENT BANNER</span>                            │
+│  ACL Cooking Competition teaser card → "See Event Details"   │
+├──────────────────────────────────────────────────────────────┤
+│ <span class="wh">SECTION F — TESTIMONIALS STRIP</span> (3-card auto-scroll)            │
+│  Star rating + quote + name                                   │
+├──────────────────────────────────────────────────────────────┤
+│ <span class="wh">SECTION G — RESERVE TABLE CTA BANNER</span>                          │
+│  "Your Table is Waiting" · [Book Now]                        │
+└──────────────────────────────────────────────────────────────┘</div>
+    <div class="note"><span class="note-icon">🎬</span><span><strong>Image/video types needed from client:</strong> 1) Atmospheric interior video (15–30s loop, muted) or hero photo. 2) 4 cuisine category food photos. 3) 3 ambiance mood photos (bar, dining room, private area). 4) Exterior/signage photo.</span></div>
+  </div>
+</div>
+
+<!-- PG2 ABOUT -->
+<div class="sec-band"><span class="pill">PAGE 2</span> ABOUT US PAGE</div>
+<div class="acc" id="pg2">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-mid">📖</div>
+      <div>
+        <div class="acc-label">Page 02 · About</div>
+        <div class="acc-title">ABOUT US — THE STORY BEHIND THE SIZZLE</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Sections</h4>
+    </div>
+    <div class="card-grid card-grid-2">
+      <div class="card hl-flame">
+        <div class="card-title">Our Story</div>
+        <p>Origin narrative: why Fusion Fiesta was founded, the idea behind the fusion concept, what makes it different from typical Nagpur eateries. 2–3 paragraphs, warm and personal tone.<br><span style="font-size:11px; color:var(--gray500); margin-top:5px; display:block;">📌 TYPE: Founders photo or kitchen in-action shot</span></p>
+      </div>
+      <div class="card hl-flame">
+        <div class="card-title">Our Philosophy / Mission</div>
+        <p>"Great food is a conversation between cultures." — Short philosophy statement. What "fusion" means to the team. Values: quality, creativity, hospitality.<br><span style="font-size:11px; color:var(--gray500); margin-top:5px; display:block;">📌 TYPE: Chef plating a dish, creative action shot</span></p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">Meet the Team / Chefs</div>
+        <p>Card for each key chef/team member: photo, name, role, speciality, 1 fun fact. Include <strong>Chef Vikram Gandhe</strong> and <strong>Chef Ajinkya Gandhe</strong> prominently as anchor personalities.<br><span style="font-size:11px; color:var(--gray500); margin-top:5px; display:block;">📌 TYPE: Professional headshots of chefs + team in uniform</span></p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">The Space</div>
+        <p>Interior walkthrough: seating capacity, bar area, private dining/event space, ambiance design intent. 3–4 photos in a mini gallery strip.<br><span style="font-size:11px; color:var(--gray500); margin-top:5px; display:block;">📌 TYPE: Interior wide-angle photos — dining, bar, entrance</span></p>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Content needed from client:</strong> Founding story text (or bullet notes for copywriter), team bios, headshots, and capacity/space details.</span></div>
+  </div>
+</div>
+
+<!-- PG3 CUISINE & DRINK -->
+<div class="sec-band"><span class="pill">PAGE 3</span> CUISINE &amp; DRINK PAGE</div>
+<div class="acc" id="pg3">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🍜</div>
+      <div>
+        <div class="acc-label">Page 03 · Cuisine</div>
+        <div class="acc-title">CUISINE &amp; DRINK — THE EXPERIENCE SELL</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock gold">
+      <h4>Purpose</h4>
+      <p>Not the menu — this page sells the <em>experience and style</em> of each cuisine category. Full-bleed photos, short evocative descriptions, emotional language. Think of it as the "cinema trailer" before the full menu PDF.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card hl-flame">
+        <div class="card-title">🍛 Indian Fusion</div>
+        <p>Describe: how classic Indian flavours meet modern plating and technique. 2–3 sentences, sensory language.<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Hero dish photo — a signature Indian fusion plate, styled</span></p>
+      </div>
+      <div class="card hl-flame">
+        <div class="card-title">🍝 Continental</div>
+        <p>Rustic European comfort meets Nagpur hospitality. Pasta, risotto, grills. Describe the mood of the continental section.<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Styled continental dish — pasta / steak / grilled protein</span></p>
+      </div>
+      <div class="card hl-flame">
+        <div class="card-title">🥢 Asian / Oriental</div>
+        <p>Wok-tossed, umami-rich, vibrant. Thai, Chinese, Japanese-inspired. Express the energy of Asian cooking.<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Noodle dish or sushi-style plate, vibrant colours</span></p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">🍸 Signature Cocktails</div>
+        <p>Craft cocktails and mocktails — the bar identity. Name the signature drink &amp; describe the flavour story.<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Cocktail pour, bar back-lit shot, garnish close-up</span></p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">🍰 Desserts</div>
+        <p>Artisan endings. Fusion desserts — give the section a poetic one-liner. E.g. "Every meal deserves a final encore."<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Dessert plating close-up, warm lighting</span></p>
+      </div>
+      <div class="card hl-teal">
+        <div class="card-title">☕ Beverages</div>
+        <p>Hot beverages, specialty teas, fresh juices. The non-alcoholic experience — equally curated.<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Coffee/tea flat-lay, warm toned</span></p>
+      </div>
+    </div>
+    <div class="cblock teal" style="margin-top:12px;">
+      <h4>Layout Direction</h4>
+      <p>Alternating full-bleed left/right image-text sections (like hitchki.co's cuisine panels). Each cuisine: large photo on one side, headline + 3-line description + "View Menu" button on the other. CTA at bottom: "Explore Our Full Menu →" → links to Menu Page.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PG4 MENU -->
+<div class="sec-band"><span class="pill">PAGE 4</span> MENU PAGE</div>
+<div class="acc" id="pg4">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-gold">📋</div>
+      <div>
+        <div class="acc-label">Page 04 · Menu</div>
+        <div class="acc-title">MENU PAGE — FOOD MENU + DRINK MENU </div>
+        <div><span class="acc-type pg-main">Main Page Refer-(https://maps.app.goo.gl/8Cc7TpWKgLAezsng9)</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Structure</h4>
+      <p>Two sub-tabs: <strong>[Food Menu]</strong> and <strong>[Drink Menu]</strong>. Each tab shows a filterable, searchable digital menu. Categories in Food: Starters · Mains · Biryani &amp; Rice · Desserts · Kids' Menu. Categories in Drink: Cocktails · Mocktails · Beer &amp; Spirits · Hot Beverages · Fresh Juices.</p>
+    </div>
+    <div class="card-grid card-grid-2">
+      <div class="card hl-flame">
+        <div class="card-title">Food Menu Tab</div>
+        <p><strong>Filter strip:</strong> All | Starters | Mains | Biryani | Desserts | Veg Only | Chef's Special<br><strong>Each item:</strong> Dish photo (thumbnail) + name + 1-line description + price + veg/non-veg dot + "Add to Cart" (if online ordering) or just price display.<br><strong>Hero dish:</strong> Feature 2–3 "Chef Recommends" items at the top with larger photo cards.</p>
+      </div>
+      <div class="card hl-teal">
+        <div class="card-title">Drink Menu Tab</div>
+        <p><strong>Filter strip:</strong> All | Cocktails | Mocktails | Beer &amp; Spirits | Hot | Juices<br><strong>Each item:</strong> Drink photo + name + flavour note + price + alcoholic/NA badge.<br><strong>Feature:</strong> "Signature Drinks" carousel at the top — 3–4 star cocktails with full-bleed hero shots and a mini origin story.</p>
+      </div>
+    </div>
+    <div class="note"><span class="note-icon">🖼️</span><span><strong>Image type needed (critical):</strong> Individual dish photos for every menu item OR at minimum one photo per category. Professional food photography preferred. Client to supply full menu with pricing, descriptions, veg/non-veg tags, and allergen notes.</span></div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Content needed:</strong> Full menu list with item names, descriptions (1 line each), prices, veg/non-veg, and any allergen/spice labels. ?</span></div>
+  </div>
+</div>
+
+<!-- PG5 EVENTS -->
+<div class="sec-band"><span class="pill">PAGE 5</span> EVENT PAGE + CATEGORY PAGES</div>
+<div class="acc" id="pg5">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">🎉</div>
+      <div>
+        <div class="acc-label">Page 05 · Events</div>
+        <div class="acc-title">EVENTS PAGE + CATEGORY PAGES</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>Events hub page — filter tabs for event types. Each event: hero image, name, date, brief description, CTA button. Below the event grid, a "Host Your Event Here" private booking section. "Medical Foundation" is a category page (see below).</p>
+    </div>
+    <div class="filter-tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;background:var(--flame);color:var(--white);">All Events</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Live Music</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Themed Nights</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">ACL Competition</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Medical Foundation</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Private Dining</div>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:12px;">
+      <div class="card hl-flame">
+        <div class="card-title">Category Page: Medical Foundation</div>
+        <p>Dedicated sub-page for events tied to a medical foundation or health awareness cause. Structure: Event hero image → cause description → event details (date, venue, schedule) → registration form or ticket CTA → gallery from past editions.<br><strong>Tone:</strong> Warm, community-driven, purposeful — distinct from the nightlife/dining energy of the main events.<br><span style="font-size:11px;color:var(--gray500)">📌 Content needed: Foundation name, cause, past event photos, next event details.</span></p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">Private Events / Corporate Booking</div>
+        <p>Events Under Category like, Corporate Events, Birthday Parties, Anniversary, Social Celebrations. "Make Your Event Unforgettable" — capacity details, available setups (cocktail, banquet, corporate, birthday), catering packages, inquiry form. CTA: "Get a Custom Quote →"<br><span style="font-size:11px;color:var(--gray500)">📌 TYPE: Private dining room photo, decorated setup, corporate event photo</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PG6 ACL — SPECIAL PAGE -->
+<div class="sec-band"><span class="pill teal-pill">PAGE 6 · SPECIAL</span> ACL LANDING PAGE — Annapurna  COOKING LEAGUE</div>
+<div class="acc" id="pg6">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-teal">🏆</div>
+      <div>
+        <div class="acc-label">Page 06 · FLAGSHIP SPECIAL EVENT</div>
+        <div class="acc-title">ACL — Annapurna  COOKING LEAGUE</div>
+        <div><span class="acc-type pg-special">Special Event Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock teal">
+      <h4>Concept</h4>
+      <p>This is a standalone event landing page <em>hosted by Fusion Fiesta Lounge</em> — visually separate from the main site's look. Think high-energy, challenge-driven, dare-you-to-enter. The page has its own URL (e.g. fusionfiestalounge.com/acl) and can be shared directly as a campaign link on WhatsApp/Instagram.</p>
+    </div>
+
+    <!-- HERO CONCEPT -->
+    <div class="acl-hero">
+      <div class="acl-badge">🔥 Annapurna  Cooking League · Powered by Fusion Fiesta Lounge</div>
+      <h3>THINK YOU CAN COOK?</h3>
+      <p style="font-size:18px; font-weight:700; color:var(--gold-lt); margin-top:4px;">BRING. IT. ON.</p>
+      <p style="margin-top:8px;">50 dishes. 2 legendary chef judges. One title to claim.</p>
+      <p style="margin-top:6px; font-size:12px; color:rgba(255,255,255,.6);">Dare accepted — or are you just here for the food?</p>
+    </div>
+
+    <div class="cblock" style="margin-top:14px;">
+      <h4>Tagline Options (choose one or A/B test)</h4>
+      <p>• "Think You Can Cook? Bring It On." — Challenge/dare energy<br>
+      • "50 Dishes. One Champion. Are You On the List?" — Urgency + exclusivity<br>
+      • "Your Kitchen. Our Stage. Let's See What You've Got." — Bold invitation<br>
+      • "Not Just a Competition. A Statement." — Prestige angle</p>
+    </div>
+
+    <div class="hr-fancy"></div>
+
+    <!-- DISH RESERVATION SYSTEM -->
+    <div class="cblock teal">
+      <h4>Dish Reservation System — Core Mechanic</h4>
+      <p>50 dishes total. Each dish has a fixed number of available "slots" (e.g. 3 slots per dish). When all slots for a dish are taken, it greys out and shows "Fully Booked" — late arrivals cannot pick that dish. This creates urgency and FOMO. Below is how it looks:</p>
+    </div>
+    <div class="dish-grid">
+      <div class="dish-card">
+        <div class="dish-img" style="background:linear-gradient(135deg,#7A1E05,#C93408);">🍛 Dum Biryani<br><small>Dish #07</small></div>
+        <div class="dish-body">
+          <div class="dish-name">Dum Biryani</div>
+          <div class="dish-meta">Category: Indian · 3 Slots</div>
+          <div class="dish-status">
+            <div class="slot-dot"></div><div class="slot-dot"></div><div class="slot-dot booked"></div>
+            <span class="slot-text">2 / 3 booked</span>
+          </div>
+          <div class="dish-btn">Reserve This Dish →</div>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img" style="background:linear-gradient(135deg,#4a4030,#8a7a60);">🍕 Fusion Pizza<br><small>Dish #12</small></div>
+        <div class="dish-body">
+          <div class="dish-name">Fusion Pizza</div>
+          <div class="dish-meta">Category: Continental · 3 Slots</div>
+          <div class="dish-status">
+            <div class="slot-dot booked"></div><div class="slot-dot booked"></div><div class="slot-dot booked"></div>
+            <span class="slot-text full">3 / 3 · Fully Booked</span>
+          </div>
+          <div class="dish-btn grey">Fully Booked</div>
+        </div>
+      </div>
+      <div class="dish-card">
+        <div class="dish-img" style="background:linear-gradient(135deg,#0D6B5E,#14977A);">🥢 Pad Thai<br><small>Dish #23</small></div>
+        <div class="dish-body">
+          <div class="dish-name">Pad Thai Noodles</div>
+          <div class="dish-meta">Category: Asian · 3 Slots</div>
+          <div class="dish-status">
+            <div class="slot-dot"></div><div class="slot-dot"></div><div class="slot-dot"></div>
+            <span class="slot-text">0 / 3 booked</span>
+          </div>
+          <div class="dish-btn">Reserve This Dish →</div>
+        </div>
+      </div>
+    </div>
+    <div class="cblock dark" style="margin-top:14px;">
+      <h4>Developer Note — Dish Booking Logic</h4>
+      <p>Each dish has a configurable slot limit (default: 3). On booking, slot count decrements in real-time (Firebase / Supabase recommended for live updates). When count = max, dish card automatically adds class <code>.grey</code> and disables button. A real-time listener pushes updates to all open sessions — so if someone else books while you're browsing, the count updates live without refresh. Admin panel to add/edit/remove dishes and reset slot counts.</p>
+    </div>
+
+    <div class="hr-fancy"></div>
+
+    <!-- CHEF JUDGES -->
+    <div class="cblock teal">
+      <h4>Chef Judges — The Authority Figures</h4>
+      <p>Displayed prominently mid-page. Their credibility drives registrations — make their cards large, with real headshots.</p>
+    </div>
+    <div style="display:flex;gap:14px;margin-top:12px;">
+      <div class="judge-card">
+        <div class="judge-avatar">VG</div>
+        <div class="judge-name">VIKRAM GANDHE</div>
+        <div class="judge-title">Chef Judge · ACL 2026</div>
+        <p style="font-size:11px;color:rgba(255,255,255,.55);margin-top:8px;">Background, speciality &amp; experience — TBD from client. <em>Replace initials with professional headshot.</em></p>
+      </div>
+      <div class="judge-card">
+        <div class="judge-avatar">AG</div>
+        <div class="judge-name">AJINKYA GANDHE</div>
+        <div class="judge-title">Chef Judge · ACL 2026</div>
+        <p style="font-size:11px;color:rgba(255,255,255,.55);margin-top:8px;">Background, speciality &amp; experience — TBD from client. <em>Replace initials with professional headshot.</em></p>
+      </div>
+    </div>
+
+    <div class="hr-fancy"></div>
+
+    <!-- FULL ACL PAGE WIREFRAME -->
+    <div class="wireframe">
+┌──────────────────────────────────────────────────────────────────────┐
+│  <span class="wh">ACL HERO</span>  Flame gradient BG · "THINK YOU CAN COOK? BRING IT ON."   │
+│           Event badge · Date/Venue/Time · [Reserve Your Dish →]     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">ABOUT THE COMPETITION</span>  What is ACL? Rules overview (3 steps)       │
+│    [50 Dishes][Real Judges][Prizes][Certificate]                     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wc">DISH RESERVATION GRID  ← CORE MECHANIC</span>                            │
+│  [Search bar] [Filter: All | Indian | Continental | Asian | Fusion]  │
+│  50 dish cards in a responsive grid. Each card:                      │
+│    - Dish name + category + photo                                    │
+│    - Slot dots (●●○ = 2/3 booked)                                   │
+│    - "Reserve This Dish" CTA → opens booking modal                  │
+│    - GREY state when all slots filled                                │
+│  Live slot counter: "X of 50 dishes still available"                │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">CHEF JUDGES</span>  Vikram Gandhe + Ajinkya Gandhe — large cards, bios     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PRIZES &amp; PERKS</span>  3-tier prize breakdown + certificate + media coverage │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">HOW IT WORKS</span>  Step 1 Register → Step 2 Cook → Step 3 Win           │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wt">BOOKING MODAL</span> (popup on dish selection)                              │
+│    Dish selected: [Dum Biryani] · Slot: 3 of 3 remaining            │
+│    Name | Mobile | Email | Category                                  │
+│    [Confirm &amp; Pay ₹XX] via Razorpay                                  │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">RULES &amp; FAQ</span>  Competition rules + FAQ accordion                       │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PAST ACL HIGHLIGHTS</span>  Gallery from previous editions + winner names   │
+└──────────────────────────────────────────────────────────────────────┘</div>
+
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Content needed for ACL page:</strong> Full list of 50 dishes (name + category). Chef bios and headshots (Vikram &amp; Ajinkya Gandhe). Prize structure. Event date/time/venue. Entry fee amount. Payment gateway preference (Razorpay/Cashfree).</span></div>
+    <div class="note teal-note"><span class="note-icon">💡</span><span><strong>Note:</strong> The existing <code>Fusion_Fiesta_Landing_Page.html</code> is a strong draft base for this page. It has the hero, categories, judges section, rules, timeline, and registration form already structured. The main new engineering task is the real-time dish-slot reservation system (live slot counting, grey-out on full booking, Razorpay payment modal).</span></div>
+  </div>
+</div>
+
+<!-- PG7 TESTIMONIALS -->
+<div class="sec-band"><span class="pill">PAGE 7</span> TESTIMONIALS PAGE</div>
+<div class="acc" id="pg7">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-mid">⭐</div>
+      <div>
+        <div class="acc-label">Page 07 · Testimonials</div>
+        <div class="acc-title">TESTIMONIALS — LET GUESTS DO THE TALKING</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>Heading: "Real Nights. Real People. Real Reviews." Hero stat bar (average rating, total reviews). Masonry card grid. Filter tabs by experience type: Dining · Cocktails · Events · Private Booking. Optional: embed Google Reviews widget + Zomato/Swiggy rating badges. CTA at bottom: "Write Your Review →" → links to Google Business profile.</p>
+    </div>
+    <div class="card-grid" style="margin-top:12px;">
+      <div class="card hl-flame">
+        <div style="color:var(--gold); font-size:14px; margin-bottom:6px;">★★★★★</div>
+        <div class="card-title">Dining Experience</div>
+        <p>"The Dum Biryani was absolutely next level. The ambiance made it feel like we were dining somewhere in Mumbai, right here in Nagpur." — Guest Name</p>
+      </div>
+      <div class="card hl-flame">
+        <div style="color:var(--gold); font-size:14px; margin-bottom:6px;">★★★★★</div>
+        <div class="card-title">Private Event</div>
+        <p>"They handled our corporate dinner for 40 people perfectly — food, service, ambiance. Will be back." — Guest Name</p>
+      </div>
+      <div class="card hl-flame">
+        <div style="color:var(--gold); font-size:14px; margin-bottom:6px;">★★★★☆</div>
+        <div class="card-title">ACL Competition</div>
+        <p>"Competed in ACL last year — the judges were professional, the atmosphere was electric. Preparing to win this time." — Guest Name</p>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Source check:</strong> Real testimonials with guest permission are needed. Minimum 12 reviews. Can pull from verified Google Reviews / Zomato ratings — confirm client's GMB listing URL. Placeholder cards above for layout reference only.</span></div>
+  </div>
+</div>
+
+<!-- PG8 GALLERY -->
+<div class="sec-band"><span class="pill">PAGE 8</span> DYNAMIC GALLERY PAGES</div>
+<div class="acc" id="pg8">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon">📸</div>
+      <div>
+        <div class="acc-label">Page 08 · Gallery</div>
+        <div class="acc-title">DYNAMIC GALLERY PAGES</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout &amp; Dynamic Feature</h4>
+      <p>"Dynamic" means the gallery is CMS-managed — new photos/reels can be added via admin without touching code. Filter tabs let users browse by category. Lightbox on click. Instagram feed embed (pull live from @fusion_fiesta_lounge) as a bonus section at the bottom.</p>
+    </div>
+    <div class="filter-tabs" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;background:var(--flame);color:var(--white);">All</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Food</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Drinks</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Events</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">ACL</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Ambiance</div>
+      <div style="padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--border);background:var(--white);">Reels</div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gal-cell tall"><div class="gal-img" style="height:170px;background:linear-gradient(135deg,#7A1E05,#C93408);">TYPE: Signature dish close-up</div></div>
+      <div class="gal-cell"><div class="gal-img" style="height:80px;background:linear-gradient(135deg,#1A1202,#4a3f30);">TYPE: Interior ambiance</div></div>
+      <div class="gal-cell"><div class="gal-img" style="height:80px;background:linear-gradient(135deg,#0D6B5E,#14977A);">TYPE: Cocktail pour shot</div></div>
+      <div class="gal-cell"><div class="gal-img" style="height:80px;background:linear-gradient(135deg,#E8420A,#F5A800);">TYPE: ACL event action</div></div>
+      <div class="gal-cell"><div class="gal-img" style="height:80px;background:linear-gradient(135deg,#4a3f30,#8a7a60);">TYPE: Chef plating</div></div>
+      <div class="gal-cell tall"><div class="gal-img" style="height:170px;background:linear-gradient(135deg,#1A1202,#7A1E05);">TYPE: Live event/music night</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PG9 RESERVE TABLE -->
+<div class="sec-band"><span class="pill">PAGE 9</span> RESERVE TABLE PAGE</div>
+<div class="acc" id="pg9">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-gold">🍽️</div>
+      <div>
+        <div class="acc-label">Page 09 · Reservation</div>
+        <div class="acc-title">RESERVE TABLE PAGE</div>
+        <div><span class="acc-type pg-main">Main Page · Conversion Focus</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock gold">
+      <h4>Goal</h4>
+      <p>Highest conversion page on the site. Remove all friction — the booking form must be fast, simple, and confidence-inspiring. Heading: "Your Table Awaits." Show available time slots; send confirmation via WhatsApp/email on submit.</p>
+    </div>
+    <div class="card-grid card-grid-2" style="margin-top:12px;">
+      <div>
+        <div class="form-mock">
+          <div class="form-mock-title">🍽 Table Reservation Form</div>
+          <div class="form-row">
+            <div class="form-field">Full Name *</div>
+            <div class="form-field">Mobile Number *</div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">Date 📅</div>
+            <div class="form-field">Time Slot ▾</div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">No. of Guests ▾</div>
+            <div class="form-field">Seating Preference ▾</div>
+          </div>
+          <div class="form-field full" style="display:block; margin-top:8px;">Special Occasion / Request (optional)</div>
+          <div class="form-btn" style="width:100%;display:block;text-align:center;margin-top:10px;">🔥 Confirm My Reservation</div>
+          <p style="font-size:10px;color:var(--gray500);margin-top:7px;text-align:center;">Confirmation sent via WhatsApp within 30 minutes.</p>
+        </div>
+      </div>
+      <div>
+        <div class="cblock teal">
+          <h4>Right Column — Trust &amp; Info</h4>
+          <p>Opening hours · Location map embed · Phone / WhatsApp number · "Walk-in available subject to availability" note · 2–3 ambiance photos as a mini carousel.</p>
+        </div>
+        <div class="cblock">
+          <h4>Seating Preference Options</h4>
+          <p>Indoor Dining · Outdoor / Terrace · Bar Seating · Private Dining Room · No Preference</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PG10 CONTACT -->
+<div class="sec-band"><span class="pill">PAGE 10</span> CONTACT US PAGE</div>
+<div class="acc" id="pg10">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-teal">📞</div>
+      <div>
+        <div class="acc-label">Page 10 · Contact</div>
+        <div class="acc-title">CONTACT US PAGE</div>
+        <div><span class="acc-type pg-main">Main Page</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout</h4>
+      <p>2-column: Left = contact form (general enquiry, event booking, feedback). Right = full-width Google Maps embed + address, phone, email, social links + opening hours card. Heading: "Come Find Us — Or Just Say Hello."</p>
+    </div>
+    <div class="card-grid card-grid-4" style="margin-top:12px;">
+      <div class="card hl-flame"><div class="card-title">📞 Call / WhatsApp</div><p>TBD — confirm number with client</p></div>
+      <div class="card hl-flame"><div class="card-title">✉️ Email</div><p>TBD — confirm email</p></div>
+      <div class="card hl-flame"><div class="card-title">📍 Address</div><p>TBD — confirm full Nagpur address</p></div>
+      <div class="card hl-flame"><div class="card-title">🕐 Hours</div><p>TBD — lunch/dinner timings + days closed</p></div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Content needed:</strong> Phone, email, full address, opening hours, Google Business link for map embed, and social media links (Instagram / Facebook / Zomato listing).</span></div>
+  </div>
+</div>
+
+<!-- PG11-13 POLICY PAGES -->
+<div class="sec-band"><span class="pill dim">PAGES 11–13</span> LEGAL PAGES — POLICY TRIO</div>
+<div class="acc" id="pg11">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-mid">⚖️</div>
+      <div>
+        <div class="acc-label">Pages 11 · 12 · 13</div>
+        <div class="acc-title">PRIVACY · TERMS &amp; CONDITIONS · REFUND POLICY</div>
+        <div><span class="acc-type pg-policy">Legal Pages</span></div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock">
+      <h4>Layout — all 3 pages share the same simple template</h4>
+      <p>Clean, cream background. No hero image. Just: page title → last updated date → numbered sections with headings and paragraphs. Footer links between all 3. Linked in the website footer and in the ACL registration form (required consent before payment).</p>
+    </div>
+    <div class="card-grid" style="margin-top:12px;">
+      <div class="card hl">
+        <div class="card-title">Privacy Policy</div>
+        <p>What data is collected (reservation forms, ACL registration, contact forms) · How it's used · Third-party sharing (payment gateway, WhatsApp API) · Right to deletion · Cookie policy · Contact for privacy queries.</p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">Terms &amp; Conditions</div>
+        <p>Table reservation policy (cancellation window, no-show) · ACL competition eligibility, rules, and code of conduct · Intellectual property (menu, brand) · Governing law (Maharashtra) · Amendments clause.</p>
+      </div>
+      <div class="card hl">
+        <div class="card-title">Refund Policy</div>
+        <p>Table reservation: free cancellation up to [X] hours, no refund after. ACL dish registration: refund if cancelled 48 hrs before event; no refund on event day. Payment reversal timeline: 5–7 business days via Razorpay. Special circumstances clause.</p>
+      </div>
+    </div>
+    <div class="note tbd"><span class="note-icon">⚠️</span><span><strong>Content needed:</strong> Confirm cancellation policies, Razorpay merchant agreement terms, and any special competition rules the legal team/owner approves. A lawyer-reviewed draft is recommended before publishing.</span></div>
+  </div>
+</div>
+
+<!-- DESIGN GUIDE -->
+<div class="acc" id="sec-design">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-dark">🎨</div>
+      <div>
+        <div class="acc-label">Design Reference</div>
+        <div class="acc-title">COLOR PALETTE · TYPOGRAPHY · STYLE</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="cblock dark">
+      <h4>Design Philosophy</h4>
+      <p>Bold, dark, flavour-forward — the energy of a premium lounge, not a family dhaba. Flame red + gold = heat, desire, premium dining. Dark near-black = sophistication, nightlife, exclusivity. Teal = a calm counterpoint for CTA buttons (stands out against the warm palette). The look is hitchki.co's boldness with a Nagpur-specific warmth.</p>
+    </div>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8420A;"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand Flame</div><div class="swatch-hex">#E8420A</div><div class="swatch-use">Primary accent, nav, buttons</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C93408;"></div>
+        <div class="swatch-info"><div class="swatch-name">Deep Flame</div><div class="swatch-hex">#C93408</div><div class="swatch-use">Hover states, hero gradient</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F5A800;"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand Gold</div><div class="swatch-hex">#F5A800</div><div class="swatch-use">CTA Buttons · Reserve Table</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1202;"></div>
+        <div class="swatch-info"><div class="swatch-name">Near Black</div><div class="swatch-hex">#1A1202</div><div class="swatch-use">Navbar · Footer · Dark sections</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0D6B5E;"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand Teal</div><div class="swatch-hex">#0D6B5E</div><div class="swatch-use">ACL page · Secondary CTA</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FFFDF7; border:1px solid #E8E0D0;"></div>
+        <div class="swatch-info"><div class="swatch-name">Warm Cream</div><div class="swatch-hex">#FFFDF7</div><div class="swatch-use">Page BG · Light sections</div></div>
+      </div>
+    </div>
+    <div class="hr-fancy"></div>
+    <div class="card-grid card-grid-2" style="margin-top:4px;">
+      <div class="card">
+        <div class="card-title">Display Font</div>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--flame2);letter-spacing:.06em;">Bebas Neue</p>
+        <p style="font-size:12px;color:var(--gray500);margin-top:5px;">Hero headlines, section titles, stat numbers, nav logo. Google Fonts — free.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Accent / Quote Font</div>
+        <p style="font-family:'Playfair Display',sans-serif;font-style:italic;font-size:18px;color:var(--mid);">Playfair Display</p>
+        <p style="font-size:12px;color:var(--gray500);margin-top:5px;">Taglines, quote callouts, menu item descriptions. Italic 700 weight. Google Fonts — free.</p>
+      </div>
+    </div>
+    <div class="cblock" style="margin-top:12px;">
+      <h4>Competitor Reference</h4>
+      <p>hitchki.co — study their: cuisine section alternating image/text panels, bold full-bleed section backgrounds, sticky nav with reservation CTA, reviews embed, events listing format. Fusion Fiesta should feel equally premium but warmer and more festival-energy, given the ACL event positioning.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE LAYOUT README -->
+<div class="acc" id="sec-layout" style="border-bottom:none;">
+  <div class="acc-head">
+    <div class="acc-head-left">
+      <div class="acc-icon t-teal">📋</div>
+      <div>
+        <div class="acc-label">Quick Reference</div>
+        <div class="acc-title">SITE MAP — README FORMAT</div>
+      </div>
+    </div>
+    <button class="acc-btn" onclick="toggleAcc(this)"><span class="acc-arrow">▼</span></button>
+  </div>
+  <div class="acc-body">
+    <div class="wireframe">
+┌──────────────────────────────────────────────────────────────────────┐
+│  <span class="wh">GLOBAL NAVBAR</span>  Logo | Home About Cuisine Menu Events Gallery Contact  │
+│                | <span class="wc">[Reserve Table ▶]</span> (gold)  + Top utility bar (Ph./IG) │
+│                + Sticky gold Reserve button (right) + WA bubble     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG1 HOME</span>  Video hero + trust bar + cuisine teaser + atmosphere +    │
+│           featured event + testimonial strip + reserve CTA           │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG2 ABOUT</span>  Story + Philosophy + Meet the Chefs + The Space          │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG3 CUISINE & DRINK</span>  Full-bleed alternating panels per cuisine +    │
+│                       cocktails + desserts → "View Full Menu" CTA   │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG4 MENU</span>  [Food Menu] [Drink Menu] tabs · Filterable digital menu    │
+│           with photos, prices, veg dots, Chef Recommends section     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG5 EVENTS</span>  Hub page · Filter tabs · Event cards · Private booking  │
+│   └─ Category: Medical Foundation (sub-page)                         │
+│   └─ Category: ACL (links to PG6)                                    │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wt">PG6 ACL — Annapurna COOKING LEAGUE</span> (standalone URL: /acl)            │
+│   🔥 Hero: "Think You Can Cook? Bring It On."                       │
+│   📋 About + Rules                                                   │
+│   🍽 Dish Grid: 50 dishes, real-time slot booking                   │
+│      ● = available  ✗ = booked out  →  Greys out when full         │
+│   🔪 Judges: Vikram Gandhe + Ajinkya Gandhe                         │
+│   🏆 Prizes + Timeline + FAQ                                         │
+│   💳 Booking Modal → Razorpay payment                               │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG7 TESTIMONIALS</span>  Filter by type · Masonry grid · GMB embed       │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG8 GALLERY</span>  Dynamic CMS gallery · Filter tabs · Lightbox           │
+│              + Instagram live feed embed (@fusion_fiesta_lounge)    │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG9 RESERVE TABLE</span>  Booking form · Map · Hours · Ambiance photos    │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">PG10 CONTACT</span>  General enquiry form · Map · Phone · Social links     │
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wg">PG11 PRIVACY POLICY   PG12 TERMS & CONDITIONS   PG13 REFUND POLICY</span> │
+│  All same template — white, text-only, lawyer-reviewed, footer-linked│
+├──────────────────────────────────────────────────────────────────────┤
+│  <span class="wh">GLOBAL FOOTER</span>  Logo · Nav links · Social icons · ©2026             │
+│                Powered by Imborn Digital                             │
+│                Privacy Policy · T&C · Refund Policy links            │
+└──────────────────────────────────────────────────────────────────────┘</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  Prepared for <strong>Fusion Fiesta Lounge</strong> by <strong>Imborn Digital</strong> · July 2026 ·
+  @fusion_fiesta_lounge · ACL Judges: Vikram Gandhe &amp; Ajinkya Gandhe
+</div>
+
+<script>
+function toggleAcc(btn){
+  const acc=btn.closest('.acc');
+  acc.classList.toggle('open');
+}
+document.querySelectorAll('.acc').forEach((a,i)=>{if(i<2)a.classList.add('open');});
+</script>
+</body>
+</html>

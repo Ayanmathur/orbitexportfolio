@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aranya — Hair &amp; Skin Studio, Nagpur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1f3626;
+  --forest-deep:#142419;
+  --brass:#b8894f;
+  --brass-light:#d9b479;
+  --ivory:#f6f1e7;
+  --blush:#e3b7a0;
+  --ink:#22281f;
+  --line:rgba(31,54,38,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Work Sans',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;}
+h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;color:var(--forest-deep);letter-spacing:-.01em;}
+a{text-decoration:none;color:inherit;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;}
+
+/* NAV */
+header{position:sticky;top:0;background:rgba(246,241,231,.92);backdrop-filter:blur(6px);z-index:20;border-bottom:1px solid var(--line);}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 32px;max-width:1180px;margin:0 auto;}
+.brand{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--forest-deep);display:flex;align-items:center;gap:10px;}
+.brand .leaf{width:9px;height:9px;border-radius:50% 0 50% 50%;background:var(--brass);transform:rotate(45deg);}
+.navlinks{display:flex;gap:36px;font-size:14px;font-weight:500;}
+.navlinks a{position:relative;padding-bottom:4px;}
+.navlinks a.active{color:var(--forest-deep);border-bottom:1.5px solid var(--brass);}
+.book-btn{background:var(--forest-deep);color:var(--ivory);padding:12px 24px;border-radius:2px;font-size:13px;font-weight:600;letter-spacing:.03em;}
+.book-btn:hover{background:var(--forest);}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr .9fr;gap:56px;align-items:center;padding:76px 32px 90px;max-width:1180px;margin:0 auto;}
+.hero h1{font-size:56px;line-height:1.06;margin:18px 0 22px;}
+.hero h1 em{color:var(--brass);font-style:italic;}
+.hero p.lead{font-size:17px;color:#4b5347;max-width:440px;margin-bottom:32px;}
+.hero-cta{display:flex;gap:16px;align-items:center;}
+.btn-primary{background:var(--forest-deep);color:var(--ivory);padding:15px 30px;font-size:14px;font-weight:600;letter-spacing:.03em;border-radius:2px;}
+.btn-ghost{font-size:14px;font-weight:600;border-bottom:1.5px solid var(--ink);padding-bottom:3px;}
+.hero-img{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -20px rgba(20,36,25,.35);}
+.hero-tag{position:absolute;bottom:20px;left:20px;background:var(--ivory);padding:14px 18px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--forest-deep);}
+
+/* STRIP */
+.strip{background:var(--forest-deep);color:var(--ivory);}
+.strip .wrap{display:flex;justify-content:space-between;padding:28px 32px;flex-wrap:wrap;gap:20px;}
+.strip .stat{text-align:left;}
+.strip .stat h3{color:var(--brass-light);font-size:30px;}
+.strip .stat span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c8cfc4;}
+
+/* ABOUT / SIGNATURE */
+.section{padding:96px 0;}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:54px;}
+.section-head h2{font-size:38px;}
+.section-head p{color:#5a6154;font-size:15px;}
+
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.pillar{background:var(--ivory);padding:40px 32px;}
+.pillar .num{font-family:'Fraunces',serif;font-size:14px;color:var(--brass);margin-bottom:22px;}
+.pillar h4{font-size:21px;margin-bottom:10px;}
+.pillar p{font-size:14px;color:#5a6154;}
+
+/* SERVICES TEASER */
+.serv-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:24px;}
+.serv-card{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:3/4;}
+.serv-card.tall{grid-row:span 2;aspect-ratio:auto;height:100%;}
+.serv-card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,36,25,0) 40%,rgba(20,36,25,.82) 100%);}
+.serv-card .label{position:absolute;bottom:22px;left:22px;color:var(--ivory);}
+.serv-card .label .eyebrow{color:var(--brass-light);}
+.serv-card .label h4{color:var(--ivory);font-size:22px;margin-top:6px;}
+.serv-right{display:flex;flex-direction:column;gap:24px;}
+
+/* TESTIMONIAL */
+.testimonial{background:var(--blush);padding:80px 0;}
+.testimonial .wrap{max-width:760px;text-align:center;}
+.testimonial blockquote{font-family:'Fraunces',serif;font-size:28px;font-weight:400;font-style:italic;color:var(--forest-deep);line-height:1.4;}
+.testimonial .who{margin-top:24px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--forest);}
+
+/* CTA */
+.cta-band{background:var(--forest-deep);color:var(--ivory);padding:90px 0;text-align:center;}
+.cta-band h2{color:var(--ivory);font-size:38px;margin-bottom:18px;}
+.cta-band p{color:#c8cfc4;margin-bottom:34px;}
+
+footer{padding:50px 0;}
+.foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;font-size:13px;color:#5a6154;}
+.foot-grid .brand{margin-bottom:10px;}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding-top:40px;}
+  .hero h1{font-size:38px;}
+  .navlinks{display:none;}
+  .section-head{grid-template-columns:1fr;}
+  .pillars{grid-template-columns:1fr;}
+  .serv-grid{grid-template-columns:1fr;}
+  .serv-card.tall{height:320px;}
+  .strip .wrap{justify-content:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand"><span class="leaf"></span>Aranya</a>
+    <nav class="navlinks">
+      <a href="overview.html" class="active">Overview</a>
+      <a href="catalog.html">Services &amp; Pricing</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+    <a class="book-btn" href="catalog.html">Book a Visit</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <span class="eyebrow">Hair &amp; Skin Studio — Nagpur</span>
+    <h1>Slow, considered <em>beauty</em>, in the middle of the city.</h1>
+    <p class="lead">Aranya is a quiet studio for hair, skin and bridal care — built around unhurried appointments, natural ingredients, and stylists who ask before they cut.</p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="catalog.html">View Services &amp; Pricing</a>
+      <a class="btn-ghost" href="#about">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1781450090585-1a511b7066d9?auto=format&fit=crop&w=1200&q=80" alt="Aranya salon interior with arched alcoves and styling chairs">
+    <div class="hero-tag">Est. Nagpur, Civil Lines</div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><h3>11 yrs</h3><span>In Civil Lines</span></div>
+    <div class="stat"><h3>4.9 / 5</h3><span>Google Rating</span></div>
+    <div class="stat"><h3>60 min</h3><span>Avg. appointment slot</span></div>
+    <div class="stat"><h3>6</h3><span>Resident stylists</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Three things we won't rush</h2>
+      <p>Everything at Aranya is built around one idea — that good hair and skin work needs time, daylight, and a stylist who is actually looking at you, not the clock.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h4>The consultation</h4>
+        <p>Every appointment opens with a proper sit-down — face shape, hair history, skin concerns — before a single tool comes out.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h4>The ingredients</h4>
+        <p>We work with ammonia-free colour, cold-pressed oils and ph-balanced skin lines — nothing that fights your hair or skin to get a result.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h4>The follow-up</h4>
+        <p>Aftercare notes and a re-visit reminder land on WhatsApp, not a forgotten card in your wallet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE SERVICES -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Where most people start</h2>
+      <p>A studio built across three rooms — hair, skin, and bridal — each with its own light and its own quiet.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card tall">
+        <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=900&q=80" alt="Facial skincare treatment at Aranya">
+        <div class="overlay"></div>
+        <div class="label"><span class="eyebrow">Skin Room</span><h4>Facials &amp; Skin Therapy</h4></div>
+      </div>
+      <div class="serv-right">
+        <div class="serv-card">
+          <img src="https://images.unsplash.com/photo-1727199433231-346fd8101839?auto=format&fit=crop&w=800&q=80" alt="Manicure at Aranya nail bar">
+          <div class="overlay"></div>
+          <div class="label"><span class="eyebrow">Nail Bar</span><h4>Mani &amp; Pedi</h4></div>
+        </div>
+        <div class="serv-card">
+          <img src="https://images.unsplash.com/photo-1781450090585-1a511b7066d9?auto=format&fit=crop&w=800&q=80" alt="Hair styling chairs at Aranya">
+          <div class="overlay"></div>
+          <div class="label"><span class="eyebrow">Hair Room</span><h4>Cut, Colour &amp; Spa</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="wrap">
+    <blockquote>"First salon in Nagpur where nobody tried to upsell me a keratin treatment I didn't ask for. They just did a very good haircut."</blockquote>
+    <div class="who">— Meghna R., client since 2022</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" id="visit">
+  <div class="wrap">
+    <h2>Come sit with us for an hour.</h2>
+    <p>Civil Lines, Nagpur · Open Tue–Sun, 10am – 8pm</p>
+    <a class="btn-primary" style="background:var(--brass);color:var(--forest-deep)" href="catalog.html">See Full Menu &amp; Prices</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand">Aranya</div>
+      <p>12 Residency Road, Civil Lines, Nagpur 440001</p>
+    </div>
+    <div>
+      <p>+91 98230 44120</p>
+      <p>hello@aranyastudio.in</p>
+    </div>
+    <div>
+      <p>Tue – Sun, 10:00 – 20:00</p>
+      <p>Closed Mondays</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
