@@ -3,370 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ratna Heritage Jewellers — 22K Hallmarked Gold, Polki & Certified Diamonds</title>
-  <meta name="description" content="Discover bespoke bridal jewellery, BIS 916 hallmarked 22K gold, uncut Polki chokers, and IGI certified solitaires at Ratna Heritage.">
+  <title>Ratna Heritage Jewellers — 22K Hallmarked Gold & Certified Polki Solitaires</title>
+  <meta name="description" content="Heritage bullion house and luxury jewellery atelier offering 22K BIS 916 gold, uncut Polki diamonds, and bridal wedding trousseau sets.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/shared-components.css">
   <style>
     :root {
       --jewel-gold: #d4af37;
-      --jewel-dark: #0d0c0a;
-      --jewel-maroon: #4a0e17;
-      --jewel-cream: #faf7f0;
-      --jewel-card: #171512;
+      --jewel-gold-light: #f5e6a8;
+      --jewel-dark: #0a0c10;
+      --jewel-panel: #13171f;
+      --jewel-panel-2: #1b202b;
+      --jewel-border: rgba(212, 175, 55, 0.25);
       --font-serif: 'Cinzel', serif;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-sans: 'Work Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-sans);
       background-color: var(--jewel-dark);
-      color: #f5f0e8;
+      color: #e2e8f0;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
-    /* Live Gold Bullion Ticker */
-    .gold-ticker-bar {
-      background: #1f1b14;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-      padding: 8px 24px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--jewel-gold);
-    }
-    .ticker-item span { color: #fff; font-weight: 800; }
-
-    /* Navigation */
-    .jewel-nav {
-      position: sticky;
-      top: 36px;
-      z-index: 999;
-      background: rgba(13, 12, 10, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-    }
-    .jewel-nav-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 18px 24px;
+    /* Live Bullion Ticker */
+    .bullion-ticker {
+      background: #060709;
+      border-bottom: 1px solid var(--jewel-border);
+      padding: 9px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--jewel-gold-light);
+    }
+    .ticker-pulse {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      margin-right: 8px;
+    }
+
+    /* Navbar */
+    .jewel-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(10, 12, 16, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--jewel-border);
+    }
+    .jewel-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
     }
     .jewel-brand {
       font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: #fff;
-      text-decoration: none;
+      font-size: 22px; font-weight: 700; color: var(--jewel-gold);
+      letter-spacing: 2px; text-decoration: none;
     }
-    .jewel-brand span { color: var(--jewel-gold); }
-    .jewel-nav-links { display: flex; gap: 28px; align-items: center; }
+    .jewel-brand span { color: #fff; }
+    .jewel-nav-links { display: flex; gap: 32px; }
     .jewel-nav-links a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      font-size: 13.5px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      transition: color 0.2s;
+      color: #94a3b8; text-decoration: none; font-size: 13.5px;
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
     }
-    .jewel-nav-links a:hover { color: var(--jewel-gold); }
-    .jewel-nav-btn {
-      background: linear-gradient(135deg, #d4af37, #aa820a);
-      color: #000;
-      border: none;
-      padding: 10px 22px;
-      border-radius: 4px;
-      font-weight: 800;
-      font-size: 13px;
-      cursor: pointer;
-      letter-spacing: 1px;
+    .jewel-nav-links a.active { color: var(--jewel-gold); }
+    .btn-view-jewel-cta {
+      background: var(--jewel-gold);
+      color: #000; padding: 9px 22px; border-radius: 2px;
+      font-family: var(--font-serif); font-size: 12.5px; font-weight: 700;
+      letter-spacing: 1px; text-decoration: none;
     }
 
-    /* Hero Section */
+    /* Hero */
     .jewel-hero {
       position: relative;
       min-height: 85vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(to right, rgba(13, 12, 10, 0.9) 0%, rgba(13, 12, 10, 0.4) 100%),
+      background: linear-gradient(to right, rgba(10,12,16,0.95) 0%, rgba(10,12,16,0.4) 100%),
                   url('../../images/jeweller/hero.jpg') center/cover no-repeat;
       padding: 60px 24px;
     }
-    .jewel-hero-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .jewel-hero-content { max-width: 680px; }
-    .jewel-badge {
-      display: inline-block;
-      border: 1px solid var(--jewel-gold);
-      color: var(--jewel-gold);
-      padding: 6px 18px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      background: rgba(212, 175, 55, 0.1);
+    .jewel-hero-wrap { max-width: 1280px; margin: 0 auto; width: 100%; }
+    .jewel-hero-content { max-width: 640px; }
+    .jewel-eyebrow {
+      font-size: 11.5px; font-weight: 700; color: var(--jewel-gold);
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; display: block;
     }
     .jewel-hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(38px, 5.5vw, 64px);
-      line-height: 1.15;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
+      font-size: clamp(36px, 5.5vw, 60px);
+      line-height: 1.15; color: #fff; margin-bottom: 18px;
     }
-    .jewel-hero h1 span { color: var(--jewel-gold); font-style: italic; }
-    .jewel-hero p {
-      font-size: 17px;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 36px;
+    .jewel-hero h1 span { color: var(--jewel-gold); }
+    .jewel-hero p { font-size: 16.5px; color: #cbd5e1; margin-bottom: 34px; line-height: 1.7; }
+    .jewel-hero-actions { display: flex; gap: 18px; flex-wrap: wrap; }
+    .btn-gold-solid {
+      background: var(--jewel-gold); color: #000; padding: 15px 34px;
+      border-radius: 2px; font-family: var(--font-serif); font-weight: 700;
+      font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
     }
-    .jewel-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-gold-action {
-      background: linear-gradient(135deg, #d4af37, #b8860b);
-      color: #0d0c0a;
-      border: none;
-      padding: 14px 34px;
-      border-radius: 4px;
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-gold-action:hover {
-      background: linear-gradient(135deg, #e5c158, #c59b27);
-      transform: translateY(-2px);
-    }
-    .btn-outline-gold {
-      background: transparent;
-      color: var(--jewel-gold);
-      border: 1px solid var(--jewel-gold);
-      padding: 14px 28px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-outline-gold:hover {
-      background: rgba(212, 175, 55, 0.15);
+    .btn-gold-outline {
+      background: transparent; border: 1.5px solid var(--jewel-gold); color: var(--jewel-gold);
+      padding: 15px 28px; border-radius: 2px; font-family: var(--font-serif); font-weight: 700;
+      font-size: 13.5px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
     }
 
-    /* Section Structure */
-    .jewel-section {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 90px 24px;
-    }
-    .jewel-header-center {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 50px;
-    }
-    .jewel-sub {
-      font-family: var(--font-serif);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--jewel-gold);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .jewel-header-center h2 {
-      font-family: var(--font-serif);
-      font-size: 38px;
-      letter-spacing: 1px;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .jewel-header-center p { font-size: 15px; color: rgba(255,255,255,0.7); }
+    /* Section */
+    .jewel-section { max-width: 1280px; margin: 80px auto; padding: 0 24px; }
+    .jewel-head-center { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .jewel-head-center h2 { font-family: var(--font-serif); font-size: 36px; color: #fff; margin-bottom: 10px; }
 
-    /* Interactive Gold Calculator Section */
-    .calc-card {
-      background: #141310;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 12px;
-      padding: 40px;
-      max-width: 800px;
-      margin: 0 auto;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    }
-    .calc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    .calc-group label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: var(--jewel-gold);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    .calc-group input, .calc-group select {
-      width: 100%;
-      padding: 12px 16px;
-      background: #1f1d18;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 4px;
-      color: #fff;
-      font-family: inherit;
-      font-size: 15px;
-    }
-    .calc-result-box {
-      background: #1f1d18;
-      border: 1px dashed var(--jewel-gold);
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .calc-result-label { font-size: 12px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; }
-    .calc-result-price { font-family: var(--font-serif); font-size: 36px; font-weight: 800; color: var(--jewel-gold); margin: 6px 0; }
-    .calc-breakdown { font-size: 12px; color: rgba(255,255,255,0.6); }
-
-    /* Catalog Grid */
+    /* Collection Grid */
     .jewel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 30px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;
     }
     .jewel-card {
-      background: #141310;
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: var(--jewel-panel); border: 1px solid var(--jewel-border);
+      border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
       transition: all 0.3s;
     }
-    .jewel-card:hover {
-      border-color: var(--jewel-gold);
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+    .jewel-card:hover { transform: translateY(-6px); border-color: var(--jewel-gold); box-shadow: 0 15px 40px rgba(212,175,55,0.15); }
+    .jewel-card-img { height: 280px; width: 100%; object-fit: cover; }
+    .jewel-card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .jewel-card-purity {
+      font-family: var(--font-mono); font-size: 11px; color: var(--jewel-gold);
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;
     }
-    .jewel-img {
-      height: 260px;
-      width: 100%;
-      object-fit: cover;
+    .jewel-card-title { font-family: var(--font-serif); font-size: 19px; color: #fff; margin-bottom: 8px; }
+    .jewel-card-price { font-size: 24px; font-weight: 700; color: var(--jewel-gold-light); margin-bottom: 12px; }
+    .jewel-card-desc { font-size: 13.5px; color: #94a3b8; margin-bottom: 20px; flex: 1; }
+    .btn-jewel-item {
+      border: 1px solid var(--jewel-gold); color: var(--jewel-gold); padding: 11px;
+      font-family: var(--font-serif); font-size: 12.5px; font-weight: 700; letter-spacing: 1px;
+      text-align: center; text-transform: uppercase; text-decoration: none; transition: all 0.2s;
     }
-    .jewel-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .jewel-purity-tag {
-      align-self: flex-start;
-      background: rgba(212, 175, 55, 0.15);
-      border: 1px solid var(--jewel-gold);
-      color: var(--jewel-gold);
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 4px;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
-    .jewel-body h3 { font-family: var(--font-serif); font-size: 20px; color: #fff; margin-bottom: 6px; }
-    .jewel-price { font-size: 22px; font-weight: 800; color: var(--jewel-gold); margin-bottom: 10px; }
-    .jewel-desc { font-size: 13.5px; color: rgba(255,255,255,0.7); margin-bottom: 20px; flex: 1; line-height: 1.6; }
-    .btn-inquire-jewel {
-      background: #1f1d18;
-      border: 1px solid var(--jewel-gold);
-      color: var(--jewel-gold);
-      padding: 12px;
-      border-radius: 4px;
-      font-weight: 800;
-      font-size: 13px;
-      cursor: pointer;
-      letter-spacing: 1px;
-      transition: all 0.2s;
-      width: 100%;
-    }
-    .btn-inquire-jewel:hover {
-      background: var(--jewel-gold);
-      color: #000;
-    }
-
-    /* Modal */
-    .jewel-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .jewel-modal-card {
-      background: #141310;
-      border: 1px solid var(--jewel-gold);
-      border-radius: 12px;
-      max-width: 500px;
-      width: 100%;
-      padding: 36px;
-      position: relative;
-      color: #fff;
-    }
-    .jewel-modal-card h3 { font-family: var(--font-serif); font-size: 22px; color: var(--jewel-gold); margin-bottom: 8px; }
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: none;
-      border: none;
-      color: var(--jewel-gold);
-      font-size: 20px;
-      cursor: pointer;
-    }
+    .jewel-card:hover .btn-jewel-item { background: var(--jewel-gold); color: #000; }
 
     /* Footer */
-    .jewel-footer {
-      background: #080706;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
-      color: rgba(255,255,255,0.7);
-      padding: 70px 24px 30px;
+    footer.jewel-footer {
+      background: #060709; border-top: 1px solid var(--jewel-border); color: #64748b; padding: 60px 24px 30px;
     }
     .jewel-footer-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
+      max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px; margin-bottom: 40px;
     }
-    .jewel-footer h4 { font-family: var(--font-serif); color: var(--jewel-gold); font-size: 16px; margin-bottom: 16px; }
-    .jewel-footer p, .jewel-footer a { font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; display: block; margin-bottom: 8px; }
-    .jewel-footer a:hover { color: var(--jewel-gold); }
-    .jewel-footer-bottom {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-      font-size: 12px;
-    }
+    .jewel-footer h4 { font-family: var(--font-serif); color: var(--jewel-gold); font-size: 16px; margin-bottom: 14px; }
+    .jewel-footer p, .jewel-footer a { font-size: 13.5px; color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -380,252 +170,115 @@
     </div>
   </div>
 
-  <!-- Gold Bullion Ticker -->
-  <div class="gold-ticker-bar">
-    <div class="ticker-item">🌟 22K Gold (916): <span id="rate22k">₹6,850/g</span></div>
-    <div class="ticker-item">👑 24K Pure Gold: <span id="rate24k">₹7,470/g</span></div>
-    <div class="ticker-item">💎 Solitaire (1ct VVS1): <span>₹3,80,000</span></div>
+  <!-- Live Bullion Rate Ticker -->
+  <div class="bullion-ticker">
+    <div>
+      <span class="ticker-pulse"></span>
+      <b>LIVE BULLION SPOT:</b> 22K Gold: <b>₹6,850/gm</b> | 24K Pure Gold: <b>₹7,470/gm</b> | Silver: <b>₹88.50/gm</b>
+    </div>
+    <div style="opacity: 0.7;">Updated: Today, 11:30 AM IST (IBJA Rates)</div>
   </div>
 
   <!-- Navbar -->
   <header class="jewel-nav">
     <div class="jewel-nav-wrap">
-      <a href="#home" class="jewel-brand">RATNA <span>HERITAGE</span></a>
+      <a href="index.html" class="jewel-brand">RATNA <span>HERITAGE</span></a>
       <nav class="jewel-nav-links">
-        <a href="#catalog">Bridal Vault</a>
-        <a href="#calculator">Gold Calculator</a>
-        <a href="#purity">Hallmark Certification</a>
-        <button class="jewel-nav-btn" onclick="openJewelInquiry('Bridal Appointment', 0)">VIP Viewing 👑</button>
+        <a href="index.html" class="active">Heritage</a>
+        <a href="collection.html">Fine Collection</a>
+        <a href="product.html">Price Engine (₹)</a>
       </nav>
+      <a href="product.html" class="btn-view-jewel-cta">Gold Calculator ⚖️</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="jewel-hero" id="home">
+  <section class="jewel-hero">
     <div class="jewel-hero-wrap">
       <div class="jewel-hero-content">
-        <div class="jewel-badge">✨ 70 Years of Royal Craftsmanship</div>
-        <h1>Heirlooms of <span>Timeless Purity</span> & Royalty</h1>
-        <p>100% BIS 916 hallmarked 22K temple gold, uncut polki sets from Bikaner, and certified conflict-free solitaires crafted for Indian weddings.</p>
+        <span class="jewel-eyebrow">Est. 1948 • 100% BIS 916 Certified</span>
+        <h1>Purity Carved in <span>Gold & Solitaires</span></h1>
+        <p>Explore heirloom bridal chokers, certified natural polki diamonds, and pure temple gold jewellery with 100% transparent buyback guarantee.</p>
         <div class="jewel-hero-actions">
-          <a href="#catalog" class="btn-gold-action">Explore Bridal Vault (₹)</a>
-          <a href="#calculator" class="btn-outline-gold">Gold Value Calculator</a>
+          <a href="collection.html" class="btn-gold-solid">Explore 2026 Collection</a>
+          <a href="product.html" class="btn-gold-outline">Live Gold Rate Calculator ➔</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gold Value & Making Charge Calculator -->
-  <section class="jewel-section" id="calculator">
-    <div class="jewel-header-center">
-      <div class="jewel-sub">Transparent Value Calculation</div>
-      <h2>Live Gold Price Calculator</h2>
-      <p>Estimate the transparent price of your custom gold jewellery including making charges and GST.</p>
-    </div>
-
-    <div class="calc-card">
-      <div class="calc-grid">
-        <div class="calc-group">
-          <label>Purity Standard</label>
-          <select id="goldPurity" onchange="calculateGoldPrice()">
-            <option value="6850">22 Karat (BIS 916) - ₹6,850/g</option>
-            <option value="7470">24 Karat (99.9%) - ₹7,470/g</option>
-            <option value="5600">18 Karat (Diamond Base) - ₹5,600/g</option>
-          </select>
-        </div>
-        <div class="calc-group">
-          <label>Gross Weight (Grams)</label>
-          <input type="number" id="goldWeight" value="25" min="1" max="1000" oninput="calculateGoldPrice()">
-        </div>
-      </div>
-
-      <div class="calc-result-box">
-        <div class="calc-result-label">Estimated Total Price (Gold + 10% Making + 3% GST)</div>
-        <div class="calc-result-price" id="calcFinalPrice">₹1,93,923</div>
-        <div class="calc-breakdown" id="calcBreakdown">Base Gold: ₹1,71,250 | Making Charges (10%): ₹17,125 | GST (3%): ₹5,548</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bridal Collection Catalog -->
-  <section class="jewel-section" id="catalog" style="border-top: 1px solid rgba(212,175,55,0.15);">
-    <div class="jewel-header-center">
-      <div class="jewel-sub">Bespoke Masterpieces</div>
-      <h2>Curated Bridal Vault</h2>
-      <p>Every piece is certified with a 100% lifetime buyback and exchange guarantee.</p>
+  <!-- Curated Collection -->
+  <section class="jewel-section">
+    <div class="jewel-head-center">
+      <span class="jewel-eyebrow">Signature Creations</span>
+      <h2>Handcrafted Royal Trousseau</h2>
+      <p style="color:#94a3b8;">Every ornament is struck with 6-digit HUID code and certified by Bureau of Indian Standards.</p>
     </div>
 
     <div class="jewel-grid">
       <!-- 1 -->
       <div class="jewel-card">
-        <img src="../../images/jeweller/item1.jpg" alt="Polki Bridal Choker" class="jewel-img">
-        <div class="jewel-body">
-          <span class="jewel-purity-tag">22K BIS 916 • UNCUT POLKI</span>
-          <h3>Mayur Polki Bridal Necklace</h3>
-          <div class="jewel-price">₹1,45,000</div>
-          <p class="jewel-desc">Handcrafted uncut polki diamonds set in 22K yellow gold with Zambian emerald drops and pearls.</p>
-          <button class="btn-inquire-jewel" onclick="openJewelInquiry('Mayur Polki Bridal Necklace', 145000)">Inquire & VIP Viewing 👑</button>
+        <img src="../../images/jeweller/item1.jpg" alt="Kundan Choker" class="jewel-card-img">
+        <div class="jewel-card-body">
+          <span class="jewel-card-purity">22K BIS Hallmarked • 48.5g Net Gold</span>
+          <h3 class="jewel-card-title">Imperial Meenakari & Kundan Choker</h3>
+          <div class="jewel-card-price">₹3,45,000</div>
+          <p class="jewel-card-desc">Handcrafted royal choker adorned with Zambian emerald beads and unheated polki solitaires.</p>
+          <a href="product.html?item=choker" class="btn-jewel-item">View Price Breakdown (₹) ➔</a>
         </div>
       </div>
 
       <!-- 2 -->
       <div class="jewel-card">
-        <img src="../../images/jeweller/item2.jpg" alt="Royal Kundan Jhumkas" class="jewel-img">
-        <div class="jewel-body">
-          <span class="jewel-purity-tag">22K BIS 916 • MEENAKARI</span>
-          <h3>Royal Kundan Chandbali Jhumkas</h3>
-          <div class="jewel-price">₹48,000</div>
-          <p class="jewel-desc">Intricate Rajasthani meenakari back-enameling with Basra pearl hangings and fine kundan setting.</p>
-          <button class="btn-inquire-jewel" onclick="openJewelInquiry('Royal Kundan Chandbali Jhumkas', 48000)">Inquire & VIP Viewing 👑</button>
+        <img src="../../images/jeweller/item2.jpg" alt="Temple Bangle" class="jewel-card-img">
+        <div class="jewel-card-body">
+          <span class="jewel-card-purity">22K Solid Gold • 34.2g Net Gold</span>
+          <h3 class="jewel-card-title">Lakshmi Nakshi Antique Temple Kada</h3>
+          <div class="jewel-card-price">₹2,48,000</div>
+          <p class="jewel-card-desc">Deep repoussé antique gold work depicting Goddess Lakshmi surrounded by peacocks.</p>
+          <a href="product.html?item=kada" class="btn-jewel-item">View Price Breakdown (₹) ➔</a>
         </div>
       </div>
 
       <!-- 3 -->
       <div class="jewel-card">
-        <img src="../../images/jeweller/item3.jpg" alt="Temple Gold Bangles" class="jewel-img">
-        <div class="jewel-body">
-          <span class="jewel-purity-tag">22K BIS 916 • TEMPLE NAKSHI</span>
-          <h3>Laxmi Nakshi Gold Bangles (Pair)</h3>
-          <div class="jewel-price">₹92,000</div>
-          <p class="jewel-desc">Solid 42 grams 22K gold bangles with antique hand-carved Goddess Lakshmi motifs and screw clasp.</p>
-          <button class="btn-inquire-jewel" onclick="openJewelInquiry('Laxmi Nakshi Gold Bangles (Pair)', 92000)">Inquire & VIP Viewing 👑</button>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="jewel-card">
-        <img src="../../images/jeweller/item4.jpg" alt="Solitaire Ring" class="jewel-img">
-        <div class="jewel-body">
-          <span class="jewel-purity-tag">18K WHITE GOLD • IGI CERTIFIED</span>
-          <h3>Solitaire Diamond Engagement Ring</h3>
-          <div class="jewel-price">₹75,000</div>
-          <p class="jewel-desc">0.70 Carat round brilliant cut diamond (E Color, VVS1 Clarity) in an elegant 6-prong platinum crown.</p>
-          <button class="btn-inquire-jewel" onclick="openJewelInquiry('Solitaire Diamond Engagement Ring', 75000)">Inquire & VIP Viewing 👑</button>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="jewel-card">
-        <img src="../../images/jeweller/item5.jpg" alt="Antique Gold Choker" class="jewel-img">
-        <div class="jewel-body">
-          <span class="jewel-purity-tag">22K BIS 916 • ANTIQUE FINISH</span>
-          <h3>Nizam Heritage Choker & Earrings</h3>
-          <div class="jewel-price">₹1,85,000</div>
-          <p class="jewel-desc">Heirloom wedding set crafted in 75g hallmarked gold featuring antique matte finish and ruby cluster cabochons.</p>
-          <button class="btn-inquire-jewel" onclick="openJewelInquiry('Nizam Heritage Choker & Earrings', 185000)">Inquire & VIP Viewing 👑</button>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="jewel-card">
-        <img src="../../images/jeweller/item6.jpg" alt="Navratna Kada" class="jewel-img">
-        <div class="jewel-body">
-          <span class="jewel-purity-tag">22K BIS 916 • 9 SACRED GEMS</span>
-          <h3>Imperial Navratna Royal Kada</h3>
-          <div class="jewel-price">₹62,000</div>
-          <p class="jewel-desc">Traditional astrological Navratna setting studded with natural untreated gemstones in heavyweight gold.</p>
-          <button class="btn-inquire-jewel" onclick="openJewelInquiry('Imperial Navratna Royal Kada', 62000)">Inquire & VIP Viewing 👑</button>
+        <img src="../../images/jeweller/item3.jpg" alt="Diamond Ring" class="jewel-card-img">
+        <div class="jewel-card-body">
+          <span class="jewel-card-purity">18K White Gold • 1.50 Ct VVS1 Solitaire</span>
+          <h3 class="jewel-card-title">Crown Solitaire Diamond Ring</h3>
+          <div class="jewel-card-price">₹1,85,000</div>
+          <p class="jewel-card-desc">GIA certified triple excellent round brilliant cut solitaire in classic 6-prong platinum crown.</p>
+          <a href="product.html?item=ring" class="btn-jewel-item">View Price Breakdown (₹) ➔</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIP Inquiry Modal -->
-  <div id="jewelModal" class="jewel-modal">
-    <div class="jewel-modal-card">
-      <button class="modal-close" onclick="closeJewelInquiry()">✕</button>
-      <h3 id="jewelModalTitle">VIP Jewellery Viewing</h3>
-      <p style="font-size: 13.5px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">Book a private salon suite consultation with our senior gemologist.</p>
-      
-      <form onsubmit="handleJewelSubmit(event)">
-        <div class="calc-group" style="margin-bottom: 16px;">
-          <label>Your Name</label>
-          <input type="text" id="jewelCustName" required placeholder="e.g. Vikram Singhania">
-        </div>
-        <div class="calc-group" style="margin-bottom: 16px;">
-          <label>WhatsApp / Phone</label>
-          <input type="tel" id="jewelCustPhone" required placeholder="+91 98765 43210">
-        </div>
-        <div class="calc-group" style="margin-bottom: 20px;">
-          <label>Preferred Visit Date</label>
-          <input type="date" id="jewelCustDate" required>
-        </div>
-        <button type="submit" class="btn-gold-action" style="width: 100%;">Confirm VIP Slot on WhatsApp 💬</button>
-      </form>
-    </div>
-  </div>
-
   <!-- Footer -->
   <footer class="jewel-footer">
     <div class="jewel-footer-wrap">
       <div>
-        <h4 style="color: #fff;">RATNA HERITAGE JEWELLERS</h4>
-        <p>12, Zaveri Bazaar Heritage Plaza, Mumbai, Maharashtra 400002</p>
-        <p>Direct Concierge: +91 98765 43210</p>
-        <p>Mon - Sat: 11:00 AM – 8:00 PM</p>
+        <h4>RATNA HERITAGE VAULT</h4>
+        <p>12, Zaveri Bazaar, Mumbai 400002</p>
+        <p>VIP Concierge: +91 98765 43210</p>
       </div>
       <div>
-        <h4>Collections</h4>
-        <a href="#catalog">Bridal Polki Sets</a>
-        <a href="#catalog">22K Temple Gold</a>
-        <a href="#catalog">IGI Certified Solitaires</a>
-        <a href="#calculator">Live Bullion Rates</a>
+        <h4>Bullion & Jewels</h4>
+        <a href="collection.html">22K Temple Gold</a>
+        <a href="collection.html">Polki Bridal Sets</a>
+        <a href="collection.html">GIA Solitaire Rings</a>
       </div>
       <div>
-        <h4>Trust & Integrity</h4>
-        <p>100% BIS 916 Hallmarked</p>
+        <h4>Certifications</h4>
+        <p>BIS 916 Hallmarking</p>
+        <p>6-Digit Unique HUID Code</p>
         <p>100% Lifetime Buyback Guarantee</p>
-        <p>Zero Deductions on Gold Weight</p>
       </div>
     </div>
-    <div class="jewel-footer-bottom">
-      © 2026 Ratna Heritage Jewellers. Powered by Orbitex Local Business Web Suite.
+    <div style="text-align:center; font-size:12px; border-top:1px solid rgba(255,255,255,0.08); padding-top:20px;">
+      © 2026 Ratna Heritage Jewellers. Powered by Orbitex Production Suite.
     </div>
   </footer>
 
-  <script src="../../scripts/shared-components.js"></script>
-  <script>
-    let activeJewelItem = 'Bridal Viewing';
-    let activeJewelPrice = 0;
-
-    function calculateGoldPrice() {
-      const rate = parseFloat(document.getElementById('goldPurity').value);
-      const weight = parseFloat(document.getElementById('goldWeight').value) || 0;
-      
-      const baseGold = rate * weight;
-      const makingCharge = baseGold * 0.10; // 10% making
-      const subtotal = baseGold + makingCharge;
-      const gst = subtotal * 0.03; // 3% GST
-      const finalPrice = Math.round(subtotal + gst);
-
-      document.getElementById('calcFinalPrice').innerText = '₹' + finalPrice.toLocaleString('en-IN');
-      document.getElementById('calcBreakdown').innerText = `Base Gold: ₹${Math.round(baseGold).toLocaleString('en-IN')} | Making Charges (10%): ₹${Math.round(makingCharge).toLocaleString('en-IN')} | GST (3%): ₹${Math.round(gst).toLocaleString('en-IN')}`;
-    }
-
-    function openJewelInquiry(title, price) {
-      activeJewelItem = title;
-      activeJewelPrice = price;
-      document.getElementById('jewelModalTitle').innerText = title + (price ? ' (₹' + price.toLocaleString('en-IN') + ')' : '');
-      document.getElementById('jewelModal').style.display = 'flex';
-    }
-
-    function closeJewelInquiry() {
-      document.getElementById('jewelModal').style.display = 'none';
-    }
-
-    function handleJewelSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('jewelCustName').value;
-      const phone = document.getElementById('jewelCustPhone').value;
-      const date = document.getElementById('jewelCustDate').value;
-
-      if (window.OrbitexToast) OrbitexToast.success('VIP Viewing requested! Connecting to concierge...');
-      const msg = encodeURIComponent(`Hi Ratna Heritage! I would like to schedule a VIP viewing.\nItem: ${activeJewelItem}\nPrice: ₹${activeJewelPrice}\nDate: ${date}\nName: ${name}\nPhone: ${phone}`);
-      setTimeout(() => {
-        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
-        closeJewelInquiry();
-      }, 700);
-    }
-  </script>
 </body>
 </html>

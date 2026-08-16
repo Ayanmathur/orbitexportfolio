@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Trattoria Menu — Linguini & Leaf Bistro</title>
-  <meta name="description" content="Explore our complete menu of wood-fired pizzas, handmade pastas, antipasti, and desserts.">
+  <title>Digital Trattoria Menu — Linguini & Leaf</title>
+  <meta name="description" content="Explore handcrafted Neapolitan pizzas, artisanal egg pastas, and Italian desserts with live takeaway ordering.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/shared-components.css">
   <style>
     :root {
-      --cafe-espresso: #2a170d;
-      --cafe-terracotta: #c85a32;
-      --cafe-cream: #faf6f0;
-      --cafe-border: #e8ded2;
+      --flame: #E8420A;
+      --gold: #F5A800;
+      --dark: #1A1202;
+      --cream: #FFFDF7;
+      --border: #E8E0D0;
+      --font-display: 'Bebas Neue', sans-serif;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
@@ -22,157 +24,81 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-sans);
-      background-color: var(--cafe-cream);
-      color: var(--cafe-espresso);
+      background-color: var(--cream);
+      color: var(--dark);
       line-height: 1.6;
-      padding-bottom: 90px;
     }
+    a { text-decoration: none; color: inherit; }
 
-    /* Navigation */
-    .cafe-nav {
-      position: sticky;
-      top: 36px;
-      z-index: 999;
-      background: rgba(250, 246, 240, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--cafe-border);
+    /* Navbar */
+    .bistro-nav {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(255, 253, 247, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
-    .cafe-nav-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .bistro-nav-wrap {
+      max-width: 1280px; margin: 0 auto; padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .cafe-brand {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--cafe-espresso);
-      text-decoration: none;
-    }
-    .cafe-brand span { color: var(--cafe-terracotta); }
-    .cafe-nav-links { display: flex; gap: 28px; align-items: center; }
-    .cafe-nav-links a {
-      color: var(--cafe-espresso);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .cafe-nav-links a.active { color: var(--cafe-terracotta); }
+    .bistro-brand { font-family: var(--font-display); font-size: 30px; letter-spacing: 1px; color: var(--flame); }
+    .bistro-brand span { color: var(--dark); }
+    .bistro-nav-links { display: flex; gap: 28px; }
+    .bistro-nav-links a { color: var(--dark); font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    .bistro-nav-links a.active { color: var(--flame); }
 
-    /* Menu Container */
-    .menu-wrap {
-      max-width: 1300px;
-      margin: 40px auto 80px;
+    /* Menu Layout */
+    .menu-layout {
+      max-width: 1200px;
+      margin: 40px auto 100px;
       padding: 0 24px;
     }
-    .menu-header {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-    .menu-header h1 {
-      font-family: var(--font-serif);
-      font-size: 38px;
-      margin-bottom: 8px;
-    }
+    .menu-header { text-align: center; margin-bottom: 40px; }
+    .menu-header h1 { font-family: var(--font-display); font-size: 52px; letter-spacing: 1px; color: var(--dark); }
 
-    /* Category Filter Pills */
-    .menu-filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 40px;
+    /* Course Filter Bar */
+    .course-bar {
+      display: flex; justify-content: center; gap: 12px; margin-bottom: 36px; flex-wrap: wrap;
     }
-    .menu-pill {
-      background: #fff;
-      border: 1px solid var(--cafe-border);
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      color: var(--cafe-espresso);
-      transition: all 0.2s;
+    .course-btn {
+      background: #fff; border: 1px solid var(--border); padding: 10px 22px; border-radius: 50px;
+      font-weight: 700; font-size: 13.5px; cursor: pointer; transition: all 0.2s;
     }
-    .menu-pill.active {
-      background: var(--cafe-espresso);
-      color: #fff;
-      border-color: var(--cafe-espresso);
-    }
+    .course-btn.active, .course-btn:hover { background: var(--flame); color: #fff; border-color: var(--flame); }
 
-    /* Menu Grid */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 30px;
+    /* Dishes List */
+    .dishes-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px;
     }
     .dish-card {
-      background: #fff;
-      border: 1px solid var(--cafe-border);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
     }
-    .dish-img { height: 220px; width: 100%; object-fit: cover; }
-    .dish-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
-    .dish-title-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-    .dish-name { font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; gap: 8px; font-weight: 700; }
-    .veg-dot { width: 12px; height: 12px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 2px #dcfce7; display: inline-block; }
-    .nonveg-dot { width: 12px; height: 12px; border-radius: 50%; background: #dc2626; box-shadow: 0 0 0 2px #fee2e2; display: inline-block; }
-    .dish-price { font-size: 20px; font-weight: 800; }
-    .dish-desc { font-size: 13.5px; color: #786256; margin-bottom: 18px; flex: 1; }
-    .btn-add-dish {
-      background: var(--cafe-cream);
-      border: 1px solid var(--cafe-border);
-      color: var(--cafe-espresso);
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-    .btn-add-dish:hover {
-      background: var(--cafe-terracotta);
-      color: #fff;
-      border-color: var(--cafe-terracotta);
-    }
+    .dish-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .dish-name { font-family: var(--font-serif); font-size: 19px; font-weight: 700; color: var(--dark); }
+    .dish-price { font-size: 20px; font-weight: 800; color: var(--flame); }
+    .dish-desc { font-size: 13.5px; color: #666; margin-bottom: 16px; }
+    .dish-foot { display: flex; justify-content: space-between; align-items: center; }
+    .veg-dot { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; }
+    .dot-v { width: 10px; height: 10px; border: 2px solid #22c55e; border-radius: 2px; position: relative; }
+    .dot-v::after { content: ''; width: 4px; height: 4px; background: #22c55e; border-radius: 50%; position: absolute; top: 1px; left: 1px; }
 
-    /* Sticky Bottom Cart Bar */
-    .floating-cart-bar {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: calc(100% - 48px);
-      max-width: 800px;
-      background: var(--cafe-espresso);
-      color: #fff;
-      padding: 16px 24px;
-      border-radius: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
+    .btn-add-cart {
+      background: var(--dark); color: #fff; border: none; padding: 8px 18px; border-radius: 4px;
+      font-weight: 700; font-size: 13px; cursor: pointer; transition: background 0.2s;
     }
-    .btn-checkout-bar {
-      background: var(--cafe-terracotta);
-      color: #fff;
-      border: none;
-      padding: 10px 24px;
-      border-radius: 30px;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
+    .btn-add-cart:hover { background: var(--flame); }
+
+    /* Floating Cart Drawer */
+    .cart-drawer-bar {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: var(--dark); color: #fff; padding: 14px 32px; border-radius: 50px;
+      display: flex; align-items: center; gap: 30px; z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-checkout-live {
+      background: var(--flame); color: #fff; padding: 8px 20px; border-radius: 50px;
+      font-weight: 700; font-size: 13px; text-decoration: none;
     }
   </style>
 </head>
@@ -182,154 +108,105 @@
   <div class="orbitex-return-bar">
     <div class="orbitex-return-container">
       <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
-      <span class="orbitex-return-tag">Template Preview: <b>Linguini & Leaf Bistro — Digital Menu</b></span>
+      <span class="orbitex-return-tag">Template Preview: <b>Linguini & Leaf — Digital Trattoria Menu</b></span>
       <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
     </div>
   </div>
 
   <!-- Navbar -->
-  <header class="cafe-nav">
-    <div class="cafe-nav-wrap">
-      <a href="index.html" class="cafe-brand">LINGUINI & LEAF <span>BISTRO</span></a>
-      <nav class="cafe-nav-links">
-        <a href="index.html">Home</a>
+  <header class="bistro-nav">
+    <div class="bistro-nav-wrap">
+      <a href="index.html" class="bistro-brand">LINGUINI <span>& LEAF</span></a>
+      <nav class="bistro-nav-links">
+        <a href="index.html">Trattoria</a>
         <a href="menu.html" class="active">Digital Menu</a>
-        <a href="reserve.html">Table Reservation</a>
-        <a href="order.html">Takeaway & Delivery</a>
+        <a href="reserve.html">Reserve Table</a>
       </nav>
-      <a href="reserve.html" style="background:var(--cafe-espresso); color:#fff; padding:8px 18px; border-radius:20px; text-decoration:none; font-size:13px; font-weight:700;">Reserve Table 🍷</a>
+      <a href="reserve.html" style="background:var(--flame); color:#fff; padding:8px 18px; border-radius:4px; font-weight:700; font-size:13px;">Book Table 🍷</a>
     </div>
   </header>
 
-  <!-- Menu Content -->
-  <main class="menu-wrap">
+  <main class="menu-layout">
     <div class="menu-header">
-      <h1>La Carta — Trattoria Menu</h1>
-      <p>Click "+" to add dishes to your Dine-In Table or Online Takeaway order.</p>
+      <span style="font-size:12px; font-weight:800; color:var(--flame); letter-spacing:2px; text-transform:uppercase;">Handcrafted Daily</span>
+      <h1>Wood-Fired Trattoria Menu</h1>
+      <p style="color:#666;">Prepared with imported Italian flours, San Marzano tomatoes, and fresh burrata.</p>
     </div>
 
-    <!-- Filter Pills -->
-    <div class="menu-filter-bar">
-      <button class="menu-pill active" onclick="filterMenu('all', this)">All Courses</button>
-      <button class="menu-pill" onclick="filterMenu('pizza', this)">🍕 Wood-Fired Pizza</button>
-      <button class="menu-pill" onclick="filterMenu('pasta', this)">🍝 Handmade Pasta</button>
-      <button class="menu-pill" onclick="filterMenu('antipasti', this)">🥖 Antipasti</button>
-      <button class="menu-pill" onclick="filterMenu('dessert', this)">🍨 Dolci / Desserts</button>
+    <!-- Course Filter -->
+    <div class="course-bar">
+      <button class="course-btn active">🍕 Wood-Fired Pizza</button>
+      <button class="course-btn">🍝 Handmade Pastas</button>
+      <button class="course-btn">🥗 Antipasti & Salads</button>
+      <button class="course-btn">🍮 Italian Dolci</button>
     </div>
 
-    <div class="menu-grid">
+    <!-- Dishes Grid -->
+    <div class="dishes-grid">
       <!-- 1 -->
-      <div class="dish-card" data-course="antipasti">
-        <img src="../../images/cafe/dish1.jpg" alt="Truffle Bruschetta" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-title-row">
-            <div class="dish-name"><span class="veg-dot"></span> Truffle Wild Mushroom Bruschetta</div>
-            <div class="dish-price">₹340</div>
+      <div class="dish-card">
+        <div>
+          <div class="dish-head">
+            <h3 class="dish-name">Margherita D.O.P. Burrata</h3>
+            <div class="dish-price">₹680</div>
           </div>
-          <p class="dish-desc">Toasted garlic sourdough topped with sautéed porcini & button mushrooms, white truffle glaze, and shaved Grana Padano.</p>
-          <button class="btn-add-dish" onclick="addToMenuOrder('Truffle Bruschetta', 340)">Add to Order +</button>
+          <p class="dish-desc">48-hour fermented leopard-crust sourdough, whole fresh burrata, San Marzano sauce, fresh sweet basil.</p>
+        </div>
+        <div class="dish-foot">
+          <div class="veg-dot"><span class="dot-v"></span> Pure Veg</div>
+          <button onclick="addToOrder('Margherita Burrata Pizza', 680)" class="btn-add-cart">+ Add to Order</button>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="dish-card" data-course="pizza">
-        <img src="../../images/cafe/dish2.jpg" alt="Margherita Pizza" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-title-row">
-            <div class="dish-name"><span class="veg-dot"></span> Margherita Di Bufala (12")</div>
-            <div class="dish-price">₹520</div>
+      <div class="dish-card">
+        <div>
+          <div class="dish-head">
+            <h3 class="dish-name">Wild Mushroom Truffle Tagliatelle</h3>
+            <div class="dish-price">₹720</div>
           </div>
-          <p class="dish-desc">San Marzano tomato base, fresh buffalo mozzarella, fresh sweet basil, and extra virgin olive oil drizzle.</p>
-          <button class="btn-add-dish" onclick="addToMenuOrder('Margherita Di Bufala', 520)">Add to Order +</button>
+          <p class="dish-desc">Hand-rolled egg yolk ribbons, porcini mushroom ragù, black truffle oil, 24-month aged Parmigiano Reggiano.</p>
+        </div>
+        <div class="dish-foot">
+          <div class="veg-dot"><span class="dot-v"></span> Pure Veg</div>
+          <button onclick="addToOrder('Truffle Tagliatelle', 720)" class="btn-add-cart">+ Add to Order</button>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="dish-card" data-course="pizza">
-        <img src="../../images/cafe/dish3.jpg" alt="Pollo Affumicato" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-title-row">
-            <div class="dish-name"><span class="nonveg-dot"></span> Pollo Affumicato Pizza (12")</div>
-            <div class="dish-price">₹640</div>
+      <div class="dish-card">
+        <div>
+          <div class="dish-head">
+            <h3 class="dish-name">Quattro Formaggi Bianca</h3>
+            <div class="dish-price">₹740</div>
           </div>
-          <p class="dish-desc">Smoked herb chicken breast, roasted bell peppers, caramelized onions, smoked scamorza cheese, and fresh oregano.</p>
-          <button class="btn-add-dish" onclick="addToMenuOrder('Pollo Affumicato Pizza', 640)">Add to Order +</button>
+          <p class="dish-desc">White garlic herb base, gorgonzola, smoked provolone, fontina, mozzarella, and chili-infused organic honey.</p>
         </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="dish-card" data-course="pasta">
-        <img src="../../images/cafe/dish4.jpg" alt="Fettuccine Carbonara" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-title-row">
-            <div class="dish-name"><span class="nonveg-dot"></span> Fettuccine Alla Carbonara</div>
-            <div class="dish-price">₹580</div>
-          </div>
-          <p class="dish-desc">Handmade egg pasta tossed with crispy cured bacon, pasture-raised egg yolk emulsion, and aged Pecorino Romano.</p>
-          <button class="btn-add-dish" onclick="addToMenuOrder('Fettuccine Carbonara', 580)">Add to Order +</button>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="dish-card" data-course="pasta">
-        <img src="../../images/cafe/dish5.jpg" alt="Pesto Penne" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-title-row">
-            <div class="dish-name"><span class="veg-dot"></span> Pesto Genovese Penne Rigate</div>
-            <div class="dish-price">₹490</div>
-          </div>
-          <p class="dish-desc">Fresh sweet basil pesto with toasted pine nuts, Grana Padano parmesan, sun-dried tomatoes, and cream swirl.</p>
-          <button class="btn-add-dish" onclick="addToMenuOrder('Pesto Penne Rigate', 490)">Add to Order +</button>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="dish-card" data-course="dessert">
-        <img src="../../images/cafe/dish6.jpg" alt="Tiramisu" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-title-row">
-            <div class="dish-name"><span class="veg-dot"></span> Classico Italian Tiramisu</div>
-            <div class="dish-price">₹380</div>
-          </div>
-          <p class="dish-desc">Savoiardi ladyfingers soaked in dark espresso, layered with sweet mascarpone sabayon and Valrhona cocoa dust.</p>
-          <button class="btn-add-dish" onclick="addToMenuOrder('Classico Tiramisu', 380)">Add to Order +</button>
+        <div class="dish-foot">
+          <div class="veg-dot"><span class="dot-v"></span> Pure Veg</div>
+          <button onclick="addToOrder('Quattro Formaggi', 740)" class="btn-add-cart">+ Add to Order</button>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Sticky Bottom Order Bar -->
-  <div class="floating-cart-bar">
-    <div>
-      <b id="barItemCount">1 Item</b> in Order • <span id="barSubtotal">₹520</span>
-    </div>
-    <a href="order.html" class="btn-checkout-bar">Proceed to Order ➔</a>
+  <!-- Floating Live Bill Bar -->
+  <div class="cart-drawer-bar" id="liveCartBar" style="display:none;">
+    <div>Items in Order: <b id="cartCount">0</b> | Subtotal: <b id="cartTotal" style="color:var(--gold);">₹0</b></div>
+    <a href="order.html" class="btn-checkout-live">Proceed to Takeaway Bill ➔</a>
   </div>
 
   <script src="../../scripts/shared-components.js"></script>
   <script>
-    let orderCount = 1;
-    let orderTotal = 520;
-
-    function filterMenu(course, btn) {
-      document.querySelectorAll('.menu-pill').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-
-      document.querySelectorAll('.dish-card').forEach(card => {
-        if (course === 'all' || card.getAttribute('data-course') === course) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function addToMenuOrder(name, price) {
-      orderCount++;
-      orderTotal += price;
-      document.getElementById('barItemCount').innerText = orderCount + ' Items';
-      document.getElementById('barSubtotal').innerText = '₹' + orderTotal.toLocaleString('en-IN');
-      if (window.OrbitexToast) OrbitexToast.success(`Added ${name} (₹${price}) to your order!`);
+    let count = 0;
+    let total = 0;
+    function addToOrder(name, price) {
+      count++;
+      total += price;
+      document.getElementById('liveCartBar').style.display = 'flex';
+      document.getElementById('cartCount').textContent = count;
+      document.getElementById('cartTotal').textContent = '₹' + total;
+      if (window.OrbitexToast) OrbitexToast.success(`Added "${name}" to your trattoria bill!`);
     }
   </script>
 </body>

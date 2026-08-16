@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PPF & Ceramic Packages — Apex Auto Detailing</title>
-  <meta name="description" content="View full paint protection film (PPF) and ceramic coating price chart by vehicle segment.">
+  <title>Detailing Packages & PPF Pricing — Apex AutoCare</title>
+  <meta name="description" content="Transparent automotive detailing, 9H Ceramic coating, and TPU PPF pricing across vehicle segments.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/shared-components.css">
   <style>
     :root {
       --auto-red: #e11d48;
       --auto-cyan: #38bdf8;
-      --auto-dark: #090a0f;
-      --auto-card: #13161f;
+      --auto-dark: #08090d;
+      --auto-panel: #11141c;
+      --auto-panel-2: #181d29;
       --auto-border: rgba(255, 255, 255, 0.12);
-      --font-heading: 'Montserrat', sans-serif;
+      --font-display: 'Montserrat', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
       --font-body: 'Plus Jakarta Sans', sans-serif;
     }
 
@@ -27,119 +29,128 @@
       color: #f1f5f9;
       line-height: 1.6;
     }
+    a { text-decoration: none; color: inherit; }
 
     /* Navbar */
     .auto-nav {
-      position: sticky;
-      top: 36px;
-      z-index: 999;
-      background: rgba(9, 10, 15, 0.95);
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(8, 9, 13, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--auto-border);
     }
     .auto-nav-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      max-width: 1300px; margin: 0 auto; padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .auto-brand {
-      font-family: var(--font-heading);
-      font-size: 24px;
-      font-weight: 900;
-      color: #fff;
-      text-decoration: none;
-    }
+    .auto-brand { font-family: var(--font-display); font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 1.5px; }
     .auto-brand span { color: var(--auto-red); }
     .auto-nav-links { display: flex; gap: 28px; }
-    .auto-nav-links a {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 13.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
+    .auto-nav-links a { color: #94a3b8; font-size: 13.5px; font-weight: 700; text-transform: uppercase; }
     .auto-nav-links a.active { color: #fff; }
 
-    /* Services Layout */
-    .services-wrap {
+    /* Main Services */
+    .services-container {
       max-width: 1200px;
-      margin: 40px auto 80px;
+      margin: 50px auto 90px;
       padding: 0 24px;
     }
     .services-header {
       text-align: center;
-      margin-bottom: 40px;
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .auto-sub {
+      font-family: var(--font-display); font-size: 12px; font-weight: 800;
+      color: var(--auto-red); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
     }
     .services-header h1 {
-      font-family: var(--font-heading);
-      font-size: 40px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      font-family: var(--font-display); font-size: 38px; font-weight: 900;
+      text-transform: uppercase; margin-bottom: 12px;
     }
 
     /* Segment Switcher */
-    .segment-pills {
+    .segment-bar {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 36px;
+      gap: 12px;
+      margin-bottom: 40px;
       flex-wrap: wrap;
     }
-    .seg-pill {
-      background: #13161f;
+    .segment-btn {
+      background: var(--auto-panel);
       border: 1px solid var(--auto-border);
       color: #94a3b8;
-      padding: 10px 22px;
-      border-radius: 4px;
-      font-family: var(--font-heading);
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-family: var(--font-display);
       font-weight: 800;
       font-size: 13px;
       text-transform: uppercase;
       cursor: pointer;
+      transition: all 0.2s;
     }
-    .seg-pill.active {
+    .segment-btn.active, .segment-btn:hover {
       background: var(--auto-red);
       color: #fff;
       border-color: var(--auto-red);
+      box-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
     }
 
-    /* Comparison Table */
-    .pricing-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--auto-card);
-      border-radius: 8px;
-      overflow: hidden;
+    /* Package Table */
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+    .package-card {
+      background: var(--auto-panel);
       border: 1px solid var(--auto-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
-    .pricing-table th, .pricing-table td {
-      padding: 18px 24px;
-      text-align: left;
-      border-bottom: 1px solid var(--auto-border);
+    .package-card.popular {
+      border-color: var(--auto-red);
+      background: linear-gradient(180deg, rgba(225, 29, 72, 0.08) 0%, var(--auto-panel) 100%);
     }
-    .pricing-table th {
-      background: #0f121a;
-      font-family: var(--font-heading);
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: #94a3b8;
+    .pop-badge {
+      position: absolute; top: -12px; right: 24px;
+      background: var(--auto-red); color: #fff; font-family: var(--font-display);
+      font-size: 11px; font-weight: 900; text-transform: uppercase; padding: 4px 12px; border-radius: 4px;
     }
-    .btn-table-book {
-      background: var(--auto-red);
-      color: #fff;
-      padding: 8px 18px;
-      border-radius: 4px;
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 12px;
-      text-decoration: none;
-      text-transform: uppercase;
-      display: inline-block;
+    .pkg-warranty {
+      font-family: var(--font-mono); font-size: 11px; color: var(--auto-cyan);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .package-card h3 {
+      font-family: var(--font-display); font-size: 22px; font-weight: 900;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .pkg-price {
+      font-family: var(--font-mono); font-size: 32px; font-weight: 900;
+      color: #fff; margin-bottom: 20px;
+    }
+    .pkg-features {
+      list-style: none; margin-bottom: 30px; flex: 1;
+      font-size: 13.5px; color: #94a3b8;
+    }
+    .pkg-features li {
+      margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+    }
+    .pkg-features li::before {
+      content: '✓'; color: var(--auto-red); font-weight: 900;
+    }
+    .btn-book-pkg {
+      background: #1e222d;
+      border: 1px solid var(--auto-border);
+      color: #fff; padding: 14px; border-radius: 4px;
+      font-family: var(--font-display); font-weight: 900; font-size: 13px;
+      text-align: center; text-transform: uppercase; transition: all 0.2s;
+    }
+    .package-card.popular .btn-book-pkg, .package-card:hover .btn-book-pkg {
+      background: var(--auto-red); border-color: var(--auto-red);
     }
   </style>
 </head>
@@ -149,7 +160,7 @@
   <div class="orbitex-return-bar">
     <div class="orbitex-return-container">
       <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
-      <span class="orbitex-return-tag">Template Preview: <b>Apex AutoCare — Service Packages</b></span>
+      <span class="orbitex-return-tag">Template Preview: <b>Apex AutoCare Detailing Packages</b></span>
       <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
     </div>
   </div>
@@ -163,84 +174,86 @@
         <a href="services.html" class="active">Packages & PPF</a>
         <a href="book.html">Book Inspection</a>
       </nav>
-      <a href="book.html" style="background:var(--auto-red); color:#fff; padding:8px 18px; border-radius:4px; font-family:var(--font-heading); font-weight:800; font-size:12px; text-decoration:none; text-transform:uppercase;">Book Slot ⚡</a>
+      <a href="book.html" class="auto-nav-btn" style="background:var(--auto-red); color:#fff; padding:9px 18px; border-radius:4px; font-weight:800; font-size:12.5px; text-transform:uppercase;">Book Bay Slot ➔</a>
     </div>
   </header>
 
-  <!-- Main Packages -->
-  <main class="services-wrap">
+  <main class="services-container">
     <div class="services-header">
-      <h1>Automotive Protection Pricing</h1>
-      <p style="color:#94a3b8;">All packages include 3-step paint decontamination and rotary swirl removal.</p>
+      <div class="auto-sub">Transparent Pricing Matrix</div>
+      <h1>Choose Vehicle Category</h1>
+      <p style="color:#94a3b8;">Select your vehicle class below to view guaranteed package pricing and warranty periods.</p>
     </div>
 
     <!-- Segment Switcher -->
-    <div class="segment-pills">
-      <button class="seg-pill active" onclick="setCarSegment('Sedan', 1, this)">🚗 Sedans (City, Octavia, 3-Series)</button>
-      <button class="seg-pill" onclick="setCarSegment('SUV', 1.25, this)">🚙 Mid/Full SUV (Creta, XUV700, Fortuner)</button>
-      <button class="seg-pill" onclick="setCarSegment('Luxury', 1.5, this)">🏎️ Luxury / Supercars (Porsche, Range Rover)</button>
+    <div class="segment-bar">
+      <button class="segment-btn active" onclick="setSegment('sedan', this)">🚗 Sedan / Hatchback</button>
+      <button class="segment-btn" onclick="setSegment('midsuv', this)">🚙 Mid-Size SUV / Crossover</button>
+      <button class="segment-btn" onclick="setSegment('fullsuv', this)">🚐 Full-Size SUV / 7-Seater</button>
+      <button class="segment-btn" onclick="setSegment('supercar', this)">🏎️ Luxury / Supercar</button>
     </div>
 
-    <table class="pricing-table">
-      <thead>
-        <tr>
-          <th>Treatment Package</th>
-          <th>Warranty & Protection</th>
-          <th>Price (₹)</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <b style="font-size:16px;">Full Body Self-Healing TPU PPF</b>
-            <div style="font-size:12.5px; color:#94a3b8;">200-Micron Optical TPU Film (Hood, Bumpers, Doors, Roof)</div>
-          </td>
-          <td><span style="color:var(--auto-cyan); font-weight:800;">10 Years Official Warranty</span></td>
-          <td id="pricePpf" style="font-size:20px; font-weight:900;">₹85,000</td>
-          <td><a href="book.html?pkg=ppf" class="btn-table-book">Book PPF ➔</a></td>
-        </tr>
-        <tr>
-          <td>
-            <b style="font-size:16px;">9H Matrix Graphene Ceramic Shield</b>
-            <div style="font-size:12.5px; color:#94a3b8;">Triple Layer Quartz Coating with Infrared Bake</div>
-          </td>
-          <td><span style="color:#a3e635; font-weight:800;">5 Years Official Warranty</span></td>
-          <td id="priceCeramic" style="font-size:20px; font-weight:900;">₹32,000</td>
-          <td><a href="book.html?pkg=ceramic" class="btn-table-book">Book Ceramic ➔</a></td>
-        </tr>
-        <tr>
-          <td>
-            <b style="font-size:16px;">Front Impact TPU PPF Package</b>
-            <div style="font-size:12.5px; color:#94a3b8;">Bumper, Full Hood, Fenders & ORVM Mirrors</div>
-          </td>
-          <td><span style="color:var(--auto-cyan); font-weight:800;">7 Years Warranty</span></td>
-          <td id="priceFrontPpf" style="font-size:20px; font-weight:900;">₹38,000</td>
-          <td><a href="book.html?pkg=front-ppf" class="btn-table-book">Book PPF ➔</a></td>
-        </tr>
-        <tr>
-          <td>
-            <b style="font-size:16px;">Deep Interior Steam Spa & Leather Balm</b>
-            <div style="font-size:12.5px; color:#94a3b8;">140°C Sanitization + AC Ozone Purification</div>
-          </td>
-          <td><span>Full Antibacterial Cleansing</span></td>
-          <td id="priceInterior" style="font-size:20px; font-weight:900;">₹8,500</td>
-          <td><a href="book.html?pkg=interior" class="btn-table-book">Book Spa ➔</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Packages Grid -->
+    <div class="package-grid">
+      <!-- 1 -->
+      <div class="package-card">
+        <div class="pkg-warranty">2-Year Gyeon Warranty</div>
+        <h3>9H Ceramic Shield</h3>
+        <div class="pkg-price" id="p1_price">₹22,000</div>
+        <ul class="pkg-features">
+          <li>2-Stage Rotary Swirl Removal</li>
+          <li>Dual-Layer 9H Ceramic Base Coat</li>
+          <li>Hydrophobic Top Coat Application</li>
+          <li>Wheel Rim & Glass Coating Included</li>
+        </ul>
+        <a href="book.html?pkg=ceramic" class="btn-book-pkg">Select Package ➔</a>
+      </div>
+
+      <!-- 2 -->
+      <div class="package-card popular">
+        <span class="pop-badge">Most Popular</span>
+        <div class="pkg-warranty" style="color:#fda4af;">5-Year Graphene Matrix</div>
+        <h3>10H Graphene Armor</h3>
+        <div class="pkg-price" id="p2_price" style="color:var(--auto-red);">₹38,000</div>
+        <ul class="pkg-features">
+          <li>3-Stage Mirror Paint Correction</li>
+          <li>Triple-Layer Reduced Heat Absorption Graphene</li>
+          <li>Interior Antibacterial Steam Spa</li>
+          <li>2 Free Annual Re-load Maintenance Washes</li>
+        </ul>
+        <a href="book.html?pkg=graphene" class="btn-book-pkg">Select Package ➔</a>
+      </div>
+
+      <!-- 3 -->
+      <div class="package-card">
+        <div class="pkg-warranty">10-Year Instant Self-Healing</div>
+        <h3>Full Body TPU PPF</h3>
+        <div class="pkg-price" id="p3_price">₹85,000</div>
+        <ul class="pkg-features">
+          <li>200-Micron Optically Clear TPU Armor</li>
+          <li>Computer Pre-Cut Wrap Edge Alignment</li>
+          <li>100% Stone Chip & Key Scratch Protection</li>
+          <li>Free 1-Year Comprehensive Film Insurance</li>
+        </ul>
+        <a href="book.html?pkg=ppf" class="btn-book-pkg">Select Package ➔</a>
+      </div>
+    </div>
   </main>
 
-  <script src="../../scripts/shared-components.js"></script>
   <script>
-    function setCarSegment(seg, mult, el) {
-      document.querySelectorAll('.seg-pill').forEach(b => b.classList.remove('active'));
-      el.classList.add('active');
+    const pricing = {
+      sedan: { p1: '₹22,000', p2: '₹38,000', p3: '₹85,000' },
+      midsuv: { p1: '₹26,000', p2: '₹44,000', p3: '₹95,000' },
+      fullsuv: { p1: '₹32,000', p2: '₹52,000', p3: '₹1,15,000' },
+      supercar: { p1: '₹45,000', p2: '₹68,000', p3: '₹1,45,000' }
+    };
 
-      document.getElementById('pricePpf').innerText = '₹' + Math.round(85000 * mult).toLocaleString('en-IN');
-      document.getElementById('priceCeramic').innerText = '₹' + Math.round(32000 * mult).toLocaleString('en-IN');
-      document.getElementById('priceFrontPpf').innerText = '₹' + Math.round(38000 * mult).toLocaleString('en-IN');
-      document.getElementById('priceInterior').innerText = '₹' + Math.round(8500 * (mult > 1 ? mult * 0.9 : 1)).toLocaleString('en-IN');
+    function setSegment(seg, btn) {
+      document.querySelectorAll('.segment-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('p1_price').textContent = pricing[seg].p1;
+      document.getElementById('p2_price').textContent = pricing[seg].p2;
+      document.getElementById('p3_price').textContent = pricing[seg].p3;
     }
   </script>
 </body>

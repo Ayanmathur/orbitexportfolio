@@ -3,145 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Araku Tribal Forest Single-Origin — Araku Highlands</title>
-  <meta name="description" content="100% Arabica shade-grown single-origin coffee with tasting notes of dark chocolate and orange blossom.">
+  <title>Araku Valley Anaerobic Natural — Grind & Roast Selector</title>
+  <meta name="description" content="Customize your grind size for South Indian Filter, French Press, Pour Over, AeroPress or Espresso.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles/shared-components.css">
   <style>
     :root {
       --coffee-copper: #c87a3e;
-      --coffee-dark: #19120e;
-      --coffee-cream: #faf6f0;
-      --coffee-border: #ebdcd0;
+      --coffee-copper-light: #e6a470;
+      --coffee-dark: #140e0b;
+      --coffee-panel: #1f1712;
+      --coffee-parchment: #faf6f0;
+      --coffee-border: rgba(200, 122, 62, 0.22);
       --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
       --font-mono: 'Space Mono', monospace;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: var(--font-sans);
-      background-color: var(--coffee-cream);
-      color: var(--coffee-dark);
+      background-color: var(--coffee-dark);
+      color: #e5e0dc;
       line-height: 1.6;
     }
+    a { text-decoration: none; color: inherit; }
 
     /* Navbar */
     .coffee-nav {
-      position: sticky;
-      top: 36px;
-      z-index: 999;
-      background: rgba(250, 246, 240, 0.95);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(20, 14, 11, 0.96);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--coffee-border);
     }
     .coffee-nav-wrap {
-      max-width: 1300px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      max-width: 1280px; margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
     }
-    .coffee-brand {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--coffee-dark);
-      text-decoration: none;
-    }
-    .coffee-brand span { color: var(--coffee-copper); }
-    .coffee-nav-links { display: flex; gap: 28px; }
-    .coffee-nav-links a {
-      color: var(--coffee-dark);
-      text-decoration: none;
-      font-size: 13.5px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
+    .coffee-brand { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--coffee-copper); }
+    .coffee-brand span { color: #fff; }
+    .coffee-nav-links { display: flex; gap: 32px; font-size: 13.5px; }
+    .coffee-nav-links a { color: #a89f99; text-transform: uppercase; font-weight: 600; }
+    .coffee-nav-links a.active { color: var(--coffee-copper); }
 
-    /* Product Page Layout */
+    /* Main Container */
     .pdp-wrap {
       max-width: 1200px;
-      margin: 40px auto 80px;
+      margin: 40px auto 90px;
       padding: 0 24px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 60px;
-    }
-    .pdp-img-card {
-      background: #fff;
-      border: 1px solid var(--coffee-border);
-      border-radius: 8px;
-      overflow: hidden;
-      height: 520px;
-    }
-    .pdp-img-card img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* Info */
-    .pdp-title {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-    .pdp-price {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--coffee-dark);
-      margin-bottom: 20px;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      align-items: start;
     }
 
-    /* Customizers */
-    .custom-group { margin-bottom: 24px; }
-    .custom-label {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--coffee-copper);
-      margin-bottom: 8px;
-      display: block;
-    }
-    .pills-grid { display: flex; gap: 8px; flex-wrap: wrap; }
-    .pill-btn {
-      background: #fff;
-      border: 1px solid var(--coffee-border);
-      padding: 8px 16px;
-      border-radius: 4px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .pill-btn.active {
-      background: var(--coffee-dark);
-      color: #fff;
-      border-color: var(--coffee-dark);
-    }
-
-    .btn-buy-coffee {
-      background: var(--coffee-copper);
-      color: #fff;
-      border: none;
-      padding: 16px;
-      border-radius: 4px;
-      font-weight: 800;
-      font-size: 14.5px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .pdp-img-box img {
       width: 100%;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      margin-top: 20px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--coffee-border);
     }
 
-    @media (max-width: 900px) {
+    .pdp-info {
+      background: var(--coffee-panel);
+      border: 1px solid var(--coffee-border);
+      padding: 36px;
+      border-radius: 4px;
+    }
+
+    .pdp-badge {
+      font-family: var(--font-mono); font-size: 11px; color: var(--coffee-copper-light);
+      margin-bottom: 8px; display: block; text-transform: uppercase;
+    }
+    .pdp-title { font-family: var(--font-serif); font-size: 32px; color: #fff; margin-bottom: 10px; }
+    .pdp-price { font-family: var(--font-mono); font-size: 28px; font-weight: 700; color: var(--coffee-copper); margin-bottom: 24px; }
+
+    /* Cupping Scorecard */
+    .cupping-card {
+      background: #140e0b;
+      border: 1px solid var(--coffee-border);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+    .cupping-val { font-family: var(--font-mono); font-size: 18px; font-weight: 700; color: var(--coffee-copper-light); }
+    .cupping-lbl { font-size: 11px; color: #888; text-transform: uppercase; margin-top: 2px; }
+
+    /* Grind Size Options */
+    .option-title { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
+    .grind-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px;
+    }
+    .grind-btn {
+      background: #140e0b; border: 1px solid var(--coffee-border); color: #ccc;
+      padding: 12px 8px; text-align: center; border-radius: 3px; cursor: pointer;
+      font-size: 12px; font-weight: 600;
+    }
+    .grind-btn.active, .grind-btn:hover { background: var(--coffee-copper); color: #fff; border-color: var(--coffee-copper); }
+
+    /* Weight Selector */
+    .weight-row { display: flex; gap: 10px; margin-bottom: 28px; }
+    .weight-btn {
+      flex: 1; background: #140e0b; border: 1px solid var(--coffee-border);
+      color: #ccc; padding: 12px; text-align: center; border-radius: 3px; cursor: pointer;
+      font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+    }
+    .weight-btn.active, .weight-btn:hover { background: var(--coffee-copper); color: #fff; }
+
+    .btn-roast-action {
+      background: var(--coffee-copper); color: #fff; width: 100%; padding: 16px;
+      font-weight: 700; font-size: 14px; text-transform: uppercase; border: none;
+      border-radius: 3px; cursor: pointer; letter-spacing: 1px;
+    }
+
+    @media (max-width: 860px) {
       .pdp-wrap { grid-template-columns: 1fr; }
+      .pdp-img-box img { height: 320px; }
     }
   </style>
 </head>
@@ -151,7 +135,7 @@
   <div class="orbitex-return-bar">
     <div class="orbitex-return-container">
       <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
-      <span class="orbitex-return-tag">Template Preview: <b>Araku Highlands — Coffee Customizer</b></span>
+      <span class="orbitex-return-tag">Template Preview: <b>Araku Highlands — Custom Grind Size PDP</b></span>
       <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
     </div>
   </div>
@@ -161,71 +145,91 @@
     <div class="coffee-nav-wrap">
       <a href="index.html" class="coffee-brand">ARAKU <span>HIGHLANDS</span></a>
       <nav class="coffee-nav-links">
-        <a href="index.html">Roastery</a>
-        <a href="catalog.html">Fresh Roasts</a>
+        <a href="index.html">Origins</a>
+        <a href="catalog.html">Single Estates</a>
+        <a href="product.html" class="active">Grind & Roast (₹)</a>
       </nav>
-      <a href="checkout.html" style="background:var(--coffee-dark); color:#fff; padding:8px 18px; border-radius:4px; font-size:13px; font-weight:700; text-decoration:none;">Cart (1) ☕</a>
+      <a href="checkout.html" style="background:var(--coffee-copper); color:#fff; padding:8px 16px; font-size:12px; font-weight:700; border-radius:3px;">Checkout ☕</a>
     </div>
   </header>
 
-  <!-- PDP Main -->
   <main class="pdp-wrap">
-    <div class="pdp-img-card">
-      <img src="../../images/coffee/item1.jpg" alt="Araku Single Origin">
+    <div class="pdp-img-box">
+      <img src="../../images/coffee/item1.jpg" alt="Araku Valley Anaerobic Natural">
+      <div style="margin-top:16px; background:var(--coffee-panel); border:1px solid var(--coffee-border); padding:16px; border-radius:4px; font-size:12.5px; color:#a89f99; text-align:center;">
+        📦 Shipped in one-way degassing valve pouch within 48 hours of drum roasting.
+      </div>
     </div>
 
-    <div>
-      <div style="font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--coffee-copper); margin-bottom:8px;">SCA 88.5 • 100% ARABICA • ELEVATION 4,200 FT</div>
-      <h1 class="pdp-title">Araku Tribal Forest Single-Origin</h1>
-      <div class="pdp-price" id="coffeePrice">₹540</div>
+    <div class="pdp-info">
+      <span class="pdp-badge">Single-Estate Micro Lot • Anaerobic Natural</span>
+      <h1 class="pdp-title">Araku Valley Anaerobic Natural</h1>
+      <div class="pdp-price" id="coffeePrice">₹650</div>
 
-      <p style="font-size:14.5px; color:#5c5048; margin-bottom:24px; line-height:1.7;">
-        Wet-processed and dried on raised African beds. Sweet balanced cup with rich notes of 70% dark chocolate truffle, stewed berries, and honeysuckle blossom.
-      </p>
-
-      <!-- Grind Customizer -->
-      <div class="custom-group">
-        <span class="custom-label">1. Choose Grind Size (For Your Equipment)</span>
-        <div class="pills-grid">
-          <div class="pill-btn active" onclick="setGrind('Whole Beans (Un-ground)', this)">Whole Beans</div>
-          <div class="pill-btn" onclick="setGrind('South Indian Brass Filter', this)">South Indian Filter</div>
-          <div class="pill-btn" onclick="setGrind('French Press (Coarse)', this)">French Press</div>
-          <div class="pill-btn" onclick="setGrind('Pour Over / V60', this)">Pour Over (V60)</div>
-          <div class="pill-btn" onclick="setGrind('AeroPress / Moka Pot', this)">AeroPress / Moka Pot</div>
-          <div class="pill-btn" onclick="setGrind('Espresso Machine (Fine)', this)">Espresso</div>
+      <!-- Cupping Scorecard -->
+      <div class="cupping-card">
+        <div>
+          <div class="cupping-val">88.5</div>
+          <div class="cupping-lbl">SCA Cupping</div>
+        </div>
+        <div>
+          <div class="cupping-val">1,350m</div>
+          <div class="cupping-lbl">Elevation</div>
+        </div>
+        <div>
+          <div class="cupping-val">Medium</div>
+          <div class="cupping-lbl">Roast Level</div>
         </div>
       </div>
 
-      <!-- Weight Customizer -->
-      <div class="custom-group">
-        <span class="custom-label">2. Select Pack Weight</span>
-        <div class="pills-grid">
-          <div class="pill-btn active" onclick="setWeight(540, '250 Grams', this)">250g (₹540)</div>
-          <div class="pill-btn" onclick="setWeight(980, '500 Grams (Save ₹100)', this)">500g (₹980)</div>
-          <div class="pill-btn" onclick="setWeight(1850, '1 KG Roaster Bag (Save ₹310)', this)">1 KG (₹1,850)</div>
-        </div>
+      <!-- Equipment Grind Size -->
+      <div class="option-title">Select Grind Size for Your Brewer:</div>
+      <div class="grind-grid">
+        <div class="grind-btn active" onclick="setGrind('Whole Beans', this)">🫘 Whole Beans</div>
+        <div class="grind-btn" onclick="setGrind('South Indian Filter', this)">☕ South Indian Filter</div>
+        <div class="grind-btn" onclick="setGrind('French Press', this)">🫖 French Press (Coarse)</div>
+        <div class="grind-btn" onclick="setGrind('Pour Over / V60', this)">⏳ Pour Over / V60</div>
+        <div class="grind-btn" onclick="setGrind('AeroPress', this)">🎯 AeroPress (Medium)</div>
+        <div class="grind-btn" onclick="setGrind('Espresso / Moka', this)">⚡ Espresso / Moka (Fine)</div>
       </div>
 
-      <a href="checkout.html" class="btn-buy-coffee">Proceed to Fresh Roast Checkout ➔</a>
+      <!-- Pack Weight -->
+      <div class="option-title">Pack Size:</div>
+      <div class="weight-row">
+        <div class="weight-btn active" onclick="setWeight('250g', 650, this)">250g (₹650)</div>
+        <div class="weight-btn" onclick="setWeight('500g', 1200, this)">500g (₹1,200)</div>
+        <div class="weight-btn" onclick="setWeight('1kg', 2250, this)">1kg (₹2,250)</div>
+      </div>
+
+      <button onclick="orderCoffee()" class="btn-roast-action">Add Fresh Roast to Order ➔</button>
     </div>
   </main>
 
   <script src="../../scripts/shared-components.js"></script>
   <script>
-    let activeGrind = 'Whole Beans';
-    let currentPrice = 540;
+    let currentGrind = 'Whole Beans';
+    let currentWeight = '250g';
+    let currentPrice = 650;
 
-    function setGrind(grind, el) {
-      el.closest('.pills-grid').querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+    function setGrind(g, el) {
+      document.querySelectorAll('.grind-btn').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
-      activeGrind = grind;
+      currentGrind = g;
     }
 
-    function setWeight(price, label, el) {
-      el.closest('.pills-grid').querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+    function setWeight(w, p, el) {
+      document.querySelectorAll('.weight-btn').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
-      currentPrice = price;
-      document.getElementById('coffeePrice').innerText = '₹' + price.toLocaleString('en-IN');
+      currentWeight = w;
+      currentPrice = p;
+      document.getElementById('coffeePrice').textContent = '₹' + p;
+    }
+
+    function orderCoffee() {
+      if (window.OrbitexToast) OrbitexToast.success(`Added Araku Valley (${currentGrind}, ${currentWeight}) to your fresh roast cart!`);
+      setTimeout(() => {
+        window.location.href = `checkout.html?grind=${encodeURIComponent(currentGrind)}&weight=${currentWeight}&price=${currentPrice}`;
+      }, 600);
     }
   </script>
 </body>
