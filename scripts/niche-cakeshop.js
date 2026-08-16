@@ -287,18 +287,18 @@ function generateCakeShopOverviewHTML(niche) {
                     let mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     
                     OrbitexHellobar.show({
-                        message: \`🎂 Order before 6 PM for Same-Day Delivery! ⏳ \${hrs}h \${mins}m remaining\`,
+                        message: '🎂 Order before 6 PM for Same-Day Delivery! ⏳ ' + hrs + 'h ' + mins + 'm remaining',
                         background: '#5d3226',
                         color: '#fff',
                         targetId: 'hellobar-container'
                     });
                 }
-                if(typeof AOS !== 'undefined') {
-                    AOS.init({ once: true, offset: 50 });
+                if(typeof OrbitexAOS !== 'undefined') {
+                    OrbitexAOS.refresh();
                 }
             }, 100);
         </script>
-    \`;
+    `;
 }
 
 function generateCakeShopCatalogHTML(niche) {
@@ -307,7 +307,44 @@ function generateCakeShopCatalogHTML(niche) {
     // Size multipliers
     const sizeMultipliers = { '0.5kg': 1, '1kg': 1.8, '2kg': 3.4, '3kg': 5 };
 
-    return \`
+    const categoryTabs = categories.map(cat => `<button class="cat-tab" onclick="filterCakes(this, '${cat}')">${cat}</button>`).join('');
+
+    const productCards = niche.catalog.map((item, idx) => {
+        let vegBadge = item.isVeg === false ? '<span class="badge badge-nonveg">🔴 Egg</span>' : '<span class="badge badge-veg">🟢 Eggless</span>';
+        let flavorBadge = item.flavor ? `<span class="badge badge-flavor">${item.flavor}</span>` : '<span class="badge badge-flavor">Signature</span>';
+        let itemNameEsc = item.name.replace(/'/g, "\\'");
+        
+        return `
+        <div class="catalog-item-card product-card" data-category="${item.cat}" data-base-price="${item.price}" data-aos="fade-up" data-aos-delay="${(idx%4)*50}">
+            <img src="${niche.heroImage}" alt="${item.name}" class="product-img" />
+            <div class="product-info">
+                <div class="badges">
+                    ${vegBadge}
+                    ${flavorBadge}
+                </div>
+                <h3 style="margin: 0 0 8px; font-size: 1.25rem;">${item.name}</h3>
+                <p style="margin: 0 0 16px; font-size: 0.9rem; color: #666; line-height: 1.5; flex: 1;">${item.desc}</p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                    <span style="font-size: 0.8rem; color: #888;">Starting from</span>
+                    <span class="price-display" style="font-size: 1.4rem; font-weight: 700; color: #5d3226;">${formatPrice(item.price)}</span>
+                </div>
+                
+                <div class="size-selector">
+                    <div class="size-pill active" onclick="updatePrice(this, ${item.price}, 1)">0.5kg</div>
+                    <div class="size-pill" onclick="updatePrice(this, ${item.price}, 1.8)">1kg</div>
+                    <div class="size-pill" onclick="updatePrice(this, ${item.price}, 3.4)">2kg</div>
+                </div>
+                
+                <button class="btn-order" onclick="openItemOrderModal('${niche.id}', '${itemNameEsc}', ${item.price})">
+                    Customize & Order
+                </button>
+            </div>
+        </div>
+        `;
+    }).join('');
+
+    return `
         <div class="niche-page" style="background-color: #fffdf7; color: #4f2916; font-family: 'Inter', sans-serif; min-height: 100vh; padding-bottom: 80px;">
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
@@ -380,44 +417,12 @@ function generateCakeShopCatalogHTML(niche) {
                 <!-- Category Tabs -->
                 <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 16px; margin-bottom: 32px; -webkit-overflow-scrolling: touch;" id="cat-container">
                     <button class="cat-tab active" onclick="filterCakes(this, 'all')">All</button>
-                    \${categories.map(cat => \`<button class="cat-tab" onclick="filterCakes(this, '\${cat}')">\${cat}</button>\`).join('')}
+                    ${categoryTabs}
                 </div>
 
                 <!-- Product Grid -->
                 <div class="catalog-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px;">
-                    \${niche.catalog.map((item, idx) => {
-                        let vegBadge = item.isVeg === false ? '<span class="badge badge-nonveg">🔴 Egg</span>' : '<span class="badge badge-veg">🟢 Eggless</span>';
-                        let flavorBadge = item.flavor ? \`<span class="badge badge-flavor">\${item.flavor}</span>\` : '<span class="badge badge-flavor">Signature</span>';
-                        
-                        return \`
-                        <div class="catalog-item-card product-card" data-category="\${item.cat}" data-base-price="\${item.price}" data-aos="fade-up" data-aos-delay="\${(idx%4)*50}">
-                            <img src="\${niche.heroImage}" alt="\${item.name}" class="product-img" />
-                            <div class="product-info">
-                                <div class="badges">
-                                    \${vegBadge}
-                                    \${flavorBadge}
-                                </div>
-                                <h3 style="margin: 0 0 8px; font-size: 1.25rem;">\${item.name}</h3>
-                                <p style="margin: 0 0 16px; font-size: 0.9rem; color: #666; line-height: 1.5; flex: 1;">\${item.desc}</p>
-                                
-                                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                    <span style="font-size: 0.8rem; color: #888;">Starting from</span>
-                                    <span class="price-display" style="font-size: 1.4rem; font-weight: 700; color: #5d3226;">\${formatPrice(item.price)}</span>
-                                </div>
-                                
-                                <div class="size-selector">
-                                    <div class="size-pill active" onclick="updatePrice(this, \${item.price}, 1)">0.5kg</div>
-                                    <div class="size-pill" onclick="updatePrice(this, \${item.price}, 1.8)">1kg</div>
-                                    <div class="size-pill" onclick="updatePrice(this, \${item.price}, 3.4)">2kg</div>
-                                </div>
-                                
-                                <button class="btn-order" onclick="openItemOrderModal('\${niche.id}', '\${item.name}', \${item.price})">
-                                    Customize & Order
-                                </button>
-                            </div>
-                        </div>
-                        \`;
-                    }).join('')}
+                    ${productCards}
                 </div>
             </main>
 
@@ -446,18 +451,16 @@ function generateCakeShopCatalogHTML(niche) {
                 let newPrice = basePrice * multiplier;
                 card.querySelector('.price-display').innerHTML = formatPrice(newPrice);
                 
-                // Update button action with new price
                 let btn = card.querySelector('.btn-order');
                 let name = card.querySelector('h3').innerText;
-                // Escaping strings for inline onclick
-                btn.setAttribute('onclick', \`openItemOrderModal('\${'${niche.id}'}', '\${name.replace(/'/g, "\\'")}', \${newPrice})\`);
+                btn.onclick = function() { openItemOrderModal('${niche.id}', name, newPrice); };
             }
             
             setTimeout(() => {
-                if(typeof AOS !== 'undefined') {
-                    AOS.init({ once: true, offset: 50 });
+                if(typeof OrbitexAOS !== 'undefined') {
+                    OrbitexAOS.refresh();
                 }
             }, 100);
         </script>
-    \`;
+    `;
 }

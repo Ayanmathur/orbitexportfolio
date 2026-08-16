@@ -356,11 +356,30 @@ const OrbitexHellobar = {
 const OrbitexMobileNav = {
   _nav: null,
 
+  render(tabs = [], accentColor = '#c85a32') {
+    if (typeof tabs === 'object' && !Array.isArray(tabs) && tabs.tabs) {
+      accentColor = tabs.accentColor || accentColor;
+      tabs = tabs.tabs;
+    }
+    return `
+      <div class="orbitex-mobile-nav" style="--mobile-nav-accent: ${accentColor};">
+        ${tabs.map((tab, i) => `
+          <button class="orbitex-mobile-nav__tab ${i === 0 ? 'orbitex-mobile-nav__tab--active' : ''}"
+                  onclick="${tab.action || ''}; if(window.OrbitexMobileNav) OrbitexMobileNav._setActive(this)">
+            <span class="orbitex-mobile-nav__icon">${tab.icon || '•'}</span>
+            ${tab.badge ? `<span class="orbitex-mobile-nav__badge">${tab.badge}</span>` : ''}
+            <span class="orbitex-mobile-nav__label">${tab.label || ''}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  },
+
   show(config) {
     // config: { tabs: [{ icon, label, action, badge? }], accentColor }
     this.remove();
 
-    if (window.innerWidth > 768) return; // Desktop hidden
+    if (typeof window !== 'undefined' && window.innerWidth > 768) return; // Desktop hidden
 
     const nav = document.createElement('div');
     nav.id = 'orbitex-mobile-nav';
@@ -397,14 +416,16 @@ const OrbitexMobileNav = {
 };
 
 // Re-evaluate mobile nav on resize
-window.addEventListener('resize', () => {
-  const nav = document.getElementById('orbitex-mobile-nav');
-  if (nav && window.innerWidth > 768) {
-    nav.style.display = 'none';
-  } else if (nav) {
-    nav.style.display = '';
-  }
-});
+if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
+  window.addEventListener('resize', () => {
+    const nav = document.getElementById('orbitex-mobile-nav');
+    if (nav && window.innerWidth > 768) {
+      nav.style.display = 'none';
+    } else if (nav) {
+      nav.style.display = '';
+    }
+  });
+}
 
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -647,34 +668,64 @@ const OrbitexAOS = {
   _observer: null,
 
   init() {
-    if (this._observer) return;
+    document.documentElement.classList.add('orbitex-aos-enabled');
 
-    this._observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('orbitex-aos--visible');
-          this._observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      if (!this._observer) {
+        this._observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('orbitex-aos--visible');
+              if (this._observer) this._observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.02, rootMargin: '100px 0px 100px 0px' });
+      }
+    }
 
     this.refresh();
   },
 
   refresh() {
-    document.querySelectorAll('[data-aos]').forEach(el => {
-      el.classList.remove('orbitex-aos--visible');
-      if (this._observer) this._observer.observe(el);
+    const elements = document.querySelectorAll('[data-aos]');
+    const winHeight = (typeof window !== 'undefined') ? (window.innerHeight || document.documentElement.clientHeight) : 800;
+
+    elements.forEach(el => {
+      if (!this._observer) {
+        el.classList.add('orbitex-aos--visible');
+        return;
+      }
+
+      const rect = el.getBoundingClientRect();
+      // If already in viewport or near it, reveal immediately
+      if (rect.top < winHeight + 150 && rect.bottom > -150) {
+        el.classList.add('orbitex-aos--visible');
+      } else {
+        this._observer.observe(el);
+      }
     });
+
+    // Safety fallback: ensure visible within 300ms
+    setTimeout(() => {
+      document.querySelectorAll('[data-aos]').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < winHeight * 2) {
+          el.classList.add('orbitex-aos--visible');
+        }
+      });
+    }, 300);
   }
 };
 
-// Auto-init AOS when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => OrbitexAOS.init());
-} else {
-  OrbitexAOS.init();
+// Auto-init AOS safely
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => OrbitexAOS.init());
+  } else {
+    OrbitexAOS.init();
+  }
 }
+
 
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -368,16 +368,17 @@ function generateRealEstateCatalogHTML(niche) {
                     const baths = beds === '-' ? '-' : beds;
                     const area = isComm ? '1000+' : (beds === 1 ? '620' : beds === 2 ? '1050' : '1520');
                     const emiEst = Math.round((item.price * 0.8) * (0.085/12) * Math.pow(1+0.085/12, 240) / (Math.pow(1+0.085/12, 240)-1));
-                    const imgUrl = \`https://images.unsplash.com/photo-\${1512917774073 + i}?w=600&q=80\`; // Randomize slightly based on index
+                    const imgUrl = 'https://images.unsplash.com/photo-' + (1512917774073 + i) + '?w=600&q=80';
+                    const itemNameEsc = item.name.replace(/'/g, "\\'");
 
-                    return \`
-                    <div class="catalog-item-card re-cat-card" data-aos="fade-up" data-aos-delay="\${(i%3)*100}" data-category="\${item.name.includes('1') ? '1 BHK' : item.name.includes('2') ? '2 BHK' : item.name.includes('3') ? '3 BHK' : 'all'}" style="background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; display: flex; flex-direction: column;">
-                        <div style="height: 280px; background: url('\${imgUrl}') center/cover; position: relative;">
+                    return `
+                    <div class="catalog-item-card re-cat-card" data-aos="fade-up" data-aos-delay="${(i%3)*100}" data-category="${item.name.includes('1') ? '1 BHK' : item.name.includes('2') ? '2 BHK' : item.name.includes('3') ? '3 BHK' : 'all'}" style="background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; display: flex; flex-direction: column;">
+                        <div style="height: 280px; background: url('${imgUrl}') center/cover; position: relative;">
                             <div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 50%);"></div>
                             
                             <div style="position: absolute; top: 1rem; left: 1rem; display: flex; gap: 0.5rem; align-items: center;">
-                                <div style="background: #10b981; color: white; font-weight: 800; font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">RERA: P5050\${1000+i}</div>
-                                <div style="background: rgba(255,255,255,0.9); color: #044e3a; font-weight: 800; font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">\${item.cat}</div>
+                                <div style="background: #10b981; color: white; font-weight: 800; font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">RERA: P5050${1000+i}</div>
+                                <div style="background: rgba(255,255,255,0.9); color: #044e3a; font-weight: 800; font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">${item.cat}</div>
                             </div>
 
                             <label style="position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.9); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; color: #0f172a;">
@@ -385,27 +386,27 @@ function generateRealEstateCatalogHTML(niche) {
                             </label>
 
                             <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; color: white;">
-                                <h3 style="font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700; margin: 0;">\${item.name}</h3>
+                                <h3 style="font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700; margin: 0;">${item.name}</h3>
                             </div>
                         </div>
                         
                         <div style="padding: 2rem; flex-grow: 1; display: flex; flex-direction: column;">
-                            <div style="color: #64748b; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">\${item.desc}</div>
+                            <div style="color: #64748b; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">${item.desc}</div>
                             
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 1.5rem 0; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; margin-bottom: 2rem;">
                                 <div style="text-align: center;">
                                     <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🏠</div>
-                                    <div style="font-weight: 800; color: #0f172a; font-size: 1.1rem;">\${area}</div>
+                                    <div style="font-weight: 800; color: #0f172a; font-size: 1.1rem;">${area}</div>
                                     <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Sq.Ft</div>
                                 </div>
                                 <div style="text-align: center;">
                                     <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🛏️</div>
-                                    <div style="font-weight: 800; color: #0f172a; font-size: 1.1rem;">\${beds}</div>
+                                    <div style="font-weight: 800; color: #0f172a; font-size: 1.1rem;">${beds}</div>
                                     <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Beds</div>
                                 </div>
                                 <div style="text-align: center;">
                                     <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🚿</div>
-                                    <div style="font-weight: 800; color: #0f172a; font-size: 1.1rem;">\${baths}</div>
+                                    <div style="font-weight: 800; color: #0f172a; font-size: 1.1rem;">${baths}</div>
                                     <div style="font-size: 0.75rem; color: #64748b; text-transform: uppercase; font-weight: 600;">Baths</div>
                                 </div>
                             </div>
@@ -413,20 +414,20 @@ function generateRealEstateCatalogHTML(niche) {
                             <div style="margin-top: auto;">
                                 <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.25rem;">
                                     <div style="font-size: 2.25rem; font-weight: 800; color: #044e3a; font-family: 'Syne', sans-serif;">
-                                        \${formatPrice(item.price)}
+                                        ${formatPrice(item.price)}
                                     </div>
                                     <div style="color: #64748b; font-weight: 600; text-transform: uppercase; font-size: 0.85rem;">Onwards</div>
                                 </div>
                                 <div style="font-size: 0.95rem; color: #10b981; font-weight: 700; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; background: #ecfdf5; padding: 0.5rem 1rem; border-radius: 8px; display: inline-flex;">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-                                    EMI: ₹\${emiEst.toLocaleString('en-IN')}/mo
+                                    EMI: ₹${emiEst.toLocaleString('en-IN')}/mo
                                 </div>
                                 
-                                <button onclick="openItemOrderModal('\${niche.id}', '\${item.name}', \${item.price})" style="width: 100%; background: linear-gradient(135deg, #044e3a, #059669); color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 10px rgba(4,78,58,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(4,78,58,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(4,78,58,0.2)'">Schedule Visit</button>
+                                <button onclick="openItemOrderModal('${niche.id}', '${itemNameEsc}', ${item.price})" style="width: 100%; background: linear-gradient(135deg, #044e3a, #059669); color: white; border: none; padding: 1rem; border-radius: 8px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 10px rgba(4,78,58,0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 10px 20px rgba(4,78,58,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(4,78,58,0.2)'">Schedule Visit</button>
                             </div>
                         </div>
                     </div>
-                    \`;
+                    `;
                 }).join('')}
             </div>
         </div>
@@ -508,7 +509,7 @@ function generateRealEstateCatalogHTML(niche) {
         </div>
 
     </div>
-    \`;
+    `;
 }
 
 

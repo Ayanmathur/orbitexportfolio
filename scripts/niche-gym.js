@@ -304,12 +304,12 @@ function generateGymOverviewHTML(niche) {
                         pct = 95;
                     }
                     
-                    document.getElementById('bmi-result-text').innerHTML = \`BMI: \${bmi} <span style="color: \${color}; text-shadow: 0 0 10px \${color};">(\${status})</span>\`;
+                    document.getElementById('bmi-result-text').innerHTML = 'BMI: ' + bmi + ' <span style="color: ' + color + '; text-shadow: 0 0 10px ' + color + ';">(' + status + ')</span>';
                     
                     const bar = document.getElementById('bmi-bar');
                     bar.style.width = pct + '%';
                     bar.style.backgroundColor = color;
-                    bar.style.boxShadow = \`0 0 10px \${color}\`;
+                    bar.style.boxShadow = '0 0 10px ' + color;
                 }
             }
         </script>
@@ -320,15 +320,18 @@ function generateGymOverviewHTML(niche) {
 function generateGymCatalogHTML(niche) {
     setTimeout(() => {
         if (window.OrbitexMobileNav) {
-            OrbitexMobileNav.init([
-                {icon: '🏋️', label: 'Programs', action: 'setNicheView(\\'overview\\')'},
-                {icon: '📅', label: 'Schedule', action: 'setNicheView(\\'overview\\')'},
-                {icon: '🛒', label: 'Shop', action: 'setNicheView(\\'overview\\')'},
-                {icon: '⚡', label: 'Join', action: 'setNicheView(\\'catalog\\')'}
-            ], { accent: '#a3e635', bg: '#0a0a0a', color: '#fff' });
+            OrbitexMobileNav.show({
+                tabs: [
+                    {icon: '🏋️', label: 'Programs', action: "setNicheView('overview')"},
+                    {icon: '📅', label: 'Schedule', action: "setNicheView('overview')"},
+                    {icon: '🛒', label: 'Shop', action: "setNicheView('overview')"},
+                    {icon: '⚡', label: 'Join', action: "setNicheView('catalog')"}
+                ],
+                accentColor: '#a3e635'
+            });
         }
-        if (typeof AOS !== 'undefined') AOS.init();
-    }, 500);
+        if (typeof OrbitexAOS !== 'undefined') OrbitexAOS.refresh();
+    }, 300);
 
     const memberships = [
         { id: 'm1', name: 'Base Access', basePrice: 2500, desc: 'Full access to gym floor and cardio deck. No group classes.', popular: false, value: false },
@@ -510,7 +513,7 @@ function generateGymCatalogHTML(niche) {
                 
                 // Update main button
                 const btn = document.getElementById('btn-' + planId);
-                btn.setAttribute('onclick', \`openItemOrderModal('${niche.id}', '\${planName} - \${duration}', \${finalPrice})\`);
+                btn.onclick = function() { openItemOrderModal('${niche.id}', planName + ' - ' + duration, finalPrice); };
 
                 // Update sticky bar
                 const stickyBar = document.getElementById('sticky-buy-bar');
@@ -521,7 +524,7 @@ function generateGymCatalogHTML(niche) {
                 const stickyBtn = document.getElementById('sticky-btn');
                 stickyBtn.style.pointerEvents = 'auto';
                 stickyBtn.style.opacity = '1';
-                stickyBtn.setAttribute('onclick', \`openItemOrderModal('${niche.id}', '\${planName} - \${duration}', \${finalPrice})\`);
+                stickyBtn.onclick = function() { openItemOrderModal('${niche.id}', planName + ' - ' + duration, finalPrice); };
             }
         </script>
     </div>

@@ -390,47 +390,51 @@ function generateCafeCatalogHTML(niche) {
                 ? '<span title="Vegetarian" style="border: 2px solid #16a34a; color: #16a34a; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(22,163,74,0.1);">🟢</span>' 
                 : '<span title="Non-Vegetarian" style="border: 2px solid #dc2626; color: #dc2626; border-radius: 50%; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(220,38,38,0.1);">🔴</span>';
             
-            const spiceLevel = (item.name.toLowerCase().includes('spicy') || item.desc?.toLowerCase().includes('chilli')) ? 'Spice Level: 🌶️🌶️' : '';
-            
-            return \`
+            const spiceLevel = (item.name.toLowerCase().includes('spicy') || (item.desc && item.desc.toLowerCase().includes('chilli'))) ? 'Spice Level: 🌶️🌶️' : '';
+            const itemImg = item.image || niche.heroImage;
+            const itemNameEsc = item.name.replace(/'/g, "\\'");
+
+            return `
             <div class="catalog-item-card" style="display: flex; gap: 20px; margin-bottom: 20px; align-items: flex-start; padding: 20px; transition: all 0.3s; border-radius: 20px; background: #fff; border: 1px solid var(--crema);" 
                  onmouseover="this.style.borderColor='var(--espresso)'; this.style.boxShadow='0 10px 20px rgba(79, 41, 22, 0.1)';" 
                  onmouseout="this.style.borderColor='var(--crema)'; this.style.boxShadow='none';">
-                <img src="\${item.image || niche.heroImage}" alt="\${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
+                <img src="${itemImg}" alt="${item.name}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
                 <div style="flex-grow: 1;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                         <h4 style="font-size: 1.3rem; color: var(--espresso); margin: 0; display: flex; align-items: center; gap: 8px;">
-                            \${item.name} \${vegIcon}
+                            ${item.name} ${vegIcon}
                         </h4>
-                        <span style="font-weight: 700; color: #333; font-size: 1.2rem;">\${formatPrice(item.price)}</span>
+                        <span style="font-weight: 700; color: #333; font-size: 1.2rem;">${formatPrice(item.price)}</span>
                     </div>
-                    <p style="font-style: italic; color: #666; font-size: 1rem; margin: 0; line-height: 1.5; margin-bottom: 15px;">\${item.desc || 'Prepared with fresh ingredients.'}</p>
+                    <p style="font-style: italic; color: #666; font-size: 1rem; margin: 0; line-height: 1.5; margin-bottom: 15px;">${item.desc || 'Prepared with fresh ingredients.'}</p>
                     
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div style="font-size: 0.85rem; color: #888; display: flex; gap: 15px;">
                             <span>⏱ 15 min</span>
-                            \${spiceLevel ? \`<span>\${spiceLevel}</span>\` : ''}
+                            ${spiceLevel ? `<span>${spiceLevel}</span>` : ''}
                         </div>
                         <div style="display: flex; gap: 10px;">
-                            <button onclick="openItemOrderModal('\${niche.id}', '\${item.name.replace(/'/g, "\\\\'")}', \${item.price})" style="background: var(--latte); color: var(--espresso); border: 1px solid var(--espresso); padding: 6px 15px; border-radius: 20px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--crema)'" onmouseout="this.style.background='var(--latte)'">Dine-In</button>
-                            <button onclick="openItemOrderModal('\${niche.id}', '\${item.name.replace(/'/g, "\\\\'")}', \${item.price})" style="background: var(--espresso); color: #fff; border: none; padding: 6px 15px; border-radius: 20px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#2a150b'" onmouseout="this.style.background='var(--espresso)'">Takeaway</button>
+                            <button onclick="openItemOrderModal('${niche.id}', '${itemNameEsc}', ${item.price})" style="background: var(--latte); color: var(--espresso); border: 1px solid var(--espresso); padding: 6px 15px; border-radius: 20px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--crema)'" onmouseout="this.style.background='var(--latte)'">Dine-In</button>
+                            <button onclick="openItemOrderModal('${niche.id}', '${itemNameEsc}', ${item.price})" style="background: var(--espresso); color: #fff; border: none; padding: 6px 15px; border-radius: 20px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#2a150b'" onmouseout="this.style.background='var(--espresso)'">Takeaway</button>
                         </div>
                     </div>
                 </div>
-            </div>\`;
+            </div>`;
         }).join('');
 
-        menuSections += \`
+        menuSections += `
         <div style="margin-bottom: 50px;" data-aos="fade-up">
-            <h3 style="font-size: 2rem; color: #333; margin: 0 0 20px 0; border-bottom: 2px dashed var(--crema); padding-bottom: 10px;">\${cat}</h3>
+            <h3 style="font-size: 2rem; color: #333; margin: 0 0 20px 0; border-bottom: 2px dashed var(--crema); padding-bottom: 10px;">${cat}</h3>
             <div style="max-width: 900px; margin: 0 auto;">
-                \${itemsHtml}
+                ${itemsHtml}
             </div>
         </div>
-        \`;
+        `;
     });
 
-    return \`
+    const filterBtns = cats.map(cat => `<button class="catalog-filter-btn" onclick="filterCatalogItems(this, '${cat}')">${cat}</button>`).join('');
+
+    return `
     <style>
         @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
         
@@ -467,8 +471,8 @@ function generateCafeCatalogHTML(niche) {
         <header class="niche-header" style="background: rgba(250, 246, 240, 0.95); border-bottom: 1px solid var(--crema); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px);">
             <div class="niche-wrap" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;">
                 <div class="niche-brand" style="display: flex; align-items: center; gap: 10px;">
-                    \${niche.logoSvg}
-                    <span style="font-size: 1.6rem; color: var(--espresso); font-weight: 700; letter-spacing: 0.5px;">\${niche.name}</span>
+                    ${niche.logoSvg}
+                    <span style="font-size: 1.6rem; color: var(--espresso); font-weight: 700; letter-spacing: 0.5px;">${niche.name}</span>
                 </div>
                 <div class="niche-nav-links" style="display: flex; gap: 25px; align-items: center;">
                     <button onclick="setNicheView('overview')" style="background:none; border:none; cursor:pointer; font-family: inherit; color: #555; font-size: 1.05rem;">Story</button>
@@ -490,25 +494,28 @@ function generateCafeCatalogHTML(niche) {
 
                 <div class="catalog-filters" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
                     <button class="catalog-filter-btn active" onclick="filterCatalogItems(this, 'all')">All</button>
-                    \${cats.map(cat => \`<button class="catalog-filter-btn" onclick="filterCatalogItems(this, '\${cat}')">\${cat}</button>\`).join('')}
+                    ${filterBtns}
                 </div>
             </div>
 
             <div class="catalog-grid" style="position: relative;">
-                \${menuSections}
+                ${menuSections}
             </div>
         </div>
     </div>
 
     <script>
         if (typeof OrbitexMobileNav !== 'undefined') {
-            OrbitexMobileNav.init([
-                { label: 'Menu', icon: '🍽️', action: () => setNicheView('catalog') },
-                { label: 'Reserve', icon: '📅', action: () => openActionModal('${niche.id}') },
-                { label: 'Order', icon: '🛵', action: () => window.scrollTo(0,0) },
-                { label: 'Cart', icon: '🛒', action: () => alert('Cart opened') }
-            ]);
+            OrbitexMobileNav.show({
+                tabs: [
+                    { label: 'Menu', icon: '🍽️', action: "setNicheView('catalog')" },
+                    { label: 'Reserve', icon: '📅', action: "openActionModal('${niche.id}')" },
+                    { label: 'Order', icon: '🛵', action: "window.scrollTo({top:0, behavior:'smooth'})" },
+                    { label: 'Cart', icon: '🛒', action: "if(window.OrbitexToast) OrbitexToast.info('Cart is ready')" }
+                ],
+                accentColor: '#4f2916'
+            });
         }
     </script>
-    \`;
+    `;
 }

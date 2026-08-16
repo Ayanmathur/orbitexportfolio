@@ -521,26 +521,35 @@ body.has-hellobar .orbitex-bar { top: 0; }
 
 /* ── ANIMATE ON SCROLL ───────────────────────────────────────────────── */
 [data-aos] {
-  opacity: 0;
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-[data-aos="fade-up"] { transform: translateY(30px); }
-[data-aos="fade-down"] { transform: translateY(-30px); }
-[data-aos="fade-left"] { transform: translateX(30px); }
-[data-aos="fade-right"] { transform: translateX(-30px); }
-[data-aos="zoom-in"] { transform: scale(0.92); }
-[data-aos="fade"] { }
-
-[data-aos].orbitex-aos--visible {
   opacity: 1;
-  transform: translate(0) scale(1);
+  transform: none;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-aos][data-aos-delay="100"] { transition-delay: 100ms; }
-[data-aos][data-aos-delay="200"] { transition-delay: 200ms; }
-[data-aos][data-aos-delay="300"] { transition-delay: 300ms; }
-[data-aos][data-aos-delay="400"] { transition-delay: 400ms; }
-[data-aos][data-aos-delay="500"] { transition-delay: 500ms; }
+.orbitex-aos-enabled [data-aos] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.orbitex-aos-enabled [data-aos="fade-up"] { transform: translateY(24px); }
+.orbitex-aos-enabled [data-aos="fade-down"] { transform: translateY(-24px); }
+.orbitex-aos-enabled [data-aos="fade-left"] { transform: translateX(24px); }
+.orbitex-aos-enabled [data-aos="fade-right"] { transform: translateX(-24px); }
+.orbitex-aos-enabled [data-aos="zoom-in"] { transform: scale(0.95); }
+.orbitex-aos-enabled [data-aos="fade"] { transform: none; }
+
+.orbitex-aos-enabled [data-aos].orbitex-aos--visible,
+[data-aos].orbitex-aos--visible {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) !important;
+}
+
+[data-aos][data-aos-delay="100"] { transition-delay: 80ms; }
+[data-aos][data-aos-delay="200"] { transition-delay: 150ms; }
+[data-aos][data-aos-delay="300"] { transition-delay: 220ms; }
+[data-aos][data-aos-delay="400"] { transition-delay: 300ms; }
+[data-aos][data-aos-delay="500"] { transition-delay: 380ms; }
+
 
 
 /* ── MARQUEE BANNER ──────────────────────────────────────────────────── */

@@ -285,10 +285,18 @@ let currentCategoryFilter = 'all';
 let isOwnerMode = false;
 
 // Initialize Engine
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   renderPortfolioGrid();
   setupEventListeners();
-});
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
+  }
+}
 
 // Render Main Portfolio Asymmetric Bento Grid
 function renderPortfolioGrid() {
