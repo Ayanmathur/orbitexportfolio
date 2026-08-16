@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bespoke Salon & Spa Services — The Silk Salon</title>
+  <meta name="description" content="Explore luxury haircare, bridal glow facials, hair botox, and Ayurvedic scalp spa therapies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --salon-rose: #d48d7d;
+      --salon-blush: #faf5f0;
+      --salon-dark: #262626;
+      --salon-card: #ffffff;
+      --salon-border: #ebdcd5;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--salon-blush);
+      color: var(--salon-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .salon-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(250, 245, 240, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--salon-border);
+    }
+    .salon-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .salon-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--salon-dark);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .salon-brand span { color: var(--salon-rose); }
+    .salon-nav-links { display: flex; gap: 28px; }
+    .salon-nav-links a {
+      color: var(--salon-dark);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .salon-nav-links a.active { color: var(--salon-rose); }
+
+    /* Services Layout */
+    .services-wrap {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .services-header h1 {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    /* Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--salon-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(212, 141, 125, 0.15);
+      border-color: var(--salon-rose);
+    }
+    .service-img { height: 220px; width: 100%; object-fit: cover; }
+    .service-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .service-header-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .service-name { font-family: var(--font-serif); font-size: 19px; font-weight: 700; }
+    .service-price { font-size: 20px; font-weight: 800; color: var(--salon-rose); }
+    .service-dur {
+      font-size: 12px;
+      font-weight: 700;
+      color: #737373;
+      background: #f5f5f4;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-bottom: 12px;
+    }
+    .service-desc { font-size: 13.5px; color: #525252; margin-bottom: 20px; flex: 1; }
+    .btn-book-service {
+      background: var(--salon-dark);
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 13px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .btn-book-service:hover { background: var(--salon-rose); }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>The Silk Salon & Spa — Services Menu</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="salon-nav">
+    <div class="salon-nav-wrap">
+      <a href="index.html" class="salon-brand">THE SILK <span>SALON</span></a>
+      <nav class="salon-nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services Menu</a>
+        <a href="book.html">Book Appointment</a>
+      </nav>
+      <a href="book.html" style="background:var(--salon-dark); color:#fff; padding:8px 18px; border-radius:20px; text-decoration:none; font-size:13px; font-weight:700;">Book Slot ✂️</a>
+    </div>
+  </header>
+
+  <!-- Services Main Container -->
+  <main class="services-wrap">
+    <div class="services-header">
+      <h1>Signature Hair & Skin Rituals</h1>
+      <p>Personalized consultations with master stylists using Kérastase and Olaplex.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 1 -->
+      <div class="service-card">
+        <img src="../images/salon/service1.jpg" alt="Blowout" class="service-img">
+        <div class="service-body">
+          <div class="service-header-row">
+            <div class="service-name">Signature Silk Blowout</div>
+            <div class="service-price">₹1,200</div>
+          </div>
+          <span class="service-dur">⏱ 45 Minutes</span>
+          <p class="service-desc">Deep scalp massage wash, Moroccan oil conditioning, and thermal bouncy salon blowout.</p>
+          <a href="book.html?service=blowout" class="btn-book-service">Book Appointment ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="service-card">
+        <img src="../images/salon/service2.jpg" alt="Balayage" class="service-img">
+        <div class="service-body">
+          <div class="service-header-row">
+            <div class="service-name">French Balayage & Gloss</div>
+            <div class="service-price">₹6,500</div>
+          </div>
+          <span class="service-dur">⏱ 150 Minutes</span>
+          <p class="service-desc">Custom hand-painted multidimensional highlights with Olaplex bond repair and conditioning gloss glaze.</p>
+          <a href="book.html?service=balayage" class="btn-book-service">Book Appointment ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="service-card">
+        <img src="../images/salon/service3.jpg" alt="Keratin" class="service-img">
+        <div class="service-body">
+          <div class="service-header-row">
+            <div class="service-name">Nano-Keratin Smoothing Infusion</div>
+            <div class="service-price">₹5,500</div>
+          </div>
+          <span class="service-dur">⏱ 180 Minutes</span>
+          <p class="service-desc">Formaldehyde-free intensive protein smoothing therapy for frizz-free, glass-like shine for up to 5 months.</p>
+          <a href="book.html?service=keratin" class="btn-book-service">Book Appointment ➔</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="service-card">
+        <img src="../images/salon/service4.jpg" alt="Ayurvedic Spa" class="service-img">
+        <div class="service-body">
+          <div class="service-header-row">
+            <div class="service-name">Ayurvedic Kesh Vardhan Scalp Spa</div>
+            <div class="service-price">₹2,800</div>
+          </div>
+          <span class="service-dur">⏱ 60 Minutes</span>
+          <p class="service-desc">Warm Bhringraj and Brahmi oil infusion, deep pressure point scalp therapy, steam, and herbal wash.</p>
+          <a href="book.html?service=scalp-spa" class="btn-book-service">Book Appointment ➔</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

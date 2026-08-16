@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Handlooms & Festive Ensembles — Sutra Couture Catalog</title>
+  <meta name="description" content="Shop handcrafted Indian sarees, kurtas, sherwanis, and lehengas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --sutra-maroon: #4a0e17;
+      --sutra-gold: #c5a059;
+      --sutra-gold-light: #dfc496;
+      --sutra-cream: #faf7f2;
+      --sutra-card: #ffffff;
+      --sutra-border: #ede4d8;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--sutra-cream);
+      color: #1a1715;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    .sutra-header {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sutra-border);
+    }
+    .sutra-header-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sutra-logo {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--sutra-maroon);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+    .sutra-logo span { color: var(--sutra-gold); }
+    .sutra-nav-links { display: flex; gap: 32px; align-items: center; }
+    .sutra-nav-links a {
+      color: #2c2523;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .sutra-nav-links a.active { color: var(--sutra-gold); }
+    .sutra-cart-btn {
+      background: none;
+      border: 1px solid var(--sutra-border);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sutra-maroon);
+      text-decoration: none;
+    }
+
+    /* Catalog Page Layout */
+    .catalog-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .catalog-header {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid var(--sutra-border);
+      padding-bottom: 20px;
+    }
+    .catalog-title h1 {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      color: var(--sutra-maroon);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .catalog-title p { font-size: 14px; color: #786b62; }
+    
+    .catalog-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+    }
+
+    /* Sidebar Filters */
+    .filter-card {
+      background: #fff;
+      border: 1px solid var(--sutra-border);
+      border-radius: 6px;
+      padding: 24px;
+    }
+    .filter-group { margin-bottom: 24px; }
+    .filter-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--sutra-maroon);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .filter-list { list-style: none; }
+    .filter-item {
+      margin-bottom: 8px;
+      font-size: 13.5px;
+      color: #554a43;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .filter-item input { accent-color: var(--sutra-maroon); }
+
+    /* Product Grid */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .prod-card {
+      background: #fff;
+      border: 1px solid var(--sutra-border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s;
+    }
+    .prod-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(74, 14, 23, 0.08);
+      border-color: var(--sutra-gold);
+    }
+    .prod-img-wrap {
+      position: relative;
+      height: 340px;
+    }
+    .prod-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .prod-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .prod-cat { font-size: 11px; font-weight: 700; color: #887a70; text-transform: uppercase; margin-bottom: 4px; }
+    .prod-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--sutra-maroon); margin-bottom: 6px; }
+    .prod-price { font-size: 18px; font-weight: 800; color: #1a1715; margin-bottom: 12px; }
+    .btn-view-prod {
+      margin-top: auto;
+      background: var(--sutra-cream);
+      border: 1px solid var(--sutra-border);
+      color: var(--sutra-maroon);
+      padding: 8px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .catalog-layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Sutra Couture — Catalog Page</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sutra-header">
+    <div class="sutra-header-wrap">
+      <a href="index.html" class="sutra-logo">SUTRA <span>COUTURE</span></a>
+      <nav class="sutra-nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html" class="active">Full Collection</a>
+        <a href="catalog.html?cat=silk">Bridal Silks</a>
+        <a href="catalog.html?cat=kurta">Festive Kurta Sets</a>
+      </nav>
+      <a href="checkout.html" class="sutra-cart-btn">🛍️ Bag (1)</a>
+    </div>
+  </header>
+
+  <!-- Catalog Container -->
+  <main class="catalog-wrap">
+    <div class="catalog-header">
+      <div class="catalog-title">
+        <h1>Handloom & Festive Collection</h1>
+        <p>Showing 6 handcrafted heirloom ensembles with complimentary blouse stitching.</p>
+      </div>
+    </div>
+
+    <div class="catalog-layout">
+      <!-- Sidebar Filters -->
+      <aside class="filter-card">
+        <div class="filter-group">
+          <span class="filter-title">Fabric Craft</span>
+          <ul class="filter-list">
+            <li class="filter-item"><input type="checkbox" checked> Pure Mulberry Silk</li>
+            <li class="filter-item"><input type="checkbox" checked> Chanderi Silk</li>
+            <li class="filter-item"><input type="checkbox" checked> Banarasi Brocade</li>
+            <li class="filter-item"><input type="checkbox" checked> Jaipur Mulmul</li>
+            <li class="filter-item"><input type="checkbox" checked> Tussar Handloom</li>
+          </ul>
+        </div>
+        <div class="filter-group">
+          <span class="filter-title">Occasion</span>
+          <ul class="filter-list">
+            <li class="filter-item"><input type="checkbox" checked> Bridal & Wedding</li>
+            <li class="filter-item"><input type="checkbox" checked> Festive Celebration</li>
+            <li class="filter-item"><input type="checkbox" checked> Reception & Sangeet</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Product Cards -->
+      <div class="cat-grid">
+        <!-- 1 -->
+        <a href="product.html?id=kanjeevaram" class="prod-card">
+          <div class="prod-img-wrap"><img src="../images/clothing/item1.jpg" alt="Kanjeevaram Silk Saree"></div>
+          <div class="prod-body">
+            <div class="prod-cat">Bridal Sarees</div>
+            <div class="prod-title">Kanjeevaram Pure Mulberry Silk Saree</div>
+            <div class="prod-price">₹14,500</div>
+            <div class="btn-view-prod">View Product & Select Size ➔</div>
+          </div>
+        </a>
+
+        <!-- 2 -->
+        <a href="product.html?id=chanderi-kurta" class="prod-card">
+          <div class="prod-img-wrap"><img src="../images/clothing/item2.jpg" alt="Chanderi Silk Kurta Set"></div>
+          <div class="prod-body">
+            <div class="prod-cat">Festive Suits</div>
+            <div class="prod-title">Embroidered Chanderi Silk Kurta Set</div>
+            <div class="prod-price">₹4,800</div>
+            <div class="btn-view-prod">View Product & Select Size ➔</div>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a href="product.html?id=banarasi-sherwani" class="prod-card">
+          <div class="prod-img-wrap"><img src="../images/clothing/item3.jpg" alt="Banarasi Sherwani"></div>
+          <div class="prod-body">
+            <div class="prod-cat">Men's Couture</div>
+            <div class="prod-title">Royal Banarasi Brocade Sherwani</div>
+            <div class="prod-price">₹18,900</div>
+            <div class="btn-view-prod">View Product & Select Size ➔</div>
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a href="product.html?id=jaipur-anarkali" class="prod-card">
+          <div class="prod-img-wrap"><img src="../images/clothing/item4.jpg" alt="Jaipur Mulmul Anarkali"></div>
+          <div class="prod-body">
+            <div class="prod-cat">Anarkalis</div>
+            <div class="prod-title">Hand-Block Printed Mulmul Anarkali</div>
+            <div class="prod-price">₹3,400</div>
+            <div class="btn-view-prod">View Product & Select Size ➔</div>
+          </div>
+        </a>
+
+        <!-- 5 -->
+        <a href="product.html?id=tussar-dupatta" class="prod-card">
+          <div class="prod-img-wrap"><img src="../images/clothing/item5.jpg" alt="Tussar Silk Dupatta"></div>
+          <div class="prod-body">
+            <div class="prod-cat">Dupattas</div>
+            <div class="prod-title">Tussar Silk Hand-Woven Dupatta</div>
+            <div class="prod-price">₹2,600</div>
+            <div class="btn-view-prod">View Product & Select Size ➔</div>
+          </div>
+        </a>
+
+        <!-- 6 -->
+        <a href="product.html?id=velvet-shawl" class="prod-card">
+          <div class="prod-img-wrap"><img src="../images/clothing/item6.jpg" alt="Kashmiri Tilla Shawl"></div>
+          <div class="prod-body">
+            <div class="prod-cat">Royal Wraps</div>
+            <div class="prod-title">Kashmiri Tilla Work Velvet Shawl</div>
+            <div class="prod-price">₹8,200</div>
+            <div class="btn-view-prod">View Product & Select Size ➔</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

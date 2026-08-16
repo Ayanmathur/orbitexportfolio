@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takeaway & Delivery Order — Linguini & Leaf Bistro</title>
+  <meta name="description" content="Place your wood-fired pizza and pasta takeaway or direct delivery order.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --cafe-espresso: #2a170d;
+      --cafe-terracotta: #c85a32;
+      --cafe-cream: #faf6f0;
+      --cafe-border: #e8ded2;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cafe-cream);
+      color: var(--cafe-espresso);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    .cafe-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cafe-border);
+    }
+    .cafe-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cafe-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cafe-espresso);
+      text-decoration: none;
+    }
+    .cafe-brand span { color: var(--cafe-terracotta); }
+    .cafe-nav-links { display: flex; gap: 28px; align-items: center; }
+    .cafe-nav-links a {
+      color: var(--cafe-espresso);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .cafe-nav-links a.active { color: var(--cafe-terracotta); }
+
+    /* Order Layout */
+    .order-wrap {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+    }
+    .order-card {
+      background: #fff;
+      border: 1px solid var(--cafe-border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .order-card h2 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: var(--cafe-espresso);
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--cafe-border);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .btn-send-order {
+      background: var(--cafe-terracotta);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 14.5px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Bill Summary */
+    .bill-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13.5px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .bill-total {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--cafe-espresso);
+      border-top: 1px solid var(--cafe-border);
+      padding-top: 12px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 800px) {
+      .order-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Linguini & Leaf Bistro — Online Takeaway</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="cafe-nav">
+    <div class="cafe-nav-wrap">
+      <a href="index.html" class="cafe-brand">LINGUINI & LEAF <span>BISTRO</span></a>
+      <nav class="cafe-nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Digital Menu</a>
+        <a href="reserve.html">Table Reservation</a>
+        <a href="order.html" class="active">Takeaway & Delivery</a>
+      </nav>
+      <a href="reserve.html" style="background:var(--cafe-espresso); color:#fff; padding:8px 18px; border-radius:20px; text-decoration:none; font-size:13px; font-weight:700;">Reserve Table 🍷</a>
+    </div>
+  </header>
+
+  <!-- Main Order Layout -->
+  <main class="order-wrap">
+    <!-- Left Column: Customer & Delivery Info -->
+    <div class="order-card">
+      <h2>Takeaway & Direct Delivery Details</h2>
+      <form onsubmit="handleFoodOrder(event)">
+        <div class="form-group">
+          <label>Order Type</label>
+          <select id="foodOrderType">
+            <option>🛍️ Self-Pickup / Takeaway (Ready in 20 Mins)</option>
+            <option>🛵 Direct Doorstep Delivery (35-45 Mins)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Customer Name</label>
+          <input type="text" id="foodCustName" required placeholder="e.g. Vikram Malhotra">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Mobile Number</label>
+          <input type="tel" id="foodCustPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Delivery Address / Pickup Note</label>
+          <textarea id="foodAddress" rows="2" placeholder="e.g. Flat 301, Brigade Residency, Lavelle Road"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Special Kitchen Instructions</label>
+          <input type="text" id="foodKitchenNotes" placeholder="e.g. Extra chilli flakes, Cut into 6 slices, No cutlery">
+        </div>
+
+        <button type="submit" class="btn-send-order">Send Order to Bistro Kitchen via WhatsApp 🍕</button>
+      </form>
+    </div>
+
+    <!-- Right Column: Order Bill -->
+    <aside class="order-card">
+      <h2>Your Trattoria Bill</h2>
+      
+      <div class="bill-item">
+        <div>
+          <b>1x Margherita Di Bufala Pizza (12")</b>
+          <div style="font-size:12px; color:#786256;">Fior di Latte, Sweet Basil</div>
+        </div>
+        <b>₹520</b>
+      </div>
+
+      <div class="bill-item">
+        <div>
+          <b>1x Classic Italian Tiramisu</b>
+          <div style="font-size:12px; color:#786256;">Espresso Savoiardi, Mascarpone</div>
+        </div>
+        <b>₹380</b>
+      </div>
+
+      <div style="border-top:1px solid var(--cafe-border); margin:16px 0;"></div>
+
+      <div class="bill-row">
+        <span>Food Subtotal</span>
+        <span>₹900</span>
+      </div>
+      <div class="bill-row">
+        <span>GST (5%)</span>
+        <span>₹45</span>
+      </div>
+      <div class="bill-row">
+        <span>Eco-Friendly Kraft Packaging</span>
+        <span>₹25</span>
+      </div>
+      <div class="bill-total">
+        <span>Total Amount</span>
+        <span>₹970</span>
+      </div>
+    </aside>
+  </main>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    function handleFoodOrder(e) {
+      e.preventDefault();
+      const type = document.getElementById('foodOrderType').value;
+      const name = document.getElementById('foodCustName').value;
+      const phone = document.getElementById('foodCustPhone').value;
+      const addr = document.getElementById('foodAddress').value;
+      const notes = document.getElementById('foodKitchenNotes').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Order sent to kitchen! Connecting via WhatsApp...');
+      const msg = encodeURIComponent(`Hi Linguini & Leaf Bistro! I would like to place an order.\nType: ${type}\nItems: 1x Margherita Di Bufala (₹520) + 1x Classic Tiramisu (₹380)\nTotal: ₹970\nCustomer: ${name}\nPhone: ${phone}\nAddress/Note: ${addr}\nKitchen Notes: ${notes}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 700);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Specialist Doctors Directory — Aura Care Clinic</title>
+  <meta name="description" content="Meet our board-certified senior physicians, cardiologists, dentists, and pediatricians.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --clinic-blue: #0891b2;
+      --clinic-navy: #0f2942;
+      --clinic-cyan: #06b6d4;
+      --clinic-bg: #f8fafc;
+      --clinic-card: #ffffff;
+      --clinic-border: #e2e8f0;
+      --font-heading: 'Cabinet Grotesk', 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--clinic-bg);
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Emergency Bar */
+    .emergency-bar {
+      background: #dc2626;
+      color: #fff;
+      padding: 8px 24px;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Navbar */
+    .clinic-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--clinic-border);
+    }
+    .clinic-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .clinic-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--clinic-navy);
+      text-decoration: none;
+    }
+    .clinic-brand span { color: var(--clinic-blue); }
+    .clinic-nav-links { display: flex; gap: 28px; }
+    .clinic-nav-links a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .clinic-nav-links a.active { color: var(--clinic-blue); font-weight: 700; }
+
+    /* Doctors Directory */
+    .doc-wrap {
+      max-width: 1300px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .doc-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .doc-header h1 {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      color: var(--clinic-navy);
+      margin-bottom: 8px;
+    }
+
+    /* Doctor Grid */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .doc-card {
+      background: #fff;
+      border: 1px solid var(--clinic-border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    .doc-img { height: 260px; width: 100%; object-fit: cover; }
+    .doc-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .doc-spec { font-size: 12px; font-weight: 800; color: var(--clinic-blue); text-transform: uppercase; margin-bottom: 4px; }
+    .doc-name { font-family: var(--font-heading); font-size: 22px; color: var(--clinic-navy); margin-bottom: 6px; }
+    .doc-exp { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+    .doc-fees-box {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+    .doc-fees-box b { color: var(--clinic-navy); }
+    .btn-book-doc {
+      background: var(--clinic-blue);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 13.5px;
+      text-align: center;
+      text-decoration: none;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Aura Care Clinic — Specialist Doctors Directory</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="emergency-bar">
+    <span>🚨 24/7 Medical & Trauma Hotline: +91 98765 43210</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="clinic-nav">
+    <div class="clinic-nav-wrap">
+      <a href="index.html" class="clinic-brand">AURA <span>CARE</span></a>
+      <nav class="clinic-nav-links">
+        <a href="index.html">Home</a>
+        <a href="doctors.html" class="active">Doctors Directory</a>
+        <a href="book.html">Book Appointment</a>
+      </nav>
+      <a href="book.html" style="background:var(--clinic-blue); color:#fff; padding:8px 18px; border-radius:6px; font-weight:800; font-size:13px; text-decoration:none;">Book Slot 🩺</a>
+    </div>
+  </header>
+
+  <!-- Main Directory -->
+  <main class="doc-wrap">
+    <div class="doc-header">
+      <h1>Board-Certified Specialists</h1>
+      <p>Consult in-person at our clinic or via 1-on-1 HD tele-consultation.</p>
+    </div>
+
+    <div class="doctors-grid">
+      <!-- 1 -->
+      <div class="doc-card">
+        <img src="../images/clinic/doc1.jpg" alt="Dr. Rajesh" class="doc-img">
+        <div class="doc-body">
+          <div class="doc-spec">Cardiology & Internal Medicine</div>
+          <h3 class="doc-name">Dr. Rajesh Varma</h3>
+          <div class="doc-exp">MBBS, MD (Cardiology) • 16+ Years Exp</div>
+          <div class="doc-fees-box">
+            <span>In-Clinic: <b>₹500</b></span>
+            <span>Video Consult: <b>₹300</b></span>
+          </div>
+          <a href="book.html?doc=dr-rajesh" class="btn-book-doc">Book Appointment with Dr. Rajesh ➔</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="doc-card">
+        <img src="../images/clinic/doc2.jpg" alt="Dr. Priya" class="doc-img">
+        <div class="doc-body">
+          <div class="doc-spec">Dermatology & Aesthetic Laser</div>
+          <h3 class="doc-name">Dr. Priya Sharma</h3>
+          <div class="doc-exp">MBBS, DVD, FAM (Cosmetology) • 11+ Years Exp</div>
+          <div class="doc-fees-box">
+            <span>In-Clinic: <b>₹500</b></span>
+            <span>Video Consult: <b>₹300</b></span>
+          </div>
+          <a href="book.html?doc=dr-priya" class="btn-book-doc">Book Appointment with Dr. Priya ➔</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="doc-card">
+        <img src="../images/clinic/doc3.jpg" alt="Dr. Arvind" class="doc-img">
+        <div class="doc-body">
+          <div class="doc-spec">Pediatrics & Child Wellness</div>
+          <h3 class="doc-name">Dr. Arvind Mehta</h3>
+          <div class="doc-exp">MBBS, DCH, DNB (Pediatrics) • 14+ Years Exp</div>
+          <div class="doc-fees-box">
+            <span>In-Clinic: <b>₹500</b></span>
+            <span>Video Consult: <b>₹300</b></span>
+          </div>
+          <a href="book.html?doc=dr-arvind" class="btn-book-doc">Book Appointment with Dr. Arvind ➔</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

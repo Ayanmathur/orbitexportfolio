@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Tiers & Pricing — Forge Athletics Club</title>
+  <meta name="description" content="Choose your gym, crossfit, and personal training membership plan with zero admission fees.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/shared-components.css">
+  <style>
+    :root {
+      --gym-neon: #a3e635;
+      --gym-dark: #0a0a0a;
+      --gym-card: #141414;
+      --gym-border: rgba(255, 255, 255, 0.1);
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--gym-dark);
+      color: #f4f4f5;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .gym-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gym-border);
+    }
+    .gym-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gym-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+    }
+    .gym-brand span { color: var(--gym-neon); }
+    .gym-nav-links { display: flex; gap: 28px; }
+    .gym-nav-links a {
+      color: #a1a1aa;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .gym-nav-links a.active { color: var(--gym-neon); }
+
+    /* Memberships Layout */
+    .plans-wrap {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .plans-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .plans-header h1 {
+      font-family: var(--font-heading);
+      font-size: 40px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* Grid */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .plan-card {
+      background: var(--gym-card);
+      border: 1px solid var(--gym-border);
+      border-radius: 16px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+    .plan-card.popular {
+      border-color: var(--gym-neon);
+      box-shadow: 0 0 30px rgba(163, 230, 53, 0.15);
+    }
+    .plan-name { font-family: var(--font-heading); font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; }
+    .plan-price { font-family: var(--font-heading); font-size: 38px; font-weight: 900; color: #fff; margin-bottom: 20px; }
+    .plan-features { list-style: none; margin-bottom: 30px; flex: 1; font-size: 14px; color: #a1a1aa; }
+    .plan-features li { margin-bottom: 10px; }
+    .plan-features li::before { content: '⚡ '; color: var(--gym-neon); }
+    .btn-join-plan {
+      background: var(--gym-neon);
+      color: #000;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Forge Athletics — Membership Tiers</b></span>
+      <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="gym-nav">
+    <div class="gym-nav-wrap">
+      <a href="index.html" class="gym-brand">FORGE <span>ATHLETICS</span></a>
+      <nav class="gym-nav-links">
+        <a href="index.html">Home</a>
+        <a href="memberships.html" class="active">Memberships</a>
+        <a href="bmi.html">BMI Calculator</a>
+      </nav>
+      <a href="bmi.html" style="background:var(--gym-neon); color:#000; padding:8px 18px; border-radius:6px; font-weight:900; font-size:13px; text-decoration:none; text-transform:uppercase;">BMI Tool ⚡</a>
+    </div>
+  </header>
+
+  <!-- Plans Main -->
+  <main class="plans-wrap">
+    <div class="plans-header">
+      <h1>Choose Your Training Tier</h1>
+      <p style="color:#a1a1aa;">No admission fees. 100% money-back guarantee within 7 days.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- 1 -->
+      <div class="plan-card">
+        <div class="plan-name">Base Arena Access</div>
+        <div class="plan-price">₹2,500 <span style="font-size:14px; color:#a1a1aa;">/ mo</span></div>
+        <ul class="plan-features">
+          <li>Full Gym & Cardio Floor Access</li>
+          <li>Locker & Shower Facility</li>
+          <li>Free Fitness Assessment & App</li>
+        </ul>
+        <button class="btn-join-plan" onclick="joinPlan('Base Arena Access', 2500)">Activate Base Pass ⚡</button>
+      </div>
+
+      <!-- 2 -->
+      <div class="plan-card popular">
+        <div class="plan-name">Pro CrossFit & Turf</div>
+        <div class="plan-price">₹4,200 <span style="font-size:14px; color:#a1a1aa;">/ mo</span></div>
+        <ul class="plan-features">
+          <li>All Base Floor Amenities</li>
+          <li>Unlimited Daily CrossFit & HIIT Classes</li>
+          <li>Olympic Lifting Turf Access</li>
+          <li>Steam & Sauna Recovery Lounge</li>
+        </ul>
+        <button class="btn-join-plan" onclick="joinPlan('Pro CrossFit & Turf', 4200)">Activate Pro Pass ⚡</button>
+      </div>
+
+      <!-- 3 -->
+      <div class="plan-card">
+        <div class="plan-name">Elite VIP + Coach</div>
+        <div class="plan-price">₹7,500 <span style="font-size:14px; color:#a1a1aa;">/ mo</span></div>
+        <ul class="plan-features">
+          <li>All Pro & CrossFit Privileges</li>
+          <li>12 Personal Training Sessions / Month</li>
+          <li>Custom Macro Diet & Nutritionist Plan</li>
+          <li>Dedicated VIP Valet & Laundry</li>
+        </ul>
+        <button class="btn-join-plan" onclick="joinPlan('Elite VIP + Personal Coach', 7500)">Activate VIP Pass ⚡</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../scripts/shared-components.js"></script>
+  <script>
+    function joinPlan(plan, price) {
+      if (window.OrbitexToast) OrbitexToast.success('Plan selected! Connecting on WhatsApp...');
+      const msg = encodeURIComponent(`Hi Forge Athletics! I would like to join the ${plan} membership tier (₹${price}/mo).`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 700);
+    }
+  </script>
+</body>
+</html>

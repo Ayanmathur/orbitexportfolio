@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linguini & Leaf Bistro — Wood-Fired Pizza, Handmade Pasta & Espresso</title>
-  <meta name="description" content="Authentic Italian trattoria serving sourdough wood-fired pizzas, handmade extruded pastas, natural wines, and artisanal espresso.">
+  <title>Linguini & Leaf Bistro — Wood-Fired Sourdough Pizza & Trattoria</title>
+  <meta name="description" content="Authentic Italian trattoria serving 48-hour sourdough wood-fired pizzas, handmade extruded pastas, and artisanal espresso.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/shared-components.css">
   <style>
     :root {
-      --cafe-espresso: #3d2314;
+      --cafe-espresso: #2a170d;
       --cafe-terracotta: #c85a32;
       --cafe-cream: #faf6f0;
-      --cafe-olive: #4a5d4e;
       --cafe-card: #ffffff;
       --cafe-border: #e8ded2;
       --font-serif: 'Playfair Display', serif;
@@ -27,10 +26,20 @@
       background-color: var(--cafe-cream);
       color: var(--cafe-espresso);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
-    /* Navbar */
+    /* Top Notice */
+    .cafe-top-bar {
+      background: var(--cafe-terracotta);
+      color: #fff;
+      padding: 8px 24px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation */
     .cafe-nav {
       position: sticky;
       top: 36px;
@@ -63,16 +72,16 @@
       font-weight: 600;
       transition: color 0.2s;
     }
-    .cafe-nav-links a:hover { color: var(--cafe-terracotta); }
+    .cafe-nav-links a:hover, .cafe-nav-links a.active { color: var(--cafe-terracotta); }
     .cafe-nav-btn {
       background: var(--cafe-espresso);
       color: #fff;
-      border: none;
       padding: 10px 22px;
       border-radius: 30px;
       font-weight: 700;
       font-size: 13px;
-      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
 
     /* Hero Section */
@@ -81,7 +90,7 @@
       min-height: 85vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(to right, rgba(61, 35, 20, 0.85) 0%, rgba(61, 35, 20, 0.3) 100%),
+      background: linear-gradient(to right, rgba(42, 23, 13, 0.88) 0%, rgba(42, 23, 13, 0.35) 100%),
                   url('../images/cafe/hero.jpg') center/cover no-repeat;
       color: #fff;
       padding: 60px 24px;
@@ -119,7 +128,7 @@
       margin-bottom: 34px;
     }
     .cafe-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-cafe-action {
+    .btn-cafe-primary {
       background: var(--cafe-terracotta);
       color: #fff;
       padding: 14px 32px;
@@ -127,45 +136,28 @@
       font-weight: 700;
       font-size: 15px;
       text-decoration: none;
-      cursor: pointer;
-      border: none;
     }
-
-    /* Filter Tabs */
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
-    .filter-tab-btn {
-      background: #fff;
-      border: 1px solid var(--cafe-border);
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-family: inherit;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--cafe-espresso);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-tab-btn.active {
-      background: var(--cafe-espresso);
+    .btn-cafe-outline {
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.4);
       color: #fff;
-      border-color: var(--cafe-espresso);
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
     }
 
-    /* Menu Section */
+    /* Section */
     .cafe-section {
       max-width: 1300px;
       margin: 0 auto;
       padding: 90px 24px;
     }
-    .cafe-header-center {
+    .cafe-heading {
       text-align: center;
       max-width: 650px;
-      margin: 0 auto 40px;
+      margin: 0 auto 50px;
     }
     .cafe-sub {
       font-size: 12px;
@@ -175,13 +167,13 @@
       color: var(--cafe-terracotta);
       margin-bottom: 10px;
     }
-    .cafe-header-center h2 {
+    .cafe-heading h2 {
       font-family: var(--font-serif);
       font-size: 38px;
       margin-bottom: 12px;
     }
 
-    /* Dish Cards Grid */
+    /* Signature Dishes Grid */
     .dishes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
@@ -198,121 +190,17 @@
     }
     .dish-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(61, 35, 20, 0.08);
+      box-shadow: 0 12px 28px rgba(42, 23, 13, 0.08);
       border-color: var(--cafe-terracotta);
     }
-    .dish-img {
-      height: 220px;
-      width: 100%;
-      object-fit: cover;
-    }
-    .dish-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .dish-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-    .dish-title {
-      font-family: var(--font-serif);
-      font-size: 19px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .veg-dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #16a34a;
-      box-shadow: 0 0 0 2px #dcfce7;
-      flex-shrink: 0;
-    }
-    .nonveg-dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #dc2626;
-      box-shadow: 0 0 0 2px #fee2e2;
-      flex-shrink: 0;
-    }
-    .dish-price { font-size: 20px; font-weight: 800; color: var(--cafe-espresso); }
-    .dish-desc { font-size: 13.5px; color: #786256; margin-bottom: 18px; flex: 1; line-height: 1.5; }
-    .dish-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .btn-dinein {
-      background: var(--cafe-cream);
-      border: 1px solid var(--cafe-border);
-      color: var(--cafe-espresso);
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .btn-dinein:hover { background: #efe4d4; }
-    .btn-takeaway {
-      background: var(--cafe-espresso);
-      border: none;
-      color: #fff;
-      padding: 10px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .btn-takeaway:hover { background: var(--cafe-terracotta); }
-
-    /* Modal */
-    .cafe-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(61, 35, 20, 0.6);
-      backdrop-filter: blur(8px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .cafe-modal-card {
-      background: #fff;
-      border-radius: 20px;
-      max-width: 500px;
-      width: 100%;
-      padding: 32px;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #888;
-    }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #555; }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--cafe-border);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 14px;
-    }
+    .dish-img { height: 220px; width: 100%; object-fit: cover; }
+    .dish-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .dish-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .dish-title { font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; gap: 8px; }
+    .veg-dot { width: 12px; height: 12px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 2px #dcfce7; display: inline-block; flex-shrink: 0; }
+    .nonveg-dot { width: 12px; height: 12px; border-radius: 50%; background: #dc2626; box-shadow: 0 0 0 2px #fee2e2; display: inline-block; flex-shrink: 0; }
+    .dish-price { font-size: 20px; font-weight: 800; }
+    .dish-desc { font-size: 13.5px; color: #786256; margin-bottom: 18px; flex: 1; }
 
     /* Footer */
     .cafe-footer {
@@ -352,99 +240,76 @@
     </div>
   </div>
 
+  <div class="cafe-top-bar">
+    🍕 48-HOUR SOURDOUGH FERMENTATION • NAPOLI WOOD-FIRED OVEN AT 450°C • FRESH PASTA ROLLED DAILY
+  </div>
+
   <!-- Navbar -->
   <header class="cafe-nav">
     <div class="cafe-nav-wrap">
-      <a href="#home" class="cafe-brand">LINGUINI & LEAF <span>BISTRO</span></a>
+      <a href="index.html" class="cafe-brand">LINGUINI & LEAF <span>BISTRO</span></a>
       <nav class="cafe-nav-links">
-        <a href="#menu">Artisanal Menu</a>
-        <a href="#about">Story & Craft</a>
-        <a href="#reserve">Table Reservation</a>
-        <button class="cafe-nav-btn" onclick="openReserveModal('Table Reservation', 0)">Reserve Table 🍷</button>
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Digital Menu</a>
+        <a href="reserve.html">Table Reservation</a>
+        <a href="order.html">Takeaway & Delivery</a>
       </nav>
+      <a href="reserve.html" class="cafe-nav-btn">Reserve Table 🍷</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="cafe-hero" id="home">
+  <section class="cafe-hero">
     <div class="cafe-hero-wrap">
       <div class="cafe-hero-content">
         <div class="cafe-badge">✨ Sourdough Pizza & Hand-Rolled Pasta</div>
         <h1>Wood-Fired Passions, <i>Handmade with Soul</i></h1>
-        <p>Experience authentic Neapolitan wood-fired pizzas, 48-hour fermented sourdough, extruded durum wheat pasta, and specialty pour-over coffees.</p>
+        <p>Experience authentic Neapolitan wood-fired pizzas, 48-hour cold fermented dough, durum wheat extruded pastas, and signature Italian tiramisu.</p>
         <div class="cafe-hero-actions">
-          <a href="#menu" class="btn-cafe-action">Explore Trattoria Menu (₹)</a>
+          <a href="menu.html" class="btn-cafe-primary">Explore Trattoria Menu (₹)</a>
+          <a href="reserve.html" class="btn-cafe-outline">Book Candlelight Table ➔</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Menu Section -->
-  <section class="cafe-section" id="menu">
-    <div class="cafe-header-center">
-      <div class="cafe-sub">Cucina Italiana</div>
-      <h2>Signature Trattoria Menu</h2>
-      <p>Cooked fresh to order with imported San Marzano tomatoes, fresh Fior di Latte mozzarella, and extra virgin olive oil.</p>
-    </div>
-
-    <!-- Veg / Non-Veg Filter Tabs -->
-    <div class="filter-tabs">
-      <button class="filter-tab-btn active" onclick="filterCafeDiet('all', this)">All Dishes (6)</button>
-      <button class="filter-tab-btn" onclick="filterCafeDiet('veg', this)">🟢 Veg Only</button>
-      <button class="filter-tab-btn" onclick="filterCafeDiet('nonveg', this)">🔴 Non-Veg</button>
+  <!-- Signature Specials Section -->
+  <section class="cafe-section">
+    <div class="cafe-heading">
+      <div class="cafe-sub">Cucina Rustica</div>
+      <h2>Chef's Handcrafted Signatures</h2>
+      <p>Made with San Marzano DOP tomatoes, imported buffalo mozzarella, and cold-pressed extra virgin olive oil.</p>
     </div>
 
     <div class="dishes-grid">
       <!-- 1 -->
-      <div class="dish-card" data-diet="veg">
+      <div class="dish-card">
         <img src="../images/cafe/dish1.jpg" alt="Truffle Bruschetta" class="dish-img">
         <div class="dish-body">
           <div class="dish-header">
             <div class="dish-title"><span class="veg-dot"></span> Truffle Wild Mushroom Bruschetta</div>
             <div class="dish-price">₹340</div>
           </div>
-          <p class="dish-desc">Toasted garlic sourdough topped with sautéed porcini & button mushrooms, white truffle oil, and shaved parmesan.</p>
-          <div class="dish-actions">
-            <button class="btn-dinein" onclick="openReserveModal('Dine-In: Truffle Bruschetta', 340)">Dine-In</button>
-            <button class="btn-takeaway" onclick="openReserveModal('Takeaway: Truffle Bruschetta', 340)">Takeaway</button>
-          </div>
+          <p class="dish-desc">Garlic sourdough topped with sautéed porcini & button mushrooms, white truffle glaze, and shaved Grana Padano.</p>
+          <a href="menu.html" class="cafe-nav-btn" style="text-align:center;">View in Full Menu ➔</a>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="dish-card" data-diet="veg">
+      <div class="dish-card">
         <img src="../images/cafe/dish2.jpg" alt="Margherita Di Bufala" class="dish-img">
         <div class="dish-body">
           <div class="dish-header">
             <div class="dish-title"><span class="veg-dot"></span> Margherita Di Bufala (12")</div>
             <div class="dish-price">₹520</div>
           </div>
-          <p class="dish-desc">San Marzano DOP tomato sauce, fresh buffalo mozzarella, sweet Italian basil leaves, and cold-pressed olive oil.</p>
-          <div class="dish-actions">
-            <button class="btn-dinein" onclick="openReserveModal('Dine-In: Margherita Pizza', 520)">Dine-In</button>
-            <button class="btn-takeaway" onclick="openReserveModal('Takeaway: Margherita Pizza', 520)">Takeaway</button>
-          </div>
+          <p class="dish-desc">San Marzano tomato base, fresh buffalo mozzarella, fresh sweet basil, and extra virgin olive oil drizzle.</p>
+          <a href="menu.html" class="cafe-nav-btn" style="text-align:center;">View in Full Menu ➔</a>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="dish-card" data-diet="nonveg">
-        <img src="../images/cafe/dish3.jpg" alt="Pollo Affumicato Pizza" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-header">
-            <div class="dish-title"><span class="nonveg-dot"></span> Pollo Affumicato Pizza (12")</div>
-            <div class="dish-price">₹640</div>
-          </div>
-          <p class="dish-desc">Smoked herb chicken breast, roasted bell peppers, caramelized onions, smoked scamorza cheese, and fresh oregano.</p>
-          <div class="dish-actions">
-            <button class="btn-dinein" onclick="openReserveModal('Dine-In: Pollo Affumicato Pizza', 640)">Dine-In</button>
-            <button class="btn-takeaway" onclick="openReserveModal('Takeaway: Pollo Affumicato Pizza', 640)">Takeaway</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="dish-card" data-diet="nonveg">
+      <div class="dish-card">
         <img src="../images/cafe/dish4.jpg" alt="Fettuccine Carbonara" class="dish-img">
         <div class="dish-body">
           <div class="dish-header">
@@ -452,71 +317,11 @@
             <div class="dish-price">₹580</div>
           </div>
           <p class="dish-desc">Handmade egg pasta tossed with crispy cured bacon, pasture-raised egg yolk emulsion, and aged Pecorino Romano.</p>
-          <div class="dish-actions">
-            <button class="btn-dinein" onclick="openReserveModal('Dine-In: Fettuccine Carbonara', 580)">Dine-In</button>
-            <button class="btn-takeaway" onclick="openReserveModal('Takeaway: Fettuccine Carbonara', 580)">Takeaway</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="dish-card" data-diet="veg">
-        <img src="../images/cafe/dish5.jpg" alt="Pesto Genovese" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-header">
-            <div class="dish-title"><span class="veg-dot"></span> Pesto Genovese Penne Rigate</div>
-            <div class="dish-price">₹490</div>
-          </div>
-          <p class="dish-desc">Fresh sweet basil pesto with toasted pine nuts, Grana Padano parmesan, sun-dried tomatoes, and cream swirl.</p>
-          <div class="dish-actions">
-            <button class="btn-dinein" onclick="openReserveModal('Dine-In: Pesto Penne', 490)">Dine-In</button>
-            <button class="btn-takeaway" onclick="openReserveModal('Takeaway: Pesto Penne', 490)">Takeaway</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="dish-card" data-diet="veg">
-        <img src="../images/cafe/dish6.jpg" alt="Classic Tiramisu" class="dish-img">
-        <div class="dish-body">
-          <div class="dish-header">
-            <div class="dish-title"><span class="veg-dot"></span> Classico Italian Tiramisu</div>
-            <div class="dish-price">₹380</div>
-          </div>
-          <p class="dish-desc">Savoiardi ladyfingers soaked in dark espresso, layered with sweet mascarpone sabayon and Valrhona cocoa dust.</p>
-          <div class="dish-actions">
-            <button class="btn-dinein" onclick="openReserveModal('Dine-In: Tiramisu', 380)">Dine-In</button>
-            <button class="btn-takeaway" onclick="openReserveModal('Takeaway: Tiramisu', 380)">Takeaway</button>
-          </div>
+          <a href="menu.html" class="cafe-nav-btn" style="text-align:center;">View in Full Menu ➔</a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Reservation / Order Modal -->
-  <div id="cafeModal" class="cafe-modal">
-    <div class="cafe-modal-card">
-      <button class="modal-close" onclick="closeReserveModal()">✕</button>
-      <h3 id="cafeModalTitle">Reserve Table / Order</h3>
-      <p style="font-size: 13.5px; color: #786256; margin-bottom: 18px;">Our host will confirm your booking instantly via WhatsApp.</p>
-      
-      <form onsubmit="handleCafeSubmit(event)">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" id="cafeCustName" required placeholder="e.g. Aniket Deshpande">
-        </div>
-        <div class="form-group">
-          <label>WhatsApp / Phone Number</label>
-          <input type="tel" id="cafeCustPhone" required placeholder="+91 98765 43210">
-        </div>
-        <div class="form-group">
-          <label>Date, Time & Party Size</label>
-          <input type="text" id="cafeDetails" required placeholder="e.g. Tonight 8:30 PM, 4 Guests">
-        </div>
-        <button type="submit" class="btn-cafe-action" style="width: 100%; margin-top: 8px;">Confirm on WhatsApp 💬</button>
-      </form>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer class="cafe-footer">
@@ -528,15 +333,15 @@
         <p>Kitchen Timings: 12:00 PM – 11:30 PM (All 7 Days)</p>
       </div>
       <div>
-        <h4>Trattoria Menu</h4>
-        <a href="#menu">Wood-Fired Pizza</a>
-        <a href="#menu">Handmade Extruded Pastas</a>
-        <a href="#menu">Desserts & Tiramisu</a>
+        <h4>Dining Experience</h4>
+        <a href="menu.html">Digital Menu</a>
+        <a href="reserve.html">Table Reservation</a>
+        <a href="order.html">Online Takeaway</a>
       </div>
       <div>
         <h4>The Craft</h4>
         <p>48-Hour Cold Fermented Sourdough</p>
-        <p>100% 00 Caputto Flour Imported from Italy</p>
+        <p>Caputo 00 Flour Imported from Napoli</p>
         <p>Wood-Fired at 450°C</p>
       </div>
     </div>
@@ -545,49 +350,5 @@
     </div>
   </footer>
 
-  <script src="../scripts/shared-components.js"></script>
-  <script>
-    let activeCafeAction = 'Table Reservation';
-    let activePrice = 0;
-
-    function filterCafeDiet(diet, btn) {
-      document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const cards = document.querySelectorAll('.dish-card');
-      cards.forEach(card => {
-        if (diet === 'all' || card.getAttribute('data-diet') === diet) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    function openReserveModal(actionName, price) {
-      activeCafeAction = actionName;
-      activePrice = price;
-      document.getElementById('cafeModalTitle').innerText = actionName + (price ? ' (₹' + price.toLocaleString('en-IN') + ')' : '');
-      document.getElementById('cafeModal').style.display = 'flex';
-    }
-
-    function closeReserveModal() {
-      document.getElementById('cafeModal').style.display = 'none';
-    }
-
-    function handleCafeSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('cafeCustName').value;
-      const phone = document.getElementById('cafeCustPhone').value;
-      const details = document.getElementById('cafeDetails').value;
-
-      if (window.OrbitexToast) OrbitexToast.success('Reservation request sent! Connecting to bistro...');
-      const msg = encodeURIComponent(`Hi Linguini & Leaf Bistro! I would like to make a booking.\nRequest: ${activeCafeAction}\nDetails: ${details}\nGuest: ${name}\nPhone: ${phone}`);
-      setTimeout(() => {
-        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
-        closeReserveModal();
-      }, 700);
-    }
-  </script>
 </body>
 </html>

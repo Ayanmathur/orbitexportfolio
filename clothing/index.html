@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sutra Couture & Handlooms — Pure Silk Sarees, Kurtas & Festive Ensembles</title>
+  <title>Sutra Couture & Handlooms — Heritage Silks, Festive Kurtas & Bridal Ensembles</title>
   <meta name="description" content="Authentic handcrafted Kanjeevaram silks, Banarasi brocades, hand-block printed Anarkalis, and bespoke festive couture.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles/shared-components.css">
   <style>
     :root {
-      --sutra-maroon: #581825;
+      --sutra-maroon: #4a0e17;
       --sutra-gold: #c5a059;
+      --sutra-gold-light: #dfc496;
       --sutra-cream: #faf7f2;
+      --sutra-card: #ffffff;
       --sutra-border: #ede4d8;
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -28,294 +30,335 @@
       overflow-x: hidden;
     }
 
-    /* Festive Marquee */
-    .festive-marquee {
+    /* Announcement Bar */
+    .sutra-announcement {
       background: var(--sutra-maroon);
-      color: var(--sutra-gold);
-      padding: 8px 24px;
-      font-size: 12.5px;
+      color: var(--sutra-gold-light);
+      padding: 9px 24px;
+      font-size: 12px;
       font-weight: 700;
       text-align: center;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
+    .sutra-announcement a { color: #fff; text-decoration: underline; margin-left: 6px; }
 
-    /* Navbar */
-    .sutra-nav {
+    /* Header & Navigation */
+    .sutra-header {
       position: sticky;
       top: 36px;
       z-index: 999;
-      background: rgba(250, 247, 242, 0.95);
+      background: rgba(250, 247, 242, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--sutra-border);
     }
-    .sutra-nav-wrap {
-      max-width: 1300px;
+    .sutra-header-wrap {
+      max-width: 1360px;
       margin: 0 auto;
       padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .sutra-brand {
+    .sutra-logo {
       font-family: var(--font-serif);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
       color: var(--sutra-maroon);
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       text-decoration: none;
     }
-    .sutra-brand span { color: var(--sutra-gold); }
-    .sutra-nav-links { display: flex; gap: 28px; align-items: center; }
+    .sutra-logo span { color: var(--sutra-gold); }
+    .sutra-nav-links { display: flex; gap: 32px; align-items: center; }
     .sutra-nav-links a {
-      color: #332d28;
+      color: #2c2523;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
       transition: color 0.2s;
     }
-    .sutra-nav-links a:hover { color: var(--sutra-maroon); }
-    .sutra-nav-btn {
-      background: var(--sutra-maroon);
-      color: var(--sutra-gold);
-      border: none;
-      padding: 10px 22px;
+    .sutra-nav-links a:hover, .sutra-nav-links a.active { color: var(--sutra-gold); }
+    .sutra-header-actions { display: flex; gap: 18px; align-items: center; }
+    .sutra-cart-btn {
+      position: relative;
+      background: none;
+      border: 1px solid var(--sutra-border);
+      padding: 8px 16px;
       border-radius: 4px;
-      font-weight: 700;
+      font-family: inherit;
       font-size: 13px;
+      font-weight: 700;
       cursor: pointer;
+      color: var(--sutra-maroon);
+      text-decoration: none;
+    }
+    .cart-count {
+      background: var(--sutra-maroon);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: 4px;
     }
 
-    /* Hero Section */
+    /* Editorial Hero Section */
     .sutra-hero {
       position: relative;
-      min-height: 85vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(to right, rgba(88, 24, 37, 0.85) 0%, rgba(88, 24, 37, 0.3) 100%),
+      background: linear-gradient(to right, rgba(74, 14, 23, 0.88) 0%, rgba(74, 14, 23, 0.35) 60%, rgba(74, 14, 23, 0.1) 100%),
                   url('../images/clothing/hero.jpg') center/cover no-repeat;
       color: #fff;
-      padding: 60px 24px;
+      padding: 80px 24px;
     }
     .sutra-hero-wrap {
-      max-width: 1300px;
+      max-width: 1360px;
       margin: 0 auto;
       width: 100%;
     }
-    .sutra-hero-content { max-width: 650px; }
-    .sutra-badge {
+    .sutra-hero-content { max-width: 680px; }
+    .sutra-hero-sub {
       display: inline-block;
-      background: rgba(197, 160, 89, 0.2);
       border: 1px solid var(--sutra-gold);
-      color: var(--sutra-gold);
-      padding: 6px 16px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
+      color: var(--sutra-gold-light);
+      padding: 6px 18px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .sutra-hero h1 {
       font-family: var(--font-serif);
-      font-size: clamp(38px, 5.5vw, 64px);
-      line-height: 1.1;
-      margin-bottom: 20px;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 600;
+      line-height: 1.08;
+      margin-bottom: 22px;
     }
-    .sutra-hero h1 i { font-style: italic; color: #fde68a; }
+    .sutra-hero h1 i { font-style: italic; color: #fef08a; font-weight: 400; }
     .sutra-hero p {
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 34px;
+      margin-bottom: 36px;
     }
-    .sutra-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-sutra-primary {
+    .sutra-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-sutra-gold {
       background: var(--sutra-gold);
       color: #1a1715;
-      padding: 14px 34px;
-      border-radius: 4px;
+      border: none;
+      padding: 15px 36px;
+      font-size: 13.5px;
       font-weight: 800;
-      font-size: 14px;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       text-decoration: none;
       cursor: pointer;
-      border: none;
       transition: all 0.2s;
     }
-    .btn-sutra-primary:hover { background: #d8b46e; transform: translateY(-2px); }
+    .btn-sutra-gold:hover { background: #d8b46e; transform: translateY(-2px); }
+    .btn-sutra-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 15px 32px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-sutra-outline:hover { border-color: var(--sutra-gold); color: var(--sutra-gold); }
 
-    /* Collection Catalog Section */
+    /* Categories Showcase Section */
     .sutra-section {
-      max-width: 1300px;
+      max-width: 1360px;
       margin: 0 auto;
       padding: 90px 24px;
     }
-    .sutra-header-center {
+    .sutra-heading {
       text-align: center;
       max-width: 650px;
       margin: 0 auto 50px;
     }
-    .sutra-sub {
-      font-size: 12px;
+    .sutra-heading-tag {
+      font-size: 11.5px;
       font-weight: 800;
-      text-transform: uppercase;
       letter-spacing: 2px;
+      text-transform: uppercase;
       color: var(--sutra-maroon);
       margin-bottom: 10px;
     }
-    .sutra-header-center h2 {
+    .sutra-heading h2 {
       font-family: var(--font-serif);
       font-size: 38px;
       color: var(--sutra-maroon);
+      font-weight: 700;
       margin-bottom: 12px;
     }
 
-    /* Product Cards Grid */
-    .apparel-grid {
+    .cat-triptych {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .cat-box {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+      border-radius: 4px;
+      text-decoration: none;
+      display: block;
+    }
+    .cat-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cat-box:hover img { transform: scale(1.06); }
+    .cat-box-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(74, 14, 23, 0.9) 0%, rgba(74, 14, 23, 0.1) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px;
+      color: #fff;
+    }
+    .cat-box-sub { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--sutra-gold-light); margin-bottom: 6px; }
+    .cat-box-title { font-family: var(--font-serif); font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+    .cat-box-cta { font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; text-decoration: underline; color: #fff; }
+
+    /* Featured Products Carousel/Grid */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 30px;
     }
-    .apparel-card {
+    .prod-card {
       background: #fff;
       border: 1px solid var(--sutra-border);
-      border-radius: 12px;
+      border-radius: 4px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
     }
-    .apparel-card:hover {
+    .prod-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(88, 24, 37, 0.08);
+      box-shadow: 0 16px 32px rgba(74, 14, 23, 0.08);
       border-color: var(--sutra-gold);
     }
-    .apparel-img {
-      height: 320px;
+    .prod-img-wrap {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+    }
+    .prod-img-wrap img {
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
-    .apparel-body {
-      padding: 24px;
+    .prod-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--sutra-maroon);
+      color: var(--sutra-gold-light);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 4px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+    .prod-body {
+      padding: 20px;
       display: flex;
       flex-direction: column;
       flex: 1;
     }
-    .apparel-tag {
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--sutra-maroon);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .apparel-body h3 { font-family: var(--font-serif); font-size: 20px; color: #1a1715; margin-bottom: 6px; }
-    .apparel-price { font-size: 22px; font-weight: 800; color: var(--sutra-maroon); margin-bottom: 12px; }
-    .apparel-desc { font-size: 13.5px; color: #665a50; margin-bottom: 18px; flex: 1; line-height: 1.5; }
-    
-    /* Size Selector Pills */
-    .size-pills-row {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 18px;
-    }
-    .size-pill {
-      padding: 4px 10px;
+    .prod-cat { font-size: 11px; font-weight: 700; color: #887a70; text-transform: uppercase; margin-bottom: 4px; }
+    .prod-title { font-family: var(--font-serif); font-size: 18px; font-weight: 700; color: var(--sutra-maroon); margin-bottom: 6px; }
+    .prod-price { font-size: 18px; font-weight: 800; color: #1a1715; margin-bottom: 14px; }
+    .btn-view-prod {
+      margin-top: auto;
+      background: var(--sutra-cream);
       border: 1px solid var(--sutra-border);
-      border-radius: 4px;
-      font-size: 11.5px;
+      color: var(--sutra-maroon);
+      padding: 10px;
+      text-align: center;
+      font-size: 12.5px;
       font-weight: 700;
-      color: #665a50;
-      cursor: pointer;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
     }
-    .size-pill.active {
+    .prod-card:hover .btn-view-prod {
       background: var(--sutra-maroon);
       color: #fff;
       border-color: var(--sutra-maroon);
     }
 
-    .btn-buy-apparel {
+    /* Craftsmanship Banner */
+    .sutra-craft {
       background: var(--sutra-maroon);
       color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 13.5px;
-      cursor: pointer;
-      width: 100%;
-      letter-spacing: 0.5px;
-      transition: background 0.2s;
+      padding: 80px 24px;
+      margin: 40px 0;
     }
-    .btn-buy-apparel:hover { background: #3f101a; }
-
-    /* Modal */
-    .sutra-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(8px);
+    .sutra-craft-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
     }
-    .sutra-modal-card {
-      background: #fff;
-      border-radius: 12px;
-      max-width: 500px;
-      width: 100%;
-      padding: 32px;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #888;
-    }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 6px; color: #555; }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px 14px;
-      border: 1px solid var(--sutra-border);
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 14px;
-    }
+    .sutra-craft h2 { font-family: var(--font-serif); font-size: 38px; color: var(--sutra-gold-light); margin-bottom: 20px; }
+    .sutra-craft p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
 
     /* Footer */
     .sutra-footer {
-      background: #20090e;
+      background: #23060c;
       color: #fff;
-      padding: 60px 24px 30px;
+      padding: 70px 24px 30px;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
     }
     .sutra-footer-wrap {
-      max-width: 1300px;
+      max-width: 1360px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
-    .sutra-footer h4 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 16px; color: var(--sutra-gold); }
-    .sutra-footer p, .sutra-footer a { font-size: 13.5px; color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 8px; }
+    .sutra-footer h4 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 18px; color: var(--sutra-gold); }
+    .sutra-footer p, .sutra-footer a { font-size: 13.5px; color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 10px; }
     .sutra-footer a:hover { color: #fff; }
     .sutra-footer-bottom {
-      max-width: 1300px;
+      max-width: 1360px;
       margin: 0 auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       text-align: center;
       font-size: 12px;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .sutra-craft-wrap { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -325,179 +368,164 @@
   <div class="orbitex-return-bar">
     <div class="orbitex-return-container">
       <a href="../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
-      <span class="orbitex-return-tag">Template Preview: <b>Sutra Couture & Handlooms</b></span>
+      <span class="orbitex-return-tag">Template Preview: <b>Sutra Couture & Handlooms</b> (Fashion E-Commerce Suite)</span>
       <a href="../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
     </div>
   </div>
 
-  <!-- Festive Marquee -->
-  <div class="festive-marquee">
-    🌸 FESTIVE EDITION • COMPLIMENTARY FALL & BLOUSE STITCHING WITH EVERY SILK SAREE • PAN-INDIA DISPATCH IN 24H!
+  <!-- Announcement Bar -->
+  <div class="sutra-announcement">
+    🌸 FESTIVE EDITION • FLAT 20% OFF WITH CODE <b>FESTIVE20</b> • COMPLIMENTARY PAN-INDIA EXPRESS SHIPPING <a href="catalog.html">Shop All</a>
   </div>
 
-  <!-- Navbar -->
-  <header class="sutra-nav">
-    <div class="sutra-nav-wrap">
-      <a href="#home" class="sutra-brand">SUTRA <span>COUTURE</span></a>
+  <!-- Header -->
+  <header class="sutra-header">
+    <div class="sutra-header-wrap">
+      <a href="index.html" class="sutra-logo">SUTRA <span>COUTURE</span></a>
       <nav class="sutra-nav-links">
-        <a href="#catalog">Bridal Silks</a>
-        <a href="#catalog">Festive Kurta Sets</a>
-        <a href="#custom">Bespoke Fitting</a>
-        <button class="sutra-nav-btn" onclick="openSutraOrder('Custom Silk Ensemble', 0)">Custom Order 👗</button>
+        <a href="index.html" class="active">Home</a>
+        <a href="catalog.html">Full Collection</a>
+        <a href="catalog.html?cat=silk">Bridal Silks</a>
+        <a href="catalog.html?cat=kurta">Festive Kurta Sets</a>
+        <a href="catalog.html?cat=mens">Men's Sherwanis</a>
       </nav>
+      <div class="sutra-header-actions">
+        <a href="checkout.html" class="sutra-cart-btn">🛍️ Bag <span class="cart-count" id="cartCountBadge">1</span></a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="sutra-hero" id="home">
+  <!-- Editorial Hero -->
+  <section class="sutra-hero">
     <div class="sutra-hero-wrap">
       <div class="sutra-hero-content">
-        <div class="sutra-badge">✨ 100% Certified Mulberry & Tussar Silk</div>
+        <div class="sutra-hero-sub">✨ 100% Certified Mulberry & Tussar Silk</div>
         <h1>Weaving Traditions of <i>Royal Indian Splendour</i></h1>
-        <p>Pure zari Kanjeevarams, Banarasi handloom weaves, and tailored Chanderi ensembles created by master weavers across Varanasi and Tamil Nadu.</p>
-        <div class="sutra-hero-actions">
-          <a href="#catalog" class="btn-sutra-primary">Explore Handloom Collection (₹)</a>
+        <p>Pure zari Kanjeevarams, hand-block Jaipur mulmul, and tailored Chanderi ensembles created by master weaver families across Varanasi, Kanchipuram, and Rajasthan.</p>
+        <div class="sutra-hero-btns">
+          <a href="catalog.html" class="btn-sutra-gold">Explore The Collection (₹)</a>
+          <a href="product.html?id=kanjeevaram" class="btn-sutra-outline">View Bestseller Saree ➔</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Catalog Section -->
-  <section class="sutra-section" id="catalog">
-    <div class="sutra-header-center">
-      <div class="sutra-sub">Handcrafted Weaves</div>
-      <h2>The Royal Festive Collection</h2>
-      <p>Silk Mark certified. Every garment includes matching blouse pieces and hand-embroidered finishing.</p>
+  <!-- Curated Collection Categories -->
+  <section class="sutra-section">
+    <div class="sutra-heading">
+      <div class="sutra-heading-tag">Curated Ensembles</div>
+      <h2>Discover by Handloom Craft</h2>
+      <p>Silk Mark certified. Every garment includes matching hand-embroidered finishing and certificate of authenticity.</p>
     </div>
 
-    <div class="apparel-grid">
+    <div class="cat-triptych">
       <!-- 1 -->
-      <div class="apparel-card">
-        <img src="../images/clothing/item1.jpg" alt="Kanjeevaram Silk Saree" class="apparel-img">
-        <div class="apparel-body">
-          <div class="apparel-tag">SILK MARK CERTIFIED • PURE ZARI</div>
-          <h3>Kanjeevaram Pure Mulberry Silk Saree</h3>
-          <div class="apparel-price">₹14,500</div>
-          <p class="apparel-desc">Deep vermillion red with traditional golden temple borders, korvai weaving technique, and heavy pallu.</p>
-          <div class="size-pills-row">
-            <span class="size-pill active">Unstitched Blouse</span>
-            <span class="size-pill">Custom Tailored (+₹800)</span>
-          </div>
-          <button class="btn-buy-apparel" onclick="openSutraOrder('Kanjeevaram Pure Mulberry Silk Saree', 145000)">Order via WhatsApp 💬</button>
+      <a href="catalog.html?cat=silk" class="cat-box">
+        <img src="../images/clothing/item1.jpg" alt="Bridal Silks">
+        <div class="cat-box-overlay">
+          <div class="cat-box-sub">Pure Zari Korvai</div>
+          <div class="cat-box-title">Bridal Kanjeevarams</div>
+          <div class="cat-box-cta">Explore Silks ➔</div>
         </div>
-      </div>
-
+      </a>
       <!-- 2 -->
-      <div class="apparel-card">
-        <img src="../images/clothing/item2.jpg" alt="Chanderi Silk Kurta Set" class="apparel-img">
-        <div class="apparel-body">
-          <div class="apparel-tag">FESTIVE READY-TO-WEAR</div>
-          <h3>Embroidered Chanderi Silk Kurta Set</h3>
-          <div class="apparel-price">₹4,800</div>
-          <p class="apparel-desc">Pastel pistachio green with intricate Gota Patti hand embroidery, paired with cigarette pants and organza dupatta.</p>
-          <div class="size-pills-row">
-            <span class="size-pill">XS</span>
-            <span class="size-pill active">S</span>
-            <span class="size-pill">M</span>
-            <span class="size-pill">L</span>
-            <span class="size-pill">XL</span>
-          </div>
-          <button class="btn-buy-apparel" onclick="openSutraOrder('Embroidered Chanderi Silk Kurta Set', 4800)">Order via WhatsApp 💬</button>
+      <a href="catalog.html?cat=kurta" class="cat-box">
+        <img src="../images/clothing/item2.jpg" alt="Festive Kurta Sets">
+        <div class="cat-box-overlay">
+          <div class="cat-box-sub">Gota Patti & Chanderi</div>
+          <div class="cat-box-title">Festive Ready-to-Wear</div>
+          <div class="cat-box-cta">Shop Kurta Sets ➔</div>
         </div>
-      </div>
-
+      </a>
       <!-- 3 -->
-      <div class="apparel-card">
-        <img src="../images/clothing/item3.jpg" alt="Banarasi Sherwani" class="apparel-img">
-        <div class="apparel-body">
-          <div class="apparel-tag">MEN'S ROYAL COUTURE</div>
-          <h3>Royal Banarasi Brocade Sherwani</h3>
-          <div class="apparel-price">₹18,900</div>
-          <p class="apparel-desc">Ivory gold woven Banarasi brocade jacket with ornate metal buttons, churidar, and modal silk stole.</p>
-          <div class="size-pills-row">
-            <span class="size-pill">38 (M)</span>
-            <span class="size-pill active">40 (L)</span>
-            <span class="size-pill">42 (XL)</span>
-            <span class="size-pill">Made-to-Measure</span>
-          </div>
-          <button class="btn-buy-apparel" onclick="openSutraOrder('Royal Banarasi Brocade Sherwani', 18900)">Order via WhatsApp 💬</button>
+      <a href="catalog.html?cat=mens" class="cat-box">
+        <img src="../images/clothing/item3.jpg" alt="Men's Couture">
+        <div class="cat-box-overlay">
+          <div class="cat-box-sub">Banarasi Brocade</div>
+          <div class="cat-box-title">Royal Men's Sherwanis</div>
+          <div class="cat-box-cta">Discover Grooms ➔</div>
         </div>
-      </div>
+      </a>
+    </div>
 
-      <!-- 4 -->
-      <div class="apparel-card">
-        <img src="../images/clothing/item4.jpg" alt="Hand-Block Anarkali" class="apparel-img">
-        <div class="apparel-body">
-          <div class="apparel-tag">ORGANIC JAIPUR PRINT</div>
-          <h3>Hand-Block Printed Mulmul Anarkali</h3>
-          <div class="apparel-price">₹3,400</div>
-          <p class="apparel-desc">Breathable Jaipur hand-block printed cotton mulmul with flared 48-kalies and matching kota doria dupatta.</p>
-          <div class="size-pills-row">
-            <span class="size-pill">S</span>
-            <span class="size-pill active">M</span>
-            <span class="size-pill">L</span>
-            <span class="size-pill">XL</span>
-          </div>
-          <button class="btn-buy-apparel" onclick="openSutraOrder('Hand-Block Printed Mulmul Anarkali', 3400)">Order via WhatsApp 💬</button>
-        </div>
-      </div>
+    <!-- Featured Products Showcase -->
+    <div class="sutra-heading" style="margin-top: 40px;">
+      <div class="sutra-heading-tag">Handcrafted Masterpieces</div>
+      <h2>Festive Bestsellers</h2>
+    </div>
 
-      <!-- 5 -->
-      <div class="apparel-card">
-        <img src="../images/clothing/item5.jpg" alt="Tussar Silk Dupatta" class="apparel-img">
-        <div class="apparel-body">
-          <div class="apparel-tag">TRIBAL HANDLOOM</div>
-          <h3>Tussar Silk Hand-Woven Dupatta</h3>
-          <div class="apparel-price">₹2,600</div>
-          <p class="apparel-desc">Natural unbleached golden wild silk with Kantha stitch border motifs and handcrafted tassels.</p>
-          <div class="size-pills-row">
-            <span class="size-pill active">Standard 2.5m</span>
-          </div>
-          <button class="btn-buy-apparel" onclick="openSutraOrder('Tussar Silk Hand-Woven Dupatta', 2600)">Order via WhatsApp 💬</button>
+    <div class="featured-grid">
+      <!-- Prod 1 -->
+      <a href="product.html?id=kanjeevaram" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="../images/clothing/item1.jpg" alt="Kanjeevaram Silk Saree">
+          <span class="prod-badge">Silk Mark</span>
         </div>
-      </div>
+        <div class="prod-body">
+          <div class="prod-cat">Bridal Sarees</div>
+          <div class="prod-title">Kanjeevaram Pure Mulberry Silk Saree</div>
+          <div class="prod-price">₹14,500</div>
+          <div class="btn-view-prod">View Details & Custom Fit ➔</div>
+        </div>
+      </a>
 
-      <!-- 6 -->
-      <div class="apparel-card">
-        <img src="../images/clothing/item2.jpg" alt="Kashmiri Tilla Velvet Shawl" class="apparel-img">
-        <div class="apparel-body">
-          <div class="apparel-tag">KASHMIRI HERITAGE</div>
-          <h3>Kashmiri Tilla Work Velvet Shawl</h3>
-          <div class="apparel-price">₹8,200</div>
-          <p class="apparel-desc">Rich micro-velvet shawl embroidered with metallic silver and gold tilla thread work by master Kashmiri artisans.</p>
-          <div class="size-pills-row">
-            <span class="size-pill active">Royal Wrap</span>
-          </div>
-          <button class="btn-buy-apparel" onclick="openSutraOrder('Kashmiri Tilla Work Velvet Shawl', 8200)">Order via WhatsApp 💬</button>
+      <!-- Prod 2 -->
+      <a href="product.html?id=chanderi-kurta" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="../images/clothing/item2.jpg" alt="Chanderi Kurta Set">
+          <span class="prod-badge">Ready to Ship</span>
         </div>
-      </div>
+        <div class="prod-body">
+          <div class="prod-cat">Festive Suits</div>
+          <div class="prod-title">Embroidered Chanderi Silk Kurta Set</div>
+          <div class="prod-price">₹4,800</div>
+          <div class="btn-view-prod">View Details & Custom Fit ➔</div>
+        </div>
+      </a>
+
+      <!-- Prod 3 -->
+      <a href="product.html?id=banarasi-sherwani" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="../images/clothing/item3.jpg" alt="Banarasi Sherwani">
+          <span class="prod-badge">Made to Measure</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Men's Couture</div>
+          <div class="prod-title">Royal Banarasi Brocade Sherwani</div>
+          <div class="prod-price">₹18,900</div>
+          <div class="btn-view-prod">View Details & Custom Fit ➔</div>
+        </div>
+      </a>
+
+      <!-- Prod 4 -->
+      <a href="product.html?id=jaipur-anarkali" class="prod-card">
+        <div class="prod-img-wrap">
+          <img src="../images/clothing/item4.jpg" alt="Jaipur Mulmul Anarkali">
+          <span class="prod-badge">Organic Cotton</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Anarkalis</div>
+          <div class="prod-title">Hand-Block Printed Mulmul Anarkali</div>
+          <div class="prod-price">₹3,400</div>
+          <div class="btn-view-prod">View Details & Custom Fit ➔</div>
+        </div>
+      </a>
     </div>
   </section>
 
-  <!-- Order Modal -->
-  <div id="sutraModal" class="sutra-modal">
-    <div class="sutra-modal-card">
-      <button class="modal-close" onclick="closeSutraOrder()">✕</button>
-      <h3 id="sutraModalTitle" style="font-family: var(--font-serif); font-size: 22px; color: var(--sutra-maroon); margin-bottom: 6px;">Order Handloom Garment</h3>
-      <p style="font-size: 13px; color: #665a50; margin-bottom: 20px;">Provide your shipping details for fast dispatch & WhatsApp tracking.</p>
-      
-      <form onsubmit="handleSutraSubmit(event)">
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" id="sutraCustName" required placeholder="e.g. Meera Nair">
-        </div>
-        <div class="form-group">
-          <label>WhatsApp / Phone Number</label>
-          <input type="tel" id="sutraCustPhone" required placeholder="+91 98765 43210">
-        </div>
-        <div class="form-group">
-          <label>Delivery City & State</label>
-          <input type="text" id="sutraCustCity" required placeholder="e.g. Pune, Maharashtra">
-        </div>
-        <button type="submit" class="btn-buy-apparel" style="margin-top: 10px;">Proceed to WhatsApp Checkout 💬</button>
-      </form>
+  <!-- Craftsmanship Section -->
+  <section class="sutra-craft">
+    <div class="sutra-craft-wrap">
+      <div>
+        <h2>Preserving Centuries of Indian Loom Artistry</h2>
+        <p>Every thread of zari in our Kanjeevaram and Banarasi drapes is woven by certified national-award winning master weavers. We support 450+ artisan families across Kanchipuram, Varanasi, and Chanderi with fair wages and healthcare.</p>
+        <a href="catalog.html" class="btn-sutra-gold">Browse Full Catalog</a>
+      </div>
+      <div>
+        <img src="../images/clothing/item5.jpg" alt="Handloom Weaving" style="width: 100%; border-radius: 4px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer class="sutra-footer">
@@ -509,16 +537,17 @@
         <p>Boutique Hours: 10:30 AM – 8:30 PM (Mon-Sat)</p>
       </div>
       <div>
-        <h4>Handloom Weaves</h4>
-        <a href="#catalog">Kanjeevaram Pure Silks</a>
-        <a href="#catalog">Banarasi Brocades</a>
-        <a href="#catalog">Chanderi Kurta Sets</a>
+        <h4>Collections</h4>
+        <a href="catalog.html?cat=silk">Bridal Kanjeevarams</a>
+        <a href="catalog.html?cat=kurta">Chanderi Kurta Sets</a>
+        <a href="catalog.html?cat=mens">Banarasi Sherwanis</a>
+        <a href="catalog.html">All Products</a>
       </div>
       <div>
-        <h4>Craft Heritage</h4>
-        <p>100% Direct Weaver Sourced</p>
+        <h4>Store Policies</h4>
+        <p>Complimentary Blouse Tailoring</p>
         <p>Silk Mark & Handloom Mark Certified</p>
-        <p>Worldwide Express Shipping</p>
+        <p>7-Day Easy Exchange Policy</p>
       </div>
     </div>
     <div class="sutra-footer-bottom">
@@ -526,35 +555,5 @@
     </div>
   </footer>
 
-  <script src="../scripts/shared-components.js"></script>
-  <script>
-    let activeGarment = 'Kanjeevaram Silk Saree';
-    let activeGarmentPrice = 14500;
-
-    function openSutraOrder(title, price) {
-      activeGarment = title;
-      activeGarmentPrice = price;
-      document.getElementById('sutraModalTitle').innerText = title + (price ? ' (₹' + price.toLocaleString('en-IN') + ')' : '');
-      document.getElementById('sutraModal').style.display = 'flex';
-    }
-
-    function closeSutraOrder() {
-      document.getElementById('sutraModal').style.display = 'none';
-    }
-
-    function handleSutraSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('sutraCustName').value;
-      const phone = document.getElementById('sutraCustPhone').value;
-      const city = document.getElementById('sutraCustCity').value;
-
-      if (window.OrbitexToast) OrbitexToast.success('Order initiated! Connecting to boutique on WhatsApp...');
-      const msg = encodeURIComponent(`Hi Sutra Couture! I would like to purchase:\nItem: ${activeGarment}\nPrice: ₹${activeGarmentPrice}\nBuyer: ${name}\nPhone: ${phone}\nShipping City: ${city}`);
-      setTimeout(() => {
-        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
-        closeSutraOrder();
-      }, 700);
-    }
-  </script>
 </body>
 </html>
