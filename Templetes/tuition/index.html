@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bansal Classes — IIT-JEE, NEET & Foundation Coaching</title>
-  <meta name="description" content="Kota's pioneer IIT-JEE & NEET coaching academy. Classroom programs, All-India test series, and top ranker mentorship.">
+  <title>Apex Pinnacle Academy — IIT-JEE, NEET & Foundation Coaching</title>
+  <meta name="description" content="Premier IIT-JEE & NEET coaching academy. Classroom programs, All-India test series, and top ranker mentorship.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,7 +13,6 @@
     :root {
       --maroon-deep: #6E1322;
       --maroon: #9A1B2E;
-      --maroon-light: #C53A4A;
       --gold: #D9A441;
       --gold-light: #F0C868;
       --navy: #1B2336;
@@ -35,6 +34,7 @@
       color: var(--black);
       line-height: 1.6;
     }
+    a { text-decoration: none; color: inherit; }
 
     /* Notice Bar */
     .edit-bar {
@@ -52,33 +52,31 @@
     .edit-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); display: inline-block; }
 
     /* Navbar */
-    .bansal-nav {
+    .pinnacle-nav {
       position: sticky; top: 36px; z-index: 999;
-      background: rgba(252, 248, 243, 0.95);
+      background: rgba(252, 248, 243, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--gray-200);
     }
-    .bansal-nav-wrap {
+    .pinnacle-nav-wrap {
       max-width: 1240px; margin: 0 auto; padding: 14px 32px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .bansal-brand {
+    .pinnacle-brand {
       font-family: var(--font-display);
       font-size: 22px; font-weight: 800; color: var(--maroon-deep);
-      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      display: flex; align-items: center; gap: 8px;
     }
-    .bansal-brand span { color: var(--gold); }
-    .bansal-nav-links { display: flex; gap: 28px; }
-    .bansal-nav-links a {
-      color: var(--gray-700); text-decoration: none; font-size: 13.5px; font-weight: 600;
+    .pinnacle-brand span { color: var(--gold); }
+    .pinnacle-nav-links { display: flex; gap: 28px; }
+    .pinnacle-nav-links a {
+      color: var(--gray-700); font-size: 13.5px; font-weight: 600;
     }
-    .bansal-nav-links a.active { color: var(--maroon); font-weight: 700; }
-    .btn-bansal-cta {
+    .pinnacle-nav-links a.active { color: var(--maroon); font-weight: 700; }
+    .btn-pinnacle-cta {
       background: var(--maroon); color: var(--white);
       padding: 9px 20px; border-radius: 4px; font-size: 13px; font-weight: 700;
-      text-decoration: none; transition: background 0.2s;
     }
-    .btn-bansal-cta:hover { background: var(--maroon-deep); }
 
     /* Cover / Hero */
     .cover {
@@ -109,12 +107,11 @@
     .cover-actions { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-gold {
       background: var(--gold); color: var(--maroon-deep); padding: 14px 30px;
-      font-family: var(--font-display); font-weight: 800; font-size: 13.5px;
-      border-radius: 4px; text-decoration: none;
+      font-family: var(--font-display); font-weight: 800; font-size: 13.5px; border-radius: 4px;
     }
     .btn-outline-white {
       background: transparent; border: 1.5px solid rgba(255,255,255,0.4); color: #fff;
-      padding: 14px 26px; font-weight: 700; font-size: 13.5px; border-radius: 4px; text-decoration: none;
+      padding: 14px 26px; font-weight: 700; font-size: 13.5px; border-radius: 4px;
     }
 
     /* Stats Grid */
@@ -128,6 +125,23 @@
     }
     .stat-num { font-family: var(--font-display); font-size: 32px; color: var(--maroon-deep); font-weight: 800; }
     .stat-label { font-size: 11px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    /* Faculty Spotlight */
+    .faculty-spotlight {
+      max-width: 1240px; margin: 40px auto 80px; padding: 0 32px;
+    }
+    .faculty-card-main {
+      background: var(--white); border: 1px solid var(--gray-200); border-left: 5px solid var(--maroon);
+      border-radius: 8px; padding: 36px; display: grid; grid-template-columns: 240px 1fr;
+      gap: 36px; align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    }
+    .faculty-img {
+      width: 220px; height: 220px; border-radius: 8px; object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1); border: 2px solid var(--gold);
+    }
+    .faculty-info h3 { font-family: var(--font-display); font-size: 24px; color: var(--maroon-deep); margin-bottom: 4px; }
+    .faculty-badge { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; display: block; }
+    .faculty-info p { font-size: 14.5px; color: var(--gray-700); line-height: 1.7; margin-bottom: 16px; }
 
     /* Courses Section */
     .section-wrap { max-width: 1240px; margin: 60px auto 90px; padding: 0 32px; }
@@ -151,19 +165,24 @@
     .prog-features li::before { content: '✓ '; color: var(--gold); font-weight: 800; }
     .btn-apply-prog {
       background: var(--maroon); color: #fff; padding: 12px; border-radius: 4px;
-      font-family: var(--font-display); font-weight: 700; font-size: 13px; text-align: center; text-decoration: none;
+      font-family: var(--font-display); font-weight: 700; font-size: 13px; text-align: center;
     }
 
     /* Footer */
-    footer.bansal-footer {
+    footer.pinnacle-footer {
       background: var(--navy); color: rgba(255,255,255,0.7); padding: 60px 32px 30px;
     }
-    .bansal-footer-wrap {
+    .pinnacle-footer-wrap {
       max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 40px; margin-bottom: 40px;
     }
-    .bansal-footer h4 { font-family: var(--font-display); color: var(--gold-light); font-size: 15px; margin-bottom: 14px; }
-    .bansal-footer p, .bansal-footer a { font-size: 13.5px; color: rgba(255,255,255,0.75); text-decoration: none; display: block; margin-bottom: 8px; }
+    .pinnacle-footer h4 { font-family: var(--font-display); color: var(--gold-light); font-size: 15px; margin-bottom: 14px; }
+    .pinnacle-footer p, .pinnacle-footer a { font-size: 13.5px; color: rgba(255,255,255,0.75); display: block; margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+      .faculty-card-main { grid-template-columns: 1fr; text-align: center; }
+      .faculty-img { margin: 0 auto; }
+    }
   </style>
 </head>
 <body>
@@ -172,34 +191,34 @@
   <div class="orbitex-return-bar">
     <div class="orbitex-return-container">
       <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
-      <span class="orbitex-return-tag">Template Preview: <b>Bansal Classes — IIT-JEE & NEET Academy</b></span>
+      <span class="orbitex-return-tag">Template Preview: <b>Apex Pinnacle Academy — IIT-JEE & NEET</b></span>
       <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
     </div>
   </div>
 
   <div class="edit-bar">
     <span class="dot"></span>
-    <span>ADMISSIONS OPEN 2026-27: <b>Kota Classroom Pedagogy + BOOST Scholarship Test</b></span>
+    <span>ADMISSIONS OPEN 2026-27: <b>Pinnacle Classroom Pedagogy + Talent Scholarship Assessment</b></span>
   </div>
 
   <!-- Navbar -->
-  <header class="bansal-nav">
-    <div class="bansal-nav-wrap">
-      <a href="index.html" class="bansal-brand">BANSAL <span>CLASSES</span></a>
-      <nav class="bansal-nav-links">
+  <header class="pinnacle-nav">
+    <div class="pinnacle-nav-wrap">
+      <a href="index.html" class="pinnacle-brand">APEX <span>PINNACLE</span></a>
+      <nav class="pinnacle-nav-links">
         <a href="index.html" class="active">Academy</a>
         <a href="courses.html">Courses & Batches</a>
         <a href="demo.html">Free Demo Class</a>
       </nav>
-      <a href="demo.html" class="btn-bansal-cta">Book Demo Class 📝</a>
+      <a href="demo.html" class="btn-pinnacle-cta">Book Demo Class 📝</a>
     </div>
   </header>
 
   <!-- Hero Cover -->
   <section class="cover">
     <div class="cover-wrap">
-      <span class="cover-badge">🏆 Kota's Pioneer Coaching Legacy</span>
-      <h1>Master IIT-JEE & NEET with <span>Proven Kota Faculty</span></h1>
+      <span class="cover-badge">🏆 Premier Engineering & Medical Coaching</span>
+      <h1>Master IIT-JEE & NEET with <span>Top Tier Mentors</span></h1>
       <p class="cover-sub">Daily Problem Practice Sheets (DPPs), All-India Computer Based Mock Test Series, and 1-on-1 personalized doubt clinics that turn aspirations into All-India Ranks.</p>
       <div class="cover-actions">
         <a href="courses.html" class="btn-gold">Explore Batches & Fee Structure (₹)</a>
@@ -213,29 +232,42 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-num">AIR 1</div>
-        <div class="stat-label">5 Times in IIT-JEE History</div>
+        <div class="stat-label">5 Times in Entrance History</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">38+</div>
-        <div class="stat-label">Years of Kota Legacy</div>
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Years of Academic Legacy</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">1.2 Lakh+</div>
+        <div class="stat-num">45,000+</div>
         <div class="stat-label">Engineers & Doctors Produced</div>
       </div>
       <div class="stat-card">
         <div class="stat-num">90%</div>
-        <div class="stat-label">Up to BOOST Scholarship</div>
+        <div class="stat-label">Up to Talent Scholarship</div>
       </div>
     </div>
   </div>
+
+  <!-- Faculty Spotlight with Real Generated Portrait -->
+  <section class="faculty-spotlight">
+    <div class="faculty-card-main">
+      <img src="../../images/team/faculty_sharma.jpg" alt="Dr. A. K. Sharma" class="faculty-img">
+      <div class="faculty-info">
+        <span class="faculty-badge">Academic Dean & Senior Physics Faculty</span>
+        <h3>Dr. A. K. Sharma (Ph.D. IIT Bombay)</h3>
+        <p>“Cracking national competitive examinations is not about solving 100 books superficially; it is about mastering the underlying fundamental principles and building rigorous daily problem-solving discipline.”</p>
+        <div style="font-size:13px; color:var(--gray-500);">Over 22 years of mentoring top 100 AIR rankers in IIT-JEE Advanced & Physics Olympiads.</div>
+      </div>
+    </div>
+  </section>
 
   <!-- Classroom Programs -->
   <section class="section-wrap">
     <div class="section-header">
       <span class="section-eyebrow">Target Batches</span>
       <h2>Classroom & Hybrid Programs</h2>
-      <p style="color:var(--gray-700);">Taught with original Kota study modules and chapter-wise test series.</p>
+      <p style="color:var(--gray-700);">Taught with comprehensive theory modules, chapter-wise test series, and personalized doubt sessions.</p>
     </div>
 
     <div class="programs-grid">
@@ -248,7 +280,7 @@
           <li>600+ Live Classroom Teaching Hours</li>
           <li>Daily DPPs & 45 All-India Computer Mock Tests</li>
           <li>1-on-1 Doubt Removal Counters</li>
-          <li>Complete Bansal Kota Hardcopy Study Material</li>
+          <li>Comprehensive Study Material & Question Bank</li>
         </ul>
         <a href="demo.html?course=jee" class="btn-apply-prog">Register for 2 Free Demo Classes ➔</a>
       </div>
@@ -262,7 +294,7 @@
           <li>NCERT Line-by-Line Biology Masterclass</li>
           <li>High-Yield Physics & Chemistry Numericals</li>
           <li>OMR Based Weekly Ranker Simulations</li>
-          <li>AIIMS Senior Doctor Mentorship Sessions</li>
+          <li>Senior Doctor Mentorship Sessions</li>
         </ul>
         <a href="demo.html?course=neet" class="btn-apply-prog">Register for 2 Free Demo Classes ➔</a>
       </div>
@@ -284,12 +316,13 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bansal-footer">
-    <div class="bansal-footer-wrap">
+  <footer class="pinnacle-footer">
+    <div class="pinnacle-footer-wrap">
       <div>
-        <h4 style="color:var(--gold-light);">BANSAL CLASSES NAGPUR</h4>
-        <p>Plot 45, Great Nag Road, East Nagpur 440009</p>
+        <h4 style="color:var(--gold-light);">APEX PINNACLE ACADEMY</h4>
+        <p>Campus Hub, 45 Knowledge Park, Metro City 400001</p>
         <p>Counselor Desk: +91 98765 43210</p>
+        <p>Email: admissions@apexacademy.edu.in</p>
       </div>
       <div>
         <h4>Programs</h4>
@@ -298,14 +331,14 @@
         <a href="courses.html">Class 9-10 Foundation</a>
       </div>
       <div>
-        <h4>Kota Pedagogy</h4>
-        <p>Bansal DPP System</p>
+        <h4>Pedagogy</h4>
+        <p>Daily Practice Problem (DPP) System</p>
         <p>All-India Test Series (AITS)</p>
-        <p>BOOST Scholarship Test</p>
+        <p>Talent Scholarship Assessment</p>
       </div>
     </div>
     <div style="text-align:center; font-size:12px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px;">
-      © 2026 Bansal Classes. Powered by Orbitex Production Suite.
+      © 2026 Apex Pinnacle Academy. Powered by Orbitex Production Suite.
     </div>
   </footer>
 
