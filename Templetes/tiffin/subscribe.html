@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Subscription Builder — Bangre Tiffin Services</title>
+  <meta name="description" content="Customize your daily homestyle lunch and dinner tiffin subscription with flexible pause and resume.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --tiffin-dark: #203248;
+      --tiffin-orange: #ff8000;
+      --tiffin-gold: #f59e0b;
+      --tiffin-card: #293d56;
+      --tiffin-border: rgba(255, 255, 255, 0.12);
+      --font-heading: 'Cabinet Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--tiffin-dark);
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .tiffin-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(32, 50, 72, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--tiffin-border);
+    }
+    .tiffin-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tiffin-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+    }
+    .tiffin-brand span { color: var(--tiffin-orange); }
+    .tiffin-nav-links { display: flex; gap: 28px; }
+    .tiffin-nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .tiffin-nav-links a.active { color: var(--tiffin-orange); }
+
+    /* Sub Builder Layout */
+    .sub-wrap {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+    }
+    .sub-card {
+      background: var(--tiffin-card);
+      border: 1px solid var(--tiffin-border);
+      border-radius: 18px;
+      padding: 36px;
+    }
+    .sub-card h2 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .option-pills-group { margin-bottom: 24px; }
+    .option-label { font-size: 12px; font-weight: 800; text-transform: uppercase; color: var(--tiffin-orange); margin-bottom: 8px; display: block; }
+    .pills-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .pill-btn {
+      background: #1f2e42;
+      border: 1px solid var(--tiffin-border);
+      color: #cbd5e1;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+    }
+    .pill-btn.active {
+      background: var(--tiffin-orange);
+      color: #000;
+      border-color: var(--tiffin-orange);
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 4px; color: #cbd5e1; }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      background: #1f2e42;
+      border: 1px solid var(--tiffin-border);
+      border-radius: 6px;
+      color: #fff;
+      font-family: inherit;
+    }
+    .btn-submit-sub {
+      background: var(--tiffin-orange);
+      color: #000;
+      border: none;
+      padding: 16px;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 15px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Price Summary Box */
+    .summary-box {
+      background: var(--tiffin-card);
+      border: 1px solid var(--tiffin-border);
+      border-radius: 18px;
+      padding: 32px;
+      position: sticky;
+      top: 100px;
+    }
+    .summary-box h3 { font-family: var(--font-heading); font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 18px; }
+    .sum-spec { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; color: #cbd5e1; }
+    .sum-total {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--tiffin-orange);
+      border-top: 1px solid var(--tiffin-border);
+      padding-top: 14px;
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 800px) {
+      .sub-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Bangre Tiffin — Subscription Builder</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="tiffin-nav">
+    <div class="tiffin-nav-wrap">
+      <a href="index.html" class="tiffin-brand">BANGRE <span>TIFFIN</span></a>
+      <nav class="tiffin-nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu-calendar.html">Weekly Menu</a>
+        <a href="subscribe.html" class="active">Subscription Builder</a>
+      </nav>
+      <a href="menu-calendar.html" style="background:rgba(255,255,255,0.1); color:#fff; padding:8px 18px; border-radius:20px; font-weight:700; font-size:13px; text-decoration:none;">Weekly Menu 🍱</a>
+    </div>
+  </header>
+
+  <!-- Main Subscription Layout -->
+  <main class="sub-wrap">
+    <!-- Left Column: Configurator -->
+    <div class="sub-card">
+      <h2>Build Your Monthly Meal Plan</h2>
+      <form onsubmit="handleSubSubmit(event)">
+        <!-- Frequency -->
+        <div class="option-pills-group">
+          <span class="option-label">1. Delivery Frequency</span>
+          <div class="pills-row">
+            <div class="pill-btn active" onclick="setFreq('Daily Lunch Only (26 Days)', 2880, this)">☀️ Lunch Only (₹2,880/mo)</div>
+            <div class="pill-btn" onclick="setFreq('Daily Dinner Only (26 Days)', 2880, this)">🌙 Dinner Only (₹2,880/mo)</div>
+            <div class="pill-btn" onclick="setFreq('Both Lunch & Dinner (52 Meals)', 5400, this)">⚡ Lunch + Dinner (₹5,400/mo)</div>
+          </div>
+        </div>
+
+        <!-- Diet Type -->
+        <div class="option-pills-group">
+          <span class="option-label">2. Dietary Preference</span>
+          <div class="pills-row">
+            <div class="pill-btn active" onclick="setDiet('Standard Homestyle Veg', this)">🟢 Standard Homestyle</div>
+            <div class="pill-btn" onclick="setDiet('Jain Satvik (No Onion/Garlic)', this)">🟢 Jain Pure Satvik</div>
+            <div class="pill-btn" onclick="setDiet('Fitness High Protein', this)">🟢 High Protein (+Soya/Paneer)</div>
+          </div>
+        </div>
+
+        <!-- Roti Choice -->
+        <div class="option-pills-group">
+          <span class="option-label">3. Bread Preference</span>
+          <div class="pills-row">
+            <div class="pill-btn active" onclick="setRoti('4 Phulkas (100% Whole Wheat)', this)">4 Soft Phulkas</div>
+            <div class="pill-btn" onclick="setRoti('2 Parathas + 2 Phulkas', this)">2 Parathas + 2 Phulkas</div>
+            <div class="pill-btn" onclick="setRoti('Rice Bowl Only (No Rotis)', this)">Rice Bowl Only</div>
+          </div>
+        </div>
+
+        <!-- Customer Info -->
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="subName" required placeholder="e.g. Sarthak Dave">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Mobile Number</label>
+          <input type="tel" id="subPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Delivery Address & Pincode</label>
+          <textarea id="subAddress" rows="2" required placeholder="e.g. Flat 304, Tower B, Sector 62, Noida 201301"></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-sub">Start Subscription on WhatsApp 🍱</button>
+      </form>
+    </div>
+
+    <!-- Right Column: Summary -->
+    <aside class="summary-box">
+      <h3>Subscription Summary</h3>
+      
+      <div class="sum-spec">
+        <span>Frequency</span>
+        <b id="sumFreq">Daily Lunch Only (26 Days)</b>
+      </div>
+      <div class="sum-spec">
+        <span>Diet Choice</span>
+        <b id="sumDiet">Standard Homestyle Veg</b>
+      </div>
+      <div class="sum-spec">
+        <span>Bread Selection</span>
+        <b id="sumRoti">4 Soft Phulkas</b>
+      </div>
+      <div class="sum-spec">
+        <span>Delivery Guarantee</span>
+        <b style="color:#4ade80;">Included</b>
+      </div>
+
+      <div class="sum-total">
+        <span>Monthly Total</span>
+        <span id="sumTotal">₹2,880</span>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-top:10px;">⚡ You can pause and resume dates anytime on WhatsApp!</div>
+    </aside>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    let subPrice = 2880;
+    let selectedFreq = 'Daily Lunch Only (26 Days)';
+    let selectedDiet = 'Standard Homestyle Veg';
+    let selectedRoti = '4 Soft Phulkas';
+
+    function setFreq(freq, price, el) {
+      el.closest('.pills-row').querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      subPrice = price;
+      selectedFreq = freq;
+      document.getElementById('sumFreq').innerText = freq;
+      document.getElementById('sumTotal').innerText = '₹' + price.toLocaleString('en-IN');
+    }
+
+    function setDiet(diet, el) {
+      el.closest('.pills-row').querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      selectedDiet = diet;
+      document.getElementById('sumDiet').innerText = diet;
+    }
+
+    function setRoti(roti, el) {
+      el.closest('.pills-row').querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      selectedRoti = roti;
+      document.getElementById('sumRoti').innerText = roti;
+    }
+
+    function handleSubSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('subName').value;
+      const phone = document.getElementById('subPhone').value;
+      const addr = document.getElementById('subAddress').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Subscription created! Connecting to kitchen on WhatsApp...');
+      const msg = encodeURIComponent(`Hi Bangre Tiffin! I would like to start a meal subscription.\nPlan: ${selectedFreq}\nPrice: ₹${subPrice}/month\nDiet: ${selectedDiet}\nBread: ${selectedRoti}\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${addr}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 700);
+    }
+  </script>
+</body>
+</html>

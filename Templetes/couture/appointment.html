@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Private Fitting Salon — Maison De Royale</title>
+  <meta name="description" content="Schedule a 1-on-1 private bridal trousseau fitting with our senior couture designer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --royale-gold: #c29b38;
+      --royale-dark: #121417;
+      --royale-cream: #fbf9f5;
+      --royale-card: #ffffff;
+      --royale-border: #e8e2d5;
+      --font-serif: 'Cinzel', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--royale-cream);
+      color: var(--royale-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .royale-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(251, 249, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--royale-border);
+    }
+    .royale-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .royale-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--royale-dark);
+      text-decoration: none;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .royale-brand span { color: var(--royale-gold); }
+    .royale-nav-links { display: flex; gap: 28px; }
+    .royale-nav-links a {
+      color: var(--royale-dark);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .royale-nav-links a.active { color: var(--royale-gold); }
+
+    /* Appointment Layout */
+    .appt-wrap {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .appt-card {
+      background: #fff;
+      border: 1px solid var(--royale-border);
+      padding: 48px;
+      box-shadow: 0 10px 40px rgba(18, 20, 23, 0.05);
+    }
+    .appt-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .appt-header h1 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .form-full { grid-column: span 2; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      color: #64748b;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--royale-border);
+      border-radius: 0;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .btn-submit-royale {
+      background: var(--royale-gold);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-full { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Maison De Royale — Private Concierge</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="royale-nav">
+    <div class="royale-nav-wrap">
+      <a href="index.html" class="royale-brand">MAISON <span>DE ROYALE</span></a>
+      <nav class="royale-nav-links">
+        <a href="index.html">Atelier</a>
+        <a href="collection.html">Runway Trousseau</a>
+        <a href="appointment.html" class="active">Private Fitting</a>
+      </nav>
+      <a href="collection.html" style="border:1px solid var(--royale-gold); color:var(--royale-dark); padding:8px 20px; font-family:var(--font-serif); font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; text-decoration:none;">Collection 👑</a>
+    </div>
+  </header>
+
+  <!-- Main Booking -->
+  <main class="appt-wrap">
+    <div class="appt-card">
+      <div class="appt-header">
+        <h1>Private Atelier Fitting Reservation</h1>
+        <p style="color:#64748b;">Enjoy exclusive private suite access, bespoke design consultation, and champagne service.</p>
+      </div>
+
+      <form onsubmit="handleRoyaleAppt(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Client Full Name</label>
+            <input type="text" id="royaleName" required placeholder="e.g. Princess Radhika Singhania">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Mobile Number</label>
+            <input type="tel" id="royalePhone" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Occasion & Ensemble Preference</label>
+            <select id="royaleOccasion">
+              <option>Bridal Wedding Trousseau (Lehenga)</option>
+              <option>Groom's Imperial Sherwani</option>
+              <option>Sangeet & Reception Red-Carpet Gown</option>
+              <option>Complete High-Society Family Ensemble</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Fitting Date</label>
+            <input type="datetime-local" id="royaleDate" required>
+          </div>
+          <div class="form-group form-full">
+            <label>Special Sourcing Notes / Wedding Date</label>
+            <textarea id="royaleNotes" rows="3" placeholder="e.g. Wedding scheduled in Udaipur in December 2026. Interested in emerald green and crimson velvet combinations."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit-royale">Confirm Private Fitting on VIP WhatsApp Desk 👑</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function handleRoyaleAppt(e) {
+      e.preventDefault();
+      const name = document.getElementById('royaleName').value;
+      const phone = document.getElementById('royalePhone').value;
+      const occ = document.getElementById('royaleOccasion').value;
+      const date = document.getElementById('royaleDate').value;
+      const notes = document.getElementById('royaleNotes').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Private salon reserved! Connecting to head stylist on VIP WhatsApp...');
+      const msg = encodeURIComponent(`Hi Maison De Royale! I would like to book a private fitting.\nEnsemble: ${occ}\nPreferred Date: ${date}\nClient: ${name}\nPhone: ${phone}\nNotes: ${notes}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 700);
+    }
+  </script>
+</body>
+</html>

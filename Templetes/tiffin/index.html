@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangre Tiffin Services — Homemade Tiffin, Delivered Daily</title>
+  <meta name="description" content="Fresh, hygienic, pure veg homemade tiffin service in East Nagpur. Pure whole wheat rotis, low oil, and fresh daily meals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --ink: #141009;
+      --panel: #1c150c;
+      --panel-2: #231a10;
+      --gold: #e0a84a;
+      --gold-light: #f3cf88;
+      --amber: #f97316;
+      --amber-deep: #c2540a;
+      --cream: #f6ecd9;
+      --muted: #c9b79a;
+      --line: rgba(224, 168, 74, 0.22);
+      --green: #3fae5c;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(224,168,74,0.12), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 100% 0%, rgba(249,115,22,0.09), transparent 55%),
+        var(--ink);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .display {
+      font-family: var(--font-serif);
+      letter-spacing: 0.01em;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header.bangre-nav-header {
+      position: sticky; top: 36px; z-index: 999;
+      background: rgba(20, 16, 9, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; max-width: 1080px; margin: 0 auto;
+    }
+    .brand-title { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-title b {
+      font-size: 20px; font-family: var(--font-serif);
+      background: linear-gradient(90deg, var(--amber), var(--gold-light));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .brand-title span { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    nav.links { display: flex; align-items: center; gap: 24px; }
+    nav.links a { font-size: 13.5px; color: var(--muted); font-weight: 600; }
+    nav.links a:hover, nav.links a.active { color: var(--gold-light); }
+    .order-btn-nav {
+      font-size: 12.5px; font-weight: 700;
+      color: var(--ink); background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border: none; padding: 9px 18px; border-radius: 6px; cursor: pointer;
+    }
+
+    /* Hero */
+    .hero { padding: 64px 20px 48px; text-align: center; }
+    .hero .eyebrow { font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .hero h1 { font-size: clamp(32px, 5.5vw, 48px); margin: 12px 0 14px; color: var(--cream); }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--amber), var(--gold-light));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p.sub { color: var(--muted); max-width: 560px; margin: 0 auto 24px; font-size: 15.5px; }
+    
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 8px; background: var(--panel);
+      border: 1px solid var(--line); padding: 8px 18px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+    }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+    
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+    .btn-primary {
+      background: linear-gradient(90deg, var(--amber-deep), var(--amber)); color: #fff;
+      padding: 13px 26px; border-radius: 8px; font-weight: 700; font-size: 14px;
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.28);
+    }
+    .btn-ghost {
+      background: transparent; border: 1px solid var(--line); color: var(--gold-light);
+      padding: 13px 24px; border-radius: 8px; font-weight: 600; font-size: 14px;
+    }
+
+    /* Plans */
+    section { padding: 60px 20px; }
+    .section-head { text-align: center; max-width: 580px; margin: 0 auto 40px; }
+    .section-head .eyebrow { font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .section-head h2 { font-size: clamp(26px, 3.5vw, 34px); margin: 8px 0 10px; color: var(--cream); }
+    .section-head p { color: var(--muted); font-size: 14.5px; }
+
+    .plans-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px; max-width: 1040px; margin: 0 auto;
+    }
+    .plan-card {
+      background: linear-gradient(160deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden;
+    }
+    .plan-card::before {
+      content: ""; position: absolute; top: -40%; right: -30%; width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(224,168,74,0.14), transparent 70%);
+    }
+    .plan-tag { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); font-weight: 700; }
+    .plan-card h3 { font-size: 20px; color: var(--cream); }
+    .plan-card .includes { font-size: 13px; color: var(--muted); line-height: 1.5; min-height: 40px; }
+    .plan-price { font-size: 34px; font-weight: 800; color: var(--gold-light); font-family: var(--font-serif); }
+    .plan-price sup { font-size: 14px; font-weight: 600; color: var(--muted); }
+    .plan-order {
+      margin-top: auto; background: linear-gradient(90deg, #25d366, #1fb655); color: #fff; text-align: center;
+      padding: 12px; border-radius: 8px; font-weight: 700; font-size: 13.5px;
+    }
+
+    /* Menu Panel */
+    .menu-panel {
+      max-width: 900px; margin: 0 auto; background: var(--panel); border: 1px solid var(--line);
+      border-radius: 18px; padding: 32px 28px;
+    }
+    .menu-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 22px; }
+    .chip { background: var(--panel-2); border: 1px solid var(--line); color: var(--cream); padding: 8px 16px; border-radius: 999px; font-size: 13px; }
+    .menu-sub { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+    .menu-note {
+      flex: 1; min-width: 220px; background: var(--panel-2); border-left: 3px solid var(--amber);
+      padding: 14px 16px; border-radius: 8px; font-size: 13.5px; color: var(--muted);
+    }
+    .menu-note b { color: var(--gold-light); }
+
+    /* Footer */
+    footer.bangre-footer {
+      border-top: 1px solid var(--line); padding: 36px 20px 24px; text-align: center;
+      color: var(--muted); font-size: 13px;
+    }
+    footer.bangre-footer b { color: var(--gold-light); }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Bangre Tiffin Services</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bangre-nav-header">
+    <div class="nav-row">
+      <a href="index.html" class="brand-title">
+        <b>Bangre Tiffin Services</b>
+        <span>Homestyle Meals • Delivered Daily</span>
+      </a>
+      <nav class="links">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu-calendar.html">Weekly Menu</a>
+        <a href="subscribe.html">Subscription Builder</a>
+      </nav>
+      <a href="subscribe.html" class="order-btn-nav">Subscribe (₹) 🍱</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero wrap">
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span>Taking Orders for Today (Lunch: 12:30 PM | Dinner: 8:00 PM)</span>
+    </div>
+    <span class="eyebrow">Pure Veg • Homestyle Cooked • Delivered Hot</span>
+    <h1>Ghar Jaisa Swad, <em>Rozana Aapki Table Par</em></h1>
+    <p class="sub">Fresh, unadulterated homestyle tiffins prepared daily with pure ground spices, low refined oil, and 100% whole wheat phulkas.</p>
+    
+    <div class="hero-cta">
+      <a href="subscribe.html" class="btn btn-primary">Start Monthly Plan (₹2,880/mo)</a>
+      <a href="menu-calendar.html" class="btn btn-ghost">View 7-Day Rotating Menu ➔</a>
+    </div>
+  </section>
+
+  <!-- Plans Section -->
+  <section class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pricing Plans</span>
+      <h2>Pocket-Friendly Monthly & Daily Meals</h2>
+      <p>Zero delivery charges. Flexible pause and resume options on WhatsApp.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- 1 -->
+      <div class="plan-card">
+        <span class="plan-tag">Single Meal Trial</span>
+        <h3>Daily Homestyle Thali</h3>
+        <p class="includes">2 Seasonal Sabzis, Dal Tadka, 4 Ghee Phulkas, Steamed Jeera Rice, Salad & Pickle.</p>
+        <div class="plan-price">₹110 <sup>/ meal</sup></div>
+        <a href="subscribe.html?plan=trial" class="plan-order">Order Trial on WhatsApp ➔</a>
+      </div>
+
+      <!-- 2 -->
+      <div class="plan-card" style="border-color: var(--amber);">
+        <span class="plan-tag" style="color:var(--gold-light);">Most Popular Plan</span>
+        <h3>Monthly Lunch or Dinner</h3>
+        <p class="includes">26 Days of fresh hot homestyle lunch or dinner delivered straight to your home/office.</p>
+        <div class="plan-price">₹2,880 <sup>/ month</sup></div>
+        <a href="subscribe.html?plan=monthly-single" class="plan-order">Subscribe to Lunch/Dinner ➔</a>
+      </div>
+
+      <!-- 3 -->
+      <div class="plan-card">
+        <span class="plan-tag">Full Board</span>
+        <h3>Twin Feast (Lunch + Dinner)</h3>
+        <p class="includes">52 Complete homestyle meals every month with special Sunday sweet treats included.</p>
+        <div class="plan-price">₹5,400 <sup>/ month</sup></div>
+        <a href="subscribe.html?plan=monthly-both" class="plan-order">Subscribe to Full Board ➔</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today's Special Panel -->
+  <section class="wrap" style="padding-top: 0;">
+    <div class="menu-panel">
+      <span class="eyebrow">Daily Fresh Preparation</span>
+      <h3 style="font-size:22px; color:var(--cream); margin: 6px 0 10px;">What Goes into Every Bangre Thali</h3>
+      
+      <div class="menu-chips">
+        <div class="chip">🫓 4 Soft 100% Whole Wheat Phulkas</div>
+        <div class="chip">🍲 Paneer / Seasonal Green Sabzi</div>
+        <div class="chip">🥣 Slow-Simmered Yellow Dal Tadka</div>
+        <div class="chip">🍚 Steamed Fragrant Basmati Rice</div>
+        <div class="chip">🥗 Fresh Cucumber Salad & Pickle</div>
+      </div>
+
+      <div class="menu-sub">
+        <div class="menu-note">
+          <b>Low Oil & Pure Ghee:</b> Prepared exactly like home with zero artificial preservatives or colors.
+        </div>
+        <div class="menu-note">
+          <b>Flexible Leaves:</b> Traveling? Simply text us on WhatsApp before 9 AM to pause your meal without losing credits.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bangre-footer">
+    <div class="wrap">
+      <p style="font-size:16px; margin-bottom:8px;"><b>Bangre Tiffin Services</b> — Kitchen & Delivery Hub</p>
+      <p>Plot 12, Reshim Bagh, Great Nag Road, Nagpur 440009 • WhatsApp: +91 98765 43210</p>
+      <p style="margin-top:16px; font-size:12px; opacity:0.6;">© 2026 Bangre Tiffin Services. Powered by Orbitex Production Suite.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

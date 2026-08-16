@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop Checkout — Kult Streetwear</title>
+  <meta name="description" content="Instant 1-click checkout for limited edition streetwear drops.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --kult-yellow: #facc15;
+      --kult-dark: #070707;
+      --kult-card: #121212;
+      --kult-border: rgba(255, 255, 255, 0.15);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--kult-dark);
+      color: #fafafa;
+      line-height: 1.5;
+    }
+
+    /* Navbar */
+    .kult-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(7, 7, 7, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--kult-border);
+    }
+    .kult-nav-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .kult-brand {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .kult-brand span { color: var(--kult-yellow); }
+
+    /* Checkout Layout */
+    .checkout-wrap {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+    }
+    .kult-box {
+      background: var(--kult-card);
+      border: 1px solid var(--kult-border);
+      border-radius: 4px;
+      padding: 32px;
+    }
+    .kult-box h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      color: #a3a3a3;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: #1a1a1a;
+      border: 1px solid var(--kult-border);
+      border-radius: 2px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .btn-place-order {
+      background: var(--kult-yellow);
+      color: #000;
+      border: none;
+      padding: 16px;
+      border-radius: 2px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Summary */
+    .summary-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .summary-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+    .sum-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; }
+    .sum-total {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--kult-yellow);
+      border-top: 1px solid var(--kult-border);
+      padding-top: 12px;
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 800px) {
+      .checkout-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Kult Streetwear — Fast Checkout</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="kult-nav">
+    <div class="kult-nav-wrap">
+      <a href="index.html" class="kult-brand">KULT <span>CLOTHING</span></a>
+      <span style="font-family:var(--font-display); font-size:12px; font-weight:700; color:var(--kult-yellow); text-transform:uppercase;">⚡ 100% Secure Checkout</span>
+    </div>
+  </header>
+
+  <!-- Checkout Main -->
+  <main class="checkout-wrap">
+    <!-- Left Column -->
+    <div class="kult-box">
+      <h2>Delivery & Drop Contact</h2>
+      <form onsubmit="handleStreetwearOrder(event)">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="strName" required placeholder="e.g. Yash Vardhan">
+        </div>
+        <div class="form-group">
+          <label>WhatsApp / Mobile Number</label>
+          <input type="tel" id="strPhone" required placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>Complete Shipping Address & Pincode</label>
+          <textarea id="strAddress" rows="2" required placeholder="e.g. 501, Horizon Heights, Bandra West, Mumbai 400050"></textarea>
+        </div>
+
+        <button type="submit" class="btn-place-order">Confirm Drop Order on WhatsApp ⚡</button>
+      </form>
+    </div>
+
+    <!-- Right Column -->
+    <aside class="kult-box">
+      <h2>Cart Summary</h2>
+      
+      <div class="summary-item">
+        <img src="../../images/streetwear/item1.jpg" alt="Tee">
+        <div>
+          <b style="font-size:14.5px;">Acid Tokyo Oversized Tee</b>
+          <div style="font-size:12px; color:#a3a3a3;">Size: M | 280 GSM French Terry</div>
+          <div style="font-weight:900; color:var(--kult-yellow); margin-top:4px;">₹1,499</div>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--kult-border); margin:16px 0;"></div>
+
+      <div class="sum-row">
+        <span>Cart Subtotal</span>
+        <span>₹1,499</span>
+      </div>
+      <div class="sum-row">
+        <span>Kult Sticker Pack + Dust Bag</span>
+        <span style="color:var(--kult-yellow);">FREE GIFT</span>
+      </div>
+      <div class="sum-row">
+        <span>Express Delivery</span>
+        <span style="color:#4ade80;">FREE</span>
+      </div>
+      <div class="sum-total">
+        <span>Total Amount</span>
+        <span>₹1,499</span>
+      </div>
+    </aside>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function handleStreetwearOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('strName').value;
+      const phone = document.getElementById('strPhone').value;
+      const addr = document.getElementById('strAddress').value;
+
+      if (window.OrbitexToast) OrbitexToast.success('Drop order placed! Connecting on WhatsApp...');
+      const msg = encodeURIComponent(`Hi Kult Streetwear! I would like to cop Drop 04.\nItem: Acid Tokyo Oversized Tee (Size M) - ₹1,499\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${addr}`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 700);
+    }
+  </script>
+</body>
+</html>

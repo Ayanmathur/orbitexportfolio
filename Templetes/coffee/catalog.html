@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Coffee Beans Catalog — Araku Highlands</title>
+  <meta name="description" content="Shop small-batch freshly roasted whole beans and custom ground coffee.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --coffee-copper: #c87a3e;
+      --coffee-dark: #19120e;
+      --coffee-cream: #faf6f0;
+      --coffee-border: #ebdcd0;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--coffee-cream);
+      color: var(--coffee-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .coffee-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--coffee-border);
+    }
+    .coffee-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .coffee-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--coffee-dark);
+      text-decoration: none;
+    }
+    .coffee-brand span { color: var(--coffee-copper); }
+    .coffee-nav-links { display: flex; gap: 28px; }
+    .coffee-nav-links a {
+      color: var(--coffee-dark);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .coffee-nav-links a.active { color: var(--coffee-copper); }
+
+    /* Catalog Layout */
+    .catalog-wrap {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .catalog-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .catalog-header h1 {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    /* Grid */
+    .beans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .bean-card {
+      background: #fff;
+      border: 1px solid var(--coffee-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .bean-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(25, 18, 14, 0.08);
+      border-color: var(--coffee-copper);
+    }
+    .bean-img { height: 260px; width: 100%; object-fit: cover; }
+    .bean-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .bean-score {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--coffee-copper);
+      background: #fdf6ec;
+      padding: 3px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-bottom: 8px;
+    }
+    .bean-title { font-family: var(--font-serif); font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .bean-price { font-size: 22px; font-weight: 800; color: var(--coffee-dark); margin-bottom: 12px; }
+    .bean-desc { font-size: 13.5px; color: #706259; margin-bottom: 20px; flex: 1; }
+    .btn-view-roast {
+      margin-top: auto;
+      background: var(--coffee-cream);
+      border: 1px solid var(--coffee-border);
+      color: var(--coffee-dark);
+      padding: 10px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Araku Highlands — Fresh Roasts Catalog</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="coffee-nav">
+    <div class="coffee-nav-wrap">
+      <a href="index.html" class="coffee-brand">ARAKU <span>HIGHLANDS</span></a>
+      <nav class="coffee-nav-links">
+        <a href="index.html">Roastery</a>
+        <a href="catalog.html" class="active">Fresh Roasts</a>
+        <a href="product.html?id=estate-arabica">Single Origin</a>
+      </nav>
+      <a href="checkout.html" style="background:var(--coffee-dark); color:#fff; padding:8px 18px; border-radius:4px; font-size:13px; font-weight:700; text-decoration:none;">Cart (1) ☕</a>
+    </div>
+  </header>
+
+  <!-- Catalog Main -->
+  <main class="catalog-wrap">
+    <div class="catalog-header">
+      <h1>Artisanal Fresh Roasts</h1>
+      <p>Custom ground to your brew method upon order dispatch.</p>
+    </div>
+
+    <div class="beans-grid">
+      <!-- 1 -->
+      <a href="product.html?id=estate-arabica" class="bean-card">
+        <img src="../../images/coffee/item1.jpg" alt="Araku Single Origin" class="bean-img">
+        <div class="bean-body">
+          <span class="bean-score">SCA SCORE: 88.5 • MEDIUM ROAST</span>
+          <h3 class="bean-title">Araku Tribal Forest Single-Origin</h3>
+          <div class="bean-price">₹540 <span style="font-size:13px; color:#888;">(250g)</span></div>
+          <p class="bean-desc">Dark chocolate truffle, wild berry sweetness, orange blossom aroma, smooth silky finish.</p>
+          <div class="btn-view-roast">Select Custom Grind & Pack ➔</div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product.html?id=chikmagalur-peaberry" class="bean-card">
+        <img src="../../images/coffee/item2.jpg" alt="Peaberry Filter Blend" class="bean-img">
+        <div class="bean-body">
+          <span class="bean-score">SOUTH INDIAN TRADITION • DARK ROAST</span>
+          <h3 class="bean-title">Chikmagalur Peaberry 85:15 Filter Blend</h3>
+          <div class="bean-price">₹460 <span style="font-size:13px; color:#888;">(250g)</span></div>
+          <p class="bean-desc">Caramelized jaggery, roasted hazelnut, heavy thick crema body. Ideal for traditional brass filter decoction.</p>
+          <div class="btn-view-roast">Select Custom Grind & Pack ➔</div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product.html?id=coldbrew-steep" class="bean-card">
+        <img src="../../images/coffee/item3.jpg" alt="Cold Brew Blend" class="bean-img">
+        <div class="bean-body">
+          <span class="bean-score">MICRO-LOT • LIGHT-MEDIUM ROAST</span>
+          <h3 class="bean-title">High-Altitude Cold Brew Steep Blend</h3>
+          <div class="bean-price">₹590 <span style="font-size:13px; color:#888;">(250g)</span></div>
+          <p class="bean-desc">Stone fruit acidity, black tea aroma, low bitterness, naturally sweet when steeped for 16 hours.</p>
+          <div class="btn-view-roast">Select Custom Grind & Pack ➔</div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>

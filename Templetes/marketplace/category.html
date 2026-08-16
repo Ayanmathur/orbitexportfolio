@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronics & Gadgets Deals — OmniStore Marketplace</title>
+  <meta name="description" content="Shop verified authentic electronics, wireless audio, smartwatches, and camera gear.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --market-blue: #2563eb;
+      --market-orange: #f97316;
+      --market-dark: #0f172a;
+      --market-bg: #f8fafc;
+      --market-card: #ffffff;
+      --market-border: #e2e8f0;
+      --font-market: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-market);
+      background-color: var(--market-bg);
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* Navbar */
+    .market-header {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: #fff;
+      border-bottom: 1px solid var(--market-border);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .market-header-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .market-logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--market-dark);
+      text-decoration: none;
+    }
+    .market-logo span { color: var(--market-blue); }
+
+    /* Catalog Layout */
+    .catalog-layout {
+      max-width: 1360px;
+      margin: 30px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 30px;
+    }
+    .filter-sidebar {
+      background: #fff;
+      border: 1px solid var(--market-border);
+      border-radius: 12px;
+      padding: 24px;
+      height: fit-content;
+    }
+    .filter-title { font-size: 16px; font-weight: 800; color: var(--market-dark); margin-bottom: 16px; }
+    .filter-group { margin-bottom: 20px; }
+    .filter-group h4 { font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 10px; }
+    .filter-group label { display: block; font-size: 13px; margin-bottom: 8px; color: #64748b; cursor: pointer; }
+
+    /* Grid */
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .market-product-card {
+      background: #fff;
+      border: 1px solid var(--market-border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .market-product-card:hover {
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
+      border-color: var(--market-blue);
+    }
+    .market-prod-img { height: 200px; width: 100%; object-fit: cover; }
+    .market-prod-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
+    .prime-tag {
+      background: #eff6ff;
+      color: var(--market-blue);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      align-self: flex-start;
+      margin-bottom: 6px;
+    }
+    .market-prod-title { font-size: 15px; font-weight: 700; color: var(--market-dark); margin-bottom: 6px; line-height: 1.3; }
+    .market-stars { color: #f59e0b; font-size: 13px; margin-bottom: 10px; }
+    .price-row { display: flex; align-items: baseline; gap: 8px; margin-top: auto; }
+    .cur-price { font-size: 20px; font-weight: 900; color: var(--market-dark); }
+    .mrp-price { font-size: 13px; text-decoration: line-through; color: #94a3b8; }
+    .disc-percent { font-size: 12.5px; font-weight: 800; color: #16a34a; }
+
+    @media (max-width: 900px) {
+      .catalog-layout { grid-template-columns: 1fr; }
+      .filter-sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>OmniStore — Category Filter Catalog</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="market-header">
+    <div class="market-header-wrap">
+      <a href="index.html" class="market-logo">OMNI<span>STORE</span></a>
+      <div>
+        <a href="index.html" style="font-size:13px; font-weight:700; color:var(--market-dark); text-decoration:none; margin-right:20px;">Home</a>
+        <a href="checkout.html" style="background:#eff6ff; color:var(--market-blue); border:1px solid #bfdbfe; padding:8px 18px; border-radius:6px; font-weight:800; font-size:13px; text-decoration:none;">🛒 Cart (1)</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Catalog Layout -->
+  <div class="catalog-layout">
+    <!-- Sidebar -->
+    <aside class="filter-sidebar">
+      <div class="filter-title">Filters</div>
+      <div class="filter-group">
+        <h4>Category</h4>
+        <label><input type="checkbox" checked> Electronics & Audio</label>
+        <label><input type="checkbox"> Smart Wearables</label>
+        <label><input type="checkbox"> Cameras & Accessories</label>
+        <label><input type="checkbox"> Footwear & Fashion</label>
+      </div>
+      <div class="filter-group">
+        <h4>Customer Rating</h4>
+        <label><input type="checkbox" checked> 4★ & above</label>
+        <label><input type="checkbox"> 3★ & above</label>
+      </div>
+      <div class="filter-group">
+        <h4>Discount</h4>
+        <label><input type="checkbox" checked> 30% or more</label>
+        <label><input type="checkbox"> 50% or more</label>
+      </div>
+    </aside>
+
+    <!-- Grid -->
+    <main class="market-grid">
+      <!-- 1 -->
+      <a href="product.html?id=headphones" class="market-product-card">
+        <img src="../../images/marketplace/cat1.jpg" alt="Headphones" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ EXPRESS 1-DAY</span>
+          <h3 class="market-prod-title">SonicPro ANC Wireless Studio Headphones</h3>
+          <div class="market-stars">★★★★★ <span style="color:#64748b; font-size:12px;">(1,420)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹2,999</span>
+            <span class="mrp-price">₹6,999</span>
+            <span class="disc-percent">57% OFF</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product.html?id=smartwatch" class="market-product-card">
+        <img src="../../images/marketplace/cat2.jpg" alt="Smartwatch" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ EXPRESS 1-DAY</span>
+          <h3 class="market-prod-title">AeroFit Ultra AMOLED Fitness Smartwatch</h3>
+          <div class="market-stars">★★★★☆ <span style="color:#64748b; font-size:12px;">(890)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹1,999</span>
+            <span class="mrp-price">₹4,999</span>
+            <span class="disc-percent">60% OFF</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product.html?id=camera" class="market-product-card">
+        <img src="../../images/marketplace/cat3.jpg" alt="Camera" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ VERIFIED SELLER</span>
+          <h3 class="market-prod-title">Optix 4K Vlog & Cinema Camera Kit</h3>
+          <div class="market-stars">★★★★★ <span style="color:#64748b; font-size:12px;">(340)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹18,499</span>
+            <span class="mrp-price">₹24,999</span>
+            <span class="disc-percent">26% OFF</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a href="product.html?id=sneakers" class="market-product-card">
+        <img src="../../images/marketplace/cat4.jpg" alt="Sneakers" class="market-prod-img">
+        <div class="market-prod-body">
+          <span class="prime-tag">⚡ TOP BRAND</span>
+          <h3 class="market-prod-title">AirPulse Retro High-Top Street Sneakers</h3>
+          <div class="market-stars">★★★★☆ <span style="color:#64748b; font-size:12px;">(612)</span></div>
+          <div class="price-row">
+            <span class="cur-price">₹2,499</span>
+            <span class="mrp-price">₹4,499</span>
+            <span class="disc-percent">44% OFF</span>
+          </div>
+        </div>
+      </a>
+    </main>
+  </div>
+
+</body>
+</html>

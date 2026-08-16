@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison De Royale — Bespoke Haute Couture & Royal Trousseau</title>
+  <meta name="description" content="Private atelier crafting bespoke bridal couture, velvet royal sherwanis, and handmade Zardozi heirlooms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --royale-gold: #c29b38;
+      --royale-dark: #121417;
+      --royale-cream: #fbf9f5;
+      --royale-card: #ffffff;
+      --royale-border: #e8e2d5;
+      --font-serif: 'Cinzel', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--royale-cream);
+      color: var(--royale-dark);
+      line-height: 1.6;
+    }
+
+    /* Top Bar */
+    .royale-top-bar {
+      background: var(--royale-dark);
+      color: var(--royale-gold);
+      padding: 8px 24px;
+      font-family: var(--font-serif);
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Navbar */
+    .royale-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(251, 249, 245, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--royale-border);
+    }
+    .royale-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .royale-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--royale-dark);
+      text-decoration: none;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .royale-brand span { color: var(--royale-gold); }
+    .royale-nav-links { display: flex; gap: 28px; }
+    .royale-nav-links a {
+      color: var(--royale-dark);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: color 0.2s;
+    }
+    .royale-nav-links a:hover, .royale-nav-links a.active { color: var(--royale-gold); }
+    .btn-vip-concierge {
+      border: 1px solid var(--royale-gold);
+      color: var(--royale-dark);
+      padding: 8px 20px;
+      font-family: var(--font-serif);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-vip-concierge:hover {
+      background: var(--royale-gold);
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .royale-hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(to right, rgba(18, 20, 23, 0.88) 0%, rgba(18, 20, 23, 0.25) 100%),
+                  url('../../images/couture/hero.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 60px 24px;
+    }
+    .royale-hero-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .royale-hero-content { max-width: 650px; }
+    .royale-badge {
+      display: inline-block;
+      border: 1px solid var(--royale-gold);
+      color: var(--royale-gold);
+      padding: 6px 16px;
+      font-family: var(--font-serif);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .royale-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 5.5vw, 64px);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .royale-hero h1 span { color: var(--royale-gold); }
+    .royale-hero p {
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 34px;
+    }
+    .royale-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-royale-primary {
+      background: var(--royale-gold);
+      color: #fff;
+      padding: 15px 36px;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .btn-royale-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 15px 30px;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    /* Section */
+    .royale-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+    .royale-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+    .royale-sub {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--royale-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .royale-heading h2 {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    /* Grid */
+    .couture-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .couture-card {
+      background: #fff;
+      border: 1px solid var(--royale-border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .couture-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(18, 20, 23, 0.08);
+      border-color: var(--royale-gold);
+    }
+    .couture-img { height: 420px; width: 100%; object-fit: cover; }
+    .couture-body { padding: 26px; display: flex; flex-direction: column; flex: 1; }
+    .couture-craft {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--royale-gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .couture-title { font-family: var(--font-serif); font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .couture-price { font-size: 22px; font-weight: 700; color: var(--royale-dark); margin-bottom: 14px; }
+    .couture-desc { font-size: 13.5px; color: #64748b; margin-bottom: 20px; flex: 1; }
+    .btn-view-couture {
+      margin-top: auto;
+      border: 1px solid var(--royale-border);
+      padding: 12px;
+      text-align: center;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 11.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .couture-card:hover .btn-view-couture { background: var(--royale-gold); color: #fff; border-color: var(--royale-gold); }
+
+    /* Footer */
+    .royale-footer {
+      background: var(--royale-dark);
+      color: #fff;
+      padding: 60px 24px 30px;
+    }
+    .royale-footer-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .royale-footer h4 { font-family: var(--font-serif); font-size: 16px; color: var(--royale-gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .royale-footer p, .royale-footer a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; display: block; margin-bottom: 8px; }
+    .royale-footer-bottom {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Maison De Royale — Haute Couture</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="royale-top-bar">
+    👑 PRIVATE APPOINTMENTS ONLY • WORLDWIDE CONCIERGE ATELIER • HAND-CRAFTED ZARDOZI HEIRLOOMS
+  </div>
+
+  <!-- Navbar -->
+  <header class="royale-nav">
+    <div class="royale-nav-wrap">
+      <a href="index.html" class="royale-brand">MAISON <span>DE ROYALE</span></a>
+      <nav class="royale-nav-links">
+        <a href="index.html" class="active">Atelier</a>
+        <a href="collection.html">Runway Trousseau</a>
+        <a href="appointment.html">Private Fitting</a>
+      </nav>
+      <a href="appointment.html" class="btn-vip-concierge">VIP Concierge 👑</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="royale-hero">
+    <div class="royale-hero-wrap">
+      <div class="royale-hero-content">
+        <div class="royale-badge">✨ Bespoke High Net-Worth Society Couture</div>
+        <h1>The Art of Royal <span>Heritage Splendour</span></h1>
+        <p>Crafting timeless bridal masterpieces, pure mulberry silk velvet sherwanis, and hand-embroidered Zardozi ensembles taking up to 900 hours of artisanal handwork.</p>
+        <div class="royale-hero-actions">
+          <a href="collection.html" class="btn-royale-primary">View Runway Collection</a>
+          <a href="appointment.html" class="btn-royale-outline">Book Private Fitting Salon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Trousseau -->
+  <section class="royale-section">
+    <div class="royale-heading">
+      <div class="royale-sub">Master Atelier</div>
+      <h2>The Imperial Bridal Trousseau</h2>
+      <p>Custom tailored to your exact 12-point silhouette with private champagne fittings.</p>
+    </div>
+
+    <div class="couture-grid">
+      <!-- 1 -->
+      <a href="product.html?id=maharani-lehenga" class="couture-card">
+        <img src="../../images/couture/item1.jpg" alt="Maharani Velvet Lehenga" class="couture-img">
+        <div class="couture-body">
+          <span class="couture-craft">800+ HOURS REAL ZARI & DABKA WORK</span>
+          <h3 class="couture-title">The Sovereign Maharani Velvet Lehenga</h3>
+          <div class="couture-price">₹2,85,000</div>
+          <p class="couture-desc">Handcrafted on royal crimson micro-velvet with antique gold dabka, mukaish embellishments, and twin organza dupattas.</p>
+          <div class="btn-view-couture">Request Atelier Customization ➔</div>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="product.html?id=imperial-sherwani" class="couture-card">
+        <img src="../../images/couture/item2.jpg" alt="Imperial Sherwani" class="couture-img">
+        <div class="couture-body">
+          <span class="couture-craft">PURE RAW SILK • MEENAKARI BUTTONS</span>
+          <h3 class="couture-title">Imperial Ivory Jamawar Royal Sherwani</h3>
+          <div class="couture-price">₹1,95,000</div>
+          <p class="couture-desc">Tailored from antique Kashmiri Jamawar raw silk, adorned with real 24K gold plated Meenakari buttons and tissue stole.</p>
+          <div class="btn-view-couture">Request Atelier Customization ➔</div>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="product.html?id=gilded-gown" class="couture-card">
+        <img src="../../images/couture/item3.jpg" alt="Gilded Reception Gown" class="couture-img">
+        <div class="couture-body">
+          <span class="couture-craft">SWAROVSKI CRYSTALS • FRENCH TULLE</span>
+          <h3 class="couture-title">Gilded Champagne Red-Carpet Trail Gown</h3>
+          <div class="couture-price">₹2,40,000</div>
+          <p class="couture-desc">Structured Parisian corset gown embroidered with champagne Swarovski crystals, bugle beads, and a 3-meter sweeping trail.</p>
+          <div class="btn-view-couture">Request Atelier Customization ➔</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="royale-footer">
+    <div class="royale-footer-wrap">
+      <div>
+        <h4 style="color:#fff;">MAISON DE ROYALE ATELIER</h4>
+        <p>The Grand Pavilion, Defence Colony, New Delhi 110024</p>
+        <p>Private Client Concierge: +91 98765 43210</p>
+      </div>
+      <div>
+        <h4>Couture Collections</h4>
+        <a href="collection.html">Royal Bridal Trousseau</a>
+        <a href="collection.html">Groom's Imperial Sherwanis</a>
+        <a href="collection.html">Red Carpet Gala Trails</a>
+      </div>
+      <div>
+        <h4>Atelier Guarantee</h4>
+        <p>12-Point Silhouette Precision Tailoring</p>
+        <p>Certified Pure Gold Real Zari Threads</p>
+        <p>Private Fitting Champagne Lounge</p>
+      </div>
+    </div>
+    <div class="royale-footer-bottom">
+      © 2026 Maison De Royale. Powered by Orbitex High-Society Web Suite.
+    </div>
+  </footer>
+
+</body>
+</html>

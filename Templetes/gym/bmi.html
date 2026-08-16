@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart BMI & Fitness Diagnostic — Forge Athletics</title>
+  <meta name="description" content="Calculate your BMI score, body fat estimate, and recommended workout routine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --gym-neon: #a3e635;
+      --gym-dark: #0a0a0a;
+      --gym-card: #141414;
+      --gym-border: rgba(255, 255, 255, 0.1);
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--gym-dark);
+      color: #f4f4f5;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .gym-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gym-border);
+    }
+    .gym-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gym-brand {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-decoration: none;
+    }
+    .gym-brand span { color: var(--gym-neon); }
+    .gym-nav-links { display: flex; gap: 28px; }
+    .gym-nav-links a {
+      color: #a1a1aa;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .gym-nav-links a.active { color: var(--gym-neon); }
+
+    /* BMI Container */
+    .bmi-wrap {
+      max-width: 800px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+    .bmi-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .bmi-header h1 {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .bmi-card {
+      background: var(--gym-card);
+      border: 1px solid var(--gym-border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .bmi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .bmi-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .bmi-group input, .bmi-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: #1c1c1c;
+      border: 1px solid var(--gym-border);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 16px;
+    }
+    .bmi-result-display {
+      background: #1c1c1c;
+      border: 1px solid var(--gym-border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .bmi-score {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--gym-neon);
+      margin: 8px 0;
+    }
+    .bmi-track {
+      height: 12px;
+      background: #333;
+      border-radius: 6px;
+      margin: 18px 0;
+      overflow: hidden;
+    }
+    .bmi-fill {
+      height: 100%;
+      width: 50%;
+      background: var(--gym-neon);
+      transition: width 0.4s ease, background 0.4s ease;
+    }
+    .btn-claim-plan {
+      background: var(--gym-neon);
+      color: #000;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Forge Athletics — BMI & Health Diagnostic</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="gym-nav">
+    <div class="gym-nav-wrap">
+      <a href="index.html" class="gym-brand">FORGE <span>ATHLETICS</span></a>
+      <nav class="gym-nav-links">
+        <a href="index.html">Home</a>
+        <a href="memberships.html">Memberships</a>
+        <a href="bmi.html" class="active">BMI Calculator</a>
+      </nav>
+      <a href="memberships.html" style="background:var(--gym-neon); color:#000; padding:8px 18px; border-radius:6px; font-weight:900; font-size:13px; text-decoration:none; text-transform:uppercase;">View Plans ⚡</a>
+    </div>
+  </header>
+
+  <!-- BMI Main -->
+  <main class="bmi-wrap">
+    <div class="bmi-header">
+      <h1>Smart Fitness Diagnostic</h1>
+      <p style="color:#a1a1aa;">Calculate your Body Mass Index score and receive a tailored training regimen.</p>
+    </div>
+
+    <div class="bmi-card">
+      <div class="bmi-grid">
+        <div class="bmi-group">
+          <label>Height (in Centimeters)</label>
+          <input type="number" id="bmiH" value="175" min="100" max="250" oninput="calcToolBMI()">
+        </div>
+        <div class="bmi-group">
+          <label>Weight (in Kilograms)</label>
+          <input type="number" id="bmiW" value="72" min="30" max="200" oninput="calcToolBMI()">
+        </div>
+        <div class="bmi-group" style="grid-column: span 2;">
+          <label>Primary Fitness Target</label>
+          <select id="bmiTarget">
+            <option>Lean Muscle Hypertrophy</option>
+            <option>Fat Loss & Cardio Conditioning</option>
+            <option>Olympic Lifting & Raw Strength</option>
+            <option>Endurance & CrossFit Performance</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bmi-result-display">
+        <div style="font-size:12px; color:#a1a1aa; text-transform:uppercase; font-weight:800;">Your Calculated BMI</div>
+        <div class="bmi-score" id="toolBmiScore">23.5</div>
+        <div id="toolBmiStatus" style="font-weight:800; font-size:16px; color:#a3e635;">Normal Weight (Healthy Target)</div>
+        
+        <div class="bmi-track">
+          <div class="bmi-fill" id="toolBmiFill" style="width: 50%;"></div>
+        </div>
+        <div id="toolBmiAdvice" style="font-size:13px; color:#a1a1aa;">Recommended Protocol: 4 Days/Week Strength Training + 1.8g Protein/kg Bodyweight</div>
+      </div>
+
+      <button onclick="claimRoutine()" class="btn-claim-plan">Get Custom Workout Routine on WhatsApp 💬</button>
+    </div>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    function calcToolBMI() {
+      const h = parseFloat(document.getElementById('bmiH').value) / 100;
+      const w = parseFloat(document.getElementById('bmiW').value);
+      if (!h || !w) return;
+
+      const bmi = (w / (h * h)).toFixed(1);
+      document.getElementById('toolBmiScore').innerText = bmi;
+
+      let status = 'Normal Weight (Healthy Target)';
+      let color = '#a3e635';
+      let pct = 50;
+
+      if (bmi < 18.5) {
+        status = 'Underweight (Hypertrophy Surplus Protocol)';
+        color = '#38bdf8';
+        pct = 25;
+      } else if (bmi >= 25 && bmi < 30) {
+        status = 'Overweight (Caloric Deficit & HIIT Protocol)';
+        color = '#f59e0b';
+        pct = 75;
+      } else if (bmi >= 30) {
+        status = 'Obese (Cardiovascular & Strength Conditioning)';
+        color = '#ef4444';
+        pct = 95;
+      }
+
+      const statusEl = document.getElementById('toolBmiStatus');
+      statusEl.innerText = status;
+      statusEl.style.color = color;
+
+      const fillEl = document.getElementById('toolBmiFill');
+      fillEl.style.width = pct + '%';
+      fillEl.style.backgroundColor = color;
+    }
+
+    function claimRoutine() {
+      const bmi = document.getElementById('toolBmiScore').innerText;
+      const target = document.getElementById('bmiTarget').value;
+      if (window.OrbitexToast) OrbitexToast.success('Routine request generated! Connecting on WhatsApp...');
+      const msg = encodeURIComponent(`Hi Forge Athletics! I calculated my BMI (${bmi}) with the target: ${target}. Please share my customized routine!`);
+      setTimeout(() => {
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      }, 700);
+    }
+  </script>
+</body>
+</html>

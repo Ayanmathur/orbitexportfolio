@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Cake Builder — Crumb & Co. Patisserie</title>
+  <meta name="description" content="Design your bespoke celebration cake with custom flavours, weight, frostings, and personalized messages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/shared-components.css">
+  <style>
+    :root {
+      --cake-pink: #be185d;
+      --cake-cream: #fffbeb;
+      --cake-dark: #1c1917;
+      --cake-border: #fbcfe8;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--cake-cream);
+      color: var(--cake-dark);
+      line-height: 1.6;
+    }
+
+    /* Top Countdown */
+    .cake-top-bar {
+      background: var(--cake-pink);
+      color: #fff;
+      padding: 8px 24px;
+      font-size: 12.5px;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation */
+    .cake-nav {
+      position: sticky;
+      top: 36px;
+      z-index: 999;
+      background: rgba(255, 251, 235, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--cake-border);
+    }
+    .cake-nav-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cake-brand {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--cake-pink);
+      text-decoration: none;
+    }
+    .cake-nav-links { display: flex; gap: 28px; }
+    .cake-nav-links a {
+      color: var(--cake-dark);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .cake-nav-links a.active { color: var(--cake-pink); }
+
+    /* Builder Layout */
+    .builder-wrap {
+      max-width: 1100px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+    }
+    .builder-card {
+      background: #fff;
+      border: 1px solid var(--cake-border);
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(190, 24, 93, 0.05);
+    }
+    .builder-step { margin-bottom: 30px; }
+    .step-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: var(--cake-pink);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .step-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--cake-pink);
+      color: #fff;
+      font-size: 12px;
+      font-family: var(--font-sans);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .opt-box {
+      border: 1.5px solid var(--cake-border);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 700;
+      background: #fff;
+      transition: all 0.2s;
+    }
+    .opt-box.active {
+      border-color: var(--cake-pink);
+      background: #fdf2f8;
+      color: var(--cake-pink);
+    }
+    .custom-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--cake-border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 14.5px;
+    }
+
+    /* Live Preview Column */
+    .preview-card {
+      background: #fff;
+      border: 1px solid var(--cake-border);
+      border-radius: 18px;
+      padding: 32px;
+      position: sticky;
+      top: 100px;
+    }
+    .preview-card h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--cake-pink);
+      margin-bottom: 16px;
+    }
+    .preview-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .preview-spec {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .preview-total {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--cake-pink);
+      border-top: 1px solid var(--cake-border);
+      padding-top: 14px;
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn-checkout-cake {
+      background: var(--cake-pink);
+      color: #fff;
+      border: none;
+      padding: 16px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 14.5px;
+      width: 100%;
+      cursor: pointer;
+      margin-top: 20px;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .builder-wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orbitex Standalone Return Bar -->
+  <div class="orbitex-return-bar">
+    <div class="orbitex-return-container">
+      <a href="../../index.html" class="orbitex-return-btn">← Back to Orbitex Portfolio</a>
+      <span class="orbitex-return-tag">Template Preview: <b>Crumb & Co. — Custom Cake Builder</b></span>
+      <a href="../../index.html#access" class="orbitex-return-cta">Use This Template ↗</a>
+    </div>
+  </div>
+
+  <div class="cake-top-bar">
+    🎂 100% EGGLESS BAKES • SAME DAY DELIVERY FOR ORDERS PLACED BEFORE 6:00 PM
+  </div>
+
+  <!-- Navbar -->
+  <header class="cake-nav">
+    <div class="cake-nav-wrap">
+      <a href="index.html" class="cake-brand">CRUMB & CO. <span>PATISSERIE</span></a>
+      <nav class="cake-nav-links">
+        <a href="index.html">Home</a>
+        <a href="custom-cake.html" class="active">Custom Cake Builder</a>
+        <a href="order.html">Delivery Checkout</a>
+      </nav>
+      <a href="order.html" style="background:var(--cake-pink); color:#fff; padding:8px 18px; border-radius:20px; text-decoration:none; font-size:13px; font-weight:700;">Cart (1) 🛍️</a>
+    </div>
+  </header>
+
+  <!-- Main Builder -->
+  <main class="builder-wrap">
+    <!-- Left Column: 4-Step Builder -->
+    <div class="builder-card">
+      <!-- Step 1 -->
+      <div class="builder-step">
+        <div class="step-title"><span class="step-badge">1</span> Select Base Flavour</div>
+        <div class="options-grid">
+          <div class="opt-box active" onclick="setFlavour('Belgian Dark Truffle', 850, this)">🍫 Belgian Truffle</div>
+          <div class="opt-box" onclick="setFlavour('Alphonso Mango Mousse', 950, this)">🥭 Alphonso Mango</div>
+          <div class="opt-box" onclick="setFlavour('Lotus Biscoff Cheesecake', 1100, this)">🍪 Biscoff Crunch</div>
+          <div class="opt-box" onclick="setFlavour('Red Velvet Cream Cheese', 900, this)">🍓 Red Velvet</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="builder-step">
+        <div class="step-title"><span class="step-badge">2</span> Select Cake Weight</div>
+        <div class="options-grid">
+          <div class="opt-box active" onclick="setWeight('0.5 KG (4-5 Servings)', 1, this)">0.5 KG</div>
+          <div class="opt-box" onclick="setWeight('1.0 KG (8-10 Servings)', 1.85, this)">1.0 KG</div>
+          <div class="opt-box" onclick="setWeight('2.0 KG (16-20 Servings)', 3.6, this)">2.0 KG</div>
+          <div class="opt-box" onclick="setWeight('3.0 KG (25+ Servings)', 5.2, this)">3.0 KG</div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="builder-step">
+        <div class="step-title"><span class="step-badge">3</span> Celebration Theme</div>
+        <div class="options-grid">
+          <div class="opt-box active" onclick="setTheme('Birthday Gold Drip', this)">🎉 Birthday Drip</div>
+          <div class="opt-box" onclick="setTheme('Romantic Floral Macarons', this)">🌹 Floral Macarons</div>
+          <div class="opt-box" onclick="setTheme('Minimalist Bento Style', this)">✨ Minimalist</div>
+          <div class="opt-box" onclick="setTheme('Kids Superhero Theme', this)">🦸 Kids Theme</div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="builder-step">
+        <div class="step-title"><span class="step-badge">4</span> Personalized Name / Message on Cake</div>
+        <input type="text" id="cakeCustomMsg" class="custom-input" placeholder="e.g. Happy 25th Birthday Rhea! 🎉" oninput="updateMessage(this.value)">
+      </div>
+    </div>
+
+    <!-- Right Column: Live Spec & Price -->
+    <aside class="preview-card">
+      <h3>Your Bespoke Cake</h3>
+      <img src="../../images/cakeshop/cake1.jpg" alt="Cake Preview" class="preview-img" id="liveCakeImg">
+      
+      <div class="preview-spec">
+        <span>Flavour</span>
+        <b id="specFlavour">Belgian Dark Truffle</b>
+      </div>
+      <div class="preview-spec">
+        <span>Weight & Portions</span>
+        <b id="specWeight">0.5 KG (4-5 Servings)</b>
+      </div>
+      <div class="preview-spec">
+        <span>Theme Decoration</span>
+        <b id="specTheme">Birthday Gold Drip</b>
+      </div>
+      <div class="preview-spec">
+        <span>Custom Message</span>
+        <b id="specMsg">"Happy Birthday!"</b>
+      </div>
+
+      <div class="preview-total">
+        <span>Calculated Price</span>
+        <span id="cakePrice">₹850</span>
+      </div>
+
+      <button onclick="handleCakeOrder()" class="btn-checkout-cake">Proceed to Delivery Details ➔</button>
+    </aside>
+  </main>
+
+  <script src="../../scripts/shared-components.js"></script>
+  <script>
+    let basePrice = 850;
+    let weightMult = 1;
+    let currentFlavour = 'Belgian Dark Truffle';
+    let currentWeight = '0.5 KG (4-5 Servings)';
+    let currentTheme = 'Birthday Gold Drip';
+    let currentMsg = 'Happy Birthday!';
+
+    function setFlavour(flavour, price, el) {
+      el.closest('.options-grid').querySelectorAll('.opt-box').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      basePrice = price;
+      currentFlavour = flavour;
+      document.getElementById('specFlavour').innerText = flavour;
+      calcPrice();
+    }
+
+    function setWeight(weight, mult, el) {
+      el.closest('.options-grid').querySelectorAll('.opt-box').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      weightMult = mult;
+      currentWeight = weight;
+      document.getElementById('specWeight').innerText = weight;
+      calcPrice();
+    }
+
+    function setTheme(theme, el) {
+      el.closest('.options-grid').querySelectorAll('.opt-box').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      currentTheme = theme;
+      document.getElementById('specTheme').innerText = theme;
+    }
+
+    function updateMessage(val) {
+      currentMsg = val || 'Happy Birthday!';
+      document.getElementById('specMsg').innerText = `"${currentMsg}"`;
+    }
+
+    function calcPrice() {
+      const finalPrice = Math.round(basePrice * weightMult);
+      document.getElementById('cakePrice').innerText = '₹' + finalPrice.toLocaleString('en-IN');
+    }
+
+    function handleCakeOrder() {
+      window.location.href = 'order.html';
+    }
+  </script>
+</body>
+</html>
